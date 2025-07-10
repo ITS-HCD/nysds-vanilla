@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./src/assets/css/vendor/nysds-full.min.css">
+    </head>
+    <body>
+          <nys-unavheader></nys-unavheader>
+  <nys-globalheader appName="NYS Design System"></nys-globalheader>
+
+  <div class="nys-grid-container">
+    <div class="nys-grid-row">
+      <div class="nys-tablet:nys-grid-col-3"></div>
+      <div class="nys-tablet:nys-grid-col-6">
+        <div style="margin-top: var(--nys-space-400)">
+          <nys-select id="theme-selector" label="Select Theme" width="full">
+            <nys-option value="default" selected>Default (NYS)</nys-option>
+            <nys-option value="nysds-theme-admin.min.css">Admin</nys-option>
+            <nys-option value="nysds-theme-business.min.css">Business</nys-option>
+            <nys-option value="nysds-theme-environment.min.css">Environment</nys-option>
+            <nys-option value="nysds-theme-health.min.css">Health</nys-option>
+            <nys-option value="nysds-theme-local.min.css">Local</nys-option>
+            <nys-option value="nysds-theme-safety.min.css">Safety</nys-option>
+            <nys-option value="nysds-theme-transportation.min.css">Transportation</nys-option>
+          </nys-select>
+        </div>
+        <div class="fake-modal">
+          <div class="heading">
+            <h1>NYSDS Newsletter</h1>
+            <h3>Sign up for exciting updates!</h3>
+          </div>
+        <form id="myForm" class="nys-form" action="#" method="GET">
+<!-- Alert Component -->
+<div style="margin-top: var(--nys-space-400)">
+  <nys-alert
+    type="base"
+    heading="Test Form"
+    text="Submit the form below to see what form data is passed."
+  ></nys-alert>
+</div>
+
+  <!-- NYSDS Text Input -->
+  <nys-textinput
+    label="First Name"
+    name="name"
+    id="name"
+    width="lg"
+    >
+  </nys-textinput>
+
+  <!-- Textarea -->
+  <nys-textarea
+    label="Message"
+    name="message"
+    id="message"
+    width="lg"
+    rows="4"
+    >
+  </nys-textarea>
+
+  <!-- Checkbox -->
+  <nys-checkbox
+    label="Agree to Terms"
+    description="I agree to the terms and conditions of this very important form."
+    name="agree"
+    >
+  </nys-checkbox>
+
+  <!-- Radio Buttons -->
+  <nys-radiogroup
+    name="office"
+    label="What is your primary work location?"
+    description="This is the location you use for your in-office days."
+  >
+    <nys-radiobutton
+      name="office"
+      label="Albany"
+      description="Upstate New York"
+      value="Albany"
+    ></nys-radiobutton>
+    <nys-radiobutton
+      name="office"
+      label="Manhattan"
+      description="New York City"
+      value="Manhattan"
+    ></nys-radiobutton>
+  </nys-radiogroup>
+
+  <!-- Select Dropdown -->
+  <nys-select
+    label="Select your favorite borough"
+    name="favoriteBorough"
+  >
+    <nys-option value="Bronx" label="The Bronx"></nys-option>
+    <nys-option value="Brooklyn" label="Brooklyn"></nys-option>
+    <nys-option value="Manhattan" label="Manhattan"></nys-option>
+    <nys-option value="Staten Island" label="Staten Island"></nys-option>
+    <nys-option value="Queens" label="Queens"></nys-option>
+  </nys-select>
+
+  <!-- Submit Button -->
+  <nys-button type="submit" label="Submit"></nys-button>
+
+</form>
+<br />
+
+<nys-alert type="success" heading="Submitted Information">
+        <p>Name: <span id="displayName"></span></p>
+        <p>message: <span id="displaymessage"></span></p>
+</nys-alert>
+<br />
+        </div>
+      </div>
+      <div class="nys-tablet:nys-grid-col-3"></div>
+    </div>
+  </div>
+
+  <nys-globalfooter agencyName="NYS Design System">
+    <ul>
+      <li><a href="https://its.ny.gov/about">Terms of Service</a></li>
+       <li><a href="https://its.ny.gov">Privacy Policy</a></li>
+     </ul>
+   </nys-globalfooter>
+  <nys-unavfooter></nys-unavfooter>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const themeSelector = document.getElementById("theme-selector");
+
+  themeSelector.addEventListener("change", function (event) {
+    const selectedTheme = event.target.value;
+    const existingTheme = document.getElementById("theme-style");
+
+    // Remove the existing theme if it exists
+    if (existingTheme) {
+      existingTheme.remove();
+    }
+
+    // Create a new link element for the selected theme
+    const newTheme = document.createElement("link");
+    newTheme.id = "theme-style";
+    newTheme.rel = "stylesheet";
+    newTheme.href = `./src/assets/css/vendor/${selectedTheme}`;
+
+    // Append the new theme to the document head
+    document.head.appendChild(newTheme);
+  });
+});
+  </script>
+
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get input values
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+
+            // Display values on the same page
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('displaymessage').textContent = message;
+        });
+    </script>
+        <script src="./src/assets/js/vendor/nysds.js" async defer type="module"></script>
+    </body>
+</html>
