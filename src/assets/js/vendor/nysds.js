@@ -3893,6 +3893,7 @@ ${this.value}</textarea
 
   .nys-tooltip__main {
     position: relative;
+    width: fit-content;
   }
 
   .nys-tooltip__wrapper {
