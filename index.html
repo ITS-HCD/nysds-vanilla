@@ -61,6 +61,14 @@
     >
   </nys-textarea>
 
+  <!-- File Upload -->
+   <nys-fileinput
+    label="Upload a file"
+    description="You can upload a file here."
+    accept=".pdf,.docx,.txt"
+    dropzone
+    ></nys-fileinput>
+
   <!-- Checkbox -->
   <nys-checkbox
     label="Agree to Terms"
@@ -102,7 +110,9 @@
   </nys-select>
 
   <!-- Submit Button -->
-  <nys-button type="submit" label="Submit"></nys-button>
+  <nys-tooltip text="I am a tooltip.">
+    <nys-button type="submit" label="Submit"></nys-button>
+  </nys-tooltip>
 
 </form>
 <br />
