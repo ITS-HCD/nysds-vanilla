@@ -3,7 +3,7 @@
     "copy:assets": "mkdir -p src/assets/css/vendor && mkdir -p src/assets/js/vendor && cp -r node_modules/@nysds/components/dist/nysds.* src/assets/js/vendor && cp -r node_modules/@nysds/styles/dist/* src/assets/css/vendor"
   },
   "dependencies": {
-    "@nysds/components": "^1.4.4",
+    "@nysds/components": "^1.4.6",
     "@nysds/styles": "^1.4.0"
   }
 }

@@ -245,7 +245,7 @@ var U1 = Object.defineProperty, P1 = Object.getOwnPropertyDescriptor, D = (l, e,
 };
 let O1 = 0;
 var J;
-const L = (J = class extends u {
+const k = (J = class extends u {
   constructor() {
     super(...arguments), this.id = "", this.heading = "", this.icon = "", this.dismissible = !1, this.duration = 0, this.text = "", this.primaryAction = "", this.secondaryAction = "", this.primaryLabel = "Learn more", this.secondaryLabel = "Dismiss", this._alertClosed = !1, this._slotHasContent = !0, this._type = "base", this._timeoutId = null;
   }
@@ -368,44 +368,44 @@ const L = (J = class extends u {
 ], J);
 D([
   r({ type: String })
-], L.prototype, "id", 2);
+], k.prototype, "id", 2);
 D([
   r({ type: String })
-], L.prototype, "heading", 2);
+], k.prototype, "heading", 2);
 D([
   r({ type: String })
-], L.prototype, "icon", 2);
+], k.prototype, "icon", 2);
 D([
   r({ type: Boolean, reflect: !0 })
-], L.prototype, "dismissible", 2);
+], k.prototype, "dismissible", 2);
 D([
   r({ type: Number, reflect: !0 })
-], L.prototype, "duration", 2);
+], k.prototype, "duration", 2);
 D([
   r({ type: String })
-], L.prototype, "text", 2);
+], k.prototype, "text", 2);
 D([
   r({ type: String })
-], L.prototype, "primaryAction", 2);
+], k.prototype, "primaryAction", 2);
 D([
   r({ type: String })
-], L.prototype, "secondaryAction", 2);
+], k.prototype, "secondaryAction", 2);
 D([
   r({ type: String })
-], L.prototype, "primaryLabel", 2);
+], k.prototype, "primaryLabel", 2);
 D([
   r({ type: String })
-], L.prototype, "secondaryLabel", 2);
+], k.prototype, "secondaryLabel", 2);
 D([
   O()
-], L.prototype, "_alertClosed", 2);
+], k.prototype, "_alertClosed", 2);
 D([
   O()
-], L.prototype, "_slotHasContent", 2);
+], k.prototype, "_slotHasContent", 2);
 D([
   r({ reflect: !0 })
-], L.prototype, "type", 1);
-let R1 = L;
+], k.prototype, "type", 1);
+let R1 = k;
 customElements.get("nys-alert") || customElements.define("nys-alert", R1);
 const T1 = g`
   :host {
@@ -1098,8 +1098,8 @@ var X1 = Object.defineProperty, Q1 = Object.getOwnPropertyDescriptor, v = (l, e,
   return o && s && X1(e, t, s), s;
 };
 let J1 = 0;
-var x;
-const f = (x = class extends u {
+var w;
+const f = (w = class extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this._size = "md", this.fullWidth = !1, this._variant = "filled", this.inverted = !1, this.label = "", this.ariaLabel = "", this.prefixIcon = "", this.suffixIcon = "", this.circle = !1, this.icon = "", this.disabled = !1, this.form = "", this.value = "", this.ariaDescription = "", this._type = "button", this.onClick = () => {
@@ -1109,7 +1109,7 @@ const f = (x = class extends u {
     return this._size;
   }
   set size(e) {
-    this._size = x.VALID_SIZES.includes(
+    this._size = w.VALID_SIZES.includes(
       e
     ) ? e : "md";
   }
@@ -1117,7 +1117,7 @@ const f = (x = class extends u {
     return this._variant;
   }
   set variant(e) {
-    this._variant = x.VALID_VARIANTS.includes(
+    this._variant = w.VALID_VARIANTS.includes(
       e
     ) ? e : "filled";
   }
@@ -1125,7 +1125,7 @@ const f = (x = class extends u {
     return this._type;
   }
   set type(e) {
-    this._type = x.VALID_TYPES.includes(
+    this._type = w.VALID_TYPES.includes(
       e
     ) ? e : "button";
   }
@@ -1133,7 +1133,7 @@ const f = (x = class extends u {
     return this._target;
   }
   set target(e) {
-    this._target = x.VALID_TARGETS.includes(
+    this._target = w.VALID_TARGETS.includes(
       e
     ) ? e : "_self";
   }
@@ -1249,18 +1249,18 @@ const f = (x = class extends u {
           `}
     `;
   }
-}, x.VALID_SIZES = ["sm", "md", "lg"], x.VALID_VARIANTS = [
+}, w.VALID_SIZES = ["sm", "md", "lg"], w.VALID_VARIANTS = [
   "filled",
   "outline",
   "ghost",
   "text"
-], x.VALID_TYPES = ["submit", "reset", "button"], x.VALID_TARGETS = [
+], w.VALID_TYPES = ["submit", "reset", "button"], w.VALID_TARGETS = [
   "_self",
   "_blank",
   "_parent",
   "_top",
   "framename"
-], x.styles = K1, x.formAssociated = !0, x);
+], w.styles = K1, w.formAssociated = !0, w);
 v([
   r({ type: String })
 ], f.prototype, "id", 2);
@@ -1729,7 +1729,7 @@ const A = (j = class extends u {
           if (Array.from(
             this.querySelectorAll("nys-checkbox")
           ).filter(
-            (w) => w.checked
+            ($) => $.checked
           ).length === 0)
             return c;
         } else
@@ -1834,14 +1834,14 @@ T([
 ], A.prototype, "size", 1);
 let re = A;
 customElements.get("nys-checkboxgroup") || customElements.define("nys-checkboxgroup", re);
-var ne = Object.defineProperty, ie = Object.getOwnPropertyDescriptor, V = (l, e, t, o) => {
+var ne = Object.defineProperty, ie = Object.getOwnPropertyDescriptor, M = (l, e, t, o) => {
   for (var s = o > 1 ? void 0 : o ? ie(e, t) : e, n = l.length - 1, i; n >= 0; n--)
     (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && ne(e, t, s), s;
 };
 let ae = 0;
 var G;
-const S = (G = class extends u {
+const L = (G = class extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.checked = !1, this.disabled = !1, this.required = !1, this.label = "", this.description = "", this.id = "", this.name = "", this.value = "", this.showError = !1, this.errorMessage = "", this.groupExist = !1, this.tile = !1, this._size = "md", this._internals = this.attachInternals();
@@ -1999,46 +1999,46 @@ const S = (G = class extends u {
     `;
   }
 }, G.VALID_SIZES = ["sm", "md"], G.styles = H1, G.formAssociated = !0, G);
-V([
+M([
   r({ type: Boolean, reflect: !0 })
-], S.prototype, "checked", 2);
-V([
+], L.prototype, "checked", 2);
+M([
   r({ type: Boolean, reflect: !0 })
-], S.prototype, "disabled", 2);
-V([
+], L.prototype, "disabled", 2);
+M([
   r({ type: Boolean, reflect: !0 })
-], S.prototype, "required", 2);
-V([
+], L.prototype, "required", 2);
+M([
   r({ type: String })
-], S.prototype, "label", 2);
-V([
+], L.prototype, "label", 2);
+M([
   r({ type: String })
-], S.prototype, "description", 2);
-V([
+], L.prototype, "description", 2);
+M([
   r({ type: String })
-], S.prototype, "id", 2);
-V([
+], L.prototype, "id", 2);
+M([
   r({ type: String, reflect: !0 })
-], S.prototype, "name", 2);
-V([
+], L.prototype, "name", 2);
+M([
   r({ type: String })
-], S.prototype, "value", 2);
-V([
+], L.prototype, "value", 2);
+M([
   r({ type: Boolean, reflect: !0 })
-], S.prototype, "showError", 2);
-V([
+], L.prototype, "showError", 2);
+M([
   r({ type: String })
-], S.prototype, "errorMessage", 2);
-V([
+], L.prototype, "errorMessage", 2);
+M([
   r({ type: Boolean })
-], S.prototype, "groupExist", 2);
-V([
+], L.prototype, "groupExist", 2);
+M([
   r({ type: Boolean, reflect: !0 })
-], S.prototype, "tile", 2);
-V([
+], L.prototype, "tile", 2);
+M([
   r({ reflect: !0 })
-], S.prototype, "size", 1);
-let le = S;
+], L.prototype, "size", 1);
+let le = L;
 customElements.get("nys-checkbox") || customElements.define("nys-checkbox", le);
 const ce = g`
   :host {
@@ -2479,7 +2479,7 @@ v1([
   r({ type: String })
 ], r1.prototype, "errorMessage");
 customElements.define("nys-fileitem", r1);
-var ge = Object.defineProperty, M = (l, e, t, o) => {
+var ge = Object.defineProperty, V = (l, e, t, o) => {
   for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
     (i = l[n]) && (s = i(e, t, s) || s);
   return s && ge(e, t, s), s;
@@ -2778,47 +2778,47 @@ const C1 = class C1 extends u {
   }
 };
 C1.styles = ye, C1.formAssociated = !0;
-let m = C1;
-M([
+let x = C1;
+V([
   r({ type: String })
-], m.prototype, "id");
-M([
+], x.prototype, "id");
+V([
   r({ type: String, reflect: !0 })
-], m.prototype, "name");
-M([
+], x.prototype, "name");
+V([
   r({ type: String })
-], m.prototype, "label");
-M([
+], x.prototype, "label");
+V([
   r({ type: String })
-], m.prototype, "description");
-M([
+], x.prototype, "description");
+V([
   r({ type: Boolean })
-], m.prototype, "multiple");
-M([
+], x.prototype, "multiple");
+V([
   r({ type: String })
-], m.prototype, "accept");
-M([
+], x.prototype, "accept");
+V([
   r({ type: Boolean, reflect: !0 })
-], m.prototype, "disabled");
-M([
+], x.prototype, "disabled");
+V([
   r({ type: Boolean, reflect: !0 })
-], m.prototype, "required");
-M([
+], x.prototype, "required");
+V([
   r({ type: Boolean, reflect: !0 })
-], m.prototype, "optional");
-M([
+], x.prototype, "optional");
+V([
   r({ type: Boolean, reflect: !0 })
-], m.prototype, "showError");
-M([
+], x.prototype, "showError");
+V([
   r({ type: String })
-], m.prototype, "errorMessage");
-M([
+], x.prototype, "errorMessage");
+V([
   r({ type: Boolean })
-], m.prototype, "dropzone");
-M([
+], x.prototype, "dropzone");
+V([
   r({ type: String, reflect: !0 })
-], m.prototype, "width");
-customElements.get("nys-fileinput") || customElements.define("nys-fileinput", m);
+], x.prototype, "width");
+customElements.get("nys-fileinput") || customElements.define("nys-fileinput", x);
 const Ce = {
   // --------- UX Team Main Library (below) --------- //
   // *** CORE *** //
@@ -4147,12 +4147,12 @@ B([
 ], E.prototype, "tile", 2);
 let $e = E;
 customElements.get("nys-radiogroup") || customElements.define("nys-radiogroup", $e);
-var De = Object.defineProperty, Ve = Object.getOwnPropertyDescriptor, F = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? Ve(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+var De = Object.defineProperty, Me = Object.getOwnPropertyDescriptor, F = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Me(e, t) : e, n = l.length - 1, i; n >= 0; n--)
     (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && De(e, t, s), s;
 };
-let Me = 0;
+let Ve = 0;
 var y;
 const q = (y = class extends u {
   constructor() {
@@ -4177,7 +4177,7 @@ const q = (y = class extends u {
   /********************** Lifecycle updates **********************/
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-radiobutton-${Date.now()}-${Me++}`), this.checked && (y.buttonGroup[this.name] && (y.buttonGroup[this.name].checked = !1, y.buttonGroup[this.name].requestUpdate()), y.buttonGroup[this.name] = this);
+    super.connectedCallback(), this.id || (this.id = `nys-radiobutton-${Date.now()}-${Ve++}`), this.checked && (y.buttonGroup[this.name] && (y.buttonGroup[this.name].checked = !1, y.buttonGroup[this.name].requestUpdate()), y.buttonGroup[this.name] = this);
   }
   updated(e) {
     e.has("checked") && this.checked && y.buttonGroup[this.name] !== this && (y.buttonGroup[this.name] && (y.buttonGroup[this.name].checked = !1, y.buttonGroup[this.name].requestUpdate()), y.buttonGroup[this.name] = this);
@@ -4955,7 +4955,7 @@ const Pe = g`
     cursor: not-allowed;
   }
 `;
-var Oe = Object.defineProperty, Re = Object.getOwnPropertyDescriptor, _ = (l, e, t, o) => {
+var Oe = Object.defineProperty, Re = Object.getOwnPropertyDescriptor, m = (l, e, t, o) => {
   for (var s = o > 1 ? void 0 : o ? Re(e, t) : e, n = l.length - 1, i; n >= 0; n--)
     (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && Oe(e, t, s), s;
@@ -5123,55 +5123,55 @@ ${this.value}</textarea
     `;
   }
 }, Z.VALID_WIDTHS = ["sm", "md", "lg", "full"], Z.VALID_RESIZE = ["vertical", "none"], Z.styles = Pe, Z.formAssociated = !0, Z);
-_([
+m([
   r({ type: String })
 ], b.prototype, "id", 2);
-_([
+m([
   r({ type: String, reflect: !0 })
 ], b.prototype, "name", 2);
-_([
+m([
   r({ type: String })
 ], b.prototype, "label", 2);
-_([
+m([
   r({ type: String })
 ], b.prototype, "description", 2);
-_([
+m([
   r({ type: String })
 ], b.prototype, "placeholder", 2);
-_([
+m([
   r({ type: String })
 ], b.prototype, "value", 2);
-_([
+m([
   r({ type: Boolean, reflect: !0 })
 ], b.prototype, "disabled", 2);
-_([
+m([
   r({ type: Boolean, reflect: !0 })
 ], b.prototype, "readonly", 2);
-_([
+m([
   r({ type: Boolean, reflect: !0 })
 ], b.prototype, "required", 2);
-_([
+m([
   r({ type: Boolean, reflect: !0 })
 ], b.prototype, "optional", 2);
-_([
+m([
   r({ type: String })
 ], b.prototype, "form", 2);
-_([
+m([
   r({ type: Number })
 ], b.prototype, "maxlength", 2);
-_([
+m([
   r({ reflect: !0 })
 ], b.prototype, "width", 2);
-_([
+m([
   r({ type: Number })
 ], b.prototype, "rows", 2);
-_([
+m([
   r({ reflect: !0 })
 ], b.prototype, "resize", 1);
-_([
+m([
   r({ type: Boolean, reflect: !0 })
 ], b.prototype, "showError", 2);
-_([
+m([
   r({ type: String })
 ], b.prototype, "errorMessage", 2);
 let Fe = b;
@@ -6067,7 +6067,17 @@ const tt = g`
     --_nys-tooltip-color: var(--nys-color-text-reverse, #ffffff);
     --_nys-tooltip-background: var(--nys-color-ink, #1b1b1b);
     --_nys-tooltip-border-radius: var(--nys-radius-md, 4px);
-    --_nys-tooltip-font-family: var(--nys-type-family-ui, "Proxima Nova");
+    --_nys-tooltip-font-family: var(
+      --nys-font-family-ui,
+      var(
+        --nys-font-family-sans,
+        "Proxima Nova",
+        "Helvetica Neue",
+        "Helvetica",
+        "Arial",
+        sans-serif
+      )
+    );
     --_nys-tooltip-font-size: var(--nys-type-size-ui-sm, 14px);
     --_nys-tooltip-letterspacing: var(--nys-font-letterspacing-ui-sm, 0.044px);
     --_nys-tooltip-lineheight: var(--nys-font-lineheight-ui-sm, 24px);
@@ -6280,7 +6290,7 @@ const D1 = class D1 extends u {
   updated(e) {
     super.updated(e);
     const t = this._firstAssignedEl;
-    t && e.has("text") && this._passAriaDescription(t);
+    t && e.has("text") && this._passAria(t);
   }
   // Listen to window scroll so a focus tooltip can auto position even when user move across the page
   _addScrollListeners() {
@@ -6290,9 +6300,15 @@ const D1 = class D1 extends u {
     window.removeEventListener("scroll", this._handleScrollOrResize, !0), window.removeEventListener("resize", this._handleScrollOrResize);
   }
   /******************** Functions ********************/
-  // We need to pass `ariaDescription` to the nys-components so they can announce both their label and the tooltip's text
-  _passAriaDescription(e) {
-    e.tagName.toLowerCase().startsWith("nys-") && e.setAttribute("ariaDescription", this.text);
+  // We need to pass `ariaLabel` or `ariaDescription` to the nys-components so they can announce both their label and the tooltip's text
+  _passAria(e) {
+    const t = e.tagName.toLowerCase();
+    if (t.startsWith("nys-"))
+      if (t === "nys-icon") {
+        const o = e.getAttribute("ariaLabel") || "", s = o ? `${o}, ${this.text}` : this.text;
+        e.setAttribute("ariaLabel", s);
+      } else
+        e.setAttribute("ariaDescription", this.text);
   }
   async _applyFocusBehavior(e) {
     var o;
@@ -6306,8 +6322,8 @@ const D1 = class D1 extends u {
   }
   // Checks if user's set position fit with current viewport (Does not account for overflow texts at this moment)
   _doesPositionFit(e) {
-    var $, w;
-    const t = ($ = this.shadowRoot) == null ? void 0 : $.querySelector(".nys-tooltip__wrapper"), o = (w = this.shadowRoot) == null ? void 0 : w.querySelector(".nys-tooltip__content");
+    var S, $;
+    const t = (S = this.shadowRoot) == null ? void 0 : S.querySelector(".nys-tooltip__wrapper"), o = ($ = this.shadowRoot) == null ? void 0 : $.querySelector(".nys-tooltip__content");
     if (!t || !o || e == null) return;
     const s = t.getBoundingClientRect(), n = o.getBoundingClientRect(), i = 8, c = {
       top: s.top - i,
@@ -6324,10 +6340,10 @@ const D1 = class D1 extends u {
   }
   // Calculates the best placement based on available space (flips placement if it doesn't fit)
   async autoPositionTooltip() {
-    var $, w;
-    const e = ($ = this.shadowRoot) == null ? void 0 : $.querySelector(
+    var S, $;
+    const e = (S = this.shadowRoot) == null ? void 0 : S.querySelector(
       ".nys-tooltip__wrapper"
-    ), t = (w = this.shadowRoot) == null ? void 0 : w.querySelector(
+    ), t = ($ = this.shadowRoot) == null ? void 0 : $.querySelector(
       ".nys-tooltip__content"
     );
     if (!e || !t) return;
@@ -6344,17 +6360,17 @@ const D1 = class D1 extends u {
       "left"
     ];
     if (this._userHasSetPosition && this._originalUserPosition) {
-      const k = this._originalUserPosition;
-      k === "left" ? i = ["left", "right", "top", "bottom"] : k === "right" ? i = ["right", "left", "top", "bottom"] : k === "top" ? i = ["top", "bottom", "right", "left"] : k === "bottom" && (i = ["bottom", "top", "right", "left"]);
+      const _ = this._originalUserPosition;
+      _ === "left" ? i = ["left", "right", "top", "bottom"] : _ === "right" ? i = ["right", "left", "top", "bottom"] : _ === "top" ? i = ["top", "bottom", "right", "left"] : _ === "bottom" && (i = ["bottom", "top", "right", "left"]);
     }
-    for (const k of i)
-      if (this._doesPositionFit(k)) {
-        this._setInternalPosition(k), await this.updateComplete, this._shiftTooltipIntoViewport(t);
+    for (const _ of i)
+      if (this._doesPositionFit(_)) {
+        this._setInternalPosition(_), await this.updateComplete, this._shiftTooltipIntoViewport(t);
         return;
       }
     let c = "top", d = n.top;
-    for (const k of i)
-      n[k] > d && (d = n[k], c = k);
+    for (const _ of i)
+      n[_] > d && (d = n[_], c = _);
     this._setInternalPosition(c), await this.updateComplete, this._shiftTooltipIntoViewport(t);
   }
   // Sets flag to distinguish to position's setter that we are updating "position" prop internally
@@ -6363,13 +6379,13 @@ const D1 = class D1 extends u {
   }
   // Determines if text of tooltip over-extends outside of viewport edge and adjust tooltip for horizontal overflow
   _shiftTooltipIntoViewport(e) {
-    var w;
-    const t = e.getBoundingClientRect(), s = ((w = this.shadowRoot) == null ? void 0 : w.querySelector(
+    var _;
+    const o = ((_ = this.shadowRoot) == null ? void 0 : _.querySelector(
       ".nys-tooltip__wrapper"
-    )).getBoundingClientRect(), n = s.left + s.width / 2, i = t.left < 0, c = t.right > window.innerWidth;
+    )).getBoundingClientRect(), s = e.getBoundingClientRect(), n = o.left + o.width / 2, i = s.left < 0, c = s.right > window.innerWidth;
     this._resetTooltipPositioningStyles(e), i ? (e.style.left = "0px", e.style.transform = "none") : c && (e.style.right = "0px", e.style.left = "auto", e.style.transform = "none");
-    const d = e.getBoundingClientRect(), $ = n - d.left;
-    e.style.setProperty("--arrow-offset-x", `${$}px`);
+    const d = e.getBoundingClientRect(), S = (n - d.left) / d.width, $ = Math.max(0, Math.min(1, S)) * 100;
+    e.style.setProperty("--arrow-offset-x", `${$}%`);
   }
   // Reposition tooltip back to original set position (e.g. top, left, bottom, right) to avoid positioning issue base on last position
   _resetTooltipPositioningStyles(e) {
@@ -6794,7 +6810,7 @@ var at = Object.defineProperty, l1 = (l, e, t, o) => {
     (i = l[n]) && (s = i(e, t, s) || s);
   return s && at(e, t, s), s;
 };
-const V1 = class V1 extends u {
+const M1 = class M1 extends u {
   constructor() {
     super(...arguments), this.trustbarVisible = !1, this.searchDropdownVisible = !1, this.languageVisible = !1, this.isSearchFocused = !1, this.hideTranslate = !1, this.hideSearch = !1, this.languages = [
       ["English", ""],
@@ -7069,8 +7085,8 @@ const V1 = class V1 extends u {
     `;
   }
 };
-V1.styles = nt;
-let P = V1;
+M1.styles = nt;
+let P = M1;
 l1([
   r({ type: Boolean })
 ], P.prototype, "trustbarVisible");
@@ -7379,7 +7395,7 @@ var ct = Object.defineProperty, g1 = (l, e, t, o) => {
     (i = l[n]) && (s = i(e, t, s) || s);
   return s && ct(e, t, s), s;
 };
-const M1 = class M1 extends u {
+const V1 = class V1 extends u {
   constructor() {
     super(...arguments), this.appName = "", this.agencyName = "", this.homepageLink = "", this.slotHasContent = !0, this.isMobileMenuOpen = !1;
   }
@@ -7404,10 +7420,10 @@ const M1 = class M1 extends u {
     );
     o && s && (o.innerHTML = "", s.innerHTML = "", t.forEach((d) => {
       if (d.nodeType === Node.ELEMENT_NODE) {
-        const $ = d.cloneNode(!0), w = d.cloneNode(!0);
+        const S = d.cloneNode(!0), $ = d.cloneNode(!0);
         ["script", "iframe", "object", "embed, img"].forEach((A1) => {
-          $.querySelectorAll(A1).forEach((B1) => B1.remove());
-        }), o.appendChild($), s.appendChild(w), d.remove();
+          S.querySelectorAll(A1).forEach((B1) => B1.remove());
+        }), o.appendChild(S), s.appendChild($), d.remove();
       }
     }));
   }
@@ -7478,8 +7494,8 @@ const M1 = class M1 extends u {
     `;
   }
 };
-M1.styles = lt;
-let s1 = M1;
+V1.styles = lt;
+let s1 = V1;
 g1([
   r({ type: String })
 ], s1.prototype, "appName");
@@ -7683,8 +7699,8 @@ const z1 = class z1 extends u {
     o && (o.classList.toggle("columns", s), o.classList.toggle("small", !s), o.innerHTML = "", t.forEach((c) => {
       if (c.nodeType === Node.ELEMENT_NODE) {
         const d = c.cloneNode(!0);
-        ["script", "iframe", "object", "embed", "img"].forEach((w) => {
-          d.querySelectorAll(w).forEach((k) => k.remove());
+        ["script", "iframe", "object", "embed", "img"].forEach(($) => {
+          d.querySelectorAll($).forEach((_) => _.remove());
         }), o.appendChild(d), c.remove();
       }
     }));
@@ -7940,7 +7956,7 @@ export {
   le as NysCheckbox,
   re as NysCheckboxgroup,
   d1 as NysErrorMessage,
-  m as NysFileinput,
+  x as NysFileinput,
   h1 as NysGlobalFooter,
   s1 as NysGlobalHeader,
   me as NysIcon,
