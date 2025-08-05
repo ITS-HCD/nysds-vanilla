@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./src/assets/css/vendor/nysds-full.min.css">
+    </head>
+    <body>
+          <nys-unavheader></nys-unavheader>
+  <nys-globalheader appName="NYS Design System"></nys-globalheader>
+<div class="nys-grid-container-widescreen">
+  <nys-stepper contenttarget="stepper-content" label="Register for Design System Office Hours">
+    <nys-step label="Personal Details" href="step1.html"></nys-step>
+    <nys-step label="Team Info" current href="step2.html"></nys-step>
+    <nys-step label="Usage Survey" href="step3.html"></nys-step>
+    <nys-step label="Newsletter Opt-In" href="step4.html"></nys-step>
+    <div slot="actions">
+      <nys-button variant="outline" label="Save &amp; Exit" fullwidth=""></nys-button>
+    </div>
+  </nys-stepper>
+  <div id="stepper-content">  <!-- NYSDS Text Input -->
+  <nys-textinput
+    label="First Name"
+    name="name"
+    id="name"
+    width="lg"
+    >
+  </nys-textinput>
+
+  <!-- Textarea -->
+  <nys-textarea
+    label="Message"
+    name="message"
+    id="message"
+    width="lg"
+    rows="4"
+    >
+  </nys-textarea>
+
+  <!-- File Upload -->
+   <nys-fileinput
+    label="Upload a file"
+    description="You can upload a file here."
+    accept=".jpg, .png, .pdf, .docx, .txt"
+    dropzone
+    multiple
+    required
+    ></nys-fileinput>
+
+  <!-- Checkbox -->
+  <nys-checkbox
+    label="Agree to Terms"
+    description="I agree to the terms and conditions of this very important form."
+    name="agree"
+    >
+  </nys-checkbox>
+</div>
+</div>
+  <nys-globalfooter agencyName="NYS Design System">
+    <ul>
+      <li><a href="https://its.ny.gov/about">Terms of Service</a></li>
+       <li><a href="https://its.ny.gov">Privacy Policy</a></li>
+     </ul>
+   </nys-globalfooter>
+  <nys-unavfooter></nys-unavfooter>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const themeSelector = document.getElementById("theme-selector");
+
+  themeSelector.addEventListener("change", function (event) {
+    const selectedTheme = event.target.value;
+    const existingTheme = document.getElementById("theme-style");
+
+    // Remove the existing theme if it exists
+    if (existingTheme) {
+      existingTheme.remove();
+    }
+
+    // Create a new link element for the selected theme
+    const newTheme = document.createElement("link");
+    newTheme.id = "theme-style";
+    newTheme.rel = "stylesheet";
+    newTheme.href = `./src/assets/css/vendor/${selectedTheme}`;
+
+    // Append the new theme to the document head
+    document.head.appendChild(newTheme);
+  });
+});
+  </script>
+
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get input values
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+
+            // Display values on the same page
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('displaymessage').textContent = message;
+        });
+    </script>
+        <script src="./src/assets/js/vendor/nysds.js" async defer type="module"></script>
+    </body>
+</html>
