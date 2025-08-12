@@ -31,7 +31,7 @@
     <nys-step
       label="Team Info"
       href="step2.html"
-      current
+      
     ></nys-step>
     <nys-step
       label="Usage Survey"
@@ -40,6 +40,7 @@
     <nys-step
       label="Newsletter Opt-In"
       href="step4.html"
+      current
     ></nys-step>
     <div slot="actions">
       <nys-button
@@ -63,21 +64,20 @@
           </nys-select>
         </div>
 
-  <!-- Textarea -->
-  <nys-textarea
-    label="Tell us about your team"
-    name="message"
-    id="message"
-    width="lg"
-    rows="4"
+  <p>I certify that the individual EMT certification records submitted to the EMS Authority for upload into the Central Registry that indicate the individual met the “grandfathering” into the criminal background check system meet the following criteria:</p>
+  <!-- Checkbox -->
+  <nys-checkbox
+    label="Agree to Terms"
+    description="I agree to the terms and conditions of this very important form."
+    name="agree"
     >
-  </nys-textarea>
+  </nys-checkbox>
 
   <nys-button
     variant="primary"
     label="Submit"
     type="submit"
-    href="step3.html"></nys-button>
+    href="step4.html"></nys-button>
   </div>
 </div>
 
