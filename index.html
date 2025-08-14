@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./src/assets/css/vendor/nysds-full.min.css">
-    </head>
-    <body>
-          <nys-unavheader></nys-unavheader>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./src/assets/css/vendor/nysds-full.min.css">
+</head>
+
+<body>
+  <nys-unavheader></nys-unavheader>
   <nys-globalheader appName="NYS Design System">
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -36,160 +38,123 @@
           <div class="heading">
             <h1>NYSDS Newsletter</h1>
             <h3>Sign up for exciting updates!</h3>
-        
+
           </div>
-        <nys-badge label="Basic badge"></nys-badge>
-        <form id="myForm" class="nys-form" action="#" method="GET">
-<!-- Alert Component -->
-<div style="margin-top: var(--nys-space-400)">
-  <nys-alert
-    type="base"
-    heading="Test Form"
-    text="Submit the form below to see what form data is passed."
-  ></nys-alert>
-</div>
-<div class="nys-grid-row nys-grid-gap-1">
-  <nys-badge label="Info" prefixIcon></nys-badge>
-  <nys-badge label="Error" intent="error" prefixIcon></nys-badge>
-  <nys-badge label="Warning" intent="warning" prefixIcon></nys-badge>
-  <nys-badge label="Success" intent="success" prefixIcon></nys-badge>
-</div>
-<div class="nys-grid-row nys-grid-gap-1">
-  <nys-badge label="Default info" prefixIcon></nys-badge>
-  <nys-badge label="Default info" suffixIcon></nys-badge>
-  <nys-badge label="Custom info" prefixIcon="check"></nys-badge>
-  <nys-badge label="Custom info" suffixIcon="check"></nys-badge>
-</div>
-<div class="nys-grid-row nys-grid-gap-1">
-  <nys-badge label="Medium"></nys-badge>
-  <nys-badge label="Small" size="sm"></nys-badge>
-</div>
-<div class="nys-grid-row nys-grid-gap-1">
-  <nys-badge prefix="Version" label="1.6.0"></nys-badge>
-  <nys-badge prefix="WCAG 2.2" label="AA" intent="success" prefixIcon></nys-badge>
-</div>
-  <!-- NYSDS Text Input -->
-  <nys-textinput
-    label="First Name"
-    name="name"
-    id="name"
-    width="lg"
-    >
-  </nys-textinput>
+          <nys-badge label="Basic badge"></nys-badge>
+          <form id="myForm" class="nys-form" action="#" method="GET">
+            <!-- Alert Component -->
+            <div style="margin-top: var(--nys-space-400)">
+              <nys-alert type="base" heading="Test Form"
+                text="Submit the form below to see what form data is passed."></nys-alert>
+            </div>
+            <div class="nys-grid-row nys-grid-gap-1">
+              <nys-badge label="Info" prefixIcon></nys-badge>
+              <nys-badge label="Error" intent="error" prefixIcon></nys-badge>
+              <nys-badge label="Warning" intent="warning" prefixIcon></nys-badge>
+              <nys-badge label="Success" intent="success" prefixIcon></nys-badge>
+            </div>
+            <div class="nys-grid-row nys-grid-gap-1">
+              <nys-badge label="Default info" prefixIcon></nys-badge>
+              <nys-badge label="Default info" suffixIcon></nys-badge>
+              <nys-badge label="Custom info" prefixIcon="check"></nys-badge>
+              <nys-badge label="Custom info" suffixIcon="check"></nys-badge>
+            </div>
+            <div class="nys-grid-row nys-grid-gap-1">
+              <nys-badge label="Medium"></nys-badge>
+              <nys-badge label="Small" size="sm"></nys-badge>
+            </div>
+            <div class="nys-grid-row nys-grid-gap-1">
+              <nys-badge prefix="Version" label="1.6.0"></nys-badge>
+              <nys-badge prefix="WCAG 2.2" label="AA" intent="success" prefixIcon></nys-badge>
+            </div>
+            <!-- NYSDS Text Input -->
+            <nys-textinput label="First Name" name="name" id="name" width="lg" required>
+            </nys-textinput>
 
-  <!-- Telephone masking -->
-  <nys-textinput
-  name="myTextInputDemo"
-  label="Phone Number"
-  type="tel"
-  >
-  </nys-textinput>
-  
-  <!-- Textarea -->
-  <nys-textarea
-    label="Message"
-    name="message"
-    id="message"
-    width="lg"
-    rows="4"
-    >
-  </nys-textarea>
+            <!-- Telephone masking -->
+            <nys-textinput name="myTextInputDemo" label="Phone Number" type="tel">
+            </nys-textinput>
 
-  <!-- File Upload -->
-   <nys-fileinput
-    label="Upload a file"
-    description="You can upload a file here."
-    accept=".jpg, .png, .pdf, .docx, .txt"
-    dropzone
-    multiple
-    required
-    ></nys-fileinput>
+            <!-- Textarea -->
+            <nys-textarea label="Message" name="message" id="message" width="lg" rows="4">
+            </nys-textarea>
 
-  <!-- Checkbox -->
-  <nys-checkbox
-    label="Agree to Terms"
-    description="I agree to the terms and conditions of this very important form."
-    name="agree"
-    >
-  </nys-checkbox>
+            <!-- File Upload -->
+            <nys-fileinput label="Upload a file" description="You can upload a file here."
+              accept=".jpg, .png, .pdf, .docx, .txt" dropzone multiple required></nys-fileinput>
 
-  <!-- Checkbox Group -->
+            <!-- Checkbox -->
+            <nys-checkbox label="Agree to Terms"
+              description="I agree to the terms and conditions of this very important form." name="agree">
+            </nys-checkbox>
 
-  <nys-checkboxgroup label="Select your favorite New York landmarks" description="Last year's winner is not eligible to win again.">
-      <nys-checkbox name="landmarks" value="adirondacks" label="Adirondacks" checked></nys-checkbox>
-      <nys-checkbox name="landmarks" value="finger-lakes" label="Finger Lakes" checked></nys-checkbox>
-      <nys-checkbox name="landmarks" value="catskills" label="Catskills"></nys-checkbox>
-      <nys-checkbox name="landmarks" value="niagara-falls" label="Niagara Falls"></nys-checkbox>
-      <nys-checkbox name="landmarks" value="coney-island" label="Coney Island"></nys-checkbox>
-      <nys-checkbox name="landmarks" value="statue-liberty" label="Statue of Liberty (Last Year's Winner)" description="Disabled as it was the winner of the previous year." disabled></nys-checkbox>
-    </nys-checkboxgroup>
+            <!-- Checkbox Group -->
 
-  <!-- Radio Buttons -->
-  <nys-radiogroup
-    name="office"
-    label="What is your primary work location?"
-    description="This is the location you use for your in-office days."
-  >
-    <nys-radiobutton
-      name="office"
-      label="Albany"
-      description="Upstate New York"
-      value="Albany"
-    ></nys-radiobutton>
-    <nys-radiobutton
-      name="office"
-      label="Manhattan"
-      description="New York City"
-      value="Manhattan"
-    ></nys-radiobutton>
-  </nys-radiogroup>
+            <nys-checkboxgroup label="Select your favorite New York landmarks"
+              description="Last year's winner is not eligible to win again.">
+              <nys-checkbox name="landmarks" value="adirondacks" label="Adirondacks" checked></nys-checkbox>
+              <nys-checkbox name="landmarks" value="finger-lakes" label="Finger Lakes" checked></nys-checkbox>
+              <nys-checkbox name="landmarks" value="catskills" label="Catskills"></nys-checkbox>
+              <nys-checkbox name="landmarks" value="niagara-falls" label="Niagara Falls"></nys-checkbox>
+              <nys-checkbox name="landmarks" value="coney-island" label="Coney Island"></nys-checkbox>
+              <nys-checkbox name="landmarks" value="statue-liberty" label="Statue of Liberty (Last Year's Winner)"
+                description="Disabled as it was the winner of the previous year." disabled></nys-checkbox>
+            </nys-checkboxgroup>
 
-  <!-- Select Dropdown -->
-  <nys-select
-    label="Select your favorite borough"
-    name="favoriteBorough"
-  >
-    <nys-option value="Bronx" label="The Bronx"></nys-option>
-    <nys-option value="Brooklyn" label="Brooklyn"></nys-option>
-    <nys-option value="Manhattan" label="Manhattan"></nys-option>
-    <nys-option value="Staten Island" label="Staten Island"></nys-option>
-    <nys-option value="Queens" label="Queens"></nys-option>
-  </nys-select>
+            <!-- Radio Buttons -->
+            <nys-radiogroup name="office" label="What is your primary work location?"
+              description="This is the location you use for your in-office days.">
+              <nys-radiobutton name="office" label="Albany" description="Upstate New York"
+                value="Albany"></nys-radiobutton>
+              <nys-radiobutton name="office" label="Manhattan" description="New York City"
+                value="Manhattan"></nys-radiobutton>
+            </nys-radiogroup>
 
-  <nys-accordion heading="I am an Individual Accordion" bordered>
-  <p>I love NY!</p>
-</nys-accordion>
-  <nys-accordion heading="I am second Individual Accordion" bordered>
-  <p>I love NY too!</p>
-</nys-accordion>
+            <!-- Select Dropdown -->
+            <nys-select label="Select your favorite borough" name="favoriteBorough">
+              <nys-option value="Bronx" label="The Bronx"></nys-option>
+              <nys-option value="Brooklyn" label="Brooklyn"></nys-option>
+              <nys-option value="Manhattan" label="Manhattan"></nys-option>
+              <nys-option value="Staten Island" label="Staten Island"></nys-option>
+              <nys-option value="Queens" label="Queens"></nys-option>
+            </nys-select>
 
-<nys-accordiongroup singleSelect>
-  <nys-accordion heading="We are a group">
-   <p>Stronger together! Learn more at
-      <a href="https://www.ny.gov" target="_blank">ny.gov</a>
-    </p>
-  </nys-accordion>
-  <nys-accordion heading="Liberty Ipsum: Bridges & Boroughs">
-    <p>Empire ipsum dolor sit amet, across the Brooklyn Bridge to Central Park, consectetur adipiscing elit.</p>
-  </nys-accordion>
-  <nys-accordion heading="Hudson Ipsum: Riverfront Stories">
-    <p>From the banks of the Hudson to the peaks of the Adirondacks, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  </nys-accordion>
-</nys-accordiongroup>
+            <nys-accordion heading="I am an Individual Accordion" bordered>
+              <p>I love NY!</p>
+            </nys-accordion>
+            <nys-accordion heading="I am second Individual Accordion" bordered>
+              <p>I love NY too!</p>
+            </nys-accordion>
 
-  <!-- Submit Button -->
-  <nys-tooltip text="I am a tooltip.">
-    <nys-button type="submit" label="Submit"></nys-button>
-  </nys-tooltip>
+            <nys-accordiongroup singleSelect>
+              <nys-accordion heading="We are a group">
+                <p>Stronger together! Learn more at
+                  <a href="https://www.ny.gov" target="_blank">ny.gov</a>
+                </p>
+              </nys-accordion>
+              <nys-accordion heading="Liberty Ipsum: Bridges & Boroughs">
+                <p>Empire ipsum dolor sit amet, across the Brooklyn Bridge to Central Park, consectetur adipiscing elit.
+                </p>
+              </nys-accordion>
+              <nys-accordion heading="Hudson Ipsum: Riverfront Stories">
+                <p>From the banks of the Hudson to the peaks of the Adirondacks, sed do eiusmod tempor incididunt ut
+                  labore et dolore magna aliqua.</p>
+              </nys-accordion>
+            </nys-accordiongroup>
 
-</form>
-<br />
+            <!-- Submit Button -->
+            <nys-tooltip text="I am a tooltip.">
+              <nys-button type="submit" label="Submit"></nys-button>
+            </nys-tooltip>
 
-<nys-alert type="success" heading="Submitted Information">
-        <p>Name: <span id="displayName"></span></p>
-        <p>message: <span id="displaymessage"></span></p>
-</nys-alert>
-<br />
+          </form>
+          <br />
+
+          <nys-alert type="success" heading="Submitted Information">
+            <p>Name: <span id="displayName"></span></p>
+            <p>message: <span id="displaymessage"></span></p>
+          </nys-alert>
+          <br />
         </div>
       </div>
       <div class="nys-tablet:nys-grid-col-3"></div>
@@ -199,49 +164,50 @@
   <nys-globalfooter agencyName="NYS Design System">
     <ul>
       <li><a href="https://its.ny.gov/about">Terms of Service</a></li>
-       <li><a href="https://its.ny.gov">Privacy Policy</a></li>
-     </ul>
-   </nys-globalfooter>
+      <li><a href="https://its.ny.gov">Privacy Policy</a></li>
+    </ul>
+  </nys-globalfooter>
   <nys-unavfooter></nys-unavfooter>
   <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const themeSelector = document.getElementById("theme-selector");
+    document.addEventListener("DOMContentLoaded", function () {
+      const themeSelector = document.getElementById("theme-selector");
 
-  themeSelector.addEventListener("change", function (event) {
-    const selectedTheme = event.target.value;
-    const existingTheme = document.getElementById("theme-style");
+      themeSelector.addEventListener("change", function (event) {
+        const selectedTheme = event.target.value;
+        const existingTheme = document.getElementById("theme-style");
 
-    // Remove the existing theme if it exists
-    if (existingTheme) {
-      existingTheme.remove();
-    }
+        // Remove the existing theme if it exists
+        if (existingTheme) {
+          existingTheme.remove();
+        }
 
-    // Create a new link element for the selected theme
-    const newTheme = document.createElement("link");
-    newTheme.id = "theme-style";
-    newTheme.rel = "stylesheet";
-    newTheme.href = `./src/assets/css/vendor/${selectedTheme}`;
+        // Create a new link element for the selected theme
+        const newTheme = document.createElement("link");
+        newTheme.id = "theme-style";
+        newTheme.rel = "stylesheet";
+        newTheme.href = `./src/assets/css/vendor/${selectedTheme}`;
 
-    // Append the new theme to the document head
-    document.head.appendChild(newTheme);
-  });
-});
+        // Append the new theme to the document head
+        document.head.appendChild(newTheme);
+      });
+    });
   </script>
 
 
-    <script>
-        document.getElementById('myForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent default form submission
 
-            // Get input values
-            const name = document.getElementById('name').value;
-            const message = document.getElementById('message').value;
+      // Get input values
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
 
-            // Display values on the same page
-            document.getElementById('displayName').textContent = name;
-            document.getElementById('displaymessage').textContent = message;
-        });
-    </script>
-        <script src="./src/assets/js/vendor/nysds.js" async defer type="module"></script>
-    </body>
+      // Display values on the same page
+      document.getElementById('displayName').textContent = name;
+      document.getElementById('displaymessage').textContent = message;
+    });
+  </script>
+  <script src="./src/assets/js/vendor/nysds.js" async defer type="module"></script>
+</body>
+
 </html>

@@ -1,57 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./src/assets/css/vendor/nysds-full.min.css">
-    </head>
-    <body>
-          <nys-unavheader></nys-unavheader>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./src/assets/css/vendor/nysds-full.min.css">
+</head>
+
+<body>
+  <nys-unavheader></nys-unavheader>
   <nys-globalheader appName="NYS Design System">
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="step1.html">Stepper Demo</a></li>
     </ul>
   </nys-globalheader>
-<div class="nys-grid-container-widescreen">
+  <div class="nys-grid-container-widescreen">
 
-  <div class="nys-grid-row nys-grid-gap">
-  <nys-stepper
-    .id="stepper"
-    .name="stepper"
-    label="Register for Design System Office Hours"
-    class="nys-desktop:nys-grid-col-3"
-  >
-    <nys-step
-      label="Personal Details"
-      href="step1.html"
-      selected
-      current
-    ></nys-step>
-    <nys-step
-      label="Team Info"
-      href="step2.html"
-    ></nys-step>
-    <nys-step
-      label="Usage Survey"
-      href="step3.html"
-    ></nys-step>
-    <nys-step
-      label="Newsletter Opt-In"
-      href="step4.html"
-    ></nys-step>
-    <div slot="actions">
-      <nys-button
-        variant="outline"
-        label="Save & Exit"
-        fullWidth
-      ></nys-button>
-    </div>
-  </nys-stepper>
-  <div class="nys-desktop:nys-grid-col-9" id="stepper-content">
-   <div style="margin-top: var(--nys-space-400)">
+    <div class="nys-grid-row nys-grid-gap">
+      <nys-stepper .id="stepper" .name="stepper" label="Register for Design System Office Hours"
+        class="nys-desktop:nys-grid-col-3">
+        <nys-step label="Personal Details" href="step1.html" selected current></nys-step>
+        <nys-step label="Team Info" href="step2.html"></nys-step>
+        <nys-step label="Usage Survey" href="step3.html"></nys-step>
+        <nys-step label="Newsletter Opt-In" href="step4.html"></nys-step>
+        <div slot="actions">
+          <nys-button variant="outline" label="Save & Exit" fullWidth></nys-button>
+        </div>
+      </nys-stepper>
+      <div class="nys-desktop:nys-grid-col-9" id="stepper-content">
+        <div style="margin-top: var(--nys-space-400)">
           <nys-select id="theme-selector" label="Select Theme" width="lg">
             <nys-option value="default" selected>Default (NYS)</nys-option>
             <nys-option value="nysds-theme-admin.min.css">Admin</nys-option>
@@ -63,69 +43,54 @@
             <nys-option value="nysds-theme-transportation.min.css">Transportation</nys-option>
           </nys-select>
         </div>
-   <nys-textinput
-    label="First Name"
-    name="name"
-    id="firstname"
-    width="lg"
-    >
-  </nys-textinput>
-   <nys-textinput
-    label="Last Name"
-    name="name"
-    id="lastname"
-    width="lg"
-    >
-  </nys-textinput>
+        <nys-textinput label="First Name" name="name" id="firstname" width="lg">
+        </nys-textinput>
+        <nys-textinput label="Last Name" name="name" id="lastname" width="lg" required>
+        </nys-textinput>
+        <nys-button variant="primary" label="Submit" type="submit" href="step2.html"></nys-button>
+      </div>
+    </div>
 
-  <nys-button
-    variant="primary"
-    label="Submit"
-    type="submit"
-    href="step2.html"></nys-button>
+
   </div>
-</div>
-
-  
-</div>
-</div>
+  </div>
   <nys-globalfooter agencyName="NYS Design System">
     <ul>
       <li><a href="https://its.ny.gov/about">Terms of Service</a></li>
-       <li><a href="https://its.ny.gov">Privacy Policy</a></li>
-     </ul>
-   </nys-globalfooter>
+      <li><a href="https://its.ny.gov">Privacy Policy</a></li>
+    </ul>
+  </nys-globalfooter>
   <nys-unavfooter></nys-unavfooter>
   <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const themeSelector = document.getElementById("theme-selector");
+    document.addEventListener("DOMContentLoaded", function () {
+      const themeSelector = document.getElementById("theme-selector");
 
-  themeSelector.addEventListener("change", function (event) {
-    const selectedTheme = event.target.value;
-    const existingTheme = document.getElementById("theme-style");
+      themeSelector.addEventListener("change", function (event) {
+        const selectedTheme = event.target.value;
+        const existingTheme = document.getElementById("theme-style");
 
-    // Remove the existing theme if it exists
-    if (existingTheme) {
-      existingTheme.remove();
-    }
+        // Remove the existing theme if it exists
+        if (existingTheme) {
+          existingTheme.remove();
+        }
 
-    if (selectedTheme === "default") {
-      return; // No need to add a theme for the default option
-    }
+        if (selectedTheme === "default") {
+          return; // No need to add a theme for the default option
+        }
 
-    // Create a new link element for the selected theme
-    const newTheme = document.createElement("link");
-    newTheme.id = "theme-style";
-    newTheme.rel = "stylesheet";
-    newTheme.href = `./src/assets/css/vendor/${selectedTheme}`;
+        // Create a new link element for the selected theme
+        const newTheme = document.createElement("link");
+        newTheme.id = "theme-style";
+        newTheme.rel = "stylesheet";
+        newTheme.href = `./src/assets/css/vendor/${selectedTheme}`;
 
-    // Append the new theme to the document head
-    document.head.appendChild(newTheme);
-  });
-});
+        // Append the new theme to the document head
+        document.head.appendChild(newTheme);
+      });
+    });
   </script>
 
-<!-- 
+  <!-- 
     <script>
         document.getElementById('myForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
@@ -139,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('displaymessage').textContent = message;
         });
     </script> -->
-        <script src="./src/assets/js/vendor/nysds.js" async defer type="module"></script>
-    </body>
+  <script src="./src/assets/js/vendor/nysds.js" async defer type="module"></script>
+</body>
+
 </html>
