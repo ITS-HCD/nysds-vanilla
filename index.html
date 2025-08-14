@@ -36,7 +36,9 @@
           <div class="heading">
             <h1>NYSDS Newsletter</h1>
             <h3>Sign up for exciting updates!</h3>
+        
           </div>
+        <nys-badge label="Basic badge"></nys-badge>
         <form id="myForm" class="nys-form" action="#" method="GET">
 <!-- Alert Component -->
 <div style="margin-top: var(--nys-space-400)">
@@ -46,7 +48,26 @@
     text="Submit the form below to see what form data is passed."
   ></nys-alert>
 </div>
-
+<div class="nys-grid-row nys-grid-gap-1">
+  <nys-badge label="Info" prefixIcon></nys-badge>
+  <nys-badge label="Error" intent="error" prefixIcon></nys-badge>
+  <nys-badge label="Warning" intent="warning" prefixIcon></nys-badge>
+  <nys-badge label="Success" intent="success" prefixIcon></nys-badge>
+</div>
+<div class="nys-grid-row nys-grid-gap-1">
+  <nys-badge label="Default info" prefixIcon></nys-badge>
+  <nys-badge label="Default info" suffixIcon></nys-badge>
+  <nys-badge label="Custom info" prefixIcon="check"></nys-badge>
+  <nys-badge label="Custom info" suffixIcon="check"></nys-badge>
+</div>
+<div class="nys-grid-row nys-grid-gap-1">
+  <nys-badge label="Medium"></nys-badge>
+  <nys-badge label="Small" size="sm"></nys-badge>
+</div>
+<div class="nys-grid-row nys-grid-gap-1">
+  <nys-badge prefix="Version" label="1.6.0"></nys-badge>
+  <nys-badge prefix="WCAG 2.2" label="AA" intent="success" prefixIcon></nys-badge>
+</div>
   <!-- NYSDS Text Input -->
   <nys-textinput
     label="First Name"
