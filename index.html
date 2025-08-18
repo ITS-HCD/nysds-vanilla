@@ -121,29 +121,31 @@
               <nys-option value="Staten Island" label="Staten Island"></nys-option>
               <nys-option value="Queens" label="Queens"></nys-option>
             </nys-select>
-
-            <nys-accordion heading="I am an Individual Accordion" bordered>
-              <p>I love NY!</p>
+            
+            <nys-accordion>
+              <nys-accordionitem heading="I am an Individual Accordion" bordered>
+                <p>I love NY!</p>
+              </nys-accordionitem>
+              <nys-accordionitem heading="I am second Individual Accordion" bordered>
+                <p>I love NY too!</p>
+              </nys-accordionitem>
             </nys-accordion>
-            <nys-accordion heading="I am second Individual Accordion" bordered>
-              <p>I love NY too!</p>
-            </nys-accordion>
-
-            <nys-accordiongroup singleSelect>
-              <nys-accordion heading="We are a group">
+            <br />
+            <nys-accordion singleSelect bordered>
+              <nys-accordionitem heading="We are a group">
                 <p>Stronger together! Learn more at
                   <a href="https://www.ny.gov" target="_blank">ny.gov</a>
                 </p>
-              </nys-accordion>
-              <nys-accordion heading="Liberty Ipsum: Bridges & Boroughs">
+              </nys-accordionitem>
+              <nys-accordionitem heading="Liberty Ipsum: Bridges & Boroughs">
                 <p>Empire ipsum dolor sit amet, across the Brooklyn Bridge to Central Park, consectetur adipiscing elit.
                 </p>
-              </nys-accordion>
-              <nys-accordion heading="Hudson Ipsum: Riverfront Stories">
+              </nys-accordionitem>
+              <nys-accordionitem heading="Hudson Ipsum: Riverfront Stories">
                 <p>From the banks of the Hudson to the peaks of the Adirondacks, sed do eiusmod tempor incididunt ut
                   labore et dolore magna aliqua.</p>
-              </nys-accordion>
-            </nys-accordiongroup>
+              </nys-accordionitem>
+            </nys-accordion>
 
             <!-- Submit Button -->
             <nys-tooltip text="I am a tooltip.">
