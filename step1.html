@@ -10,6 +10,8 @@
 </head>
 
 <body>
+  <nys-skipnav href="#maincontent"></nys-skipnav>
+  <nys-backtotop></nys-backtotop>
   <nys-unavheader></nys-unavheader>
   <nys-globalheader appName="NYS Design System">
     <ul>
@@ -17,7 +19,7 @@
       <li><a href="step1.html">Stepper Demo</a></li>
     </ul>
   </nys-globalheader>
-  <div class="nys-grid-container-widescreen">
+  <div id="maincontent" class="nys-grid-container-widescreen">
 
     <div class="nys-grid-row nys-grid-gap">
       <nys-stepper .id="stepper" .name="stepper" label="Register for Design System Office Hours"

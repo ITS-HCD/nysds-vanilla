@@ -8,14 +8,16 @@
         <link rel="stylesheet" href="./src/assets/css/vendor/nysds-full.min.css">
     </head>
     <body>
-          <nys-unavheader></nys-unavheader>
+  <nys-skipnav href="#maincontent"></nys-skipnav>
+  <nys-backtotop></nys-backtotop>
+  <nys-unavheader></nys-unavheader>
   <nys-globalheader appName="NYS Design System">
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="step1.html">Stepper Demo</a></li>
     </ul>
   </nys-globalheader>
-<div class="nys-grid-container-widescreen">
+  <div id="maincontent" class="nys-grid-container-widescreen">
 
   <div class="nys-grid-row nys-grid-gap">
   <nys-stepper
@@ -72,6 +74,12 @@
     rows="4"
     >
   </nys-textarea>
+
+  <nys-button
+    variant="outline"
+    label="Back"
+    type="back"
+    href="step1.html"></nys-button>
 
   <nys-button
     variant="primary"

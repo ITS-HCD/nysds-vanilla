@@ -1,5 +1,5 @@
-import { css as u, LitElement as y, html as l } from "lit";
-import { property as r, query as re, state as B } from "lit/decorators.js";
+import { css as g, LitElement as y, html as a } from "lit";
+import { property as r, state as D } from "lit/decorators.js";
 import { ifDefined as h } from "lit/directives/if-defined.js";
 /*!
    * New York State Design System (v1.6.0)
@@ -7,298 +7,7 @@ import { ifDefined as h } from "lit/directives/if-defined.js";
    * Repository: https://github.com/its-hcd/nysds
    * License: MIT
  */
-const Q1 = u`
-  :host {
-    /* Anything that can be overridden should be defined here */
-
-    /* Global Accordion Styles */
-    --_nys-accordion-width: fit-content;
-    --_nys-accordion-radius: var(--nys-radius-md, 4px);
-    --_nys-accordion-padding: var(--nys-space-200, 16px)
-      var(--nys-space-250, 20px);
-    --_nys-accordion-width-focus: var(--nys-border-width-md, 2px);
-    --_nys-accordion-offset-focus: var(--nys-space-2px, 2px);
-    --_nys-accordion-color-focus: var(--nys-color-focus, #004dd1);
-    --_nys-accordion-gap: var(--nys-space-100, 8px);
-
-    /* Header & Text container */
-    --_nys-accordion-heading-background: var(--nys-color-neutral-50, #ededed);
-    --_nys-accordion-heading-active-background: var(
-      --nys-color-neutral-100,
-      #d0d0ce
-    );
-    --_nys-accordion-heading-gap: var(--nys-space-200, 16px);
-    --_nys-accordion-content-background: var(--nys-color-ink-reverse, #fff);
-    --_nys-accordion-content-padding: var(--nys-space-200, 16px)
-      var(--local-xx-spacing-205, 20px);
-
-    /* Typography */
-    --_nys-accordion-font-size: var(--nys-type-size-ui-xl, 20px);
-    --_nys-accordion-font-weight: var(--nys-font-weight-bold, 700);
-    --_nys-accordion-line-height: var(--nys-font-lineheight-ui-xl, 28px);
-    --_nys-accordion-line-letterspacing: var(
-      --nys-font-letterspacing-ui-xl,
-      0.017px
-    );
-    --_nys-accordion-font-family: var(
-      --nys-font-family-ui,
-      var(
-        --nys-font-family-sans,
-        "Proxima Nova",
-        "Helvetica Neue",
-        "Helvetica",
-        "Arial",
-        sans-serif
-      )
-    );
-  }
-
-  /* CSS Resets */
-  ::slotted(p),
-  p {
-    margin: 0 !important;
-  }
-
-  .nys-accordionitem {
-    font-family: var(--_nys-accordion-font-family);
-    font-size: var(--_nys-accordion-font-size);
-    font-weight: var(--_nys-accordion-font-weight);
-    line-height: var(--_nys-accordion-line-height);
-    letter-spacing: var(--_nys-accordion-line-letterspacing);
-    display: flex;
-  }
-
-  .nys-accordionitem__heading {
-    all: unset;
-    flex: 1;
-    gap: var(--_nys-accordion-heading-gap);
-    display: flex;
-    padding: var(--_nys-accordion-padding);
-    align-items: center;
-    align-self: stretch;
-    border-radius: var(--_nys-accordion-radius);
-    background: var(--_nys-accordion-heading-background);
-    cursor: pointer;
-    transition: 0.05s all ease-in-out;
-  }
-
-  .nys-accordionitem__heading:hover {
-    border-radius: var(--_nys-accordion-radius);
-    background: var(--_nys-accordion-heading-active-background);
-  }
-
-  .nys-accordionitem__heading:focus-visible {
-    outline-offset: var(--_nys-accordion-offset-focus);
-    outline: solid var(--_nys-accordion-width-focus)
-      var(--_nys-accordion-color-focus);
-  }
-
-  .nys-accordionitem__heading .nys-accordionitem__heading-title {
-    flex: 1;
-  }
-
-  /*** Content layer ***/
-  .nys-accordionitem__content {
-    height: 0;
-    overflow: hidden;
-    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    visibility: hidden;
-  }
-
-  .nys-accordionitem__content.expanded {
-    /* Accordion JS code takes care of setting the exact calculated height so we can open exact px height */
-    visibility: visible;
-  }
-
-  .nys-accordionitem__content-slot-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--_nys-accordion-gap);
-    align-self: stretch;
-    padding: var(--_nys-accordion-content-padding);
-    background: var(--_nys-accordion-content-background);
-  }
-
-  .nys-accordionitem__content-slot-container-text {
-    max-width: 528px;
-  }
-
-  /*** Expanded Styling ***/
-  .expand-icon {
-    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  }
-  :host([expanded]) .expand-icon {
-    transform: rotate(180deg);
-  }
-
-  /*** Bordered Styling ***/
-  :host([bordered][expanded]) .nys-accordionitem__heading {
-    border-radius: var(--_nys-accordion-radius) var(--_nys-accordion-radius) 0 0;
-  }
-
-  :host([bordered]) .nys-accordionitem__content-slot-container {
-    border: var(--nys-border-width-md, 2px) solid
-      var(--nys-color-neutral-50, #ededed);
-    border-radius: 0 0 var(--_nys-accordion-radius) var(--_nys-accordion-radius);
-  }
-
-  /*** Accordion Wrapper ***/
-  .nys-accordion {
-    display: flex;
-    flex-direction: column;
-    gap: var(--_nys-accordion-gap);
-  }
-`;
-var ne = Object.defineProperty, L1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && ne(e, t, s), s;
-};
-let ie = 0;
-const q1 = class q1 extends y {
-  /**************** Lifecycle Methods ****************/
-  constructor() {
-    super(), this.id = "", this.heading = "", this.expanded = !1, this.bordered = !1;
-  }
-  connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = this._generateUniqueId());
-  }
-  updated(e) {
-    e.has("expanded") && this._updateHeight();
-  }
-  /******************** Functions ********************/
-  _generateUniqueId() {
-    return `nys-accordionitem-${Date.now()}-${ie++}`;
-  }
-  _dispatchEvent() {
-    this.dispatchEvent(
-      new CustomEvent("nys-accordionitem-toggle", {
-        detail: { id: this.id, heading: this.heading, expanded: this.expanded },
-        bubbles: !0,
-        composed: !0
-      })
-    );
-  }
-  _handleExpand() {
-    this.expanded = !this.expanded, this._updateHeight(), this._dispatchEvent();
-  }
-  _handleKeydown(e) {
-    (e.key === " " || e.key === "Enter") && (e.preventDefault(), this._handleExpand());
-  }
-  _updateHeight() {
-    if (this._contentContainer)
-      if (this.expanded) {
-        const e = this._contentContainer.scrollHeight;
-        this._contentContainer.style.height = `${e}px`;
-      } else
-        this._contentContainer.style.height = "0", this._contentContainer.style.overflow = "hidden";
-  }
-  render() {
-    const e = `${this.id}-content`;
-    return l`<div id=${this.id} class="nys-accordionitem">
-      <button
-        class="nys-accordionitem__heading"
-        type="button"
-        @click=${this._handleExpand}
-        @keydown=${this._handleKeydown}
-        aria-expanded=${this.expanded ? "true" : "false"}
-        aria-controls=${e}
-      >
-        <p class="nys-accordionitem__heading-title">${this.heading}</p>
-        <nys-icon class="expand-icon" name="chevron_down" size="24"></nys-icon>
-      </div>
-      <div id=${e} class="nys-accordionitem__content ${this.expanded ? "expanded" : "collapsed"}" role="region">
-        <div class="nys-accordionitem__content-slot-container">
-          <div class="nys-accordionitem__content-slot-container-text">
-            <slot></slot>
-          </div>
-        </div>
-      </div>
-    </div>`;
-  }
-};
-q1.styles = Q1;
-let n1 = q1;
-L1([
-  r({ type: String })
-], n1.prototype, "id");
-L1([
-  r({ type: String })
-], n1.prototype, "heading");
-L1([
-  r({ type: Boolean, reflect: !0 })
-], n1.prototype, "expanded");
-L1([
-  r({ type: Boolean, reflect: !0 })
-], n1.prototype, "bordered");
-L1([
-  re(".nys-accordionitem__content")
-], n1.prototype, "_contentContainer");
-customElements.get("nys-accordionitem") || customElements.define("nys-accordionitem", n1);
-var ae = Object.defineProperty, I1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && ae(e, t, s), s;
-};
-let le = 0;
-const U1 = class U1 extends y {
-  /**************** Lifecycle Methods ****************/
-  constructor() {
-    super(), this.id = "", this.singleSelect = !1, this.bordered = !1;
-  }
-  connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = this._generateUniqueId());
-  }
-  updated(e) {
-    e.has("bordered") && this._applyBordered();
-  }
-  /******************** Functions ********************/
-  _generateUniqueId() {
-    return `nys-accordionitem-${Date.now()}-${le++}`;
-  }
-  _getAccordions() {
-    var o;
-    const e = (o = this.shadowRoot) == null ? void 0 : o.querySelector("slot");
-    return ((e == null ? void 0 : e.assignedElements()) || []).filter(
-      (s) => s.tagName.toLowerCase() === "nys-accordionitem"
-    );
-  }
-  _onAccordionToggle(e) {
-    if (!this.singleSelect) return;
-    const t = e.detail.id;
-    e.detail.expanded && this._getAccordions().forEach((s) => {
-      s.id !== t && s.expanded && (s.expanded = !1);
-    });
-  }
-  _applyBordered() {
-    this._getAccordions().forEach((e) => {
-      e.bordered = this.bordered;
-    });
-  }
-  render() {
-    return l`<div
-      id=${this.id}
-      class="nys-accordion"
-      @nys-accordionitem-toggle=${this._onAccordionToggle}
-    >
-      <slot></slot>
-    </div>`;
-  }
-};
-U1.styles = Q1;
-let v1 = U1;
-I1([
-  r({ type: String })
-], v1.prototype, "id");
-I1([
-  r({ type: Boolean, reflect: !0 })
-], v1.prototype, "singleSelect");
-I1([
-  r({ type: Boolean, reflect: !0 })
-], v1.prototype, "bordered");
-customElements.get("nys-accordion") || customElements.define("nys-accordion", v1);
-const ce = u`
+const q1 = g`
   :host {
     /* Global Alert Styles */
     --_nys-alert-border-width: var(--nys-border-width-lg, 4px);
@@ -529,14 +238,14 @@ const ce = u`
     text-decoration-thickness: 3px;
   }
 `;
-var de = Object.defineProperty, he = Object.getOwnPropertyDescriptor, D = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? he(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && de(e, t, s), s;
+var U1 = Object.defineProperty, O1 = Object.getOwnPropertyDescriptor, V = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? O1(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && U1(e, t, s), s;
 };
-let ye = 0;
-var s1;
-const S = (s1 = class extends y {
+let P1 = 0;
+var J;
+const L = (J = class extends y {
   constructor() {
     super(...arguments), this.id = "", this.heading = "", this.icon = "", this.dismissible = !1, this.duration = 0, this.text = "", this.primaryAction = "", this.secondaryAction = "", this.primaryLabel = "Learn more", this.secondaryLabel = "Dismiss", this._alertClosed = !1, this._slotHasContent = !0, this._type = "base", this._timeoutId = null;
   }
@@ -544,7 +253,7 @@ const S = (s1 = class extends y {
     return this._type;
   }
   set type(e) {
-    this._type = s1.VALID_TYPES.includes(
+    this._type = J.VALID_TYPES.includes(
       e
     ) ? e : "base";
   }
@@ -567,7 +276,7 @@ const S = (s1 = class extends y {
   }
   /******************** Functions ********************/
   _generateUniqueId() {
-    return `nys-alert-${Date.now()}-${ye++}`;
+    return `nys-alert-${Date.now()}-${P1++}`;
   }
   // Helper function for overriding default icons or checking special naming cases (e.g. type=success)
   _getIconName() {
@@ -578,7 +287,7 @@ const S = (s1 = class extends y {
   }
   _closeAlert() {
     this._alertClosed = !0, this.dispatchEvent(
-      new CustomEvent("nys-alert-closed", {
+      new CustomEvent("nys-alertClosed", {
         detail: { type: this.type, label: this.heading },
         bubbles: !0,
         composed: !0
@@ -602,8 +311,8 @@ const S = (s1 = class extends y {
   render() {
     var o, s;
     const { role: e, ariaLabel: t } = this.ariaAttributes;
-    return l`
-      ${this._alertClosed ? "" : l` <div
+    return a`
+      ${this._alertClosed ? "" : a` <div
             id=${this.id}
             class="nys-alert__container ${this._slotHasContent || ((o = this.text) == null ? void 0 : o.trim().length) > 0 ? "" : "nys-alert--centered"}"
             aria-label=${h(
@@ -619,15 +328,15 @@ const S = (s1 = class extends y {
             </div>
             <div class="nys-alert__texts" role=${e}>
               <p class="nys-alert__header">${this.heading}</p>
-              ${this._slotHasContent ? l`<slot></slot>` : ((s = this.text) == null ? void 0 : s.trim().length) > 0 ? l`<p class="nys-alert__text">${this.text}</p>` : ""}
-              ${this.primaryAction || this.secondaryAction ? l`<div class="nys-alert__actions">
-                    ${this.primaryAction ? l`<a
+              ${this._slotHasContent ? a`<slot></slot>` : ((s = this.text) == null ? void 0 : s.trim().length) > 0 ? a`<p class="nys-alert__text">${this.text}</p>` : ""}
+              ${this.primaryAction || this.secondaryAction ? a`<div class="nys-alert__actions">
+                    ${this.primaryAction ? a`<a
                           href=${h(this.primaryAction || void 0)}
                           class="nys-alert__action nys-alert__primary"
                         >
                           ${this.primaryLabel}
                         </a>` : ""}
-                    ${this.secondaryAction ? l`<a
+                    ${this.secondaryAction ? a`<a
                           href=${h(this.secondaryAction || void 0)}
                           class="nys-alert__action nys-alert__secondary"
                         >
@@ -635,7 +344,7 @@ const S = (s1 = class extends y {
                         </a>` : ""}
                   </div> ` : ""}
             </div>
-            ${this.dismissible ? l` <nys-button
+            ${this.dismissible ? a` <nys-button
                   id="dismiss-btn"
                   variant="ghost"
                   circle
@@ -648,56 +357,56 @@ const S = (s1 = class extends y {
           </div>`}
     `;
   }
-}, s1.styles = ce, s1.VALID_TYPES = [
+}, J.styles = q1, J.VALID_TYPES = [
   "base",
   "info",
   "success",
   "warning",
   "danger",
   "emergency"
-], s1);
-D([
+], J);
+V([
   r({ type: String })
-], S.prototype, "id", 2);
-D([
+], L.prototype, "id", 2);
+V([
   r({ type: String })
-], S.prototype, "heading", 2);
-D([
+], L.prototype, "heading", 2);
+V([
   r({ type: String })
-], S.prototype, "icon", 2);
-D([
+], L.prototype, "icon", 2);
+V([
   r({ type: Boolean, reflect: !0 })
-], S.prototype, "dismissible", 2);
-D([
+], L.prototype, "dismissible", 2);
+V([
   r({ type: Number, reflect: !0 })
-], S.prototype, "duration", 2);
-D([
+], L.prototype, "duration", 2);
+V([
   r({ type: String })
-], S.prototype, "text", 2);
-D([
+], L.prototype, "text", 2);
+V([
   r({ type: String })
-], S.prototype, "primaryAction", 2);
-D([
+], L.prototype, "primaryAction", 2);
+V([
   r({ type: String })
-], S.prototype, "secondaryAction", 2);
-D([
+], L.prototype, "secondaryAction", 2);
+V([
   r({ type: String })
-], S.prototype, "primaryLabel", 2);
-D([
+], L.prototype, "primaryLabel", 2);
+V([
   r({ type: String })
-], S.prototype, "secondaryLabel", 2);
-D([
-  B()
-], S.prototype, "_alertClosed", 2);
-D([
-  B()
-], S.prototype, "_slotHasContent", 2);
-D([
+], L.prototype, "secondaryLabel", 2);
+V([
+  D()
+], L.prototype, "_alertClosed", 2);
+V([
+  D()
+], L.prototype, "_slotHasContent", 2);
+V([
   r({ reflect: !0 })
-], S.prototype, "type", 1);
-let pe = S;
-customElements.get("nys-alert") || customElements.define("nys-alert", pe);
-const ue = u`
+], L.prototype, "type", 1);
+let R1 = L;
+customElements.get("nys-alert") || customElements.define("nys-alert", R1);
+const T1 = g`
   :host {
     /* Global Avatar Styles */
     --_nys-avatar-shape: var(--nys-radius-round, 1776px);
@@ -765,14 +474,14 @@ const ue = u`
     fill: currentColor;
   }
 `;
-var fe = Object.defineProperty, ge = Object.getOwnPropertyDescriptor, e1 = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? ge(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && fe(e, t, s), s;
+var F1 = Object.defineProperty, N1 = Object.getOwnPropertyDescriptor, Q = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? N1(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && F1(e, t, s), s;
 };
-let ve = 0;
-var o1;
-const F = (o1 = class extends y {
+let j1 = 0;
+var e1;
+const T = (e1 = class extends y {
   constructor() {
     super(...arguments), this.id = "", this.ariaLabel = "", this.image = "", this.initials = "", this.icon = "", this.color = "#555", this.lazy = !1, this._shape = "circle", this._slotHasContent = !0;
   }
@@ -781,14 +490,14 @@ const F = (o1 = class extends y {
   }
   // Setter for the `shape` property.
   set shape(e) {
-    this._shape = o1.VALID_SHAPES.includes(
+    this._shape = e1.VALID_SHAPES.includes(
       e
     ) ? e : "circle", this.requestUpdate("shape");
   }
   /******************** Functions ********************/
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-avatar-${Date.now()}-${ve++}`);
+    super.connectedCallback(), this.id || (this.id = `nys-avatar-${Date.now()}-${j1++}`);
   }
   firstUpdated() {
     this._checkSlotContent();
@@ -811,7 +520,7 @@ const F = (o1 = class extends y {
   }
   render() {
     var e, t, o, s;
-    return l`
+    return a`
       <label class="nys-avatar" id=${this.id}>
         <div class="nys-avatar__content">
           <div
@@ -823,20 +532,20 @@ const F = (o1 = class extends y {
       this.image ? void 0 : this.ariaLabel ? this.ariaLabel : "avatar"
     )}
           >
-            ${((t = this.image) == null ? void 0 : t.length) > 0 ? l`<img
+            ${((t = this.image) == null ? void 0 : t.length) > 0 ? a`<img
                   part="nys-avatar__image"
                   class="nys-avatar__image"
                   src=${this.image}
                   alt=${this.ariaLabel || "avatar"}
                   loading=${this.lazy ? "lazy" : "eager"}
-                />` : ((o = this.initials) == null ? void 0 : o.length) > 0 ? l`<span
+                />` : ((o = this.initials) == null ? void 0 : o.length) > 0 ? a`<span
                     part="nys-avatar__initials"
                     class="nys-avatar__initials"
                     aria-hidden="true"
                     >${this.initials}</span
-                  >` : this._slotHasContent ? l`<div part="nys-avatar__icon">
+                  >` : this._slotHasContent ? a`<div part="nys-avatar__icon">
                       <slot></slot>
-                    </div>` : l`<div part="nys-avatar__icon">
+                    </div>` : a`<div part="nys-avatar__icon">
                       <nys-icon
                         label="nys-avatar__icon"
                         name=${((s = this.icon) == null ? void 0 : s.length) > 0 ? this.icon : "account_circle"}
@@ -848,41 +557,41 @@ const F = (o1 = class extends y {
       </label>
     `;
   }
-}, o1.styles = ue, o1.VALID_SHAPES = [
+}, e1.styles = T1, e1.VALID_SHAPES = [
   "square",
   "rounded",
   "circle"
-], o1);
-e1([
+], e1);
+Q([
   r({ type: String })
-], F.prototype, "id", 2);
-e1([
+], T.prototype, "id", 2);
+Q([
   r({ type: String })
-], F.prototype, "ariaLabel", 2);
-e1([
+], T.prototype, "ariaLabel", 2);
+Q([
   r({ type: String })
-], F.prototype, "image", 2);
-e1([
+], T.prototype, "image", 2);
+Q([
   r({ type: String })
-], F.prototype, "initials", 2);
-e1([
+], T.prototype, "initials", 2);
+Q([
   r({ type: String })
-], F.prototype, "icon", 2);
-e1([
+], T.prototype, "icon", 2);
+Q([
   r({ type: String })
-], F.prototype, "color", 2);
-e1([
+], T.prototype, "color", 2);
+Q([
   r({ type: Boolean, reflect: !0 })
-], F.prototype, "lazy", 2);
-e1([
+], T.prototype, "lazy", 2);
+Q([
   r({ reflect: !0 })
-], F.prototype, "shape", 1);
-e1([
-  B()
-], F.prototype, "_slotHasContent", 2);
-let Ce = F;
-customElements.get("nys-avatar") || customElements.define("nys-avatar", Ce);
-const _e = u`
+], T.prototype, "shape", 1);
+Q([
+  D()
+], T.prototype, "_slotHasContent", 2);
+let G1 = T;
+customElements.get("nys-avatar") || customElements.define("nys-avatar", G1);
+const Y1 = g`
   :host {
   }
 
@@ -908,12 +617,12 @@ const _e = u`
     display: inline-flex;
   }
 `;
-var be = Object.defineProperty, V1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && be(e, t, s), s;
+var W1 = Object.defineProperty, v1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && W1(e, t, s), s;
 };
-const P1 = class P1 extends y {
+const k1 = class k1 extends y {
   constructor() {
     super(), this.position = "right", this.visible = !1, this.isMobile = !1, this.forceVisible = !1, this._handleScroll = this._handleScroll.bind(this), this._handleResize = this._handleResize.bind(this), this.mediaQuery = window.matchMedia("(max-width: 480px)");
   }
@@ -940,7 +649,7 @@ const P1 = class P1 extends y {
       this.position,
       this.visible ? "visible" : ""
     ].filter(Boolean).join(" ");
-    return l`<nys-button
+    return a`<nys-button
       id="nys-backtotop"
       prefixIcon="chevron_up"
       variant="outline"
@@ -952,22 +661,22 @@ const P1 = class P1 extends y {
     ></nys-button>`;
   }
 };
-P1.styles = _e;
-let d1 = P1;
-V1([
+k1.styles = Y1;
+let o1 = k1;
+v1([
   r({ type: String })
-], d1.prototype, "position");
-V1([
+], o1.prototype, "position");
+v1([
   r({ type: Boolean, reflect: !0 })
-], d1.prototype, "visible");
-V1([
-  B()
-], d1.prototype, "isMobile");
-V1([
-  B()
-], d1.prototype, "forceVisible");
-customElements.get("nys-backtotop") || customElements.define("nys-backtotop", d1);
-const me = u`
+], o1.prototype, "visible");
+v1([
+  D()
+], o1.prototype, "isMobile");
+v1([
+  D()
+], o1.prototype, "forceVisible");
+customElements.get("nys-backtotop") || customElements.define("nys-backtotop", o1);
+const K1 = g`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -1388,14 +1097,14 @@ const me = u`
     user-select: none;
   }
 `;
-var xe = Object.defineProperty, we = Object.getOwnPropertyDescriptor, C = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? we(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && xe(e, t, s), s;
+var X1 = Object.defineProperty, Q1 = Object.getOwnPropertyDescriptor, v = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Q1(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && X1(e, t, s), s;
 };
-let ke = 0;
-var w;
-const g = (w = class extends y {
+let J1 = 0;
+var k;
+const C = (k = class extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this._size = "md", this.fullWidth = !1, this._variant = "filled", this.inverted = !1, this.label = "", this.ariaLabel = "", this.prefixIcon = "", this.suffixIcon = "", this.circle = !1, this.icon = "", this.disabled = !1, this.form = "", this.value = "", this.ariaDescription = "", this._type = "button", this.onClick = () => {
@@ -1405,7 +1114,7 @@ const g = (w = class extends y {
     return this._size;
   }
   set size(e) {
-    this._size = w.VALID_SIZES.includes(
+    this._size = k.VALID_SIZES.includes(
       e
     ) ? e : "md";
   }
@@ -1413,7 +1122,7 @@ const g = (w = class extends y {
     return this._variant;
   }
   set variant(e) {
-    this._variant = w.VALID_VARIANTS.includes(
+    this._variant = k.VALID_VARIANTS.includes(
       e
     ) ? e : "filled";
   }
@@ -1421,7 +1130,7 @@ const g = (w = class extends y {
     return this._type;
   }
   set type(e) {
-    this._type = w.VALID_TYPES.includes(
+    this._type = k.VALID_TYPES.includes(
       e
     ) ? e : "button";
   }
@@ -1429,7 +1138,7 @@ const g = (w = class extends y {
     return this._target;
   }
   set target(e) {
-    this._target = w.VALID_TARGETS.includes(
+    this._target = k.VALID_TARGETS.includes(
       e
     ) ? e : "_self";
   }
@@ -1438,7 +1147,7 @@ const g = (w = class extends y {
   }
   /******************** Functions ********************/
   _generateUniqueId() {
-    return `nys-button-${Date.now()}-${ke++}`;
+    return `nys-button-${Date.now()}-${J1++}`;
   }
   _manageFormAction(e) {
     typeof this.onClick == "function" && this.onClick(e);
@@ -1471,20 +1180,11 @@ const g = (w = class extends y {
   }
   // Handle keydown for keyboard accessibility
   _handleKeydown(e) {
-    if (e.code === "Space" || e.code === "Enter" || e.key === " " || e.key === "Enter") {
-      if (this.disabled) return;
-      if (e.preventDefault(), this.href) {
-        const t = this.renderRoot.querySelector(
-          "a.nys-button"
-        );
-        t && t.click();
-      } else
-        this.click();
-    }
+    (e.code === "Space" || e.code === "Enter" || e.key === " " || e.key === "Enter") && (e.preventDefault(), this.disabled || this._manageFormAction(e));
   }
   render() {
-    return l`
-      ${this.href ? l`
+    return a`
+      ${this.href ? a`
             <div class="nys-button__linkwrapper">
               <a
                 class="nys-button"
@@ -1503,18 +1203,15 @@ const g = (w = class extends y {
                 @click=${this._handleClick}
                 @focus="${this._handleFocus}"
                 @blur="${this._handleBlur}"
-                @keydown="${this._handleKeydown}"
-                role="button"
-                tabindex="${this.disabled ? -1 : 0}"
               >
-                ${this.prefixIcon && this.variant !== "text" ? l`<slot name="prefix-icon">
+                ${this.prefixIcon && this.variant !== "text" ? a`<slot name="prefix-icon">
                       <nys-icon size="16" name=${this.prefixIcon}></nys-icon>
                     </slot>` : ""}
-                ${this.label && !this.circle ? l`<div class="nys-button__text">${this.label}</div>` : ""}
-                ${this.suffixIcon && this.variant !== "text" ? l`<slot name="suffix-icon">
+                ${this.label && !this.circle ? a`<label class="nys-button__text">${this.label}</label>` : ""}
+                ${this.suffixIcon && this.variant !== "text" ? a`<slot name="suffix-icon">
                       <nys-icon size="16" name=${this.suffixIcon}></nys-icon>
                     </slot>` : ""}
-                ${this.circle && this.icon ? l`<slot name="circle-icon"
+                ${this.circle && this.icon ? a`<slot name="circle-icon"
                       ><nys-icon
                         size=${this.size === "sm" ? "24" : this.size === "lg" ? "40" : "32"}
                         name=${this.icon}
@@ -1522,7 +1219,7 @@ const g = (w = class extends y {
                     ></slot>` : ""}
               </a>
             </div>
-          ` : l`
+          ` : a`
             <button
               class="nys-button"
               id=${h(this.id)}
@@ -1539,16 +1236,15 @@ const g = (w = class extends y {
               @focus="${this._handleFocus}"
               @blur="${this._handleBlur}"
               @keydown="${this._handleKeydown}"
-              role="button"
             >
-              ${this.prefixIcon && this.variant !== "text" ? l`<slot name="prefix-icon">
+              ${this.prefixIcon && this.variant !== "text" ? a`<slot name="prefix-icon">
                     <nys-icon size="16" name=${this.prefixIcon}></nys-icon>
                   </slot>` : ""}
-              ${this.label && !this.circle ? l`<div class="nys-button__text">${this.label}</div>` : ""}
-              ${this.suffixIcon && this.variant !== "text" ? l`<slot name="suffix-icon">
+              ${this.label && !this.circle ? a`<label class="nys-button__text">${this.label}</label>` : ""}
+              ${this.suffixIcon && this.variant !== "text" ? a`<slot name="suffix-icon">
                     <nys-icon size="16" name=${this.suffixIcon}></nys-icon>
                   </slot>` : ""}
-              ${this.circle && this.icon ? l`<slot name="circle-icon">
+              ${this.circle && this.icon ? a`<slot name="circle-icon">
                     <nys-icon
                       size=${this.size === "sm" ? "24" : this.size === "lg" ? "40" : "32"}
                       name=${this.icon}
@@ -1558,256 +1254,81 @@ const g = (w = class extends y {
           `}
     `;
   }
-}, w.VALID_SIZES = ["sm", "md", "lg"], w.VALID_VARIANTS = [
+}, k.VALID_SIZES = ["sm", "md", "lg"], k.VALID_VARIANTS = [
   "filled",
   "outline",
   "ghost",
   "text"
-], w.VALID_TYPES = ["submit", "reset", "button"], w.VALID_TARGETS = [
+], k.VALID_TYPES = ["submit", "reset", "button"], k.VALID_TARGETS = [
   "_self",
   "_blank",
   "_parent",
   "_top",
   "framename"
-], w.styles = me, w.formAssociated = !0, w);
-C([
+], k.styles = K1, k.formAssociated = !0, k);
+v([
   r({ type: String })
-], g.prototype, "id", 2);
-C([
+], C.prototype, "id", 2);
+v([
   r({ type: String, reflect: !0 })
-], g.prototype, "name", 2);
-C([
+], C.prototype, "name", 2);
+v([
   r({ reflect: !0 })
-], g.prototype, "size", 1);
-C([
+], C.prototype, "size", 1);
+v([
   r({ type: Boolean, reflect: !0 })
-], g.prototype, "fullWidth", 2);
-C([
+], C.prototype, "fullWidth", 2);
+v([
   r({ reflect: !0 })
-], g.prototype, "variant", 1);
-C([
+], C.prototype, "variant", 1);
+v([
   r({ type: Boolean, reflect: !0 })
-], g.prototype, "inverted", 2);
-C([
+], C.prototype, "inverted", 2);
+v([
   r({ type: String })
-], g.prototype, "label", 2);
-C([
+], C.prototype, "label", 2);
+v([
   r({ type: String })
-], g.prototype, "ariaLabel", 2);
-C([
+], C.prototype, "ariaLabel", 2);
+v([
   r({ type: String })
-], g.prototype, "prefixIcon", 2);
-C([
+], C.prototype, "prefixIcon", 2);
+v([
   r({ type: String })
-], g.prototype, "suffixIcon", 2);
-C([
+], C.prototype, "suffixIcon", 2);
+v([
   r({ type: Boolean, reflect: !0 })
-], g.prototype, "circle", 2);
-C([
+], C.prototype, "circle", 2);
+v([
   r({ type: String })
-], g.prototype, "icon", 2);
-C([
+], C.prototype, "icon", 2);
+v([
   r({ type: Boolean, reflect: !0 })
-], g.prototype, "disabled", 2);
-C([
+], C.prototype, "disabled", 2);
+v([
   r({ type: String })
-], g.prototype, "form", 2);
-C([
+], C.prototype, "form", 2);
+v([
   r({ type: String })
-], g.prototype, "value", 2);
-C([
+], C.prototype, "value", 2);
+v([
   r({ type: String })
-], g.prototype, "ariaDescription", 2);
-C([
+], C.prototype, "ariaDescription", 2);
+v([
   r({ reflect: !0 })
-], g.prototype, "type", 1);
-C([
+], C.prototype, "type", 1);
+v([
   r({ type: Function })
-], g.prototype, "onClick", 2);
-C([
+], C.prototype, "onClick", 2);
+v([
   r({ type: String })
-], g.prototype, "href", 2);
-C([
+], C.prototype, "href", 2);
+v([
   r({ reflect: !0 })
-], g.prototype, "target", 1);
-let Le = g;
-customElements.get("nys-button") || customElements.define("nys-button", Le);
-const Se = u`
-  :host {
-    /* Anything that can be overridden should be defined here */
-
-    /* Global Badge Styles */
-    --_nys-badge-width: fit-content;
-    --_nys-badge-height: var(--nys-size-600, 48px);
-    --_nys-badge-radius: var(--nys-radius-round, 1776px);
-    --_nys-badge-padding: var(--nys-space-2-px, 2px) var(--nys-space-100, 8px);
-    --_nys-badge-gap: var(--nys-space-50, 4px);
-    --_nys-badge-background-color: var(--nys-color-info-weak, #e5effa);
-    --_nys-badge-border-color: var(--nys-color-info-strong, #002971);
-    --_nys-badge-border-width: var(--nys-border-width-sm, 1px);
-
-    /* Typography */
-    --_nys-badge-font-size: var(--nys-font-size-ui-sm, 14px);
-    --_nys-badge-font-weight: var(--nys-font-weight-semibold, 600);
-    --_nys-badge-line-height: var(--nys-font-lineheight-ui-sm, 24px);
-    --_nys-badge-font-family: var(
-      --nys-font-family-ui,
-      var(
-        --nys-font-family-sans,
-        "Proxima Nova",
-        "Helvetica Neue",
-        "Helvetica",
-        "Arial",
-        sans-serif
-      )
-    );
-
-    /* Prefix Font Size */
-    --_nys-badge-prefix-font-weight: var(--nys-font-weight-regular, 400);
-  }
-
-  /* Sizes */
-  :host([size="sm"]) {
-    --_nys-badge-font-size: var(--nys-font-size-ui-xs, 12px);
-    --_nys-badge-line-height: var(--nys-font-lineheight-ui-xs, 20px);
-  }
-
-  /* Intent */
-  :host([intent="info"]) {
-    --_nys-badge-background-color: var(--nys-color-info-weak, #e5effa);
-    --_nys-badge-border-color: var(--nys-color-info-strong, #002971);
-  }
-  :host([intent="error"]) {
-    --_nys-badge-background-color: var(--nys-color-error-weak, #f7eaea);
-    --_nys-badge-border-color: var(--nys-color-error-strong, #721c1c);
-  }
-  :host([intent="success"]) {
-    --_nys-badge-background-color: var(--nys-color-success-weak, #e8f1ea);
-    --_nys-badge-border-color: var(--nys-color-success-strong, #0f3d18);
-  }
-  :host([intent="warning"]) {
-    --_nys-badge-background-color: var(--nys-color-warning-weak, #fefae5);
-    --_nys-badge-border-color: var(--nys-color-warning-strong, #6a5700);
-  }
-
-  .nys-badge {
-    display: flex;
-    width: fit-content;
-    align-items: center;
-    justify-content: center;
-    gap: var(--_nys-badge-gap);
-    padding: var(--_nys-badge-padding);
-    border: var(--_nys-badge-border-width) solid var(--_nys-badge-border-color);
-    background-color: var(--_nys-badge-background-color);
-    border-radius: var(--_nys-badge-radius);
-    font-family: var(--_nys-badge-font-family);
-    font-size: var(--_nys-badge-font-size);
-    font-weight: var(--_nys-badge-font-weight);
-    line-height: var(--_nys-badge-line-height);
-    cursor: default;
-    --nys-icon-color: var(--_nys-badge-border-color);
-  }
-
-  .nys-badge__prefix {
-    font-weight: var(--_nys-badge-prefix-font-weight);
-  }
-`;
-var $e = Object.defineProperty, De = Object.getOwnPropertyDescriptor, l1 = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? De(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && $e(e, t, s), s;
-}, M;
-const t1 = (M = class extends y {
-  constructor() {
-    super(...arguments), this.id = "", this.name = "", this._size = "md", this._intent = "info", this.prefix = "", this.label = "", this._prefixIcon = "", this._suffixIcon = "";
-  }
-  get size() {
-    return this._size;
-  }
-  set size(e) {
-    this._size = M.VALID_SIZES.includes(
-      e
-    ) ? e : "md";
-  }
-  get intent() {
-    return this._intent;
-  }
-  set intent(e) {
-    this._intent = M.VALID_INTENT.includes(
-      e
-    ) ? e : "info";
-  }
-  get prefixIcon() {
-    return this._prefixIcon;
-  }
-  set prefixIcon(e) {
-    e === "" || e === null ? this._prefixIcon = !0 : e === "false" || e === !1 ? this._prefixIcon = "" : this._prefixIcon = e;
-  }
-  get suffixIcon() {
-    return this._suffixIcon;
-  }
-  set suffixIcon(e) {
-    e === "" || e === null ? this._suffixIcon = !0 : e === "false" || e === !1 ? this._suffixIcon = "" : this._suffixIcon = e;
-  }
-  connectedCallback() {
-    super.connectedCallback();
-    const e = this.getAttribute("prefixicon");
-    e !== null && this.prefixIcon === "" && (this.prefixIcon = e);
-    const t = this.getAttribute("suffixicon");
-    t !== null && this.suffixIcon === "" && (this.suffixIcon = t);
-  }
-  resolveIcon(e) {
-    return e === !0 ? M.DEFAULT_ICONS[this.intent] ?? "info-circle" : typeof e == "string" && e.trim() !== "" ? e : null;
-  }
-  render() {
-    const e = this.resolveIcon(this.prefixIcon), t = this.resolveIcon(this.suffixIcon);
-    return l`
-      <div class="nys-badge">
-        ${e ? l`<nys-icon size="16" name=${e}></nys-icon>` : ""}
-        ${this.prefix ? l`<div class="nys-badge__prefix">${this.prefix}</div>` : ""}
-        <div class="nys-badge__label">${this.label}</div>
-        ${t ? l`<nys-icon size="16" name=${t}></nys-icon>` : ""}
-      </div>
-    `;
-  }
-}, M.VALID_SIZES = ["sm", "md"], M.VALID_INTENT = [
-  "info",
-  "error",
-  "success",
-  "warning"
-], M.styles = Se, M.DEFAULT_ICONS = {
-  info: "info",
-  error: "emergency_home",
-  success: "check_circle",
-  warning: "warning"
-}, M);
-l1([
-  r({ type: String })
-], t1.prototype, "id", 2);
-l1([
-  r({ type: String, reflect: !0 })
-], t1.prototype, "name", 2);
-l1([
-  r({ reflect: !0 })
-], t1.prototype, "size", 1);
-l1([
-  r({ reflect: !0 })
-], t1.prototype, "intent", 1);
-l1([
-  r({ type: String })
-], t1.prototype, "prefix", 2);
-l1([
-  r({ type: String })
-], t1.prototype, "label", 2);
-l1([
-  r({ type: String, attribute: "prefixicon" })
-], t1.prototype, "prefixIcon", 1);
-l1([
-  r({ type: String, attribute: "suffixicon" })
-], t1.prototype, "suffixIcon", 1);
-let Ee = t1;
-customElements.get("nys-badge") || customElements.define("nys-badge", Ee);
-const J1 = u`
+], C.prototype, "target", 1);
+let ee = C;
+customElements.get("nys-button") || customElements.define("nys-button", ee);
+const H1 = g`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -2173,63 +1694,61 @@ const J1 = u`
   .nys-checkbox__requiredwrapper {
     display: inline;
   }
+
+  /* Screen readers ONLY */
+  fieldset {
+    all: unset;
+    display: contents;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+  }
 `;
-var ze = Object.defineProperty, Ve = Object.getOwnPropertyDescriptor, N = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? Ve(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && ze(e, t, s), s;
+var te = Object.defineProperty, se = Object.getOwnPropertyDescriptor, U = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? se(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && te(e, t, s), s;
 };
-let Me = 0;
-var Y;
-const q = (Y = class extends y {
+let oe = 0;
+var j;
+const A = (j = class extends y {
   // allows use of elementInternals' API
   constructor() {
-    super(), this.id = "", this.name = "", this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.label = "", this.description = "", this.tile = !1, this._size = "md", this._internals = this.attachInternals();
+    super(), this.id = "", this.name = "", this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.label = "", this.description = "", this.tile = !1, this._slottedDescriptionText = "", this._size = "md", this._internals = this.attachInternals();
   }
   get size() {
     return this._size;
   }
   set size(e) {
-    this._size = Y.VALID_SIZES.includes(
+    this._size = j.VALID_SIZES.includes(
       e
     ) ? e : "md";
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-checkbox-${Date.now()}-${Me++}`), this.addEventListener("nys-change", this._handleCheckboxChange), this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-checkbox-${Date.now()}-${oe++}`), this.addEventListener("nys-change", this._handleCheckboxChange), this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("nys-change", this._handleCheckboxChange), this.removeEventListener("invalid", this._handleInvalid);
   }
   firstUpdated() {
-    this._setGroupExist(), this.updateCheckboxSize(), this.updateCheckboxTile(), this.updateCheckboxShowError();
+    this._setGroupExist(), this._updateCheckboxSize(), this._updateCheckboxTile(), this._updateCheckboxShowError(), this._getSlotDescriptionForAria();
   }
   updated(e) {
-    e.has("required") && this.required && this._setupCheckboxRequired(), e.has("size") && this.updateCheckboxSize(), e.has("tile") && this.updateCheckboxTile(), e.has("showError") && this.updateCheckboxShowError();
+    e.has("required") && this.required && this._setupCheckboxRequired(), e.has("size") && this._updateCheckboxSize(), e.has("tile") && this._updateCheckboxTile(), e.has("showError") && this._updateCheckboxShowError();
   }
   /********************** Functions **********************/
   _setGroupExist() {
     this.querySelectorAll("nys-checkbox").forEach((t) => {
       t.groupExist = !0;
     });
-  }
-  async _handleInvalid(e) {
-    e.preventDefault(), this.showError = !0, this._manageCheckboxRequired();
-    const t = this.querySelector("nys-checkbox"), o = t ? await t.getInputElement() : null;
-    if (o) {
-      const s = this._internals.form;
-      s ? Array.from(s.elements).find((c) => {
-        if (c.tagName.toLowerCase() === "nys-checkboxgroup") {
-          if (Array.from(
-            this.querySelectorAll("nys-checkbox")
-          ).filter(
-            (L) => L.checked
-          ).length === 0)
-            return c;
-        } else
-          return typeof c.checkValidity == "function" && !c.checkValidity();
-      }) === this && o.focus() : o.focus();
-    }
   }
   // Initial update on checkbox required attribute
   async _setupCheckboxRequired() {
@@ -2239,11 +1758,6 @@ const q = (Y = class extends y {
       t,
       o || this
     );
-  }
-  // Similar to how native forms handle multiple same-name fields, we group the selected values into a list for FormData.
-  _handleCheckboxChange(e) {
-    const t = e, { name: o } = t.detail, n = Array.from(this.querySelectorAll("nys-checkbox")).filter((i) => i.checked).map((i) => i.value);
-    this.name = o, this._internals.setFormValue(n.join(", ")), this._manageCheckboxRequired();
   }
   // Updates the required attribute of each checkbox in the group
   async _manageCheckboxRequired() {
@@ -2260,82 +1774,127 @@ const q = (Y = class extends y {
     }
   }
   // Updates the size of each checkbox in the group
-  updateCheckboxSize() {
+  _updateCheckboxSize() {
     this.querySelectorAll("nys-checkbox").forEach((t) => {
       t.setAttribute("size", this.size);
     });
   }
-  updateCheckboxTile() {
+  _updateCheckboxTile() {
     this.querySelectorAll("nys-checkbox").forEach((t) => {
       this.tile ? t.toggleAttribute("tile", !0) : t.removeAttribute("tile");
     });
   }
-  updateCheckboxShowError() {
+  _updateCheckboxShowError() {
     this.querySelectorAll("nys-checkbox").forEach((t) => {
       this.showError ? t.setAttribute("showError", "") : t.removeAttribute("showError");
     });
   }
-  render() {
-    return l` <div class="nys-checkboxgroup" role="group">
-      <nys-label
-        id=${this.id}
-        label=${this.label}
-        description=${this.description}
-        flag=${this.required ? "required" : this.optional ? "optional" : ""}
-      >
-        <slot name="description" slot="description">${this.description}</slot>
-      </nys-label>
-      <div class="nys-checkboxgroup__content">
-        <slot></slot>
-      </div>
-      <nys-errormessage
-        ?showError=${this.showError}
-        errorMessage=${this._internals.validationMessage || this.errorMessage}
-        .showDivider=${!this.tile}
-      ></nys-errormessage>
-    </div>`;
+  // Get the slotted text contents so native VO can attempt to announce it within the legend in the fieldset
+  _getSlotDescriptionForAria() {
+    var o;
+    const e = (o = this.shadowRoot) == null ? void 0 : o.querySelector(
+      'slot[name="description"]'
+    ), t = (e == null ? void 0 : e.assignedNodes({ flatten: !0 })) || [];
+    this._slottedDescriptionText = t.map((s) => {
+      var n;
+      return (n = s.textContent) == null ? void 0 : n.trim();
+    }).filter(Boolean).join(", ");
   }
-}, Y.VALID_SIZES = ["sm", "md"], Y.styles = J1, Y.formAssociated = !0, Y);
-N([
+  async _handleInvalid(e) {
+    e.preventDefault(), this.showError = !0, this._manageCheckboxRequired();
+    const t = this.querySelector("nys-checkbox"), o = t ? await t.getInputElement() : null;
+    if (o) {
+      const s = this._internals.form;
+      s ? Array.from(s.elements).find((c) => {
+        if (c.tagName.toLowerCase() === "nys-checkboxgroup") {
+          if (Array.from(
+            this.querySelectorAll("nys-checkbox")
+          ).filter(
+            ($) => $.checked
+          ).length === 0)
+            return c;
+        } else
+          return typeof c.checkValidity == "function" && !c.checkValidity();
+      }) === this && o.focus() : o.focus();
+    }
+  }
+  /******************** Event Handlers ********************/
+  // Similar to how native forms handle multiple same-name fields, we group the selected values into a list for FormData.
+  _handleCheckboxChange(e) {
+    const t = e, { name: o } = t.detail, n = Array.from(this.querySelectorAll("nys-checkbox")).filter((i) => i.checked).map((i) => i.value);
+    this.name = o, this._internals.setFormValue(n.join(", ")), this._manageCheckboxRequired();
+  }
+  render() {
+    return a`
+      <div class="nys-checkboxgroup">
+        <nys-label
+          id=${this.id}
+          label=${this.label}
+          description=${this.description}
+          flag=${this.required ? "required" : this.optional ? "optional" : ""}
+        >
+          <slot name="description" slot="description">${this.description}</slot>
+        </nys-label>
+        <div class="nys-checkboxgroup__content">
+          <fieldset>
+            <legend class="sr-only">
+              ${this.label}${this._slottedDescriptionText ? ` ${this._slottedDescriptionText}` : this.description ? ` ${this.description}` : ""}
+            </legend>
+            <slot></slot>
+          </fieldset>
+        </div>
+        <nys-errormessage
+          ?showError=${this.showError}
+          errorMessage=${this._internals.validationMessage || this.errorMessage}
+          .showDivider=${!this.tile}
+        ></nys-errormessage>
+      </div>
+    `;
+  }
+}, j.VALID_SIZES = ["sm", "md"], j.styles = H1, j.formAssociated = !0, j);
+U([
   r({ type: String })
-], q.prototype, "id", 2);
-N([
+], A.prototype, "id", 2);
+U([
   r({ type: String, reflect: !0 })
-], q.prototype, "name", 2);
-N([
+], A.prototype, "name", 2);
+U([
   r({ type: Boolean, reflect: !0 })
-], q.prototype, "required", 2);
-N([
+], A.prototype, "required", 2);
+U([
   r({ type: Boolean, reflect: !0 })
-], q.prototype, "optional", 2);
-N([
+], A.prototype, "optional", 2);
+U([
   r({ type: Boolean, reflect: !0 })
-], q.prototype, "showError", 2);
-N([
+], A.prototype, "showError", 2);
+U([
   r({ type: String })
-], q.prototype, "errorMessage", 2);
-N([
+], A.prototype, "errorMessage", 2);
+U([
   r({ type: String })
-], q.prototype, "label", 2);
-N([
+], A.prototype, "label", 2);
+U([
   r({ type: String })
-], q.prototype, "description", 2);
-N([
+], A.prototype, "description", 2);
+U([
   r({ type: Boolean, reflect: !0 })
-], q.prototype, "tile", 2);
-N([
+], A.prototype, "tile", 2);
+U([
+  D()
+], A.prototype, "_slottedDescriptionText", 2);
+U([
   r({ reflect: !0 })
-], q.prototype, "size", 1);
-let He = q;
-customElements.get("nys-checkboxgroup") || customElements.define("nys-checkboxgroup", He);
-var Ae = Object.defineProperty, Ie = Object.getOwnPropertyDescriptor, E = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? Ie(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && Ae(e, t, s), s;
+], A.prototype, "size", 1);
+let re = A;
+customElements.get("nys-checkboxgroup") || customElements.define("nys-checkboxgroup", re);
+var ne = Object.defineProperty, ie = Object.getOwnPropertyDescriptor, M = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? ie(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && ne(e, t, s), s;
 };
-let Ze = 0;
-var K;
-const $ = (K = class extends y {
+let ae = 0;
+var G;
+const S = (G = class extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.checked = !1, this.disabled = !1, this.required = !1, this.label = "", this.description = "", this.id = "", this.name = "", this.value = "", this.showError = !1, this.errorMessage = "", this.groupExist = !1, this.tile = !1, this._size = "md", this._internals = this.attachInternals();
@@ -2344,7 +1903,7 @@ const $ = (K = class extends y {
     return this._size;
   }
   set size(e) {
-    this._size = K.VALID_SIZES.includes(
+    this._size = G.VALID_SIZES.includes(
       e
     ) ? e : "md";
   }
@@ -2354,7 +1913,7 @@ const $ = (K = class extends y {
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-checkbox-${Date.now()}-${Ze++}`), this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-checkbox-${Date.now()}-${ae++}`), this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("invalid", this._handleInvalid);
@@ -2445,7 +2004,7 @@ const $ = (K = class extends y {
   }
   render() {
     var e;
-    return l`
+    return a`
       <label class="nys-checkbox">
         <div class="nys-checkbox__checkboxwrapper">
           <input
@@ -2460,31 +2019,32 @@ const $ = (K = class extends y {
             aria-checked="${this.checked}"
             aria-disabled="${this.disabled ? "true" : "false"}"
             aria-required="${this.required}"
+            aria-describedby="group-info"
             @change="${this._handleChange}"
             @focus="${this._handleFocus}"
             @blur="${this._handleBlur}"
             @keydown="${this._handleKeydown}"
           />
-          ${this.checked ? l`<nys-icon
+          ${this.checked ? a`<nys-icon
                 for="${this.id}"
                 name="check"
                 size="${this.size === "md" ? "4xl" : this.size === "sm" ? "2xl" : "xl"}"
                 class="nys-checkbox__icon"
               ></nys-icon>` : ""}
         </div>
-        ${this.label && l` <div class="nys-checkbox__text">
+        ${this.label && a` <div class="nys-checkbox__text">
           <div class="nys-checkbox__requiredwrapper">
             <label for=${this.id} class="nys-checkbox__label"
               >${this.label}</label
             >
-            ${this.required ? l`<label class="nys-checkbox__required">*</label>` : ""}
+            ${this.required ? a`<label class="nys-checkbox__required">*</label>` : ""}
           </div>
           <label for=${this.id} class="nys-checkbox__description">
             <slot name="description">${this.description}</slot>
           </label>
         </div>`}
       </label>
-      ${((e = this.parentElement) == null ? void 0 : e.tagName.toLowerCase()) !== "nys-checkboxgroup" ? l`<nys-errormessage
+      ${((e = this.parentElement) == null ? void 0 : e.tagName.toLowerCase()) !== "nys-checkboxgroup" ? a`<nys-errormessage
             id="single-error-message"
             ?showError=${this.showError}
             errorMessage=${this._internals.validationMessage || this.errorMessage}
@@ -2492,49 +2052,49 @@ const $ = (K = class extends y {
           ></nys-errormessage>` : ""}
     `;
   }
-}, K.VALID_SIZES = ["sm", "md"], K.styles = J1, K.formAssociated = !0, K);
-E([
+}, G.VALID_SIZES = ["sm", "md"], G.styles = H1, G.formAssociated = !0, G);
+M([
   r({ type: Boolean, reflect: !0 })
-], $.prototype, "checked", 2);
-E([
+], S.prototype, "checked", 2);
+M([
   r({ type: Boolean, reflect: !0 })
-], $.prototype, "disabled", 2);
-E([
+], S.prototype, "disabled", 2);
+M([
   r({ type: Boolean, reflect: !0 })
-], $.prototype, "required", 2);
-E([
+], S.prototype, "required", 2);
+M([
   r({ type: String })
-], $.prototype, "label", 2);
-E([
+], S.prototype, "label", 2);
+M([
   r({ type: String })
-], $.prototype, "description", 2);
-E([
+], S.prototype, "description", 2);
+M([
   r({ type: String })
-], $.prototype, "id", 2);
-E([
+], S.prototype, "id", 2);
+M([
   r({ type: String, reflect: !0 })
-], $.prototype, "name", 2);
-E([
+], S.prototype, "name", 2);
+M([
   r({ type: String })
-], $.prototype, "value", 2);
-E([
+], S.prototype, "value", 2);
+M([
   r({ type: Boolean, reflect: !0 })
-], $.prototype, "showError", 2);
-E([
+], S.prototype, "showError", 2);
+M([
   r({ type: String })
-], $.prototype, "errorMessage", 2);
-E([
+], S.prototype, "errorMessage", 2);
+M([
   r({ type: Boolean })
-], $.prototype, "groupExist", 2);
-E([
+], S.prototype, "groupExist", 2);
+M([
   r({ type: Boolean, reflect: !0 })
-], $.prototype, "tile", 2);
-E([
+], S.prototype, "tile", 2);
+M([
   r({ reflect: !0 })
-], $.prototype, "size", 1);
-let Be = $;
-customElements.get("nys-checkbox") || customElements.define("nys-checkbox", Be);
-const qe = u`
+], S.prototype, "size", 1);
+let le = S;
+customElements.get("nys-checkbox") || customElements.define("nys-checkbox", le);
+const ce = g`
   :host {
     --_nys-errormessage-font-family: var(
       --nys-font-family-ui,
@@ -2587,44 +2147,44 @@ const qe = u`
       var(--_nys-errormessage-color);
   }
 `;
-var Ue = Object.defineProperty, Z1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && Ue(e, t, s), s;
+var de = Object.defineProperty, x1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && de(e, t, s), s;
 };
-const E1 = class E1 extends y {
+const C1 = class C1 extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.showError = !1, this.errorMessage = "", this.showDivider = !1, this._internals = this.attachInternals();
   }
   render() {
-    return l`${this.showError ? l`<div class="nys-errormessage" ?showDivider=${this.showDivider}>
+    return a`${this.showError ? a`<div class="nys-errormessage" ?showDivider=${this.showDivider}>
           <nys-icon name="error" size="2xl"></nys-icon>
           ${this._internals.validationMessage || this.errorMessage}
         </div>` : ""}`;
   }
 };
-E1.styles = qe, E1.formAssociated = !0;
-let C1 = E1;
-Z1([
+C1.styles = ce, C1.formAssociated = !0;
+let c1 = C1;
+x1([
   r({ type: Boolean })
-], C1.prototype, "showError");
-Z1([
+], c1.prototype, "showError");
+x1([
   r({ type: String })
-], C1.prototype, "errorMessage");
-Z1([
+], c1.prototype, "errorMessage");
+x1([
   r({ type: Boolean, reflect: !0 })
-], C1.prototype, "showDivider");
-customElements.get("nys-errormessage") || customElements.define("nys-errormessage", C1);
-async function Pe(a, e) {
+], c1.prototype, "showDivider");
+customElements.get("nys-errormessage") || customElements.define("nys-errormessage", c1);
+async function he(l, e) {
   if (!e || e.trim() === "") return !0;
-  const t = e.toLowerCase().split(",").map((n) => n.trim()), o = a.name.toLowerCase(), s = o.includes(".") ? o.split(".").pop() : "";
+  const t = e.toLowerCase().split(",").map((n) => n.trim()), o = l.name.toLowerCase(), s = o.includes(".") ? o.split(".").pop() : "";
   for (const n of t)
-    if (n.startsWith(".") && n.slice(1) === s || n.endsWith("/*") && a.type.startsWith(n.slice(0, -1)) || a.type === n)
+    if (n.startsWith(".") && n.slice(1) === s || n.endsWith("/*") && l.type.startsWith(n.slice(0, -1)) || l.type === n)
       return !0;
   return !1;
 }
-const Oe = u`
+const ye = g`
   :host {
     /* Global Fileinput Styles */
     --_nys-fileinput-gap: var(--nys-space-100, 8px);
@@ -2744,7 +2304,7 @@ const Oe = u`
   progress::-webkit-progress-bar {
     background: var(--_nys-fileinput-progress-background);
   }
-`, Re = u`
+`, ue = g`
   :host {
     /* Global fileitem Styles */
     --_nys-fileitem-items-radius: var(--nys-radius-md, 4px);
@@ -2882,12 +2442,12 @@ const Oe = u`
     }
   }
 `;
-var Te = Object.defineProperty, M1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && Te(e, t, s), s;
+var pe = Object.defineProperty, _1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && pe(e, t, s), s;
 };
-const O1 = class O1 extends y {
+const L1 = class L1 extends y {
   constructor() {
     super(...arguments), this.filename = "", this.status = "pending", this.progress = 0, this.errorMessage = "";
   }
@@ -2906,7 +2466,7 @@ const O1 = class O1 extends y {
   }
   render() {
     const { startPart: e, endPart: t, extension: o } = this.splitFilename(this.filename);
-    return l`
+    return a`
       <div
         class="file-item ${this.status}"
         aria-busy=${this.status === "processing" ? "true" : "false"}
@@ -2925,7 +2485,7 @@ const O1 = class O1 extends y {
                 >${t}${o}</span
               >
             </div>
-            ${this.errorMessage ? l`<p
+            ${this.errorMessage ? a`<p
                   class="file-item__error"
                   role="alert"
                   aria-live="assertive"
@@ -2946,7 +2506,7 @@ const O1 = class O1 extends y {
             ariaLabel="Remove file: ${this.filename}"
           ></nys-button>
         </div>
-        ${this.status === "processing" ? l`<div
+        ${this.status === "processing" ? a`<div
               class="file-item__progress-container"
               role="progressbar"
               aria-valuemin="0"
@@ -2960,28 +2520,28 @@ const O1 = class O1 extends y {
     `;
   }
 };
-O1.styles = Re;
-let h1 = O1;
-M1([
+L1.styles = ue;
+let r1 = L1;
+_1([
   r({ type: String })
-], h1.prototype, "filename");
-M1([
+], r1.prototype, "filename");
+_1([
   r({ type: String })
-], h1.prototype, "status");
-M1([
+], r1.prototype, "status");
+_1([
   r({ type: Number })
-], h1.prototype, "progress");
-M1([
+], r1.prototype, "progress");
+_1([
   r({ type: String })
-], h1.prototype, "errorMessage");
-customElements.define("nys-fileitem", h1);
-var Fe = Object.defineProperty, z = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && Fe(e, t, s), s;
+], r1.prototype, "errorMessage");
+customElements.define("nys-fileitem", r1);
+var ge = Object.defineProperty, z = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && ge(e, t, s), s;
 };
-let Ne = 0;
-const z1 = class z1 extends y {
+let Ce = 0;
+const f1 = class f1 extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.label = "", this.description = "", this.multiple = !1, this.accept = "", this.disabled = !1, this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.dropzone = !1, this.width = "full", this._selectedFiles = [], this._dragActive = !1, this._internals = this.attachInternals();
@@ -3018,7 +2578,7 @@ const z1 = class z1 extends y {
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-fileinput-${Date.now()}-${Ne++}`), this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-fileinput-${Date.now()}-${Ce++}`), this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("invalid", this._handleInvalid);
@@ -3101,7 +2661,7 @@ const z1 = class z1 extends y {
   async _processFile(e) {
     e.status = "processing";
     try {
-      if (!await Pe(e.file, this.accept)) {
+      if (!await he(e.file, this.accept)) {
         e.status = "error", e.errorMsg = "File type is invalid.", this.requestUpdate();
         return;
       }
@@ -3187,7 +2747,7 @@ const z1 = class z1 extends y {
     }) : this._saveSelectedFiles(o[0]), this.requestUpdate(), this._dispatchChangeEvent();
   }
   render() {
-    return l`<div
+    return a`<div
       class="nys-fileinput"
       @nys-fileRemove=${this._handleFileRemove}
     >
@@ -3215,7 +2775,7 @@ const z1 = class z1 extends y {
         @change=${this._handleFileChange}
       />
 
-      ${this.dropzone ? l`<div
+      ${this.dropzone ? a`<div
             class="nys-fileinput__dropzone
             ${this._dragActive ? "drag-active" : ""}
             ${this._isDropDisabled ? "disabled" : ""}
@@ -3227,7 +2787,7 @@ const z1 = class z1 extends y {
             @drop=${this._isDropDisabled ? null : this._onDrop}
             aria-label="Drag files here or choose from folder"
           >
-            ${this._dragActive ? l`<p>Drop file to upload</p>` : l` <nys-button
+            ${this._dragActive ? a`<p>Drop file to upload</p>` : a` <nys-button
                     id=${this.id}
                     name="file-btn"
                     label=${this.multiple ? "Choose files" : "Choose file"}
@@ -3240,7 +2800,7 @@ const z1 = class z1 extends y {
     }}
                   ></nys-button>
                   <p>or drag here</p>`}
-          </div>` : l`<nys-button
+          </div>` : a`<nys-button
             id=${this.id}
             name="file-btn"
             label=${this.multiple ? "Choose files" : "Choose file"}
@@ -3250,16 +2810,16 @@ const z1 = class z1 extends y {
             ?disabled=${this.disabled || !this.multiple && this._selectedFiles.length > 0}
             .onClick=${() => this._openFileDialog()}
           ></nys-button>`}
-      ${this.showError ? l`
+      ${this.showError ? a`
             <nys-errormessage
               ?showError=${this.showError}
               errorMessage=${this._internals.validationMessage || this.errorMessage}
             ></nys-errormessage>
           ` : null}
-      ${this._selectedFiles.length > 0 ? l`
+      ${this._selectedFiles.length > 0 ? a`
             <ul>
               ${this._selectedFiles.map(
-      (e) => l`<li>
+      (e) => a`<li>
                     <nys-fileitem
                       filename=${e.file.name}
                       status=${e.status}
@@ -3273,49 +2833,49 @@ const z1 = class z1 extends y {
     </div>`;
   }
 };
-z1.styles = Oe, z1.formAssociated = !0;
-let x = z1;
+f1.styles = ye, f1.formAssociated = !0;
+let w = f1;
 z([
   r({ type: String })
-], x.prototype, "id");
+], w.prototype, "id");
 z([
   r({ type: String, reflect: !0 })
-], x.prototype, "name");
+], w.prototype, "name");
 z([
   r({ type: String })
-], x.prototype, "label");
+], w.prototype, "label");
 z([
   r({ type: String })
-], x.prototype, "description");
+], w.prototype, "description");
 z([
   r({ type: Boolean })
-], x.prototype, "multiple");
+], w.prototype, "multiple");
 z([
   r({ type: String })
-], x.prototype, "accept");
+], w.prototype, "accept");
 z([
   r({ type: Boolean, reflect: !0 })
-], x.prototype, "disabled");
+], w.prototype, "disabled");
 z([
   r({ type: Boolean, reflect: !0 })
-], x.prototype, "required");
+], w.prototype, "required");
 z([
   r({ type: Boolean, reflect: !0 })
-], x.prototype, "optional");
+], w.prototype, "optional");
 z([
   r({ type: Boolean, reflect: !0 })
-], x.prototype, "showError");
+], w.prototype, "showError");
 z([
   r({ type: String })
-], x.prototype, "errorMessage");
+], w.prototype, "errorMessage");
 z([
   r({ type: Boolean })
-], x.prototype, "dropzone");
+], w.prototype, "dropzone");
 z([
   r({ type: String, reflect: !0 })
-], x.prototype, "width");
-customElements.get("nys-fileinput") || customElements.define("nys-fileinput", x);
-const je = {
+], w.prototype, "width");
+customElements.get("nys-fileinput") || customElements.define("nys-fileinput", w);
+const fe = {
   // --------- UX Team Main Library (below) --------- //
   // *** CORE *** //
   account_circle: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -3364,14 +2924,6 @@ const je = {
   </mask>
   <g mask="url(#mask0_12383_539)">
     <path d="M12 13.4L7.10005 18.3C6.91672 18.4833 6.68338 18.575 6.40005 18.575C6.11672 18.575 5.88338 18.4833 5.70005 18.3C5.51672 18.1167 5.42505 17.8833 5.42505 17.6C5.42505 17.3167 5.51672 17.0833 5.70005 16.9L10.6 12L5.70005 7.09999C5.51672 6.91665 5.42505 6.68332 5.42505 6.39999C5.42505 6.11665 5.51672 5.88332 5.70005 5.69999C5.88338 5.51665 6.11672 5.42499 6.40005 5.42499C6.68338 5.42499 6.91672 5.51665 7.10005 5.69999L12 10.6L16.9 5.69999C17.0834 5.51665 17.3167 5.42499 17.6 5.42499C17.8834 5.42499 18.1167 5.51665 18.3 5.69999C18.4834 5.88332 18.575 6.11665 18.575 6.39999C18.575 6.68332 18.4834 6.91665 18.3 7.09999L13.4 12L18.3 16.9C18.4834 17.0833 18.575 17.3167 18.575 17.6C18.575 17.8833 18.4834 18.1167 18.3 18.3C18.1167 18.4833 17.8834 18.575 17.6 18.575C17.3167 18.575 17.0834 18.4833 16.9 18.3L12 13.4Z" fill="var(--nys-icon-color, currentcolor)"/>
-  </g>
-</svg>`,
-  code: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <mask id="mask0_8115_296" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-    <rect width="24" height="24" fill="#D9D9D9"/>
-  </mask>
-  <g mask="url(#mask0_8115_296)">
-    <path d="M4.82505 12.025L8.70005 15.9C8.88338 16.0834 8.97505 16.3167 8.97505 16.6C8.97505 16.8834 8.88338 17.1167 8.70005 17.3C8.51672 17.4834 8.28338 17.575 8.00005 17.575C7.71672 17.575 7.48338 17.4834 7.30005 17.3L2.70005 12.7C2.60005 12.6 2.52922 12.4917 2.48755 12.375C2.44588 12.2584 2.42505 12.1334 2.42505 12C2.42505 11.8667 2.44588 11.7417 2.48755 11.625C2.52922 11.5084 2.60005 11.4 2.70005 11.3L7.30005 6.70002C7.50005 6.50002 7.73755 6.40002 8.01255 6.40002C8.28755 6.40002 8.52505 6.50002 8.72505 6.70002C8.92505 6.90002 9.02505 7.13752 9.02505 7.41252C9.02505 7.68752 8.92505 7.92502 8.72505 8.12502L4.82505 12.025ZM19.175 11.975L15.3 8.10002C15.1167 7.91669 15.025 7.68336 15.025 7.40002C15.025 7.11669 15.1167 6.88336 15.3 6.70002C15.4834 6.51669 15.7167 6.42502 16 6.42502C16.2834 6.42502 16.5167 6.51669 16.7 6.70002L21.3 11.3C21.4 11.4 21.4709 11.5084 21.5125 11.625C21.5542 11.7417 21.575 11.8667 21.575 12C21.575 12.1334 21.5542 12.2584 21.5125 12.375C21.4709 12.4917 21.4 12.6 21.3 12.7L16.7 17.3C16.5 17.5 16.2667 17.5959 16 17.5875C15.7334 17.5792 15.5 17.475 15.3 17.275C15.1 17.075 15 16.8375 15 16.5625C15 16.2875 15.1 16.05 15.3 15.85L19.175 11.975Z" fill="var(--nys-icon-color, currentcolor)"/>
   </g>
 </svg>`,
   download: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -3895,7 +3447,7 @@ const je = {
     <path d="M6.30002 22.7751C5.43369 22.7751 4.69211 22.4667 4.07527 21.8498C3.45844 21.2328 3.15002 20.4913 3.15002 19.6251V10.2251C3.15002 9.35893 3.45844 8.61735 4.07527 8.00035C4.69211 7.38351 5.43369 7.0751 6.30002 7.0751H6.62502V5.8001C6.62502 4.28343 7.14586 2.99593 8.18752 1.9376C9.22919 0.879264 10.5 0.350098 12 0.350098C13.5 0.350098 14.7709 0.879264 15.8125 1.9376C16.8542 2.99593 17.375 4.28343 17.375 5.8001V7.0751H17.7C18.5662 7.0751 19.3078 7.38351 19.9248 8.00035C20.5416 8.61735 20.85 9.35893 20.85 10.2251V19.6251C20.85 20.4913 20.5416 21.2328 19.9248 21.8498C19.3078 22.4667 18.5662 22.7751 17.7 22.7751H6.30002ZM12 16.9251C12.55 16.9251 13.0209 16.7293 13.4125 16.3376C13.8042 15.9459 14 15.4751 14 14.9251C14 14.3751 13.8042 13.9043 13.4125 13.5126C13.0209 13.1209 12.55 12.9251 12 12.9251C11.45 12.9251 10.9792 13.1209 10.5875 13.5126C10.1959 13.9043 10 14.3751 10 14.9251C10 15.4751 10.1959 15.9459 10.5875 16.3376C10.9792 16.7293 11.45 16.9251 12 16.9251ZM9.77502 7.0751H14.225V5.8001C14.225 5.16126 14.0125 4.61818 13.5875 4.17085C13.1625 3.72368 12.6334 3.5001 12 3.5001C11.3667 3.5001 10.8375 3.72368 10.4125 4.17085C9.98752 4.61818 9.77502 5.16126 9.77502 5.8001V7.0751Z" fill="var(--nys-icon-color, currentcolor)"/>
   </g>
 </svg>`
-}, Ge = u`
+}, ve = g`
   :host {
     display: inline-block;
     --_nys-icon-size: 0.7em; /* If cap isn't supported, a fallback value of 0.7em is used, as it closely approximates the height of capital letters in most fonts. */
@@ -3996,12 +3548,12 @@ const je = {
     transform: scale(-1, -1);
   }
 `;
-var Ye = Object.defineProperty, Ke = Object.getOwnPropertyDescriptor, b1 = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? Ke(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && Ye(e, t, s), s;
-}, r1;
-const p1 = (r1 = class extends y {
+var _e = Object.defineProperty, be = Object.getOwnPropertyDescriptor, h1 = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? be(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && _e(e, t, s), s;
+}, t1;
+const i1 = (t1 = class extends y {
   constructor() {
     super(...arguments), this.name = "", this.ariaLabel = "", this.rotate = "0", this.flip = "", this.color = "", this._size = "sm";
   }
@@ -4009,21 +3561,21 @@ const p1 = (r1 = class extends y {
     return this._size;
   }
   set size(e) {
-    this._size = r1.VALID_TYPES.includes(
+    this._size = t1.VALID_TYPES.includes(
       e
     ) ? e : "sm";
   }
   getIcon() {
-    const e = je[this.name];
+    const e = fe[this.name];
     if (!e) return null;
     const s = new DOMParser().parseFromString(e, "image/svg+xml").documentElement;
     return s instanceof SVGElement ? (s.setAttribute("role", "img"), this.ariaLabel ? (s.setAttribute("aria-label", this.ariaLabel), s.removeAttribute("aria-hidden")) : (s.setAttribute("aria-hidden", "true"), s.removeAttribute("aria-label")), s.style.rotate = `${this.rotate}deg`, s.style.color = this.color || "currentcolor", s.classList.add(`nys-icon--${this.size}`), s.classList.add("nys-icon--svg"), this.flip && s.classList.add(`nys-icon--flip-${this.flip}`), s) : null;
   }
   render() {
     const e = this.getIcon();
-    return e ? l`${e}` : null;
+    return e ? a`${e}` : null;
   }
-}, r1.styles = Ge, r1.VALID_TYPES = [
+}, t1.styles = ve, t1.VALID_TYPES = [
   "2xs",
   "xs",
   "sm",
@@ -4040,28 +3592,28 @@ const p1 = (r1 = class extends y {
   "40",
   "48",
   "64"
-], r1);
-b1([
+], t1);
+h1([
   r({ type: String, reflect: !0 })
-], p1.prototype, "name", 2);
-b1([
+], i1.prototype, "name", 2);
+h1([
   r({ type: String })
-], p1.prototype, "ariaLabel", 2);
-b1([
+], i1.prototype, "ariaLabel", 2);
+h1([
   r({ type: String })
-], p1.prototype, "rotate", 2);
-b1([
+], i1.prototype, "rotate", 2);
+h1([
   r({ type: String })
-], p1.prototype, "flip", 2);
-b1([
+], i1.prototype, "flip", 2);
+h1([
   r({ type: String })
-], p1.prototype, "color", 2);
-b1([
+], i1.prototype, "color", 2);
+h1([
   r({ reflect: !0 })
-], p1.prototype, "size", 1);
-let We = p1;
-customElements.get("nys-icon") || customElements.define("nys-icon", We);
-const Xe = u`
+], i1.prototype, "size", 1);
+let me = i1;
+customElements.get("nys-icon") || customElements.define("nys-icon", me);
+const xe = g`
   :host {
     /* Label Typography */
     --_nys-label-font-family: var(
@@ -4135,22 +3687,22 @@ const Xe = u`
     color: var(--nys-optional-font-color);
   }
 `;
-var Qe = Object.defineProperty, H1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && Qe(e, t, s), s;
+var we = Object.defineProperty, b1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && we(e, t, s), s;
 };
-const R1 = class R1 extends y {
+const S1 = class S1 extends y {
   constructor() {
     super(...arguments), this.id = "", this.label = "", this.description = "", this.flag = "";
   }
   render() {
-    return l`
+    return a`
       <div class="nys-label">
         <label for=${this.id} class="nys-label__label"
           >${this.label}
-          ${this.flag === "required" ? l`<label class="nys-label__required">*</label>` : ""}
-          ${this.flag === "optional" ? l`<label class="nys-label__optional">(Optional)</label>` : ""}</label
+          ${this.flag === "required" ? a`<label class="nys-label__required">*</label>` : ""}
+          ${this.flag === "optional" ? a`<label class="nys-label__optional">(Optional)</label>` : ""}</label
         >
         <label for=${this.id} class="nys-label__description">
           <slot name="description">${this.description}</slot>
@@ -4159,22 +3711,22 @@ const R1 = class R1 extends y {
     `;
   }
 };
-R1.styles = Xe;
-let y1 = R1;
-H1([
+S1.styles = xe;
+let n1 = S1;
+b1([
   r({ type: String })
-], y1.prototype, "id");
-H1([
+], n1.prototype, "id");
+b1([
   r({ type: String })
-], y1.prototype, "label");
-H1([
+], n1.prototype, "label");
+b1([
   r({ type: String })
-], y1.prototype, "description");
-H1([
+], n1.prototype, "description");
+b1([
   r({ type: String })
-], y1.prototype, "flag");
-customElements.get("nys-label") || customElements.define("nys-label", y1);
-const ee = u`
+], n1.prototype, "flag");
+customElements.get("nys-label") || customElements.define("nys-label", n1);
+const A1 = g`
   :host {
     /* Global Radiobutton Styles */
     --_nys-radiobutton-size: var(--nys-size-400, 32px);
@@ -4400,6 +3952,7 @@ const ee = u`
     outline-offset: var(--_nys-radiobutton-outline-offset);
     outline: none;
     margin: 0 0 auto 0; /* Causes centered radio button if single line of label but top aligned if multiline */
+    box-sizing: border-box;
   }
 
   /* Pointer cursor for unchecked radio button */
@@ -4409,51 +3962,55 @@ const ee = u`
   }
 
   /* Checked */
-  .nys-radiobutton__radio:not(:disabled):checked {
+  input:not(:disabled):checked + .nys-radiobutton__radio {
     background-image: url('data:image/svg+xml;utf8,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="11" stroke="white" stroke-width="6"/></svg>');
     background-color: var(--_nys-radiobutton-checked-color-bg);
   }
   :host([tile])
-    .nys-radiobutton:has(.nys-radiobutton__radio:not(:disabled):checked) {
+    .nys-radiobutton:has(input:not(:disabled):checked)
+    + .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-checked-tile-border-color);
     background-color: var(--_nys-radiobutton-checked-tile-bg-color);
   }
   :host([tile])
-    .nys-radiobutton:has(.nys-radiobutton__radio:not(:disabled):checked:hover) {
+    .nys-radiobutton:has(input:not(:disabled):checked:hover)
+    + .nys-radiobutton__radio {
     cursor: default;
   }
 
   /* Checked + Disabled */
-  .nys-radiobutton__radio:disabled:checked {
+  input:disabled:checked + .nys-radiobutton__radio {
     background-image: url('data:image/svg+xml;utf8,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="11" stroke="white" stroke-width="6"/></svg>');
     border-color: var(--_nys-radiobutton-disabled-checked-color-border);
     background-color: var(--_nys-radiobutton-disabled-checked-color-bg);
   }
-  :host([tile]) .nys-radiobutton:has(.nys-radiobutton__radio:disabled:checked) {
+  :host([tile])
+    .nys-radiobutton:has(input:disabled:checked)
+    + .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-disabled-tile-border-color);
     background-color: var(--_nys-radiobutton-disabled-tile-bg-color);
   }
 
   /* Disabled */
-  .nys-radiobutton__radio:disabled {
+  input:disabled + .nys-radiobutton__radio {
     background-color: var(--_nys-radiobutton-disabled-color-bg);
     border-color: var(--_nys-radiobutton-disabled-color-border);
     cursor: not-allowed;
   }
-  :host([tile]) .nys-radiobutton:has(.nys-radiobutton__radio:disabled) {
+  :host([tile]) .nys-radiobutton:has(input:disabled) + .nys-radiobutton__radio {
     background-color: var(--_nys-radiobutton-disabled-color-bg);
     border-color: var(--_nys-radiobutton-disabled-color-border);
     cursor: not-allowed;
   }
 
   /* Hover - only allow hover on unchecked */
-  .nys-radiobutton__radio:hover:not(:disabled):not(:checked) {
+  input:hover:not(:disabled):not(:checked) + .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-hover-color-border);
     background-color: var(--_nys-radiobutton-hover-color-bg);
   }
   :host([tile])
     .nys-radiobutton:has(
-      .nys-radiobutton__radio:hover:not(:disabled):not(:checked)
+      input:hover:not(:disabled):not(:checked) + .nys-radiobutton__radio
     ) {
     border-color: var(--_nys-radiobutton-hover-tile-border-color);
     background-color: var(--_nys-radiobutton-hover-tile-bg-color);
@@ -4462,13 +4019,13 @@ const ee = u`
   }
 
   /* Pressed - only allow pressed on unchecked */
-  .nys-radiobutton__radio:active:not(:disabled):not(:checked) {
+  input:active:not(:disabled):not(:checked) + .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-pressed-color-border);
     background-color: var(--_nys-radiobutton-pressed-color-bg);
   }
   :host([tile])
     .nys-radiobutton:has(
-      .nys-radiobutton__radio:active:not(:disabled):not(:checked)
+      input:active:not(:disabled):not(:checked) + .nys-radiobutton__radio
     ) {
     border-color: var(--_nys-radiobutton-pressed-tile-border-color);
     background-color: var(--_nys-radiobutton-pressed-tile-bg-color);
@@ -4477,7 +4034,7 @@ const ee = u`
   }
 
   /* Focused */
-  :host(:not([tile])) .nys-radiobutton__radio:focus-visible {
+  :host(:not([tile])) input:focus-visible + .nys-radiobutton__radio {
     outline: solid var(--_nys-radiobutton-width-focus)
       var(--_nys-radiobutton-color-focus);
   }
@@ -4517,45 +4074,57 @@ const ee = u`
   }
 
   /* Disabled label */
-  .nys-radiobutton__radio:disabled
-    + .nys-radiobutton__text
-    .nys-radiobutton__label,
-  .nys-radiobutton__radio:disabled
-    + .nys-radiobutton__text
-    .nys-radiobutton__description {
+  input:disabled + span + .nys-radiobutton__text .nys-radiobutton__label,
+  input:disabled + span + .nys-radiobutton__text .nys-radiobutton__description {
     color: var(--_nys-radiobutton-disabled-color-text);
     cursor: not-allowed;
   }
+
+  /* Screen readers ONLY */
+  fieldset {
+    all: unset;
+    display: contents;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+  }
 `;
-var Je = Object.defineProperty, et = Object.getOwnPropertyDescriptor, U = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? et(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && Je(e, t, s), s;
+var ke = Object.defineProperty, Le = Object.getOwnPropertyDescriptor, Z = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Le(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && ke(e, t, s), s;
 };
-let tt = 0;
-var W;
-const H = (W = class extends y {
+let Se = 0;
+var Y;
+const E = (Y = class extends y {
   // allows use of elementInternals' API
   constructor() {
-    super(), this.id = "", this.name = "", this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.label = "", this.description = "", this.selectedValue = null, this._size = "md", this.tile = !1, this._internals = this.attachInternals();
+    super(), this.id = "", this.name = "", this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.label = "", this.description = "", this.tile = !1, this.selectedValue = null, this._slottedDescriptionText = "", this._size = "md", this._internals = this.attachInternals();
   }
   get size() {
     return this._size;
   }
   set size(e) {
-    this._size = W.VALID_SIZES.includes(
+    this._size = Y.VALID_SIZES.includes(
       e
     ) ? e : "md";
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-radiogroup-${Date.now()}-${tt++}`), this.addEventListener("nys-change", this._handleRadioButtonChange), this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-radiogroup-${Date.now()}-${Se++}`), this.addEventListener("nys-change", this._handleRadioButtonChange), this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("nys-change", this._handleRadioButtonChange), this.removeEventListener("invalid", this._handleInvalid);
   }
-  firstUpdated() {
-    this._initializeCheckedRadioValue(), this._setValue(), this.setRadioButtonRequire(), this._updateRadioButtonsSize(), this._updateRadioButtonsTile(), this._updateRadioButtonsShowError();
+  async firstUpdated() {
+    this._initializeCheckedRadioValue(), this._setValue(), this._setRadioButtonRequire(), this._updateRadioButtonsSize(), this._updateRadioButtonsTile(), this._updateRadioButtonsShowError(), this._getSlotDescriptionForAria(), await this.updateComplete, this._initializeChildAttributes(), this._updateGroupTabIndex();
   }
   updated(e) {
     (e.has("required") || e.has("selectedValue")) && this._manageRequire(), e.has("size") && this._updateRadioButtonsSize(), e.has("tile") && this._updateRadioButtonsTile(), e.has("showError") && this._updateRadioButtonsShowError();
@@ -4570,8 +4139,9 @@ const H = (W = class extends y {
   _setValue() {
     this._internals.setFormValue(this.selectedValue);
   }
-  // Updates the "require" attribute of the first radiobutton underneath a radiogroup to ensure requirement for all radiobutton under the same name/group
-  setRadioButtonRequire() {
+  // Updates the "require" attribute of the first radiobutton underneath a radiogroup.
+  // This will make sure there's a requirement for all radiobutton under the same name/group
+  _setRadioButtonRequire() {
     this.querySelectorAll("nys-radiobutton").forEach((t, o) => {
       this.required && o === 0 && t.setAttribute("required", "required");
     });
@@ -4589,7 +4159,40 @@ const H = (W = class extends y {
     const e = this.querySelector("nys-radiobutton[checked]");
     e && (this.selectedValue = e.getAttribute("value"), this._internals.setFormValue(this.selectedValue));
   }
+  /********************** Core Keyboard & Click Logic **********************/
+  _getAllRadios() {
+    return Array.from(this.querySelectorAll("nys-radiobutton"));
+  }
+  // Arrow / Space / Enter navigation at group level
+  async _handleKeyDown(e) {
+    if (![
+      "ArrowUp",
+      "ArrowDown",
+      "ArrowLeft",
+      "ArrowRight",
+      " ",
+      "Enter"
+    ].includes(e.key)) return;
+    e.preventDefault();
+    const o = this._getAllRadios().filter((b) => !b.disabled), s = o.find((b) => b.checked) || o[0], n = e.key === " " || e.key === "Enter" ? 0 : ["ArrowUp", "ArrowLeft"].includes(e.key) ? -1 : 1;
+    let i = o.indexOf(s) + n;
+    i < 0 && (i = o.length - 1), i >= o.length && (i = 0);
+    const c = o[i], d = await c.getInputElement();
+    d == null || d.click(), this._updateGroupTabIndex(), c.focus();
+  }
+  _updateGroupTabIndex() {
+    const e = this._getAllRadios(), t = e.find((o) => o.checked) || e[0];
+    e.forEach((o) => {
+      o.disabled ? o.tabIndex = -1 : o.tabIndex = o === t ? 0 : -1, o.setAttribute("aria-checked", o.checked ? "true" : "false"), o.setAttribute("aria-disabled", o.disabled ? "true" : "false"), o.setAttribute("aria-required", this.required ? "true" : "false");
+    });
+  }
   /********************** Functions **********************/
+  // Apply ARIA & initial tabindex to each child radio
+  _initializeChildAttributes() {
+    this._getAllRadios().forEach((t) => {
+      t.setAttribute("role", "radio"), t.setAttribute("aria-checked", String(t.checked)), t.setAttribute("aria-required", String(t.required)), t.setAttribute("aria-disabled", String(t.disabled)), t.setAttribute("tabindex", "-1");
+    });
+  }
   // Updates the size of each radiobutton underneath a radiogroup to ensure size standardization
   _updateRadioButtonsSize() {
     this.querySelectorAll("nys-radiobutton").forEach((t) => {
@@ -4606,10 +4209,22 @@ const H = (W = class extends y {
       this.showError ? t.setAttribute("showError", "") : t.removeAttribute("showError");
     });
   }
+  // Get the slotted text contents so native VO can attempt to announce it within the legend in the fieldset
+  _getSlotDescriptionForAria() {
+    var o;
+    const e = (o = this.shadowRoot) == null ? void 0 : o.querySelector(
+      'slot[name="description"]'
+    ), t = (e == null ? void 0 : e.assignedNodes({ flatten: !0 })) || [];
+    this._slottedDescriptionText = t.map((s) => {
+      var n;
+      return (n = s.textContent) == null ? void 0 : n.trim();
+    }).filter(Boolean).join(", ");
+  }
+  /******************** Event Handlers ********************/
   // Keeps radiogroup informed of the name and value of its current selected radiobutton at each change
   _handleRadioButtonChange(e) {
     const t = e, { name: o, value: s } = t.detail;
-    this.name = o, this.selectedValue = s, this._internals.setFormValue(this.selectedValue);
+    this.name = o, this.selectedValue = s, this._internals.setFormValue(this.selectedValue), this._updateGroupTabIndex();
   }
   async _handleInvalid(e) {
     if (e.preventDefault(), this._internals.validity.valueMissing) {
@@ -4628,12 +4243,7 @@ const H = (W = class extends y {
     }
   }
   render() {
-    return l` <div
-      role="radiogroup"
-      class="nys-radiogroup"
-      aria-required="${this.required ? "true" : "false"}"
-      aria-invalid="${this.showError ? "true" : "false"}"
-    >
+    return a`<div class="nys-radiogroup">
       <nys-label
         id=${this.id}
         label=${this.label}
@@ -4643,7 +4253,12 @@ const H = (W = class extends y {
         <slot name="description" slot="description">${this.description}</slot>
       </nys-label>
       <div class="nys-radiogroup__content">
-        <slot></slot>
+        <fieldset role="radiogroup" @keydown=${this._handleKeyDown}>
+          <legend class="sr-only">
+            ${this.label}${this._slottedDescriptionText ? ` ${this._slottedDescriptionText}` : this.description ? ` ${this.description}` : ""}
+          </legend>
+          <slot></slot>
+        </fieldset>
       </div>
       <nys-errormessage
         ?showError=${this.showError}
@@ -4652,50 +4267,53 @@ const H = (W = class extends y {
       ></nys-errormessage>
     </div>`;
   }
-}, W.VALID_SIZES = ["sm", "md"], W.styles = ee, W.formAssociated = !0, W);
-U([
+}, Y.VALID_SIZES = ["sm", "md"], Y.styles = A1, Y.formAssociated = !0, Y);
+Z([
   r({ type: String })
-], H.prototype, "id", 2);
-U([
+], E.prototype, "id", 2);
+Z([
   r({ type: String, reflect: !0 })
-], H.prototype, "name", 2);
-U([
+], E.prototype, "name", 2);
+Z([
   r({ type: Boolean, reflect: !0 })
-], H.prototype, "required", 2);
-U([
+], E.prototype, "required", 2);
+Z([
   r({ type: Boolean, reflect: !0 })
-], H.prototype, "optional", 2);
-U([
+], E.prototype, "optional", 2);
+Z([
   r({ type: Boolean, reflect: !0 })
-], H.prototype, "showError", 2);
-U([
+], E.prototype, "showError", 2);
+Z([
   r({ type: String })
-], H.prototype, "errorMessage", 2);
-U([
+], E.prototype, "errorMessage", 2);
+Z([
   r({ type: String })
-], H.prototype, "label", 2);
-U([
+], E.prototype, "label", 2);
+Z([
   r({ type: String })
-], H.prototype, "description", 2);
-U([
-  B()
-], H.prototype, "selectedValue", 2);
-U([
+], E.prototype, "description", 2);
+Z([
+  r({ type: Boolean, reflect: !0 })
+], E.prototype, "tile", 2);
+Z([
+  D()
+], E.prototype, "selectedValue", 2);
+Z([
+  D()
+], E.prototype, "_slottedDescriptionText", 2);
+Z([
   r({ reflect: !0 })
-], H.prototype, "size", 1);
-U([
-  r({ type: Boolean, reflect: !0 })
-], H.prototype, "tile", 2);
-let st = H;
-customElements.get("nys-radiogroup") || customElements.define("nys-radiogroup", st);
-var ot = Object.defineProperty, rt = Object.getOwnPropertyDescriptor, j = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? rt(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && ot(e, t, s), s;
+], E.prototype, "size", 1);
+let $e = E;
+customElements.get("nys-radiogroup") || customElements.define("nys-radiogroup", $e);
+var De = Object.defineProperty, Ve = Object.getOwnPropertyDescriptor, F = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Ve(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && De(e, t, s), s;
 };
-let nt = 0;
-var p;
-const P = (p = class extends y {
+let Me = 0;
+var u;
+const O = (u = class extends y {
   constructor() {
     super(...arguments), this.checked = !1, this.disabled = !1, this.required = !1, this.label = "", this.description = "", this.id = "", this.name = "", this.value = "", this._size = "md", this.tile = !1;
   }
@@ -4703,7 +4321,7 @@ const P = (p = class extends y {
     return this._size;
   }
   set size(e) {
-    this._size = p.VALID_SIZES.includes(
+    this._size = u.VALID_SIZES.includes(
       e
     ) ? e : "md";
   }
@@ -4718,12 +4336,12 @@ const P = (p = class extends y {
   /********************** Lifecycle updates **********************/
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-radiobutton-${Date.now()}-${nt++}`), this.checked && (p.buttonGroup[this.name] && (p.buttonGroup[this.name].checked = !1, p.buttonGroup[this.name].requestUpdate()), p.buttonGroup[this.name] = this);
+    super.connectedCallback(), this.id || (this.id = `nys-radiobutton-${Date.now()}-${Me++}`), this.checked && (u.buttonGroup[this.name] && (u.buttonGroup[this.name].checked = !1, u.buttonGroup[this.name].requestUpdate()), u.buttonGroup[this.name] = this);
   }
   updated(e) {
-    e.has("checked") && this.checked && p.buttonGroup[this.name] !== this && (p.buttonGroup[this.name] && (p.buttonGroup[this.name].checked = !1, p.buttonGroup[this.name].requestUpdate()), p.buttonGroup[this.name] = this);
+    e.has("checked") && this.checked && u.buttonGroup[this.name] !== this && (u.buttonGroup[this.name] && (u.buttonGroup[this.name].checked = !1, u.buttonGroup[this.name].requestUpdate()), u.buttonGroup[this.name] = this);
   }
-  /******************** Function ********************/
+  /********************** Functions **********************/
   // This helper function is called to perform the element's native validation.
   checkValidity() {
     var t;
@@ -4734,7 +4352,7 @@ const P = (p = class extends y {
   }
   /******************** Event Handlers ********************/
   _emitChangeEvent() {
-    this.dispatchEvent(
+    console.log("_emitChangeEvent"), this.dispatchEvent(
       new CustomEvent("nys-change", {
         detail: {
           checked: this.checked,
@@ -4748,26 +4366,29 @@ const P = (p = class extends y {
   }
   // Handle radiobutton change event & unselection of other options in group
   _handleChange() {
-    this.checked || (p.buttonGroup[this.name] && (p.buttonGroup[this.name].checked = !1, p.buttonGroup[this.name].requestUpdate()), p.buttonGroup[this.name] = this, this.checked = !0, this._emitChangeEvent());
+    console.log("_handleChange"), this.checked || (u.buttonGroup[this.name] && (u.buttonGroup[this.name].checked = !1, u.buttonGroup[this.name].requestUpdate()), u.buttonGroup[this.name] = this, this.checked = !0, this._emitChangeEvent());
   }
   // Handle focus event
   _handleFocus() {
-    this.dispatchEvent(new Event("nys-focus"));
+    console.log("_handleFocus"), this.dispatchEvent(new Event("nys-focus"));
   }
   // Handle blur event
   _handleBlur() {
-    this.dispatchEvent(new Event("nys-blur"));
+    console.log("_handleBlur"), this.dispatchEvent(new Event("nys-blur"));
   }
-  // Handle keydown for keyboard accessibility
-  _handleKeydown(e) {
-    e.code === "Space" && (e.preventDefault(), !this.disabled && !this.checked && (p.buttonGroup[this.name] && (p.buttonGroup[this.name].checked = !1, p.buttonGroup[this.name].requestUpdate()), p.buttonGroup[this.name] = this, this.checked = !0, this._emitChangeEvent()));
+  _callInputHandling() {
+    var t;
+    if (this.disabled) return;
+    const e = (t = this.shadowRoot) == null ? void 0 : t.querySelector(
+      'input[type="radio"]'
+    );
+    e && (e.focus(), e.click());
   }
   render() {
-    return l`
+    return a`
       <label class="nys-radiobutton">
         <input
           id="${this.id}"
-          class="nys-radiobutton__radio"
           type="radio"
           name="${h(this.name ? this.name : void 0)}"
           .checked=${this.checked}
@@ -4780,53 +4401,57 @@ const P = (p = class extends y {
           @change="${this._handleChange}"
           @focus="${this._handleFocus}"
           @blur="${this._handleBlur}"
-          @keydown="${this._handleKeydown}"
+          hidden
         />
-        ${this.label && l` <div class="nys-radiobutton__text">
-          <label for=${this.id} class="nys-radiobutton__label"
-            >${this.label}</label
-          >
-          <label for=${this.id} class="nys-radiobutton__description">
+
+        <span
+          class="nys-radiobutton__radio"
+          @change="${this._callInputHandling}"
+        ></span>
+
+        ${this.label && a` <div class="nys-radiobutton__text">
+          <div class="nys-radiobutton__label">${this.label}</div>
+          <div class="nys-radiobutton__description">
             <slot name="description">${this.description}</slot>
-          </label>
+          </div>
         </div>`}
       </label>
     `;
   }
-}, p.VALID_SIZES = ["sm", "md"], p.buttonGroup = {}, p.styles = ee, p);
-j([
+}, u.VALID_SIZES = ["sm", "md"], u.buttonGroup = {}, u.styles = A1, u);
+F([
   r({ type: Boolean, reflect: !0 })
-], P.prototype, "checked", 2);
-j([
+], O.prototype, "checked", 2);
+F([
   r({ type: Boolean, reflect: !0 })
-], P.prototype, "disabled", 2);
-j([
+], O.prototype, "disabled", 2);
+F([
   r({ type: Boolean, reflect: !0 })
-], P.prototype, "required", 2);
-j([
+], O.prototype, "required", 2);
+F([
   r({ type: String })
-], P.prototype, "label", 2);
-j([
+], O.prototype, "label", 2);
+F([
   r({ type: String })
-], P.prototype, "description", 2);
-j([
+], O.prototype, "description", 2);
+F([
   r({ type: String })
-], P.prototype, "id", 2);
-j([
+], O.prototype, "id", 2);
+F([
   r({ type: String, reflect: !0 })
-], P.prototype, "name", 2);
-j([
+], O.prototype, "name", 2);
+F([
   r({ type: String })
-], P.prototype, "value", 2);
-j([
+], O.prototype, "value", 2);
+F([
   r({ reflect: !0 })
-], P.prototype, "size", 1);
-j([
+], O.prototype, "size", 1);
+F([
   r({ type: Boolean, reflect: !0 })
-], P.prototype, "tile", 2);
-let it = P;
-customElements.get("nys-radiobutton") || customElements.define("nys-radiobutton", it);
-const at = u`
+], O.prototype, "tile", 2);
+let ze = O;
+customElements.get("nys-radiobutton") || customElements.define("nys-radiobutton", ze);
+const Ee = g`
   :host {
     /* Global Select Styles */
     --_nys-select-width: 100%;
@@ -4896,7 +4521,8 @@ const at = u`
     font-size: var(--_nys-select-font-size);
     padding: var(--_nys-select-padding);
     width: var(--_nys-select-width);
-    max-width: 100%;
+    min-width: var(--_nys-select-width);
+    max-width: var(--_nys-select-width);
     text-indent: 1px;
     text-overflow: "";
     background: var(--_nys-select-bg-color);
@@ -4910,7 +4536,6 @@ const at = u`
     position: relative;
     display: inline-block;
     width: var(--_nys-select-width);
-    max-width: 100%;
   }
 
   .nys-select__icon {
@@ -4974,12 +4599,12 @@ const at = u`
       var(--_nys-select-error-color);
   }
 `;
-var lt = Object.defineProperty, S1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && lt(e, t, s), s;
+var He = Object.defineProperty, p1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && He(e, t, s), s;
 };
-class u1 extends y {
+class a1 extends y {
   constructor() {
     super(...arguments), this.disabled = !1, this.selected = !1, this.value = "", this.label = "", this.hidden = !1;
   }
@@ -4993,7 +4618,7 @@ class u1 extends y {
     });
   }
   render() {
-    return l`
+    return a`
       <option
         ?disabled=${this.disabled}
         ?selected=${this.selected}
@@ -5006,30 +4631,30 @@ class u1 extends y {
     `;
   }
 }
-S1([
+p1([
   r({ type: Boolean, reflect: !0 })
-], u1.prototype, "disabled");
-S1([
+], a1.prototype, "disabled");
+p1([
   r({ type: Boolean, reflect: !0 })
-], u1.prototype, "selected");
-S1([
+], a1.prototype, "selected");
+p1([
   r({ type: String })
-], u1.prototype, "value");
-S1([
+], a1.prototype, "value");
+p1([
   r({ type: String })
-], u1.prototype, "label");
-S1([
+], a1.prototype, "label");
+p1([
   r({ type: Boolean, reflect: !0 })
-], u1.prototype, "hidden");
-customElements.define("nys-option", u1);
-var ct = Object.defineProperty, dt = Object.getOwnPropertyDescriptor, A = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? dt(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && ct(e, t, s), s;
+], a1.prototype, "hidden");
+customElements.define("nys-option", a1);
+var Ae = Object.defineProperty, Ze = Object.getOwnPropertyDescriptor, I = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Ze(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && Ae(e, t, s), s;
 };
-let ht = 0;
-var X;
-const V = (X = class extends y {
+let Ie = 0;
+var W;
+const H = (W = class extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.label = "", this.description = "", this.value = "", this.disabled = !1, this.required = !1, this.optional = !1, this.form = "", this.showError = !1, this.errorMessage = "", this._width = "md", this._hasUserInteracted = !1, this._internals = this.attachInternals();
@@ -5038,13 +4663,13 @@ const V = (X = class extends y {
     return this._width;
   }
   set width(e) {
-    this._width = X.VALID_WIDTHS.includes(
+    this._width = W.VALID_WIDTHS.includes(
       e
     ) ? e : "full";
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-select-${Date.now()}-${ht++}`), this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-select-${Date.now()}-${Ie++}`), this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("invalid", this._handleInvalid);
@@ -5064,7 +4689,7 @@ const V = (X = class extends y {
     if (!e || !t) return;
     t.querySelectorAll("option:not([hidden])").forEach((i) => i.remove()), e.assignedElements({ flatten: !0 }).forEach((i) => {
       var c;
-      if (i instanceof u1) {
+      if (i instanceof a1) {
         const d = document.createElement("option");
         d.value = i.value, d.textContent = i.label || ((c = i.textContent) == null ? void 0 : c.trim()) || "", d.disabled = i.disabled, d.selected = i.selected, t.appendChild(d);
       }
@@ -5144,7 +4769,7 @@ const V = (X = class extends y {
     }
   }
   render() {
-    return l`
+    return a`
       <div class="nys-select">
         <nys-label
           id=${this.id}
@@ -5187,46 +4812,46 @@ const V = (X = class extends y {
       </div>
     `;
   }
-}, X.VALID_WIDTHS = ["sm", "md", "lg", "full"], X.styles = at, X.formAssociated = !0, X);
-A([
+}, W.VALID_WIDTHS = ["sm", "md", "lg", "full"], W.styles = Ee, W.formAssociated = !0, W);
+I([
   r({ type: String })
-], V.prototype, "id", 2);
-A([
+], H.prototype, "id", 2);
+I([
   r({ type: String, reflect: !0 })
-], V.prototype, "name", 2);
-A([
+], H.prototype, "name", 2);
+I([
   r({ type: String })
-], V.prototype, "label", 2);
-A([
+], H.prototype, "label", 2);
+I([
   r({ type: String })
-], V.prototype, "description", 2);
-A([
+], H.prototype, "description", 2);
+I([
   r({ type: String })
-], V.prototype, "value", 2);
-A([
+], H.prototype, "value", 2);
+I([
   r({ type: Boolean, reflect: !0 })
-], V.prototype, "disabled", 2);
-A([
+], H.prototype, "disabled", 2);
+I([
   r({ type: Boolean, reflect: !0 })
-], V.prototype, "required", 2);
-A([
+], H.prototype, "required", 2);
+I([
   r({ type: Boolean, reflect: !0 })
-], V.prototype, "optional", 2);
-A([
+], H.prototype, "optional", 2);
+I([
   r({ type: String })
-], V.prototype, "form", 2);
-A([
+], H.prototype, "form", 2);
+I([
   r({ type: Boolean, reflect: !0 })
-], V.prototype, "showError", 2);
-A([
+], H.prototype, "showError", 2);
+I([
   r({ type: String })
-], V.prototype, "errorMessage", 2);
-A([
+], H.prototype, "errorMessage", 2);
+I([
   r({ reflect: !0 })
-], V.prototype, "width", 1);
-let yt = V;
-customElements.get("nys-select") || customElements.define("nys-select", yt);
-const pt = u`
+], H.prototype, "width", 1);
+let Be = H;
+customElements.get("nys-select") || customElements.define("nys-select", Be);
+const qe = g`
   :host {
     /* Global Skipnav Styles */
     --_nys-skipnav-padding-vertical: var(--nys-space-100, 8px);
@@ -5299,12 +4924,12 @@ const pt = u`
     outline: none;
   }
 `;
-var ut = Object.defineProperty, te = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && ut(e, t, s), s;
+var Ue = Object.defineProperty, Z1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && Ue(e, t, s), s;
 };
-const T1 = class T1 extends y {
+const $1 = class $1 extends y {
   constructor() {
     super(), this.id = "", this.href = "";
   }
@@ -5328,7 +4953,7 @@ const T1 = class T1 extends y {
     t && (t.setAttribute("tabindex", "-1"), t.focus(), t.style.outline = "none");
   }
   render() {
-    return l`
+    return a`
       <div class="nys-skipnav">
         <a
           id=${this.id}
@@ -5345,569 +4970,16 @@ const T1 = class T1 extends y {
     `;
   }
 };
-T1.styles = pt;
-let k1 = T1;
-te([
+$1.styles = qe;
+let u1 = $1;
+Z1([
   r({ type: String })
-], k1.prototype, "id");
-te([
+], u1.prototype, "id");
+Z1([
   r({ type: String })
-], k1.prototype, "href");
-customElements.get("nys-skipnav") || customElements.define("nys-skipnav", k1);
-const se = u`
-  :host {
-    /* Anything that can be overridden should be defined here */
-
-    /* Global Stepper Styles */
-
-    /* Typography */
-    --_nys-stepper-font-size: var(--nys-font-size-ui-md, 16px);
-    --_nys-stepper-font-weight: var(--nys-font-weight-semibold, 600);
-    --_nys-stepper-line-height: var(--nys-font-lineheight-ui-md, 24px);
-    --_nys-stepper-font-family: var(
-      --nys-font-family-ui,
-      var(
-        --nys-font-family-sans,
-        "Proxima Nova",
-        "Helvetica Neue",
-        "Helvetica",
-        "Arial",
-        sans-serif
-      )
-    );
-    --nys-stepper-color-bg: var(--nys-color-surface-raised, #f6f6f6);
-  }
-
-  .nys-stepper {
-    font-family: var(--_nys-stepper-font-family);
-    font-size: var(--_nys-stepper-font-size);
-    font-weight: var(--_nys-stepper-font-weight);
-    line-height: var(--_nys-stepper-line-height);
-    display: flex;
-    flex-direction: column;
-    counter-reset: step;
-    background: var(--nys-stepper-color-bg);
-    max-width: 100%;
-  }
-
-  .nys-stepper__header {
-    display: flex;
-    flex-direction: column;
-    padding: var(--nys-space-400, 32px) var(--nys-space-400, 32px)
-      var(--nys-space-150, 12px);
-  }
-
-  ::slotted(div[slot="actions"]) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: var(--nys-space-100, 8px);
-    margin-bottom: var(--nys-space-300, 24px);
-  }
-
-  .nys-stepper__counter {
-    display: none;
-    text-decoration: underline;
-    text-decoration-style: solid;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: 7%; /* 1.12px */
-    text-underline-offset: auto;
-    text-underline-position: from-font;
-    color: var(--nys-color-text, #1b1b1b);
-    text-overflow: ellipsis;
-    font-family: var(--nys-font-family-ui, "Proxima Nova");
-    font-size: var(--nys-font-size-ui-md, 16px);
-    font-style: normal;
-    font-weight: 400;
-    line-height: var(--nys-font-size-ui-md, 16px);
-    cursor: pointer;
-    width: fit-content;
-  }
-
-  .nys-stepper__steps {
-    display: flex;
-    flex-direction: column;
-    padding: var(--nys-space-150, 12px) var(--nys-space-400, 32px)
-      var(--nys-space-400, 32px);
-    overflow-y: scroll;
-    height: -webkit-fit-content;
-    height: -moz-available;
-    scrollbar-width: none;
-    background:
-    /* Shadow Cover TOP */
-      linear-gradient(
-          var(--nys-color-surface-raised, #f6f6f6) 30%,
-          rgba(255, 255, 255, 0)
-        )
-        center top,
-      /* Shadow Cover BOTTOM */
-        linear-gradient(
-          rgba(255, 255, 255, 0),
-          var(--nys-color-surface-raised, #f6f6f6) 70%
-        )
-        center bottom,
-      /* Shadow TOP */
-        linear-gradient(to bottom, rgba(99, 99, 99, 0.2), rgba(0, 0, 0, 0)) top,
-      /* Shadow BOTTOM */
-        linear-gradient(to top, rgba(99, 99, 99, 0.2), rgba(0, 0, 0, 0)) bottom;
-
-    background-repeat: no-repeat;
-    background-size:
-      100% 40px,
-      100% 40px,
-      100% 14px,
-      100% 14px;
-    background-attachment: local, local, scroll, scroll;
-    background-color: var(--nys-color-surface-raised, #f6f6f6);
-  }
-
-  .nys-step {
-    position: relative;
-    counter-increment: step;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nys-step__contentwrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--nys-space-150, 12px);
-    cursor: default;
-    width: fit-content;
-  }
-
-  .nys-step__contentwrapper:focus-visible {
-    outline: solid var(--nys-color-focus, #004dd1)
-      var(--nys-border-width-md, 2px);
-    outline-offset: var(--nys-space-2px, 2px);
-    border-radius: var(--nys-radius-md, 4px);
-  }
-
-  .nys-step__linewrapper {
-    width: 24px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .nys-step__line {
-    width: var(--nys-size-1px, 1px);
-    height: var(--nys-size-300, 24px);
-    border-radius: var(--nys-radius-round, 1776px);
-    background: var(--nys-color-black-transparent-200, rgba(27, 27, 27, 0.2));
-    margin: var(--nys-space-100, 8px) 0;
-  }
-
-  .nys-step__number {
-    border-radius: var(--nys-radius-round, 1776px);
-    border: var(--nys-size-1px, 1px) solid var(--nys-color-neutral-400, #909395);
-    background: var(
-      --nys-color-white-transparent-900,
-      rgba(255, 255, 255, 0.9)
-    );
-    width: var(--nys-size-300, 24px);
-    height: var(--nys-size-300, 24px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--nys-color-text, #1b1b1b);
-  }
-
-  :host([previous]) .nys-step__number,
-  :host([previous]) .nys-step__line,
-  :host([current]) .nys-step__number,
-  :host([current]) .nys-step__line {
-    background: var(--nys-color-theme-stronger, #081b2b);
-    color: var(--nys-color-text-reverse, #fff);
-    border-color: var(--nys-color-theme-stronger, #081b2b);
-  }
-
-  :host([selected]) .nys-step__number {
-    background: var(--nys-color-theme, #154973);
-    color: var(--nys-color-text-reverse, #fff);
-    border-color: var(--nys-color-theme, #154973);
-    outline: var(--nys-size-50, 4px) solid var(--nys-color-theme-weak, #cddde9);
-  }
-
-  /* Hide the line wrapper in the last step */
-  :host([first]) .nys-step__linewrapper {
-    display: none !important;
-  }
-
-  .nys-step__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--nys-space-100, 8px);
-  }
-
-  .nys-step__label {
-    color: var(--nys-color-text, #1b1b1b);
-    font-family: var(--_nys-stepper-font-family);
-    font-size: var(--_nys-stepper-font-size);
-    font-weight: var(--_nys-stepper-font-weight);
-    line-height: var(--_nys-stepper-line-height);
-    line-height: var(--nys-font-size-ui-md, 16px);
-    letter-spacing: var(--nys-font-letterspacing-ui-md, 0.044px);
-    text-decoration-style: solid;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: var(7%, 1.12px);
-    text-underline-offset: auto;
-  }
-
-  :host([current]) .nys-step__label,
-  :host([previous]) .nys-step__label {
-    text-decoration-line: underline;
-  }
-
-  :host([current]) .nys-step__contentwrapper,
-  :host([previous]) .nys-step__contentwrapper {
-    cursor: pointer;
-  }
-
-  :host([selected]) .nys-step__label {
-    /* UI/Medium/Bold */
-    font-weight: 700;
-    text-decoration-line: none;
-  }
-
-  :host([selected]) .nys-step__contentwrapper {
-    cursor: default;
-  }
-
-  :host([selected]) .nys-step__contentwrapper:focus-visible {
-    outline-offset: 6px;
-  }
-
-  @media (max-width: 1023px) {
-    .nys-stepper {
-      max-width: 1023px;
-      width: 100%;
-    }
-
-    .nys-stepper__header {
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      padding: var(--nys-space-150, 12px);
-      gap: var(--nys-space-200, 16px);
-    }
-
-    .nys-stepper__headertext {
-      flex: 1 1 0;
-      min-width: 0;
-    }
-
-    ::slotted(div[slot="actions"]) {
-      margin-bottom: 0;
-      min-width: 0;
-      justify-content: end;
-    }
-
-    .nys-stepper__counter {
-      display: block;
-    }
-
-    .nys-stepper__steps {
-      flex-direction: row;
-      gap: var(--nys-space-2px, 2px);
-      padding: 0;
-    }
-
-    .nys-stepper__steps::slotted(*) {
-      flex: 1;
-    }
-
-    .nys-step__number {
-      border-radius: 0;
-      border: none;
-      background-color: var(--nys-color-neutral-200, #bec0c1);
-      height: var(--nys-size-100, 8px);
-      width: 100%;
-      color: transparent;
-    }
-
-    :host([previous]) .nys-step__number,
-    :host([current]) .nys-step__number {
-      background-color: var(--nys-color-neutral-900, #1b1b1b);
-      color: transparent;
-    }
-
-    :host([selected]) .nys-step__number {
-      background-color: var(--nys-color-theme-mid, #457aa5);
-      outline: none;
-    }
-
-    .nys-step__content,
-    .nys-step__linewrapper {
-      display: none;
-    }
-
-    .nys-step__contentwrapper {
-      cursor: default;
-      pointer-events: none;
-      width: auto;
-    }
-
-    /* ---------------- Expanded Mode ---------------- */
-    :host([isCompactExpanded]) .nys-step__content,
-    :host([isCompactExpanded]) .nys-step__linewrapper {
-      display: flex;
-    }
-
-    :host([isCompactExpanded]) .nys-stepper {
-    }
-
-    :host([isCompactExpanded]) .nys-stepper__header {
-      padding-bottom: var(--nys-space-250, 20px);
-    }
-
-    :host([isCompactExpanded]) .nys-stepper__steps {
-      width: -webkit-fill-available;
-      width: -moz-available;
-      z-index: 9999;
-      overflow-y: auto;
-      flex-direction: column;
-      gap: 0;
-      padding: var(--nys-space-150, 12px) var(--nys-space-400, 32px)
-        var(--nys-space-400, 32px);
-    }
-
-    :host([isCompactExpanded]) .nys-stepper__steps::slotted(*) {
-      flex: none;
-    }
-
-    :host([isCompactExpanded]) .nys-step__number {
-      border-radius: var(--nys-radius-round, 1776px);
-      border: 1px solid var(--nys-color-neutral-400, #909395);
-      background: var(
-        --nys-color-white-transparent-900,
-        rgba(255, 255, 255, 0.9)
-      );
-      width: var(--nys-space-300, 24px);
-      height: var(--nys-space-300, 24px);
-      color: var(--nys-color-text, #1b1b1b);
-    }
-
-    :host([isCompactExpanded][previous]) .nys-step__number,
-    :host([isCompactExpanded][previous]) .nys-step__line,
-    :host([isCompactExpanded][current]) .nys-step__number,
-    :host([isCompactExpanded][current]) .nys-step__line {
-      background: var(--nys-color-theme-stronger, #081b2b);
-      color: var(--nys-color-text-reverse, #fff);
-      border-color: var(--nys-color-theme-stronger, #081b2b);
-    }
-
-    :host([isCompactExpanded][selected]) .nys-step__number {
-      background: var(--nys-color-theme, #154973);
-      color: var(--nys-color-text-reverse, #fff);
-      border-color: var(--nys-color-theme, #154973);
-      outline: 4px solid var(--nys-color-theme-weak, #cddde9);
-    }
-
-    :host([isCompactExpanded]) .nys-step__contentwrapper {
-      pointer-events: all;
-    }
-  }
-`;
-var ft = Object.defineProperty, f1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && ft(e, t, s), s;
-};
-const F1 = class F1 extends y {
-  constructor() {
-    super(...arguments), this.selected = !1, this.current = !1, this.label = "", this.href = "", this.isCompactExpanded = !1, this.stepNumber = 0;
-  }
-  _handleActivate(e) {
-    typeof this.onClick == "function" && this.onClick(e);
-    const t = new CustomEvent("nys-step-click", {
-      bubbles: !0,
-      composed: !0,
-      cancelable: !0,
-      detail: { href: this.href, label: this.label }
-    });
-    (this.hasAttribute("previous") || this.current) && !this.selected && (this.dispatchEvent(t), !t.defaultPrevented && this.href && (window.location.href = this.href));
-  }
-  _handleKeydown(e) {
-    (e.key === "Enter" || e.key === " ") && (e.preventDefault(), this._handleActivate(e));
-  }
-  render() {
-    return l`
-      <div class="nys-step">
-        <div class="nys-step__linewrapper">
-          <div class="nys-step__line"></div>
-        </div>
-        <div
-          class="nys-step__contentwrapper"
-          @click=${this._handleActivate}
-          @keydown=${this._handleKeydown}
-          role="button"
-          aria-label="${this.label} Step"
-          ?disabled=${!(this.selected || this.current || this.hasAttribute("previous"))}
-        >
-          <div class="nys-step__number" tabindex="-1" aria-hidden="true">
-            ${this.stepNumber}
-          </div>
-          <div class="nys-step__content" tabindex="-1" aria-hidden="true">
-            <div
-              class="nys-step__label"
-              tabindex=${this.selected || this.current || this.hasAttribute("previous") ? "0" : "-1"}
-              aria-hidden="true"
-            >
-              ${this.label}
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-};
-F1.styles = se;
-let R = F1;
-f1([
-  r({ type: Boolean, reflect: !0 })
-], R.prototype, "selected");
-f1([
-  r({ type: Boolean, reflect: !0 })
-], R.prototype, "current");
-f1([
-  r({ type: String })
-], R.prototype, "label");
-f1([
-  r({ type: String })
-], R.prototype, "href");
-f1([
-  r({ type: Boolean })
-], R.prototype, "isCompactExpanded");
-f1([
-  r({ type: Function })
-], R.prototype, "onClick");
-f1([
-  r({ type: Number })
-], R.prototype, "stepNumber");
-customElements.get("nys-step") || customElements.define("nys-step", R);
-var gt = Object.defineProperty, $1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && gt(e, t, s), s;
-};
-const N1 = class N1 extends y {
-  constructor() {
-    super(), this.id = "", this.name = "", this.label = "", this.counterText = "initial", this.isCompactExpanded = !1, this._stepsNumbered = !1, this._onStepClick = async (e) => {
-      const t = e.composedPath().find(
-        (i) => i instanceof HTMLElement && i.tagName.toLowerCase() === "nys-step"
-      );
-      if (!t) return;
-      const o = Array.from(this.querySelectorAll("nys-step")), s = o.findIndex(
-        (i) => i.hasAttribute("current")
-      ), n = o.indexOf(t);
-      s !== -1 && n > s || t.hasAttribute("selected") || (o.forEach((i) => i.removeAttribute("selected")), t.setAttribute("selected", ""), this._updateCounter(), this.isCompactExpanded = !1);
-    };
-  }
-  connectedCallback() {
-    super.connectedCallback(), this.addEventListener("nys-step-click", this._onStepClick), requestAnimationFrame(() => this._validateSteps());
-  }
-  disconnectedCallback() {
-    this.removeEventListener("nys-step-click", this._onStepClick), super.disconnectedCallback();
-  }
-  _validateSteps() {
-    Array.from(this.children).forEach((e) => {
-      const t = e instanceof HTMLElement && e.tagName.toLowerCase() === "nys-step", o = e instanceof HTMLElement && e.hasAttribute("slot") && e.getAttribute("slot") === "actions";
-      !t && !o && (console.warn(
-        "Only <nys-step> elements or the <div slot='actions'> container are allowed as direct children of <nys-stepper>. Removing:",
-        e
-      ), e.remove());
-    });
-  }
-  _validateButtonSlot(e) {
-    const o = e.target.assignedElements();
-    if (o.length !== 1 || o[0].tagName.toLowerCase() !== "div") {
-      console.warn(
-        "The 'actions' slot must have exactly one <div> as a direct child."
-      );
-      return;
-    }
-    const s = o[0];
-    Array.from(s.children).forEach((n) => {
-      n instanceof HTMLElement && n.tagName.toLowerCase() === "nys-button" ? (n.setAttribute("size", "sm"), n.hasAttribute("fullWidth") && (n.style.flex = "1 1 0")) : (console.warn(
-        "The <div> inside 'actions' slot only accepts <nys-button> elements. Removing invalid node:",
-        n
-      ), n.remove());
-    });
-  }
-  _updateCounter() {
-    if (this.isCompactExpanded) {
-      this.counterText = "Back to Form", this.style.height = "-webkit-fit-content", this.style.height = "-moz-fit-content", this.style.height = "fit-content";
-      return;
-    } else
-      this.style.height = "auto";
-    const e = this.querySelectorAll("nys-step"), t = Array.from(e).findIndex(
-      (s) => s.hasAttribute("selected")
-    ), o = e.length;
-    this.counterText = t >= 0 ? `Step ${t + 1} of ${o}` : `Step 1 of ${o}`;
-  }
-  updated() {
-    const e = this.querySelectorAll("nys-step");
-    this._stepsNumbered || (e.forEach((n, i) => {
-      n.stepNumber = i + 1;
-    }), this._stepsNumbered = !0);
-    let t = !1, o = !1, s = !1;
-    e.forEach((n, i) => {
-      n.hasAttribute("current") && (s ? n.removeAttribute("current") : s = !0), i === 0 ? n.setAttribute("first", "") : n.removeAttribute("first"), n.hasAttribute("current") ? (t = !0, n.removeAttribute("previous")) : t ? n.removeAttribute("previous") : n.setAttribute("previous", ""), n.hasAttribute("selected") && (t || o ? n.removeAttribute("selected") : o = !0), this.hasAttribute("isCompactExpanded") ? n.setAttribute("isCompactExpanded", "") : n.removeAttribute("isCompactExpanded");
-    }), o || (s ? e.forEach((n) => {
-      n.hasAttribute("current") && !o && (n.setAttribute("selected", ""), o = !0);
-    }) : e.length > 0 && (e[0].setAttribute("current", ""), e[0].setAttribute("selected", ""))), this._updateCounter();
-  }
-  _toggleCompact() {
-    this.isCompactExpanded = !this.isCompactExpanded;
-  }
-  _handleCounterKeydown(e) {
-    (e.key === " " || e.key === "Enter") && (e.preventDefault(), this._toggleCompact());
-  }
-  render() {
-    return l`
-      <div class="nys-stepper" id=${this.id} name=${this.name}>
-        <div class="nys-stepper__header">
-          <slot name="actions" @slotchange=${this._validateButtonSlot}></slot>
-          <div class="nys-stepper__headertext">
-            <div class="nys-stepper__label">${this.label}</div>
-            <div
-              class="nys-stepper__counter"
-              @click=${this._toggleCompact}
-              @keydown=${this._handleCounterKeydown}
-              role="button"
-              tabindex="0"
-              aria-label=${this.isCompactExpanded ? "Collapse step navigation to view the form" : `Expand step navigation. You are on ${this.counterText}`}
-              aria-expanded=${this.isCompactExpanded ? "true" : "false"}
-            >
-              ${this.counterText}
-            </div>
-          </div>
-        </div>
-        <slot class="nys-stepper__steps"></slot>
-      </div>
-    `;
-  }
-};
-N1.styles = se;
-let i1 = N1;
-$1([
-  r({ type: String })
-], i1.prototype, "id");
-$1([
-  r({ type: String, reflect: !0 })
-], i1.prototype, "name");
-$1([
-  r({ type: String })
-], i1.prototype, "label");
-$1([
-  r({ type: String })
-], i1.prototype, "counterText");
-$1([
-  r({ type: Boolean, reflect: !0 })
-], i1.prototype, "isCompactExpanded");
-customElements.get("nys-stepper") || customElements.define("nys-stepper", i1);
-const vt = u`
+], u1.prototype, "href");
+customElements.get("nys-skipnav") || customElements.define("nys-skipnav", u1);
+const Oe = g`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -6003,7 +5075,6 @@ const vt = u`
   .nys-textarea__textarea {
     color: var(--_nys-textarea-color);
     font-size: var(--_nys-textarea-size-ui-md);
-    font-family: var(--_nys-textarea-family-ui);
     border-radius: var(--_nys-textarea-radius);
     border: solid var(--_nys-textarea-color-border)
       var(--_nys-textarea-width-border);
@@ -6050,14 +5121,14 @@ const vt = u`
     cursor: not-allowed;
   }
 `;
-var Ct = Object.defineProperty, _t = Object.getOwnPropertyDescriptor, m = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? _t(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && Ct(e, t, s), s;
+var Pe = Object.defineProperty, Re = Object.getOwnPropertyDescriptor, x = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Re(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && Pe(e, t, s), s;
 };
-let bt = 0;
-var I;
-const _ = (I = class extends y {
+let Te = 0;
+var B;
+const _ = (B = class extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.label = "", this.description = "", this.placeholder = "", this.value = "", this.disabled = !1, this.readonly = !1, this.required = !1, this.optional = !1, this.form = "", this.maxlength = null, this.width = "full", this.rows = 4, this._resize = "vertical", this.showError = !1, this.errorMessage = "", this._hasUserInteracted = !1, this._internals = this.attachInternals();
@@ -6066,16 +5137,16 @@ const _ = (I = class extends y {
     return this._resize;
   }
   set resize(e) {
-    this._resize = I.VALID_RESIZE.includes(
+    this._resize = B.VALID_RESIZE.includes(
       e
     ) ? e : "vertical";
   }
   async updated(e) {
-    await Promise.resolve(), e.has("width") && (this.width = I.VALID_WIDTHS.includes(this.width) ? this.width : "full"), e.has("rows") && (this.rows = this.rows ?? 4);
+    await Promise.resolve(), e.has("width") && (this.width = B.VALID_WIDTHS.includes(this.width) ? this.width : "full"), e.has("rows") && (this.rows = this.rows ?? 4);
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-textarea-${Date.now()}-${bt++}`), this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-textarea-${Date.now()}-${Te++}`), this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("invalid", this._handleInvalid);
@@ -6173,7 +5244,7 @@ const _ = (I = class extends y {
     );
   }
   render() {
-    return l`
+    return a`
       <label class="nys-textarea">
         <nys-label
           id=${this.id}
@@ -6217,61 +5288,61 @@ ${this.value}</textarea
       </label>
     `;
   }
-}, I.VALID_WIDTHS = ["sm", "md", "lg", "full"], I.VALID_RESIZE = ["vertical", "none"], I.styles = vt, I.formAssociated = !0, I);
-m([
+}, B.VALID_WIDTHS = ["sm", "md", "lg", "full"], B.VALID_RESIZE = ["vertical", "none"], B.styles = Oe, B.formAssociated = !0, B);
+x([
   r({ type: String })
 ], _.prototype, "id", 2);
-m([
+x([
   r({ type: String, reflect: !0 })
 ], _.prototype, "name", 2);
-m([
+x([
   r({ type: String })
 ], _.prototype, "label", 2);
-m([
+x([
   r({ type: String })
 ], _.prototype, "description", 2);
-m([
+x([
   r({ type: String })
 ], _.prototype, "placeholder", 2);
-m([
+x([
   r({ type: String })
 ], _.prototype, "value", 2);
-m([
+x([
   r({ type: Boolean, reflect: !0 })
 ], _.prototype, "disabled", 2);
-m([
+x([
   r({ type: Boolean, reflect: !0 })
 ], _.prototype, "readonly", 2);
-m([
+x([
   r({ type: Boolean, reflect: !0 })
 ], _.prototype, "required", 2);
-m([
+x([
   r({ type: Boolean, reflect: !0 })
 ], _.prototype, "optional", 2);
-m([
+x([
   r({ type: String })
 ], _.prototype, "form", 2);
-m([
+x([
   r({ type: Number })
 ], _.prototype, "maxlength", 2);
-m([
+x([
   r({ reflect: !0 })
 ], _.prototype, "width", 2);
-m([
+x([
   r({ type: Number })
 ], _.prototype, "rows", 2);
-m([
+x([
   r({ reflect: !0 })
 ], _.prototype, "resize", 1);
-m([
+x([
   r({ type: Boolean, reflect: !0 })
 ], _.prototype, "showError", 2);
-m([
+x([
   r({ type: String })
 ], _.prototype, "errorMessage", 2);
-let mt = _;
-customElements.get("nys-textarea") || customElements.define("nys-textarea", mt);
-const xt = u`
+let Fe = _;
+customElements.get("nys-textarea") || customElements.define("nys-textarea", Fe);
+const Ne = g`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -6426,13 +5497,12 @@ const xt = u`
     border-left: none;
   }
 
+  /* This container exist to mainly style the type="password" eye icon */
   .nys-textinput__container {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-    background-color: var(--_nys-textinput-background-color);
-    border-radius: var(--_nys-textinput-radius);
   }
 
   ::slotted(nys-button) {
@@ -6502,14 +5572,14 @@ const xt = u`
     cursor: not-allowed;
   }
 `;
-var wt = Object.defineProperty, kt = Object.getOwnPropertyDescriptor, v = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? kt(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && wt(e, t, s), s;
+var je = Object.defineProperty, Ge = Object.getOwnPropertyDescriptor, f = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Ge(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && je(e, t, s), s;
 };
-let Lt = 0;
-var Z;
-const f = (Z = class extends y {
+let Ye = 0;
+var q;
+const p = (q = class extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this._type = "text", this.label = "", this.description = "", this.placeholder = "", this.value = "", this.disabled = !1, this.readonly = !1, this.required = !1, this.optional = !1, this.form = "", this.pattern = "", this.maxlength = null, this.width = "full", this.step = null, this.min = null, this.max = null, this.showError = !1, this.errorMessage = "", this.showPassword = !1, this._originalErrorMessage = "", this._hasUserInteracted = !1, this._maskPatterns = {
@@ -6520,14 +5590,14 @@ const f = (Z = class extends y {
     return this._type;
   }
   set type(e) {
-    this._type = Z.VALID_TYPES.includes(
+    this._type = q.VALID_TYPES.includes(
       e
     ) ? e : "text";
   }
   // Ensure the "width" property is valid after updates
   async updated(e) {
     var t, o;
-    if (e.has("width") && (await Promise.resolve(), this.width = Z.VALID_WIDTHS.includes(this.width) ? this.width : "full"), e.has("disabled") && (this._validateButtonSlot("startButton"), this._validateButtonSlot("endButton")), e.has("type")) {
+    if (e.has("width") && (await Promise.resolve(), this.width = q.VALID_WIDTHS.includes(this.width) ? this.width : "full"), e.has("disabled") && (this._validateButtonSlot("startButton"), this._validateButtonSlot("endButton")), e.has("type")) {
       const s = this._maskPatterns[this.type], n = (t = this.shadowRoot) == null ? void 0 : t.querySelector("input");
       if (n)
         if (s)
@@ -6543,7 +5613,7 @@ const f = (Z = class extends y {
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-textinput-${Date.now()}-${Lt++}`), this._originalErrorMessage = this.errorMessage ?? "", this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-textinput-${Date.now()}-${Ye++}`), this._originalErrorMessage = this.errorMessage ?? "", this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("invalid", this._handleInvalid);
@@ -6668,7 +5738,7 @@ const f = (Z = class extends y {
     }), e === "startButton" ? o.classList.toggle("has-start-button", n) : e === "endButton" && o.classList.toggle("has-end-button", n);
   }
   render() {
-    return l`
+    return a`
       <div class="nys-textinput">
         <nys-label
           id=${this.id}
@@ -6712,7 +5782,7 @@ const f = (Z = class extends y {
               @focus="${this._handleFocus}"
               @blur="${this._handleBlur}"
             />
-            ${this.type === "password" ? l` <nys-button
+            ${this.type === "password" ? a` <nys-button
                   class="eye-icon"
                   id="password-toggle"
                   suffixIcon="slotted"
@@ -6740,7 +5810,7 @@ const f = (Z = class extends y {
       </div>
     `;
   }
-}, Z.VALID_TYPES = [
+}, q.VALID_TYPES = [
   "email",
   "number",
   "password",
@@ -6748,73 +5818,73 @@ const f = (Z = class extends y {
   "tel",
   "text",
   "url"
-], Z.VALID_WIDTHS = ["sm", "md", "lg", "full"], Z.styles = xt, Z.formAssociated = !0, Z);
-v([
+], q.VALID_WIDTHS = ["sm", "md", "lg", "full"], q.styles = Ne, q.formAssociated = !0, q);
+f([
   r({ type: String })
-], f.prototype, "id", 2);
-v([
+], p.prototype, "id", 2);
+f([
   r({ type: String, reflect: !0 })
-], f.prototype, "name", 2);
-v([
+], p.prototype, "name", 2);
+f([
   r({ reflect: !0 })
-], f.prototype, "type", 1);
-v([
+], p.prototype, "type", 1);
+f([
   r({ type: String })
-], f.prototype, "label", 2);
-v([
+], p.prototype, "label", 2);
+f([
   r({ type: String })
-], f.prototype, "description", 2);
-v([
+], p.prototype, "description", 2);
+f([
   r({ type: String })
-], f.prototype, "placeholder", 2);
-v([
+], p.prototype, "placeholder", 2);
+f([
   r({ type: String })
-], f.prototype, "value", 2);
-v([
+], p.prototype, "value", 2);
+f([
   r({ type: Boolean, reflect: !0 })
-], f.prototype, "disabled", 2);
-v([
+], p.prototype, "disabled", 2);
+f([
   r({ type: Boolean, reflect: !0 })
-], f.prototype, "readonly", 2);
-v([
+], p.prototype, "readonly", 2);
+f([
   r({ type: Boolean, reflect: !0 })
-], f.prototype, "required", 2);
-v([
+], p.prototype, "required", 2);
+f([
   r({ type: Boolean, reflect: !0 })
-], f.prototype, "optional", 2);
-v([
+], p.prototype, "optional", 2);
+f([
   r({ type: String })
-], f.prototype, "form", 2);
-v([
+], p.prototype, "form", 2);
+f([
   r({ type: String })
-], f.prototype, "pattern", 2);
-v([
+], p.prototype, "pattern", 2);
+f([
   r({ type: Number })
-], f.prototype, "maxlength", 2);
-v([
+], p.prototype, "maxlength", 2);
+f([
   r({ reflect: !0 })
-], f.prototype, "width", 2);
-v([
+], p.prototype, "width", 2);
+f([
   r({ type: Number })
-], f.prototype, "step", 2);
-v([
+], p.prototype, "step", 2);
+f([
   r({ type: Number })
-], f.prototype, "min", 2);
-v([
+], p.prototype, "min", 2);
+f([
   r({ type: Number })
-], f.prototype, "max", 2);
-v([
+], p.prototype, "max", 2);
+f([
   r({ type: Boolean, reflect: !0 })
-], f.prototype, "showError", 2);
-v([
+], p.prototype, "showError", 2);
+f([
   r({ type: String })
-], f.prototype, "errorMessage", 2);
-v([
-  B()
-], f.prototype, "showPassword", 2);
-let St = f;
-customElements.get("nys-textinput") || customElements.define("nys-textinput", St);
-const $t = u`
+], p.prototype, "errorMessage", 2);
+f([
+  D()
+], p.prototype, "showPassword", 2);
+let We = p;
+customElements.get("nys-textinput") || customElements.define("nys-textinput", We);
+const Ke = g`
   :host {
     /* Global Toggle Styles */
     --_nys-toggle-width: var(--nys-font-size-8xl, 44px);
@@ -7091,14 +6161,14 @@ const $t = u`
     }
   }
 `;
-var Dt = Object.defineProperty, Et = Object.getOwnPropertyDescriptor, G = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? Et(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && Dt(e, t, s), s;
+var Xe = Object.defineProperty, Qe = Object.getOwnPropertyDescriptor, N = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Qe(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && Xe(e, t, s), s;
 };
-let zt = 0;
-var Q;
-const O = (Q = class extends y {
+let Je = 0;
+var K;
+const P = (K = class extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.value = "", this.checked = !1, this.disabled = !1, this.noIcon = !1, this.label = "", this.description = "", this._size = "md", this.form = "", this._internals = this.attachInternals();
@@ -7107,13 +6177,13 @@ const O = (Q = class extends y {
     return this._size;
   }
   set size(e) {
-    this._size = Q.VALID_SIZES.includes(
+    this._size = K.VALID_SIZES.includes(
       e
     ) ? e : "md";
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-toggle-${Date.now()}-${zt++}`);
+    super.connectedCallback(), this.id || (this.id = `nys-toggle-${Date.now()}-${Je++}`);
   }
   /********************** Form Integration **********************/
   // Update the internals whenever `checked` or `value` changes.
@@ -7146,7 +6216,7 @@ const O = (Q = class extends y {
     !this.disabled && (e.key === " " || e.key === "Enter") && (e.preventDefault(), this.checked = !this.checked, this._emitChangeEvent());
   }
   render() {
-    return l`
+    return a`
       <label class="nys-toggle">
         <div class="nys-toggle__content">
           <div class="nys-toggle__toggle">
@@ -7168,7 +6238,7 @@ const O = (Q = class extends y {
             />
             <span class="slider">
               <div class="knob">
-                ${this.noIcon ? "" : l`<nys-icon
+                ${this.noIcon ? "" : a`<nys-icon
                       class="toggle-icon"
                       name="${this.checked ? "check" : "close"}"
                       size="2xl"
@@ -7184,40 +6254,40 @@ const O = (Q = class extends y {
       </label>
     `;
   }
-}, Q.VALID_SIZES = ["sm", "md"], Q.styles = $t, Q.formAssociated = !0, Q);
-G([
+}, K.VALID_SIZES = ["sm", "md"], K.styles = Ke, K.formAssociated = !0, K);
+N([
   r({ type: String })
-], O.prototype, "id", 2);
-G([
+], P.prototype, "id", 2);
+N([
   r({ type: String, reflect: !0 })
-], O.prototype, "name", 2);
-G([
+], P.prototype, "name", 2);
+N([
   r({ type: String })
-], O.prototype, "value", 2);
-G([
+], P.prototype, "value", 2);
+N([
   r({ type: Boolean, reflect: !0 })
-], O.prototype, "checked", 2);
-G([
+], P.prototype, "checked", 2);
+N([
   r({ type: Boolean, reflect: !0 })
-], O.prototype, "disabled", 2);
-G([
+], P.prototype, "disabled", 2);
+N([
   r({ type: Boolean })
-], O.prototype, "noIcon", 2);
-G([
+], P.prototype, "noIcon", 2);
+N([
   r({ type: String })
-], O.prototype, "label", 2);
-G([
+], P.prototype, "label", 2);
+N([
   r({ type: String })
-], O.prototype, "description", 2);
-G([
+], P.prototype, "description", 2);
+N([
   r({ reflect: !0 })
-], O.prototype, "size", 1);
-G([
+], P.prototype, "size", 1);
+N([
   r({ type: String })
-], O.prototype, "form", 2);
-let Vt = O;
-customElements.get("nys-toggle") || customElements.define("nys-toggle", Vt);
-const Mt = u`
+], P.prototype, "form", 2);
+let et = P;
+customElements.get("nys-toggle") || customElements.define("nys-toggle", et);
+const tt = g`
   :host {
     /* Global Tooltip Styles */
     --_nys-tooltip-color: var(--nys-color-text-reverse, #ffffff);
@@ -7374,13 +6444,13 @@ const Mt = u`
     }
   }
 `;
-var Ht = Object.defineProperty, At = Object.getOwnPropertyDescriptor, m1 = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? At(e, t) : e, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && Ht(e, t, s), s;
+var st = Object.defineProperty, ot = Object.getOwnPropertyDescriptor, y1 = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? ot(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  return o && s && st(e, t, s), s;
 };
-let It = 0;
-const j1 = class j1 extends y {
+let rt = 0;
+const D1 = class D1 extends y {
   /**************** Lifecycle Methods ****************/
   constructor() {
     super(), this.id = "", this.text = "", this.inverted = !1, this.focusable = !1, this._active = !1, this._userHasSetPosition = !1, this._originalUserPosition = null, this._internallyUpdatingPosition = !1, this._position = null, this._handleTooltipEnter = () => {
@@ -7429,7 +6499,7 @@ const j1 = class j1 extends y {
     this._position = e, this.requestUpdate("position", t), this._internallyUpdatingPosition || (this._userHasSetPosition = e !== null, this._originalUserPosition = e);
   }
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-tooltip-${Date.now()}-${It++}`), window.addEventListener("keydown", this._handleEscapeKey);
+    super.connectedCallback(), this.id || (this.id = `nys-tooltip-${Date.now()}-${rt++}`), window.addEventListener("keydown", this._handleEscapeKey);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), window.removeEventListener("keydown", this._handleEscapeKey);
@@ -7482,8 +6552,8 @@ const j1 = class j1 extends y {
   }
   // Checks if user's set position fit with current viewport (Does not account for overflow texts at this moment)
   _doesPositionFit(e) {
-    var k, L;
-    const t = (k = this.shadowRoot) == null ? void 0 : k.querySelector(".nys-tooltip__wrapper"), o = (L = this.shadowRoot) == null ? void 0 : L.querySelector(".nys-tooltip__content");
+    var b, $;
+    const t = (b = this.shadowRoot) == null ? void 0 : b.querySelector(".nys-tooltip__wrapper"), o = ($ = this.shadowRoot) == null ? void 0 : $.querySelector(".nys-tooltip__content");
     if (!t || !o || e == null) return;
     const s = t.getBoundingClientRect(), n = o.getBoundingClientRect(), i = 8, c = {
       top: s.top - i,
@@ -7500,10 +6570,10 @@ const j1 = class j1 extends y {
   }
   // Calculates the best placement based on available space (flips placement if it doesn't fit)
   async autoPositionTooltip() {
-    var k, L;
-    const e = (k = this.shadowRoot) == null ? void 0 : k.querySelector(
+    var b, $;
+    const e = (b = this.shadowRoot) == null ? void 0 : b.querySelector(
       ".nys-tooltip__wrapper"
-    ), t = (L = this.shadowRoot) == null ? void 0 : L.querySelector(
+    ), t = ($ = this.shadowRoot) == null ? void 0 : $.querySelector(
       ".nys-tooltip__content"
     );
     if (!e || !t) return;
@@ -7520,17 +6590,17 @@ const j1 = class j1 extends y {
       "left"
     ];
     if (this._userHasSetPosition && this._originalUserPosition) {
-      const b = this._originalUserPosition;
-      b === "left" ? i = ["left", "right", "top", "bottom"] : b === "right" ? i = ["right", "left", "top", "bottom"] : b === "top" ? i = ["top", "bottom", "right", "left"] : b === "bottom" && (i = ["bottom", "top", "right", "left"]);
+      const m = this._originalUserPosition;
+      m === "left" ? i = ["left", "right", "top", "bottom"] : m === "right" ? i = ["right", "left", "top", "bottom"] : m === "top" ? i = ["top", "bottom", "right", "left"] : m === "bottom" && (i = ["bottom", "top", "right", "left"]);
     }
-    for (const b of i)
-      if (this._doesPositionFit(b)) {
-        this._setInternalPosition(b), await this.updateComplete, this._shiftTooltipIntoViewport(t);
+    for (const m of i)
+      if (this._doesPositionFit(m)) {
+        this._setInternalPosition(m), await this.updateComplete, this._shiftTooltipIntoViewport(t);
         return;
       }
     let c = "top", d = n.top;
-    for (const b of i)
-      n[b] > d && (d = n[b], c = b);
+    for (const m of i)
+      n[m] > d && (d = n[m], c = m);
     this._setInternalPosition(c), await this.updateComplete, this._shiftTooltipIntoViewport(t);
   }
   // Sets flag to distinguish to position's setter that we are updating "position" prop internally
@@ -7539,13 +6609,13 @@ const j1 = class j1 extends y {
   }
   // Determines if text of tooltip over-extends outside of viewport edge and adjust tooltip for horizontal overflow
   _shiftTooltipIntoViewport(e) {
-    var b;
-    const o = ((b = this.shadowRoot) == null ? void 0 : b.querySelector(
+    var m;
+    const o = ((m = this.shadowRoot) == null ? void 0 : m.querySelector(
       ".nys-tooltip__wrapper"
     )).getBoundingClientRect(), s = e.getBoundingClientRect(), n = o.left + o.width / 2, i = s.left < 0, c = s.right > window.innerWidth;
     this._resetTooltipPositioningStyles(e), i ? (e.style.left = "0px", e.style.transform = "none") : c && (e.style.right = "0px", e.style.left = "auto", e.style.transform = "none");
-    const d = e.getBoundingClientRect(), k = (n - d.left) / d.width, L = Math.max(0, Math.min(1, k)) * 100;
-    e.style.setProperty("--arrow-offset-x", `${L}%`);
+    const d = e.getBoundingClientRect(), b = (n - d.left) / d.width, $ = Math.max(0, Math.min(1, b)) * 100;
+    e.style.setProperty("--arrow-offset-x", `${$}%`);
   }
   // Reposition tooltip back to original set position (e.g. top, left, bottom, right) to avoid positioning issue base on last position
   _resetTooltipPositioningStyles(e) {
@@ -7553,7 +6623,7 @@ const j1 = class j1 extends y {
   }
   render() {
     var e;
-    return l`
+    return a`
       <div class="nys-tooltip__main">
         <div
           class="nys-tooltip__wrapper"
@@ -7566,7 +6636,7 @@ const j1 = class j1 extends y {
             <slot></slot>
           </span>
         </div>
-        ${(e = this.text) != null && e.trim() ? l`<div
+        ${(e = this.text) != null && e.trim() ? a`<div
               id=${this.id}
               class="nys-tooltip__content"
               role="tooltip"
@@ -7580,28 +6650,28 @@ const j1 = class j1 extends y {
     `;
   }
 };
-j1.styles = Mt;
-let J = j1;
-m1([
+D1.styles = tt;
+let X = D1;
+y1([
   r({ type: String })
-], J.prototype, "id", 2);
-m1([
+], X.prototype, "id", 2);
+y1([
   r({ type: String })
-], J.prototype, "text", 2);
-m1([
+], X.prototype, "text", 2);
+y1([
   r({ type: Boolean, reflect: !0 })
-], J.prototype, "inverted", 2);
-m1([
+], X.prototype, "inverted", 2);
+y1([
   r({ type: Boolean, reflect: !0 })
-], J.prototype, "focusable", 2);
-m1([
-  B()
-], J.prototype, "_active", 2);
-m1([
+], X.prototype, "focusable", 2);
+y1([
+  D()
+], X.prototype, "_active", 2);
+y1([
   r({ type: String, reflect: !0 })
-], J.prototype, "position", 1);
-customElements.get("nys-tooltip") || customElements.define("nys-tooltip", J);
-const Zt = u`
+], X.prototype, "position", 1);
+customElements.get("nys-tooltip") || customElements.define("nys-tooltip", X);
+const nt = g`
   :host {
     /* Global Unav Header Styles */
     --_nys-unavheader-gutter: var(--nys-gutter-xs, 20px);
@@ -7964,7 +7034,7 @@ const Zt = u`
       display: none;
     }
   }
-`, Bt = `<svg xmlns="http://www.w3.org/2000/svg" width="91" height="55" viewBox="0 0 91 55" fill="none">
+`, it = `<svg xmlns="http://www.w3.org/2000/svg" width="91" height="55" viewBox="0 0 91 55" fill="none">
   <path d="M55.1158 7.50499L58.2905 12.6494V7.5189C58.2905 7.5189 58.6487 7.26356 59.5098 7.26356C60.3708 7.26356 60.7378 7.5189 60.7378 7.5189V16.4327C60.7378 16.4327 60.3942 16.689 59.5215 16.689C58.6487 16.689 58.3295 16.4605 58.3295 16.4605L55.1421 11.3171V16.4337C55.1421 16.4337 54.7848 16.69 53.9111 16.69C53.0374 16.69 52.7065 16.4337 52.7065 16.4337V7.51989C52.7065 7.51989 53.0384 7.26456 53.9248 7.26456C54.8112 7.26456 55.1148 7.50697 55.1148 7.50697L55.1158 7.50499Z" fill="#457AA5"/>
   <path d="M67.2209 12.5948H64.9063V14.8709H68.2538C68.2538 14.8709 68.5047 15.1531 68.5047 15.772C68.5047 16.391 68.2538 16.688 68.2538 16.688H62.4589V7.26257H67.9892C67.9892 7.26257 68.2538 7.54572 68.2538 8.17859C68.2538 8.81146 67.9892 9.09362 67.9892 9.09362H64.9063V10.7637H67.2209C67.2209 10.7637 67.4728 11.0598 67.4728 11.6787C67.4728 12.2977 67.2209 12.5948 67.2209 12.5948Z" fill="#457AA5"/>
   <path d="M71.4802 16.4327L68.9791 7.5189C68.9791 7.5189 69.3491 7.26356 70.2101 7.26356C71.0711 7.26356 71.4275 7.5189 71.4275 7.5189L72.6839 12.0434C72.7766 12.3802 72.8166 12.6365 72.8557 12.7845C72.8557 12.7428 72.9221 12.3663 73.0011 12.0573L74.0984 7.5189C74.0984 7.5189 74.5211 7.26356 75.1176 7.26356C75.7141 7.26356 76.084 7.5189 76.084 7.5189L77.3004 12.7845C77.3004 12.6623 77.3795 12.3255 77.4586 12.0573L78.756 7.5189C78.7686 7.5189 79.1132 7.26356 79.9596 7.26356C80.806 7.26356 81.1897 7.5189 81.1897 7.5189L78.6496 16.4327C78.6496 16.4327 78.2922 16.6751 77.4859 16.689C76.5468 16.689 76.2158 16.4327 76.2158 16.4327L75.223 12.2987C75.1449 11.9887 75.0902 11.6529 75.0785 11.5844L74.9184 12.2987L73.9266 16.4327C73.9266 16.4327 73.583 16.689 72.7092 16.689C71.8355 16.689 71.4802 16.4327 71.4802 16.4327Z" fill="#457AA5"/>
@@ -7981,12 +7051,12 @@ const Zt = u`
   <path d="M67.6348 51.8019C67.6348 51.8019 67.6173 51.782 67.6173 51.7303C67.6173 51.6787 67.6348 51.6588 67.6348 51.6588H68.5564C68.5564 51.6588 68.5749 51.6806 68.5749 51.7303C68.5749 51.78 68.5564 51.8019 68.5564 51.8019H68.1932V52.9205C68.1932 52.9205 68.1659 52.9404 68.0976 52.9404C68.0292 52.9404 67.998 52.9205 67.998 52.9205V51.8019H67.6348Z" fill="#154973"/>
   <path d="M69.4282 52.8659C69.4135 52.8748 69.3891 52.8858 69.3471 52.8858C69.3178 52.8858 69.2837 52.8798 69.27 52.8659L68.9889 52.1476C68.9723 52.1088 68.9459 52.0323 68.944 52.0214C68.944 52.0264 68.9371 52.1277 68.9332 52.1565L68.8815 52.9205C68.8815 52.9205 68.8561 52.9404 68.7858 52.9404C68.7155 52.9404 68.6862 52.9205 68.6862 52.9205L68.7839 51.6787C68.7839 51.6787 68.8112 51.6588 68.8776 51.6588C68.9518 51.6588 68.9781 51.6787 68.9781 51.6787L69.3042 52.5162L69.3471 52.6533C69.3481 52.6473 69.3774 52.5559 69.392 52.5162L69.7181 51.6787C69.7181 51.6787 69.7464 51.6588 69.8206 51.6588C69.886 51.6588 69.9124 51.6787 69.9124 51.6787L70.01 52.9205C70.01 52.9205 69.9807 52.9404 69.9104 52.9404C69.8401 52.9404 69.8167 52.9205 69.8167 52.9205L69.763 52.1546L69.7523 52.0194C69.7523 52.0194 69.722 52.1148 69.7093 52.1456L69.4282 52.8659Z" fill="#154973"/>
 </svg>`;
-var qt = Object.defineProperty, g1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && qt(e, t, s), s;
+var at = Object.defineProperty, l1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && at(e, t, s), s;
 };
-const G1 = class G1 extends y {
+const V1 = class V1 extends y {
   constructor() {
     super(...arguments), this.trustbarVisible = !1, this.searchDropdownVisible = !1, this.languageVisible = !1, this.isSearchFocused = !1, this.hideTranslate = !1, this.hideSearch = !1, this.languages = [
       ["English", ""],
@@ -8006,7 +7076,7 @@ const G1 = class G1 extends y {
     ];
   }
   _getNysLogo() {
-    return new DOMParser().parseFromString(Bt, "image/svg+xml").documentElement;
+    return new DOMParser().parseFromString(it, "image/svg+xml").documentElement;
   }
   _toggleTrustbar() {
     this.trustbarVisible = !this.trustbarVisible, this.trustbarVisible && (this.languageVisible = !1, this.searchDropdownVisible = !1);
@@ -8047,7 +7117,7 @@ const G1 = class G1 extends y {
     super.disconnectedCallback();
   }
   render() {
-    return l`
+    return a`
       <header class="nys-unavheader">
         <div class="nys-unavheader__mainwrapper" id="nys-universal-navigation">
           <div class="nys-unavheader__maincontent">
@@ -8150,7 +7220,7 @@ const G1 = class G1 extends y {
               </div>
             </div>
             <div class="nys-unavheader__right">
-              ${this.hideTranslate ? null : l`<div class="nys-unavheader__translatewrapper">
+              ${this.hideTranslate ? null : a`<div class="nys-unavheader__translatewrapper">
                     <div
                       class="nys-unavheader--xs nys-unavheader--sm nys-unavheader--md"
                     >
@@ -8170,7 +7240,7 @@ const G1 = class G1 extends y {
                         ></nys-icon>
                       </nys-button>
                     </div>
-                    ${this.isSearchFocused ? null : l`<div class="nys-unavheader--lg nys-unavheader--xl">
+                    ${this.isSearchFocused ? null : a`<div class="nys-unavheader--lg nys-unavheader--xl">
                           <nys-button
                             variant="ghost"
                             label="Translate"
@@ -8186,7 +7256,7 @@ const G1 = class G1 extends y {
                       class="nys-unavheader__languagelist ${this.languageVisible ? "show" : "hide"}"
                     >
                       ${this.languages.map(
-      ([e, t]) => l`<a
+      ([e, t]) => a`<a
                             class="nys-unavheader__languagelink"
                             target="_self"
                             href="https://${t ? t + "." : ""}${window.location.hostname}"
@@ -8195,7 +7265,7 @@ const G1 = class G1 extends y {
     )}
                     </div>
                   </div>`}
-              ${this.hideSearch ? null : l` <div
+              ${this.hideSearch ? null : a` <div
                       class="nys-unavheader--xs nys-unavheader--sm nys-unavheader--md"
                     >
                       <nys-button
@@ -8267,31 +7337,31 @@ const G1 = class G1 extends y {
     `;
   }
 };
-G1.styles = Zt;
-let T = G1;
-g1([
+V1.styles = nt;
+let R = V1;
+l1([
   r({ type: Boolean })
-], T.prototype, "trustbarVisible");
-g1([
+], R.prototype, "trustbarVisible");
+l1([
   r({ type: Boolean })
-], T.prototype, "searchDropdownVisible");
-g1([
+], R.prototype, "searchDropdownVisible");
+l1([
   r({ type: Boolean })
-], T.prototype, "languageVisible");
-g1([
+], R.prototype, "languageVisible");
+l1([
   r({ type: Boolean })
-], T.prototype, "isSearchFocused");
-g1([
+], R.prototype, "isSearchFocused");
+l1([
   r({ type: Boolean })
-], T.prototype, "hideTranslate");
-g1([
+], R.prototype, "hideTranslate");
+l1([
   r({ type: Boolean })
-], T.prototype, "hideSearch");
-g1([
+], R.prototype, "hideSearch");
+l1([
   r({ type: String, reflect: !0 })
-], T.prototype, "languages");
-customElements.get("nys-unavheader") || customElements.define("nys-unavheader", T);
-const Ut = u`
+], R.prototype, "languages");
+customElements.get("nys-unavheader") || customElements.define("nys-unavheader", R);
+const lt = g`
   :host {
     /* Global Header Styles */
     --_nys-globalheader-text-color: var(
@@ -8308,6 +7378,7 @@ const Ut = u`
     );
     --_nys-globalheader-main-gap-spacing: var(--nys-space-300, 24px);
     --_nys-globalheader-padding: var(--nys-space-250, 20px);
+    --_nys-globalheader-gutter: var(--nys-gutter-sm, 20px);
     --_nys-globalheader-font-family: var(
       --nys-font-family-ui,
       var(
@@ -8346,14 +7417,14 @@ const Ut = u`
     );
 
     /* Menu Content Styling */
+    --_nys-globalfooter-link-gap-spacing-row: var(--nys-space-300, 24px);
+    --_nys-globalfooter-link-gap-spacing-column: var(--nys-space-400, 32px);
     --_nys-globalheader-link-lineheight: var(--nys-font-lineheight-ui-md, 24px);
     --_nys-globalheader-link-letterspacing: var(
       --nys-font-letterspacing-ui-md,
       var(--nys-font-letterspacing-400, 0.044px)
     );
     --_nys-globalheader-link-weight-decoration: var(--nys-size-2px, 2px);
-    --_nys-globalheader-link-padding: var(--nys-space-300, 24px)
-      var(--nys-space-200, 16px);
 
     /* Mobile Menu */
     --_nys-globalheader-mobile-btn-font-size: var(--nys-type-size-ui-xs, 12px);
@@ -8387,10 +7458,8 @@ const Ut = u`
   }
 
   li {
-    display: block;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
 
   a {
@@ -8407,11 +7476,10 @@ const Ut = u`
   .nys-globalheader {
     display: flex;
     justify-content: center;
-    padding: var(--_nys-globalheader-padding);
+    padding: var(--_nys-globalheader-padding) var(--_nys-globalheader-gutter);
     background-color: var(--_nys-globalheader-background);
     color: var(--_nys-globalheader-text-color);
     width: 100%;
-    min-height: 76px;
     box-sizing: border-box;
   }
 
@@ -8478,25 +7546,6 @@ const Ut = u`
     text-decoration-thickness: var(--_nys-globalheader-link-weight-decoration);
   }
 
-  /* Active Links */
-  .nys-globalheader__content li.active a,
-  .nys-globalheader__content-mobile li.active a {
-    font-weight: 700;
-  }
-  .nys-globalheader__content li.active {
-    border-bottom: 8px solid var(--nys-color-theme-weak, #cddde9);
-  }
-  .nys-globalheader__content li.active a {
-    margin-bottom: calc(-1 * var(--nys-space-100, 8px));
-  }
-  .nys-globalheader__content-mobile li.active a {
-    border-left: 8px solid var(--nys-color-theme-weak, #cddde9);
-    border-bottom: 1px solid var(--_nys-globalheader-mobile-li-border-color);
-  }
-  .nys-globalheader__content ul li.active a:hover {
-    text-decoration: none;
-  }
-
   /* Mobile Menu */
   .nys-globalheader__content-mobile {
     position: absolute;
@@ -8524,7 +7573,6 @@ const Ut = u`
     gap: 8px;
     align-self: stretch;
     border-bottom: 1px solid var(--_nys-globalheader-mobile-li-border-color);
-    background: var(--_nys-globalheader-background);
   }
   .nys-globalheader__content-mobile ul li a:hover {
     background: var(--_nys-globalheader-mobile-li-hover-bg);
@@ -8567,45 +7615,39 @@ const Ut = u`
   }
 
   /* Breakpoints using NYSDS Guidelines (Menu Links) */
-  /* https://www.figma.com/design/U2QpuSUXRTxbgG64Fzi9bu?node-id=1170-340 */
-  @media (min-width: 1024px) {
-    /* Desktop (MD - Above 1024px) */
+  @media (min-width: 768px) {
+    /* Tablet (MD - Above 768px) */
     .nys-globalheader__content {
       display: flex;
     }
     .nys-globalheader__content ul {
       flex-direction: row;
+      gap: var(--_nys-globalfooter-link-gap-spacing-row)
+        var(--_nys-globalfooter-link-gap-spacing-column);
     }
     .nys-globalheader__content-mobile,
     .nys-globalheader__button-container {
       display: none;
     }
-    li {
-      display: flex;
-      align-items: center;
-      padding: var(--_nys-globalheader-link-padding);
-    }
     :host {
       --_nys-globalheader-main-gap-spacing: var(--nys-space-500, 40px);
-      --_nys-globalheader-padding: var(--nys-space-50, 4px)
-        var(--nys-size-400, 32px) 0;
+      --_nys-globalheader-gutter: var(--nys-gutter-lg, 32px);
     }
   }
 
   @media (min-width: 1280px) {
-    /* Large Desktop (LG - Above 1280px) */
+    /* Large Desktop (XL - Above 1280px) */
     :host {
-      --_nys-globalheader-padding: var(--nys-space-50, 4px)
-        var(--nys-space-800, 64px) 0;
+      --_nys-globalheader-gutter: var(--nys-gutter-xl, 64px);
     }
   }
 `;
-var Pt = Object.defineProperty, D1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && Pt(e, t, s), s;
+var ct = Object.defineProperty, g1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && ct(e, t, s), s;
 };
-const Y1 = class Y1 extends y {
+const M1 = class M1 extends y {
   constructor() {
     super(...arguments), this.appName = "", this.agencyName = "", this.homepageLink = "", this.slotHasContent = !0, this.isMobileMenuOpen = !1;
   }
@@ -8630,42 +7672,22 @@ const Y1 = class Y1 extends y {
     );
     o && s && (o.innerHTML = "", s.innerHTML = "", t.forEach((d) => {
       if (d.nodeType === Node.ELEMENT_NODE) {
-        const k = d.cloneNode(!0), L = d.cloneNode(!0);
-        ["script", "iframe", "object", "embed, img"].forEach((c1) => {
-          k.querySelectorAll(c1).forEach((x1) => x1.remove());
-        });
-        const X1 = this._normalizePath(window.location.pathname);
-        k.querySelectorAll("a").forEach((c1) => {
-          const x1 = c1.getAttribute("href");
-          if (this._normalizePath(x1) === X1) {
-            const w1 = c1.closest("li");
-            w1 && w1.classList.add("active");
-          }
-        }), L.querySelectorAll("a").forEach((c1) => {
-          const x1 = c1.getAttribute("href");
-          if (this._normalizePath(x1) === X1) {
-            const w1 = c1.closest("li");
-            w1 && w1.classList.add("active");
-          }
-        }), o.appendChild(k), s.appendChild(L), d.remove();
+        const b = d.cloneNode(!0), $ = d.cloneNode(!0);
+        ["script", "iframe", "object", "embed, img"].forEach((I1) => {
+          b.querySelectorAll(I1).forEach((B1) => B1.remove());
+        }), o.appendChild(b), s.appendChild($), d.remove();
       }
     }));
-  }
-  // Normalize paths so that links like "name", "/name/", and "/" match window.location.pathname.
-  // This ensures consistent active-link behavior regardless of how hrefs are written.
-  _normalizePath(e) {
-    if (e)
-      return e.startsWith("/") || (e = "/" + e), e.length > 1 && e.endsWith("/") && (e = e.slice(0, -1)), e.toLowerCase();
   }
   _toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
   render() {
     var e, t, o, s, n, i, c, d;
-    return l`
+    return a`
       <header class="nys-globalheader">
         <div class="nys-globalheader__main-container">
-          ${this.slotHasContent ? l` <div class="nys-globalheader__button-container">
+          ${this.slotHasContent ? a` <div class="nys-globalheader__button-container">
                 <button
                   class="nys-globalheader__mobile-menu-button"
                   @click="${this._toggleMobileMenu}"
@@ -8680,37 +7702,37 @@ const Y1 = class Y1 extends y {
                   >
                 </button>
               </div>` : ""}
-          ${(e = this.homepageLink) != null && e.trim() ? l`<a
+          ${(e = this.homepageLink) != null && e.trim() ? a`<a
                 class="nys-globalheader__name-container-link"
                 href=${(n = this.homepageLink) == null ? void 0 : n.trim()}
               >
                 <div class="nys-globalheader__name-container">
-                  ${((i = this.appName) == null ? void 0 : i.trim().length) > 0 ? l`<div
+                  ${((i = this.appName) == null ? void 0 : i.trim().length) > 0 ? a`<div
                         class="nys-globalheader__appName nys-globalheader__name"
                       >
                         ${this.appName}
                       </div> ` : ""}
-                  ${((c = this.agencyName) == null ? void 0 : c.trim().length) > 0 ? l`<div
+                  ${((c = this.agencyName) == null ? void 0 : c.trim().length) > 0 ? a`<div
                         class="nys-globalheader__agencyName nys-globalheader__name ${((d = this.appName) == null ? void 0 : d.trim().length) > 0 ? "" : "main"}"
                       >
                         ${this.agencyName}
                       </div> ` : ""}
                 </div>
-              </a>` : l`
+              </a>` : a`
                 <div class="nys-globalheader__name-container">
-                  ${((t = this.appName) == null ? void 0 : t.trim().length) > 0 ? l`<div
+                  ${((t = this.appName) == null ? void 0 : t.trim().length) > 0 ? a`<div
                         class="nys-globalheader__appName nys-globalheader__name"
                       >
                         ${this.appName}
                       </div> ` : ""}
-                  ${((o = this.agencyName) == null ? void 0 : o.trim().length) > 0 ? l`<div
+                  ${((o = this.agencyName) == null ? void 0 : o.trim().length) > 0 ? a`<div
                         class="nys-globalheader__agencyName nys-globalheader__name ${((s = this.appName) == null ? void 0 : s.trim().length) > 0 ? "" : "main"}"
                       >
                         ${this.agencyName}
                       </div> ` : ""}
                 </div>
               `}
-          ${this.slotHasContent ? l`<div class="nys-globalheader__content">
+          ${this.slotHasContent ? a`<div class="nys-globalheader__content">
                 <slot
                   style="display: hidden"
                   @slotchange="${this._handleSlotChange}"
@@ -8724,25 +7746,25 @@ const Y1 = class Y1 extends y {
     `;
   }
 };
-Y1.styles = Ut;
-let a1 = Y1;
-D1([
+M1.styles = lt;
+let s1 = M1;
+g1([
   r({ type: String })
-], a1.prototype, "appName");
-D1([
+], s1.prototype, "appName");
+g1([
   r({ type: String })
-], a1.prototype, "agencyName");
-D1([
+], s1.prototype, "agencyName");
+g1([
   r({ type: String })
-], a1.prototype, "homepageLink");
-D1([
-  B()
-], a1.prototype, "slotHasContent");
-D1([
-  B()
-], a1.prototype, "isMobileMenuOpen");
-customElements.get("nys-globalheader") || customElements.define("nys-globalheader", a1);
-const Ot = u`
+], s1.prototype, "homepageLink");
+g1([
+  D()
+], s1.prototype, "slotHasContent");
+g1([
+  D()
+], s1.prototype, "isMobileMenuOpen");
+customElements.get("nys-globalheader") || customElements.define("nys-globalheader", s1);
+const dt = g`
   :host {
     /* Global Footer Styles */
     --_nys-globalfooter-text-color: var(
@@ -8898,12 +7920,12 @@ const Ot = u`
     }
   }
 `;
-var Rt = Object.defineProperty, B1 = (a, e, t, o) => {
-  for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
-    (i = a[n]) && (s = i(e, t, s) || s);
-  return s && Rt(e, t, s), s;
+var ht = Object.defineProperty, w1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && ht(e, t, s), s;
 };
-const K1 = class K1 extends y {
+const z1 = class z1 extends y {
   constructor() {
     super(...arguments), this.agencyName = "", this.homepageLink = "", this.slotHasContent = !0;
   }
@@ -8929,21 +7951,21 @@ const K1 = class K1 extends y {
     o && (o.classList.toggle("columns", s), o.classList.toggle("small", !s), o.innerHTML = "", t.forEach((c) => {
       if (c.nodeType === Node.ELEMENT_NODE) {
         const d = c.cloneNode(!0);
-        ["script", "iframe", "object", "embed", "img"].forEach((L) => {
-          d.querySelectorAll(L).forEach((b) => b.remove());
+        ["script", "iframe", "object", "embed", "img"].forEach(($) => {
+          d.querySelectorAll($).forEach((m) => m.remove());
         }), o.appendChild(d), c.remove();
       }
     }));
   }
   render() {
     var e, t;
-    return l`
+    return a`
       <footer class="nys-globalfooter">
         <div class="nys-globalfooter__main-container">
-          ${(e = this.homepageLink) != null && e.trim() ? l`<a href=${(t = this.homepageLink) == null ? void 0 : t.trim()}>
+          ${(e = this.homepageLink) != null && e.trim() ? a`<a href=${(t = this.homepageLink) == null ? void 0 : t.trim()}>
                 <p class="nys-globalfooter__name">${this.agencyName}</p>
-              </a>` : l`<p class="nys-globalfooter__name">${this.agencyName}</p>`}
-          ${this.slotHasContent ? l`<div class="nys-globalfooter__content">
+              </a>` : a`<p class="nys-globalfooter__name">${this.agencyName}</p>`}
+          ${this.slotHasContent ? a`<div class="nys-globalfooter__content">
                 <slot
                   style="display: hidden"
                   @slotchange="${this._handleSlotChange}"
@@ -8954,19 +7976,19 @@ const K1 = class K1 extends y {
     `;
   }
 };
-K1.styles = Ot;
-let _1 = K1;
-B1([
+z1.styles = dt;
+let d1 = z1;
+w1([
   r({ type: String })
-], _1.prototype, "agencyName");
-B1([
+], d1.prototype, "agencyName");
+w1([
   r({ type: String })
-], _1.prototype, "homepageLink");
-B1([
-  B()
-], _1.prototype, "slotHasContent");
-customElements.get("nys-globalfooter") || customElements.define("nys-globalfooter", _1);
-const Tt = u`
+], d1.prototype, "homepageLink");
+w1([
+  D()
+], d1.prototype, "slotHasContent");
+customElements.get("nys-globalfooter") || customElements.define("nys-globalfooter", d1);
+const yt = g`
   :host {
     /* Global Footer Styles */
     --_nys-unavfooter-link-color: var(
@@ -9122,7 +8144,7 @@ const Tt = u`
       --_nys-unavfooter-gutter: var(--nys-gutter-xl, 64px);
     }
   }
-`, Ft = `<svg xmlns="http://www.w3.org/2000/svg" width="91" height="55" viewBox="0 0 91 55" fill="none">
+`, ut = `<svg xmlns="http://www.w3.org/2000/svg" width="91" height="55" viewBox="0 0 91 55" fill="none">
   <path d="M55.1158 7.50499L58.2905 12.6494V7.5189C58.2905 7.5189 58.6487 7.26356 59.5098 7.26356C60.3708 7.26356 60.7378 7.5189 60.7378 7.5189V16.4327C60.7378 16.4327 60.3942 16.689 59.5215 16.689C58.6487 16.689 58.3295 16.4605 58.3295 16.4605L55.1421 11.3171V16.4337C55.1421 16.4337 54.7848 16.69 53.9111 16.69C53.0374 16.69 52.7065 16.4337 52.7065 16.4337V7.51989C52.7065 7.51989 53.0384 7.26456 53.9248 7.26456C54.8112 7.26456 55.1148 7.50697 55.1148 7.50697L55.1158 7.50499Z" fill="white"/>
   <path d="M67.2209 12.5948H64.9063V14.8709H68.2538C68.2538 14.8709 68.5047 15.1531 68.5047 15.772C68.5047 16.391 68.2538 16.688 68.2538 16.688H62.4589V7.26257H67.9892C67.9892 7.26257 68.2538 7.54572 68.2538 8.17859C68.2538 8.81146 67.9892 9.09362 67.9892 9.09362H64.9063V10.7637H67.2209C67.2209 10.7637 67.4728 11.0598 67.4728 11.6787C67.4728 12.2977 67.2209 12.5948 67.2209 12.5948Z" fill="white"/>
   <path d="M71.4802 16.4327L68.9791 7.5189C68.9791 7.5189 69.3491 7.26356 70.2101 7.26356C71.0711 7.26356 71.4275 7.5189 71.4275 7.5189L72.6839 12.0434C72.7766 12.3802 72.8166 12.6365 72.8557 12.7845C72.8557 12.7428 72.9221 12.3663 73.0011 12.0573L74.0984 7.5189C74.0984 7.5189 74.5211 7.26356 75.1176 7.26356C75.7141 7.26356 76.084 7.5189 76.084 7.5189L77.3004 12.7845C77.3004 12.6623 77.3795 12.3255 77.4586 12.0573L78.756 7.5189C78.7686 7.5189 79.1132 7.26356 79.9596 7.26356C80.806 7.26356 81.1897 7.5189 81.1897 7.5189L78.6496 16.4327C78.6496 16.4327 78.2922 16.6751 77.4859 16.689C76.5468 16.689 76.2158 16.4327 76.2158 16.4327L75.223 12.2987C75.1449 11.9887 75.0902 11.6529 75.0785 11.5844L74.9184 12.2987L73.9266 16.4327C73.9266 16.4327 73.583 16.689 72.7092 16.689C71.8355 16.689 71.4802 16.4327 71.4802 16.4327Z" fill="white"/>
@@ -9138,13 +8160,13 @@ const Tt = u`
   <path d="M51.7107 54.9999C51.577 54.9999 51.4335 54.974 51.2939 54.8965C51.085 54.7803 50.9395 54.5876 50.8858 54.3551C50.8233 54.0868 50.8936 53.7868 51.082 53.5116L51.1426 53.4202C51.2041 53.3268 51.2685 53.2354 51.3407 53.1519C51.4218 53.0595 51.5047 52.995 51.5741 52.9493C51.5243 52.6691 51.5418 52.4267 51.5682 52.2061C51.5877 52.0233 51.6346 51.8683 51.6726 51.7451C51.6892 51.6925 51.7058 51.6388 51.7185 51.5812C51.8201 51.145 51.8855 50.7397 51.9206 50.3453C51.9528 49.9916 51.947 49.9846 51.8864 49.9061C51.7 49.6707 51.3847 49.5018 51.0498 49.3229C50.8878 49.2365 50.7286 49.1491 50.5754 49.0557C49.607 48.4536 48.6376 47.8505 47.6701 47.2465L47.3294 47.0339C47.2513 46.9862 47.1147 46.9156 46.9516 46.8282C45.8817 46.2659 45.172 45.8526 45.0539 45.2595C45.0363 45.173 44.9465 44.9644 44.884 44.864C44.8411 44.8611 44.7307 44.8521 44.6546 44.8471C44.3032 44.8183 43.7711 44.7726 43.3484 44.3196C43.2635 44.2272 43.1786 44.1408 43.1005 44.0583C42.5098 43.4443 42.0003 42.9148 41.9329 41.5993C41.9241 41.4275 41.9251 41.2506 41.928 41.0728C41.9339 40.5283 41.927 40.1836 41.7103 39.962C41.6078 39.8567 41.435 39.7862 41.2349 39.7037C40.9889 39.6034 40.7097 39.4881 40.45 39.2686C40.37 39.2 40.2792 39.1007 40.1776 38.9854C40.0712 38.8602 39.9082 38.6724 39.7969 38.6337C38.974 38.3436 37.986 38.3178 36.96 38.3178L3.07245 38.2909C2.85964 38.2909 2.66927 38.3138 2.48477 38.3347C2.07378 38.3823 1.60812 38.437 1.2313 38.0962C0.866192 37.7664 0.815429 37.2607 0.814452 36.8076L0.8125 34.3993C0.8125 34.2722 0.847644 34.147 0.913051 34.0387C1.22544 33.529 1.83265 33.2558 2.3686 33.0144C2.56872 32.924 2.77666 32.8316 2.88795 32.7571C3.17593 32.5623 3.43561 32.302 3.7109 32.0248C3.91688 31.8182 4.13068 31.6046 4.36887 31.4059C4.69786 31.1317 5.07078 30.931 5.43296 30.7372C5.74535 30.5703 6.03821 30.4124 6.24127 30.2395C6.38575 30.1173 6.49216 29.9146 6.61906 29.6792C6.75476 29.4238 6.90998 29.1337 7.15208 28.8804C7.41273 28.6081 7.7427 28.4194 8.03263 28.2535C8.69744 27.871 8.68182 27.8322 8.57736 27.5769C8.52855 27.4577 8.48072 27.3553 8.43972 27.2639C8.24447 26.8357 8.07754 26.4681 8.19078 25.7051C8.2025 25.6306 8.21616 25.5521 8.22983 25.4706C8.25619 25.3325 8.30305 25.0772 8.27571 25.0037C8.27571 25.0037 8.26204 24.9927 8.23471 24.9778C8.21128 24.9659 8.12928 24.9669 8.06875 24.9679C7.87448 24.9659 7.51914 24.9768 7.2497 24.6689C6.98124 24.3629 6.99686 23.9555 7.03982 23.6356C7.08179 23.3127 7.06032 23.1051 7.03982 22.9223C6.95684 22.1453 7.21358 21.7817 8.10097 21.424C10.7524 20.351 12.901 19.9884 14.8613 20.2805C14.9775 20.2974 15.1356 20.2656 15.3182 20.2269C15.5944 20.1702 15.9351 20.1017 16.312 20.1752L18.3952 20.5766C19.2475 20.7415 19.6653 20.9054 20.3047 21.4995C20.6327 21.8046 20.7655 21.7718 21.3327 21.5661C21.6168 21.4638 21.9399 21.3485 22.3323 21.2949C22.9727 21.2084 23.5731 21.2661 24.153 21.3227C24.4136 21.3475 24.6762 21.3734 24.9408 21.3843C25.2356 21.3952 25.6085 21.2561 25.9717 21.121C26.1318 21.0614 26.2889 21.0028 26.4412 20.9541C26.78 20.8468 27.0973 20.7991 27.4038 20.7514C27.5551 20.7266 27.7064 20.7037 27.8607 20.6729C27.8714 20.6531 27.8821 20.6332 27.8939 20.6113C27.9417 20.5249 27.9944 20.4345 28.0598 20.3411C28.3419 19.9497 28.7471 19.7003 29.0722 19.4966L29.2078 19.4122C29.5564 19.1916 29.8629 18.9879 30.105 18.7386C30.5423 18.2796 31.1232 18.3114 31.5108 18.3312C31.6455 18.3392 31.8495 18.3481 31.91 18.3223C32.1678 18.207 31.9413 17.3993 31.8065 16.9165C31.7119 16.5777 31.6299 16.2846 31.6133 16.0183C31.5664 15.2642 31.9764 14.7317 32.3064 14.3045C32.5651 13.9687 32.7213 13.7481 32.7164 13.5355C32.7164 13.4948 32.7027 13.4382 32.6851 13.3845C32.4587 13.4948 32.0955 13.6369 31.6796 13.4421C31.0129 13.1302 30.6468 12.0264 30.8508 11.3985C31.0197 10.8779 31.54 10.5421 31.9198 10.2957L32.0565 10.2053C32.3806 9.98471 32.7242 9.79792 33.0542 9.6181C33.5159 9.36873 33.9513 9.13227 34.2949 8.82726C34.4404 8.69711 34.5761 8.56994 34.7089 8.44376C35.0076 8.1626 35.3161 7.8715 35.6792 7.61319C35.7056 7.5188 35.728 7.34096 35.7437 7.22571C35.7729 7.00714 35.8022 6.78062 35.8803 6.5849C36.2513 5.64304 37.1592 4.90884 37.9597 4.25908C38.2252 4.04448 38.4771 3.84081 38.6743 3.65602C38.7992 3.53878 38.9222 3.42055 39.0452 3.30332C39.6388 2.73701 40.2509 2.15084 40.9967 1.68289C41.601 1.30536 42.3898 0.833439 43.1249 0.552274C44.0972 0.1807 44.5579 0.208518 45.4766 0.262168L45.6474 0.27111C47.3607 0.371455 49.1384 0.32476 50.8575 0.281045C51.7205 0.258194 52.5796 0.235343 53.4347 0.230376C53.6651 0.230376 54.0156 0.185667 54.3836 0.138972C55.6078 -0.0140291 56.994 -0.188888 57.7818 0.503592C58.1118 0.792705 58.2924 1.19806 58.3031 1.67594C58.311 2.05248 58.1567 2.33464 58.0435 2.54129C58.0064 2.60686 57.9527 2.7082 57.9458 2.74297C57.9488 2.73205 57.9849 2.78768 58.0103 2.82742C58.1362 3.01718 58.3686 3.37088 58.2748 3.89843C58.2397 4.10111 58.1811 4.3167 58.1216 4.53528C58.0464 4.81147 57.9693 5.09761 57.9624 5.31419C57.9498 5.69073 57.6335 5.99376 57.2703 5.97289C56.9013 5.95998 56.6104 5.64603 56.6231 5.26849C56.6367 4.89195 56.7392 4.50944 56.831 4.17264C56.8788 3.9948 56.9276 3.82094 56.9569 3.65502C56.9481 3.65502 56.9218 3.62323 56.8993 3.58746C56.791 3.42254 56.6065 3.14535 56.6065 2.73701C56.6065 2.36345 56.7607 2.08328 56.873 1.87862C56.9072 1.81702 56.9589 1.72462 56.9657 1.69084C56.9608 1.58354 56.9267 1.55274 56.9072 1.53685C56.5694 1.23979 55.2544 1.40372 54.5496 1.49313C54.1386 1.5438 53.752 1.59348 53.4435 1.59547C52.5971 1.60043 51.7439 1.62229 50.8907 1.64315C49.1442 1.68886 47.3382 1.73654 45.5722 1.63421L45.3985 1.62328C44.5345 1.57162 44.3022 1.55871 43.5964 1.82894C42.9618 2.07235 42.2101 2.5244 41.7006 2.84431C41.0699 3.23973 40.533 3.75338 39.9648 4.29683C39.8379 4.41804 39.712 4.53925 39.5831 4.65947C39.3479 4.87804 39.0794 5.09661 38.7953 5.32611C38.1237 5.87056 37.3642 6.48555 37.1231 7.09457C37.1065 7.14425 37.085 7.30221 37.0713 7.40753C37.0147 7.84666 36.9424 8.3931 36.5041 8.69016C36.1927 8.90277 35.9145 9.16704 35.6187 9.44523C35.4771 9.57935 35.3317 9.71546 35.1774 9.85257C34.7186 10.2629 34.1924 10.548 33.6838 10.8222C33.3675 10.9931 33.0698 11.1541 32.8033 11.3369C32.7554 11.3707 32.6978 11.4064 32.6373 11.4462C32.5114 11.5276 32.2332 11.7065 32.1346 11.8217C32.1424 11.8992 32.1726 12.0115 32.2117 12.1009C32.3757 12.0214 32.6041 11.924 32.8804 11.9459C33.6633 12.0135 34.0401 12.8937 34.0558 13.4988C34.0743 14.2191 33.677 14.7337 33.3587 15.145C33.0971 15.4868 32.9351 15.7074 32.9487 15.9319C32.9565 16.0511 33.0288 16.3114 33.0932 16.5419C33.3314 17.3933 33.7746 18.978 32.4479 19.5701C32.0965 19.7281 31.7314 19.7082 31.4375 19.6933C31.3126 19.6864 31.1046 19.6764 31.047 19.7023C30.7171 20.051 30.3227 20.3113 29.9166 20.5706L29.7692 20.663C29.5212 20.816 29.2654 20.976 29.1405 21.1488C29.1083 21.1935 29.0819 21.2412 29.0585 21.2859C28.9345 21.5085 28.7256 21.884 28.174 21.9993C27.9827 22.04 27.7943 22.0708 27.6059 22.0996C27.3364 22.1414 27.0807 22.1811 26.8386 22.2566C26.7087 22.2993 26.5711 22.35 26.4334 22.4017C25.9697 22.5745 25.4435 22.7732 24.8871 22.7474C24.5981 22.7355 24.3131 22.7087 24.027 22.6808C23.4989 22.6282 22.9981 22.5805 22.511 22.6481C22.2572 22.6828 22.0258 22.7653 21.7817 22.8537C21.1716 23.0733 20.3369 23.3733 19.4046 22.508C18.9927 22.1265 18.8267 22.049 18.1473 21.9178L16.065 21.5164C15.942 21.4936 15.775 21.5264 15.5818 21.5651C15.3289 21.6168 15.0136 21.6784 14.6719 21.6297C12.9508 21.3724 11.0218 21.7112 8.59689 22.6928C8.49829 22.7325 8.42703 22.7643 8.37431 22.7891C8.39579 22.9779 8.42312 23.2491 8.39091 23.6217C8.53343 23.6416 8.69353 23.6843 8.86047 23.7737C9.81228 24.2834 9.63461 25.256 9.5487 25.724C9.53601 25.7876 9.52528 25.8511 9.51551 25.9127C9.4628 26.2694 9.49501 26.3429 9.65511 26.6917C9.70392 26.798 9.75664 26.9162 9.81326 27.0543C10.3941 28.4681 9.28415 29.1039 8.68865 29.4447C8.46705 29.5719 8.23764 29.701 8.11268 29.8331C7.99944 29.9524 7.89987 30.1372 7.79541 30.3329C7.62945 30.6448 7.44104 30.9975 7.10522 31.2847C6.79088 31.5529 6.41894 31.7536 6.05871 31.9454C5.74144 32.1153 5.44077 32.2762 5.21623 32.464C5.02782 32.6219 4.84527 32.8048 4.65295 32.9985C4.34252 33.3085 4.02524 33.6294 3.62499 33.8976C3.41901 34.0347 3.17203 34.147 2.9104 34.2652C2.69661 34.3606 2.33443 34.5225 2.14992 34.6626L2.15383 36.8096C2.15383 36.8881 2.15578 36.9527 2.15871 37.0023C2.21533 36.9974 2.27586 36.9904 2.32662 36.9835C2.5287 36.9606 2.77959 36.9308 3.06952 36.9308L36.9581 36.9566C38.0573 36.9566 39.2141 36.9884 40.2304 37.3471C40.6755 37.5021 40.9801 37.8538 41.1812 38.0853C41.2281 38.1399 41.2681 38.1896 41.3052 38.2234C41.4018 38.3048 41.5551 38.3674 41.7328 38.441C42.0129 38.5562 42.3615 38.7003 42.6572 39.0043C43.2811 39.6411 43.2713 40.4469 43.2645 41.0927C43.2606 41.2417 43.2606 41.3897 43.2664 41.5328C43.3084 42.3326 43.5261 42.5581 44.0532 43.1055C44.1372 43.1929 44.2251 43.2853 44.3188 43.3847C44.3842 43.4542 44.5287 43.4701 44.761 43.491C45.0412 43.5138 45.3897 43.5417 45.6953 43.7751C46.0291 44.0275 46.2546 44.5888 46.3376 44.8809C46.5455 45.0846 47.2777 45.4711 47.5647 45.6211C47.7639 45.7264 47.9298 45.8158 48.0265 45.8754L48.3672 46.088C49.3346 46.6891 50.3011 47.2922 51.2705 47.8943C51.3993 47.9727 51.533 48.0463 51.6707 48.1188C52.0924 48.3443 52.5698 48.6006 52.9291 49.0567C53.3215 49.5544 53.2942 50.0045 53.259 50.4029C53.3156 50.2936 53.3781 50.1893 53.4513 50.0879C53.5841 49.8982 53.7393 49.7541 53.877 49.626C54.0136 49.4998 54.1073 49.4104 54.1396 49.3388C54.1132 49.2772 54.0527 49.1739 54.0117 49.1034C53.8487 48.8232 53.6271 48.4387 53.7315 47.9857C53.7725 47.8108 53.8789 47.6588 54.0283 47.5634C54.0849 47.5276 54.205 47.4591 54.3631 47.3717C54.5818 47.2495 55.1373 46.9405 55.475 46.71C54.9723 45.5913 55.1392 44.2163 55.2886 42.9843C55.3345 42.6038 55.3784 42.2451 55.3989 41.9222C55.4204 41.5467 55.7337 41.2606 56.1076 41.2834C56.4776 41.3063 56.7588 41.6301 56.7353 42.0057C56.7148 42.3693 56.667 42.7498 56.6182 43.1522C56.4776 44.3166 56.3165 45.637 56.833 46.3911C56.954 46.5669 56.994 46.7895 56.9452 47.0021C56.8417 47.4502 56.3898 47.7879 55.1958 48.4606C55.352 48.7308 55.5395 49.0904 55.4731 49.5167C55.4623 49.5812 55.4487 49.6428 55.4321 49.7015C55.766 49.5793 56.1154 49.464 56.4845 49.3577C57.8775 48.9543 59.3409 48.7745 61.225 48.7745C62.0587 48.7745 62.8006 48.5053 63.5874 48.2211C64.2103 47.9946 64.8546 47.7621 65.576 47.6508C66.1852 47.5555 66.5005 47.7562 66.7728 47.9688C66.8636 48.0403 66.93 48.09 67.0442 48.1357C67.3625 48.2619 67.7325 48.2211 68.1601 48.1754C68.5925 48.1277 69.0836 48.0731 69.5844 48.2042C69.8821 48.2837 70.09 48.5579 70.0861 48.8709C70.0744 50.0571 68.5076 50.5459 67.7549 50.7814L67.0384 51.0099C66.4985 51.1848 65.9567 51.3586 65.41 51.5176C65.1631 51.5881 64.918 51.6587 64.672 51.7223C64.3889 51.7948 64.099 51.9597 63.7944 52.1316C63.481 52.3094 63.1579 52.4922 62.786 52.6174C62.1426 52.83 61.4837 52.9413 60.6471 52.9761C60.4069 52.987 60.1746 53.0943 59.9295 53.2056C59.5674 53.3735 59.1154 53.5801 58.6107 53.4132C58.3949 53.3864 57.5534 53.6775 57.1502 53.8196C56.832 53.9289 56.5577 54.0242 56.3419 54.0759C55.598 54.2528 54.8415 54.3918 54.1103 54.527L53.5968 54.6223C53.1516 54.7058 52.7035 54.7922 52.2613 54.8926L52.2076 54.9085C52.0797 54.9482 51.9021 55.0038 51.7078 55.0038L51.7107 54.9999ZM53.0735 51.6746C53.0569 51.7471 53.0403 51.8196 53.0237 51.8941C53.0032 51.9806 52.9788 52.064 52.9544 52.1455C52.9281 52.2359 52.9066 52.3055 52.8988 52.3651C52.8793 52.5379 52.8773 52.6313 52.8978 52.7247C52.9495 52.9791 52.9388 53.1907 52.8949 53.3645C53.0482 53.3347 53.2024 53.3049 53.3566 53.2751L53.875 53.1808C54.5896 53.0486 55.3296 52.9125 56.0412 52.7436C56.1906 52.7078 56.4483 52.6194 56.7217 52.525C57.7721 52.1604 58.4994 51.9359 59.0295 52.1127C59.0646 52.1058 59.2559 52.0173 59.3828 51.9597C59.7001 51.8137 60.0945 51.6328 60.5924 51.611C61.3021 51.5812 61.8498 51.4908 62.372 51.3169C62.622 51.2345 62.8748 51.0914 63.1442 50.9374C63.5123 50.7298 63.892 50.5142 64.3469 50.3969C64.5793 50.3373 64.8136 50.2707 65.0459 50.2042C65.5789 50.0482 66.11 49.8773 66.6362 49.7064L67.1253 49.5514C66.9388 49.5246 66.7504 49.4779 66.56 49.4014C66.2672 49.2862 66.0836 49.1411 65.9616 49.0457C65.9313 49.0229 65.906 48.999 65.8757 48.9812C65.8737 48.9851 65.8405 48.9851 65.7781 48.9941C65.1845 49.0855 64.6281 49.2862 64.0394 49.4998C63.1794 49.8107 62.293 50.1326 61.2279 50.1326C59.4717 50.1326 58.1235 50.2966 56.8535 50.6642C55.7142 50.992 54.7868 51.3984 54.0166 51.9031C53.7901 52.0521 53.5001 52.0481 53.2776 51.8951C53.1917 51.8365 53.1214 51.76 53.0735 51.6716V51.6746Z" fill="white"/>
   <path d="M67.6348 51.8019C67.6348 51.8019 67.6173 51.782 67.6173 51.7303C67.6173 51.6787 67.6348 51.6588 67.6348 51.6588H68.5564C68.5564 51.6588 68.5749 51.6806 68.5749 51.7303C68.5749 51.78 68.5564 51.8019 68.5564 51.8019H68.1932V52.9205C68.1932 52.9205 68.1659 52.9404 68.0976 52.9404C68.0292 52.9404 67.998 52.9205 67.998 52.9205V51.8019H67.6348Z" fill="white"/>
   <path d="M69.4282 52.8659C69.4135 52.8748 69.3891 52.8858 69.3471 52.8858C69.3178 52.8858 69.2837 52.8798 69.27 52.8659L68.9889 52.1476C68.9723 52.1088 68.9459 52.0323 68.944 52.0214C68.944 52.0264 68.9371 52.1277 68.9332 52.1565L68.8815 52.9205C68.8815 52.9205 68.8561 52.9404 68.7858 52.9404C68.7155 52.9404 68.6862 52.9205 68.6862 52.9205L68.7839 51.6787C68.7839 51.6787 68.8112 51.6588 68.8776 51.6588C68.9518 51.6588 68.9781 51.6787 68.9781 51.6787L69.3042 52.5162L69.3471 52.6533C69.3481 52.6473 69.3774 52.5559 69.392 52.5162L69.7181 51.6787C69.7181 51.6787 69.7464 51.6588 69.8206 51.6588C69.886 51.6588 69.9124 51.6787 69.9124 51.6787L70.01 52.9205C70.01 52.9205 69.9807 52.9404 69.9104 52.9404C69.8401 52.9404 69.8167 52.9205 69.8167 52.9205L69.763 52.1546L69.7523 52.0194C69.7523 52.0194 69.722 52.1148 69.7093 52.1456L69.4282 52.8659Z" fill="white"/>
-</svg>`, W1 = class W1 extends y {
+</svg>`, E1 = class E1 extends y {
   /**************** Functions ****************/
   _getNysLogo() {
-    return new DOMParser().parseFromString(Ft, "image/svg+xml").documentElement;
+    return new DOMParser().parseFromString(ut, "image/svg+xml").documentElement;
   }
   render() {
-    return l`
+    return a`
       <footer class="nys-unavfooter">
         <div class="nys-unavfooter__main-container">
           <div class="nys-unavfooter__container_menu">
@@ -9175,37 +8197,32 @@ const Tt = u`
     `;
   }
 };
-W1.styles = Tt;
-let A1 = W1;
-customElements.get("nys-unavfooter") || customElements.define("nys-unavfooter", A1);
+E1.styles = yt;
+let m1 = E1;
+customElements.get("nys-unavfooter") || customElements.define("nys-unavfooter", m1);
 export {
-  v1 as NysAccordion,
-  n1 as NysAccordionItem,
-  pe as NysAlert,
-  Ce as NysAvatar,
-  d1 as NysBacktotop,
-  Ee as NysBadge,
-  Le as NysButton,
-  Be as NysCheckbox,
-  He as NysCheckboxgroup,
-  C1 as NysErrorMessage,
-  x as NysFileinput,
-  _1 as NysGlobalFooter,
-  a1 as NysGlobalHeader,
-  We as NysIcon,
-  y1 as NysLabel,
-  u1 as NysOption,
-  it as NysRadiobutton,
-  st as NysRadiogroup,
-  yt as NysSelect,
-  k1 as NysSkipnav,
-  R as NysStep,
-  i1 as NysStepper,
-  mt as NysTextarea,
-  St as NysTextinput,
-  Vt as NysToggle,
-  J as NysTooltip,
-  A1 as NysUnavFooter,
-  T as NysUnavHeader
+  R1 as NysAlert,
+  G1 as NysAvatar,
+  o1 as NysBacktotop,
+  ee as NysButton,
+  le as NysCheckbox,
+  re as NysCheckboxgroup,
+  c1 as NysErrorMessage,
+  w as NysFileinput,
+  d1 as NysGlobalFooter,
+  s1 as NysGlobalHeader,
+  me as NysIcon,
+  n1 as NysLabel,
+  a1 as NysOption,
+  ze as NysRadiobutton,
+  $e as NysRadiogroup,
+  Be as NysSelect,
+  u1 as NysSkipnav,
+  Fe as NysTextarea,
+  We as NysTextinput,
+  et as NysToggle,
+  X as NysTooltip,
+  m1 as NysUnavFooter,
+  R as NysUnavHeader
 };
 //# sourceMappingURL=nysds.es.js.map
