@@ -2171,7 +2171,8 @@ const G1 = u`
   }
 
   .nys-checkbox__requiredwrapper {
-    display: inline;
+    display: flex;
+    gap: 3px;
   }
 
   /* Screen readers ONLY */
@@ -2513,14 +2514,12 @@ const $ = (Y = class extends y {
         </div>
         ${this.label && a` <div class="nys-checkbox__text">
           <div class="nys-checkbox__requiredwrapper">
-            <label for=${this.id} class="nys-checkbox__label"
-              >${this.label}</label
-            >
-            ${this.required ? a`<label class="nys-checkbox__required">*</label>` : ""}
+            <div class="nys-checkbox__label">${this.label}</div>
+            ${this.required ? a`<div class="nys-checkbox__required">*</div>` : ""}
           </div>
-          <label for=${this.id} class="nys-checkbox__description">
+          <div class="nys-checkbox__description">
             <slot name="description">${this.description}</slot>
-          </label>
+          </div>
         </div>`}
       </label>
       ${((e = this.parentElement) == null ? void 0 : e.tagName.toLowerCase()) !== "nys-checkboxgroup" ? a`<nys-errormessage
@@ -4449,55 +4448,55 @@ const Y1 = u`
   }
 
   /* Checked */
-  input:not(:disabled):checked + .nys-radiobutton__radio {
+  input:not(:disabled):checked + .nys-radiobutton .nys-radiobutton__radio {
     background-image: url('data:image/svg+xml;utf8,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="11" stroke="white" stroke-width="6"/></svg>');
     background-color: var(--_nys-radiobutton-checked-color-bg);
   }
   :host([tile])
     .nys-radiobutton:has(input:not(:disabled):checked)
-    + .nys-radiobutton__radio {
+    + .nys-radiobutton .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-checked-tile-border-color);
     background-color: var(--_nys-radiobutton-checked-tile-bg-color);
   }
   :host([tile])
     .nys-radiobutton:has(input:not(:disabled):checked:hover)
-    + .nys-radiobutton__radio {
+    + .nys-radiobutton .nys-radiobutton__radio {
     cursor: default;
   }
 
   /* Checked + Disabled */
-  input:disabled:checked + .nys-radiobutton__radio {
+  input:disabled:checked + .nys-radiobutton .nys-radiobutton__radio {
     background-image: url('data:image/svg+xml;utf8,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="11" stroke="white" stroke-width="6"/></svg>');
     border-color: var(--_nys-radiobutton-disabled-checked-color-border);
     background-color: var(--_nys-radiobutton-disabled-checked-color-bg);
   }
   :host([tile])
     .nys-radiobutton:has(input:disabled:checked)
-    + .nys-radiobutton__radio {
+    + .nys-radiobutton .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-disabled-tile-border-color);
     background-color: var(--_nys-radiobutton-disabled-tile-bg-color);
   }
 
   /* Disabled */
-  input:disabled + .nys-radiobutton__radio {
+  input:disabled + .nys-radiobutton .nys-radiobutton__radio {
     background-color: var(--_nys-radiobutton-disabled-color-bg);
     border-color: var(--_nys-radiobutton-disabled-color-border);
     cursor: not-allowed;
   }
-  :host([tile]) .nys-radiobutton:has(input:disabled) + .nys-radiobutton__radio {
+  :host([tile]) .nys-radiobutton:has(input:disabled) + .nys-radiobutton .nys-radiobutton__radio {
     background-color: var(--_nys-radiobutton-disabled-color-bg);
     border-color: var(--_nys-radiobutton-disabled-color-border);
     cursor: not-allowed;
   }
 
   /* Hover - only allow hover on unchecked */
-  input:hover:not(:disabled):not(:checked) + .nys-radiobutton__radio {
+  input:hover:not(:disabled):not(:checked) + .nys-radiobutton .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-hover-color-border);
     background-color: var(--_nys-radiobutton-hover-color-bg);
   }
   :host([tile])
     .nys-radiobutton:has(
-      input:hover:not(:disabled):not(:checked) + .nys-radiobutton__radio
+      input:hover:not(:disabled):not(:checked) + .nys-radiobutton .nys-radiobutton__radio
     ) {
     border-color: var(--_nys-radiobutton-hover-tile-border-color);
     background-color: var(--_nys-radiobutton-hover-tile-bg-color);
@@ -4506,13 +4505,13 @@ const Y1 = u`
   }
 
   /* Pressed - only allow pressed on unchecked */
-  input:active:not(:disabled):not(:checked) + .nys-radiobutton__radio {
+  input:active:not(:disabled):not(:checked) + .nys-radiobutton .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-pressed-color-border);
     background-color: var(--_nys-radiobutton-pressed-color-bg);
   }
   :host([tile])
     .nys-radiobutton:has(
-      input:active:not(:disabled):not(:checked) + .nys-radiobutton__radio
+      input:active:not(:disabled):not(:checked) + .nys-radiobutton .nys-radiobutton__radio
     ) {
     border-color: var(--_nys-radiobutton-pressed-tile-border-color);
     background-color: var(--_nys-radiobutton-pressed-tile-bg-color);
@@ -4871,26 +4870,27 @@ const O = (p = class extends y {
   }
   render() {
     return a`
-      <label class="nys-radiobutton" for="${this.id}">
-        <input
-          id="${this.id}"
-          type="radio"
-          name="${h(this.name ? this.name : void 0)}"
-          .checked=${this.checked}
-          ?disabled=${this.disabled}
-          .value=${this.value}
-          ?required="${this.required}"
-          aria-checked="${this.checked ? "true" : "false"}"
-          aria-disabled="${this.disabled ? "true" : "false"}"
-          aria-required="${this.required ? "true" : "false"}"
-          @change="${this._handleChange}"
-          hidden
-        />
+      <input
+        id="${this.id}"
+        type="radio"
+        name="${h(this.name ? this.name : void 0)}"
+        .checked=${this.checked}
+        ?disabled=${this.disabled}
+        .value=${this.value}
+        ?required="${this.required}"
+        aria-checked="${this.checked ? "true" : "false"}"
+        aria-disabled="${this.disabled ? "true" : "false"}"
+        aria-required="${this.required ? "true" : "false"}"
+        @change="${this._handleChange}"
+        hidden
+      />
 
-        <span
-          class="nys-radiobutton__radio"
-          @click="${this._callInputHandling}"
-        ></span>
+      <label
+        class="nys-radiobutton"
+        for="${this.id}"
+        @click="${this._callInputHandling}"
+      >
+        <span class="nys-radiobutton__radio"></span>
 
         ${this.label && a` <div class="nys-radiobutton__text">
           <div class="nys-radiobutton__label">${this.label}</div>
