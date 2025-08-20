@@ -2134,11 +2134,11 @@ const G1 = u`
   }
 
   /* Focused */
-  :host(:not([tile])) .nys-checkbox__checkbox:focus-visible {
+  :host(:not([tile])) .nys-checkbox__checkbox:focus {
     outline: solid var(--_nys-checkbox-width-focus)
       var(--_nys-checkbox-color-focus);
   }
-  :host([tile]) .nys-checkbox:has(*:focus-visible) {
+  :host([tile]) .nys-checkbox:has(*:focus) {
     outline: solid var(--_nys-checkbox-tile-border-width)
       var(--_nys-checkbox-color-focus) !important;
     border-color: var(--_nys-checkbox-color-focus) !important;
@@ -4521,16 +4521,11 @@ const Y1 = u`
   }
 
   /* Focused */
-  :host(:not([tile])) input:focus-visible + .nys-radiobutton__radio {
+  :host:focus-visible,
+  :host(.active-focus) {
     outline: solid var(--_nys-radiobutton-width-focus)
       var(--_nys-radiobutton-color-focus);
   }
-  :host([tile]) .nys-radiobutton:has(*:focus-visible) {
-    outline: solid var(--_nys-radiobutton-tile-border-width)
-      var(--_nys-radiobutton-color-focus) !important;
-    border-color: var(--_nys-radiobutton-color-focus) !important;
-  }
-
   /* Radiobutton Label Holder */
   .nys-radiobutton__text {
     line-height: var(--_nys-radiobutton-line-height);
@@ -4641,6 +4636,10 @@ const E = (W = class extends y {
       o
     ) : (this.showError = !1, this._internals.setValidity({}, "", o)));
   }
+  checkValidity() {
+    const e = Array.from(this.querySelectorAll("nys-radiobutton"));
+    return !this.required || e.some((o) => o.checked);
+  }
   // Need to account for if radiogroup already have a radiobutton checked at initialization
   _initializeCheckedRadioValue() {
     const e = this.querySelector("nys-radiobutton[checked]");
@@ -4716,16 +4715,12 @@ const E = (W = class extends y {
   async _handleInvalid(e) {
     if (e.preventDefault(), this._internals.validity.valueMissing) {
       this.showError = !0, this._manageRequire();
-      const t = this.querySelector("nys-radiobutton"), o = t ? await t.getInputElement() : null;
-      if (o) {
-        const s = this._internals.form;
-        s ? Array.from(s.elements).find((c) => {
-          if (c.tagName.toLowerCase() === "nys-radiogroup") {
-            if (!c.querySelector("nys-radiobutton").checkValidity())
-              return c;
-          } else
-            return typeof c.checkValidity == "function" && !c.checkValidity();
-        }) === this && o.focus() : o.focus();
+      const t = this.querySelector("nys-radiobutton");
+      if (t) {
+        const o = this._internals.form;
+        o ? Array.from(o.elements).find(
+          (i) => typeof i.checkValidity == "function" && !i.checkValidity()
+        ) === this && (t.focus(), t.classList.add("active-focus")) : (t.focus(), t.classList.add("active-focus"));
       }
     }
   }
@@ -4823,7 +4818,10 @@ const O = (p = class extends y {
   /********************** Lifecycle updates **********************/
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-radiobutton-${Date.now()}-${Qe++}`), this.checked && (p.buttonGroup[this.name] && (p.buttonGroup[this.name].checked = !1, p.buttonGroup[this.name].requestUpdate()), p.buttonGroup[this.name] = this);
+    super.connectedCallback(), this.id || (this.id = `nys-radiobutton-${Date.now()}-${Qe++}`), this.checked && (p.buttonGroup[this.name] && (p.buttonGroup[this.name].checked = !1, p.buttonGroup[this.name].requestUpdate()), p.buttonGroup[this.name] = this), this.addEventListener("focus", this._handleFocus), this.addEventListener("blur", this._handleBlur);
+  }
+  disconnectedCallback() {
+    super.disconnectedCallback(), this.removeEventListener("focus", this._handleFocus), this.removeEventListener("blur", this._handleBlur);
   }
   updated(e) {
     e.has("checked") && this.checked && p.buttonGroup[this.name] !== this && (p.buttonGroup[this.name] && (p.buttonGroup[this.name].checked = !1, p.buttonGroup[this.name].requestUpdate()), p.buttonGroup[this.name] = this);
@@ -4839,7 +4837,7 @@ const O = (p = class extends y {
   }
   /******************** Event Handlers ********************/
   _emitChangeEvent() {
-    console.log("_emitChangeEvent"), this.dispatchEvent(
+    this.dispatchEvent(
       new CustomEvent("nys-change", {
         detail: {
           checked: this.checked,
@@ -4853,15 +4851,15 @@ const O = (p = class extends y {
   }
   // Handle radiobutton change event & unselection of other options in group
   _handleChange() {
-    console.log("_handleChange"), this.checked || (p.buttonGroup[this.name] && (p.buttonGroup[this.name].checked = !1, p.buttonGroup[this.name].requestUpdate()), p.buttonGroup[this.name] = this, this.checked = !0, this._emitChangeEvent());
+    this.classList.remove("active-focus"), this.checked || (p.buttonGroup[this.name] && (p.buttonGroup[this.name].checked = !1, p.buttonGroup[this.name].requestUpdate()), p.buttonGroup[this.name] = this, this.checked = !0, this._emitChangeEvent());
   }
   // Handle focus event
   _handleFocus() {
-    console.log("_handleFocus"), this.dispatchEvent(new Event("nys-focus"));
+    this.dispatchEvent(new Event("nys-focus"));
   }
   // Handle blur event
   _handleBlur() {
-    console.log("_handleBlur"), this.dispatchEvent(new Event("nys-blur"));
+    this.classList.remove("active-focus"), this.dispatchEvent(new Event("nys-blur"));
   }
   _callInputHandling() {
     var t;
@@ -4873,7 +4871,7 @@ const O = (p = class extends y {
   }
   render() {
     return a`
-      <label class="nys-radiobutton">
+      <label class="nys-radiobutton" for="${this.id}">
         <input
           id="${this.id}"
           type="radio"
@@ -4886,14 +4884,12 @@ const O = (p = class extends y {
           aria-disabled="${this.disabled ? "true" : "false"}"
           aria-required="${this.required ? "true" : "false"}"
           @change="${this._handleChange}"
-          @focus="${this._handleFocus}"
-          @blur="${this._handleBlur}"
           hidden
         />
 
         <span
           class="nys-radiobutton__radio"
-          @change="${this._callInputHandling}"
+          @click="${this._callInputHandling}"
         ></span>
 
         ${this.label && a` <div class="nys-radiobutton__text">
