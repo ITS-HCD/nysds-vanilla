@@ -1,5 +1,5 @@
 import { css as u, LitElement as y, html as a } from "lit";
-import { property as n, query as X1, state as D } from "lit/decorators.js";
+import { property as r, query as X1, state as D } from "lit/decorators.js";
 import { ifDefined as h } from "lit/directives/if-defined.js";
 /*!
    * New York State Design System (v1.6.0)
@@ -151,8 +151,8 @@ const j1 = u`
   }
 `;
 var Q1 = Object.defineProperty, x1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && Q1(e, t, s), s;
 };
 let J1 = 0;
@@ -219,26 +219,26 @@ const I1 = class I1 extends y {
   }
 };
 I1.styles = j1;
-let n1 = I1;
+let r1 = I1;
 x1([
-  n({ type: String })
-], n1.prototype, "id");
+  r({ type: String })
+], r1.prototype, "id");
 x1([
-  n({ type: String })
-], n1.prototype, "heading");
+  r({ type: String })
+], r1.prototype, "heading");
 x1([
-  n({ type: Boolean, reflect: !0 })
-], n1.prototype, "expanded");
+  r({ type: Boolean, reflect: !0 })
+], r1.prototype, "expanded");
 x1([
-  n({ type: Boolean, reflect: !0 })
-], n1.prototype, "bordered");
+  r({ type: Boolean, reflect: !0 })
+], r1.prototype, "bordered");
 x1([
   X1(".nys-accordionitem__content")
-], n1.prototype, "_contentContainer");
-customElements.get("nys-accordionitem") || customElements.define("nys-accordionitem", n1);
-var ee = Object.defineProperty, M1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+], r1.prototype, "_contentContainer");
+customElements.get("nys-accordionitem") || customElements.define("nys-accordionitem", r1);
+var ee = Object.defineProperty, z1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && ee(e, t, s), s;
 };
 let te = 0;
@@ -288,14 +288,14 @@ const A1 = class A1 extends y {
 };
 A1.styles = j1;
 let p1 = A1;
-M1([
-  n({ type: String })
+z1([
+  r({ type: String })
 ], p1.prototype, "id");
-M1([
-  n({ type: Boolean, reflect: !0 })
+z1([
+  r({ type: Boolean, reflect: !0 })
 ], p1.prototype, "singleSelect");
-M1([
-  n({ type: Boolean, reflect: !0 })
+z1([
+  r({ type: Boolean, reflect: !0 })
 ], p1.prototype, "bordered");
 customElements.get("nys-accordion") || customElements.define("nys-accordion", p1);
 const se = u`
@@ -529,12 +529,12 @@ const se = u`
     text-decoration-thickness: 3px;
   }
 `;
-var oe = Object.defineProperty, ne = Object.getOwnPropertyDescriptor, V = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? ne(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+var oe = Object.defineProperty, re = Object.getOwnPropertyDescriptor, V = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? re(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && oe(e, t, s), s;
 };
-let re = 0;
+let ne = 0;
 var t1;
 const S = (t1 = class extends y {
   constructor() {
@@ -567,7 +567,7 @@ const S = (t1 = class extends y {
   }
   /******************** Functions ********************/
   _generateUniqueId() {
-    return `nys-alert-${Date.now()}-${re++}`;
+    return `nys-alert-${Date.now()}-${ne++}`;
   }
   // Helper function for overriding default icons or checking special naming cases (e.g. type=success)
   _getIconName() {
@@ -591,8 +591,8 @@ const S = (t1 = class extends y {
     if (e) {
       const o = e.assignedNodes({ flatten: !0 }).filter(
         (s) => {
-          var r;
-          return s.nodeType === Node.ELEMENT_NODE || s.nodeType === Node.TEXT_NODE && ((r = s.textContent) == null ? void 0 : r.trim());
+          var n;
+          return s.nodeType === Node.ELEMENT_NODE || s.nodeType === Node.TEXT_NODE && ((n = s.textContent) == null ? void 0 : n.trim());
         }
       );
       await Promise.resolve(), this._slotHasContent = o.length > 0;
@@ -657,34 +657,34 @@ const S = (t1 = class extends y {
   "emergency"
 ], t1);
 V([
-  n({ type: String })
+  r({ type: String })
 ], S.prototype, "id", 2);
 V([
-  n({ type: String })
+  r({ type: String })
 ], S.prototype, "heading", 2);
 V([
-  n({ type: String })
+  r({ type: String })
 ], S.prototype, "icon", 2);
 V([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], S.prototype, "dismissible", 2);
 V([
-  n({ type: Number, reflect: !0 })
+  r({ type: Number, reflect: !0 })
 ], S.prototype, "duration", 2);
 V([
-  n({ type: String })
+  r({ type: String })
 ], S.prototype, "text", 2);
 V([
-  n({ type: String })
+  r({ type: String })
 ], S.prototype, "primaryAction", 2);
 V([
-  n({ type: String })
+  r({ type: String })
 ], S.prototype, "secondaryAction", 2);
 V([
-  n({ type: String })
+  r({ type: String })
 ], S.prototype, "primaryLabel", 2);
 V([
-  n({ type: String })
+  r({ type: String })
 ], S.prototype, "secondaryLabel", 2);
 V([
   D()
@@ -693,7 +693,7 @@ V([
   D()
 ], S.prototype, "_slotHasContent", 2);
 V([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], S.prototype, "type", 1);
 let ie = S;
 customElements.get("nys-alert") || customElements.define("nys-alert", ie);
@@ -766,8 +766,8 @@ const ae = u`
   }
 `;
 var le = Object.defineProperty, ce = Object.getOwnPropertyDescriptor, J = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? ce(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? ce(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && le(e, t, s), s;
 };
 let de = 0;
@@ -803,8 +803,8 @@ const F = (s1 = class extends y {
     await Promise.resolve();
     const t = e.assignedNodes({ flatten: !0 }).filter(
       (s) => {
-        var r;
-        return s.nodeType === Node.ELEMENT_NODE || s.nodeType === Node.TEXT_NODE && ((r = s.textContent) == null ? void 0 : r.trim());
+        var n;
+        return s.nodeType === Node.ELEMENT_NODE || s.nodeType === Node.TEXT_NODE && ((n = s.textContent) == null ? void 0 : n.trim());
       }
     );
     this._slotHasContent = t.length > 0;
@@ -854,28 +854,28 @@ const F = (s1 = class extends y {
   "circle"
 ], s1);
 J([
-  n({ type: String })
+  r({ type: String })
 ], F.prototype, "id", 2);
 J([
-  n({ type: String })
+  r({ type: String })
 ], F.prototype, "ariaLabel", 2);
 J([
-  n({ type: String })
+  r({ type: String })
 ], F.prototype, "image", 2);
 J([
-  n({ type: String })
+  r({ type: String })
 ], F.prototype, "initials", 2);
 J([
-  n({ type: String })
+  r({ type: String })
 ], F.prototype, "icon", 2);
 J([
-  n({ type: String })
+  r({ type: String })
 ], F.prototype, "color", 2);
 J([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], F.prototype, "lazy", 2);
 J([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], F.prototype, "shape", 1);
 J([
   D()
@@ -909,8 +909,8 @@ const ye = u`
   }
 `;
 var ue = Object.defineProperty, $1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && ue(e, t, s), s;
 };
 const Z1 = class Z1 extends y {
@@ -955,10 +955,10 @@ const Z1 = class Z1 extends y {
 Z1.styles = ye;
 let l1 = Z1;
 $1([
-  n({ type: String })
+  r({ type: String })
 ], l1.prototype, "position");
 $1([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], l1.prototype, "visible");
 $1([
   D()
@@ -1389,8 +1389,8 @@ const pe = u`
   }
 `;
 var ge = Object.defineProperty, fe = Object.getOwnPropertyDescriptor, C = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? fe(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? fe(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && ge(e, t, s), s;
 };
 let ve = 0;
@@ -1571,64 +1571,64 @@ const f = (k = class extends y {
   "framename"
 ], k.styles = pe, k.formAssociated = !0, k);
 C([
-  n({ type: String })
+  r({ type: String })
 ], f.prototype, "id", 2);
 C([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], f.prototype, "name", 2);
 C([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], f.prototype, "size", 1);
 C([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], f.prototype, "fullWidth", 2);
 C([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], f.prototype, "variant", 1);
 C([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], f.prototype, "inverted", 2);
 C([
-  n({ type: String })
+  r({ type: String })
 ], f.prototype, "label", 2);
 C([
-  n({ type: String })
+  r({ type: String })
 ], f.prototype, "ariaLabel", 2);
 C([
-  n({ type: String })
+  r({ type: String })
 ], f.prototype, "prefixIcon", 2);
 C([
-  n({ type: String })
+  r({ type: String })
 ], f.prototype, "suffixIcon", 2);
 C([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], f.prototype, "circle", 2);
 C([
-  n({ type: String })
+  r({ type: String })
 ], f.prototype, "icon", 2);
 C([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], f.prototype, "disabled", 2);
 C([
-  n({ type: String })
+  r({ type: String })
 ], f.prototype, "form", 2);
 C([
-  n({ type: String })
+  r({ type: String })
 ], f.prototype, "value", 2);
 C([
-  n({ type: String })
+  r({ type: String })
 ], f.prototype, "ariaDescription", 2);
 C([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], f.prototype, "type", 1);
 C([
-  n({ type: Function })
+  r({ type: Function })
 ], f.prototype, "onClick", 2);
 C([
-  n({ type: String })
+  r({ type: String })
 ], f.prototype, "href", 2);
 C([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], f.prototype, "target", 1);
 let Ce = f;
 customElements.get("nys-button") || customElements.define("nys-button", Ce);
@@ -1642,8 +1642,8 @@ const _e = u`
     --_nys-badge-radius: var(--nys-radius-round, 1776px);
     --_nys-badge-padding: var(--nys-space-2-px, 2px) var(--nys-space-100, 8px);
     --_nys-badge-gap: var(--nys-space-50, 4px);
-    --_nys-badge-background-color: var(--nys-color-info-weak, #e5effa);
-    --_nys-badge-border-color: var(--nys-color-info-strong, #002971);
+    --_nys-badge-background-color: var(--nys-color-base-weak, #f6f6f6);
+    --_nys-badge-border-color: var(--nys-color-base, #62666a);
     --_nys-badge-border-width: var(--nys-border-width-sm, 1px);
 
     /* Typography */
@@ -1673,9 +1673,9 @@ const _e = u`
   }
 
   /* Intent */
-  :host([intent="info"]) {
-    --_nys-badge-background-color: var(--nys-color-info-weak, #e5effa);
-    --_nys-badge-border-color: var(--nys-color-info-strong, #002971);
+  :host([intent="neutral"]) {
+    --_nys-badge-background-color: var(--nys-color-base-weak, #f6f6f6);
+    --_nys-badge-border-color: var(--nys-color-base, #62666a);
   }
   :host([intent="error"]) {
     --_nys-badge-background-color: var(--nys-color-error-weak, #f7eaea);
@@ -1713,13 +1713,13 @@ const _e = u`
   }
 `;
 var be = Object.defineProperty, me = Object.getOwnPropertyDescriptor, i1 = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? me(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? me(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && be(e, t, s), s;
 }, I;
 const e1 = (I = class extends y {
   constructor() {
-    super(...arguments), this.id = "", this.name = "", this._size = "md", this._intent = "info", this.prefix = "", this.label = "", this._prefixIcon = "", this._suffixIcon = "";
+    super(...arguments), this.id = "", this.name = "", this._size = "md", this._intent = "neutral", this.prefix = "", this.label = "", this._prefixIcon = "", this._suffixIcon = "";
   }
   get size() {
     return this._size;
@@ -1735,7 +1735,7 @@ const e1 = (I = class extends y {
   set intent(e) {
     this._intent = I.VALID_INTENT.includes(
       e
-    ) ? e : "info";
+    ) ? e : "neutral";
   }
   get prefixIcon() {
     return this._prefixIcon;
@@ -1757,7 +1757,7 @@ const e1 = (I = class extends y {
     t !== null && this.suffixIcon === "" && (this.suffixIcon = t);
   }
   resolveIcon(e) {
-    return e === !0 ? I.DEFAULT_ICONS[this.intent] ?? "info-circle" : typeof e == "string" && e.trim() !== "" ? e : null;
+    return e === !0 ? I.DEFAULT_ICONS[this.intent] ?? "info" : typeof e == "string" && e.trim() !== "" ? e : null;
   }
   render() {
     const e = this.resolveIcon(this.prefixIcon), t = this.resolveIcon(this.suffixIcon);
@@ -1771,39 +1771,39 @@ const e1 = (I = class extends y {
     `;
   }
 }, I.VALID_SIZES = ["sm", "md"], I.VALID_INTENT = [
-  "info",
+  "neutral",
   "error",
   "success",
   "warning"
 ], I.styles = _e, I.DEFAULT_ICONS = {
-  info: "info",
+  neutral: "info",
   error: "emergency_home",
   success: "check_circle",
   warning: "warning"
 }, I);
 i1([
-  n({ type: String })
+  r({ type: String })
 ], e1.prototype, "id", 2);
 i1([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], e1.prototype, "name", 2);
 i1([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], e1.prototype, "size", 1);
 i1([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], e1.prototype, "intent", 1);
 i1([
-  n({ type: String })
+  r({ type: String })
 ], e1.prototype, "prefix", 2);
 i1([
-  n({ type: String })
+  r({ type: String })
 ], e1.prototype, "label", 2);
 i1([
-  n({ type: String, attribute: "prefixicon" })
+  r({ type: String, attribute: "prefixicon" })
 ], e1.prototype, "prefixIcon", 1);
 i1([
-  n({ type: String, attribute: "suffixicon" })
+  r({ type: String, attribute: "suffixicon" })
 ], e1.prototype, "suffixIcon", 1);
 let xe = e1;
 customElements.get("nys-badge") || customElements.define("nys-badge", xe);
@@ -2192,8 +2192,8 @@ const G1 = u`
   }
 `;
 var we = Object.defineProperty, ke = Object.getOwnPropertyDescriptor, P = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? ke(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? ke(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && we(e, t, s), s;
 };
 let Le = 0;
@@ -2276,8 +2276,8 @@ const A = (G = class extends y {
       'slot[name="description"]'
     ), t = (e == null ? void 0 : e.assignedNodes({ flatten: !0 })) || [];
     this._slottedDescriptionText = t.map((s) => {
-      var r;
-      return (r = s.textContent) == null ? void 0 : r.trim();
+      var n;
+      return (n = s.textContent) == null ? void 0 : n.trim();
     }).filter(Boolean).join(", ");
   }
   async _handleInvalid(e) {
@@ -2301,14 +2301,14 @@ const A = (G = class extends y {
   /******************** Event Handlers ********************/
   // Similar to how native forms handle multiple same-name fields, we group the selected values into a list for FormData.
   _handleCheckboxChange(e) {
-    const t = e, { name: o } = t.detail, r = Array.from(this.querySelectorAll("nys-checkbox")).filter((i) => i.checked).map((i) => i.value);
-    this.name = o, this._internals.setFormValue(r.join(", ")), this._manageCheckboxRequired();
+    const t = e, { name: o } = t.detail, n = Array.from(this.querySelectorAll("nys-checkbox")).filter((i) => i.checked).map((i) => i.value);
+    this.name = o, this._internals.setFormValue(n.join(", ")), this._manageCheckboxRequired();
   }
   render() {
     return a`
       <div class="nys-checkboxgroup">
         <nys-label
-          id=${this.id}
+          for=${this.id}
           label=${this.label}
           description=${this.description}
           flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -2333,43 +2333,43 @@ const A = (G = class extends y {
   }
 }, G.VALID_SIZES = ["sm", "md"], G.styles = G1, G.formAssociated = !0, G);
 P([
-  n({ type: String })
+  r({ type: String })
 ], A.prototype, "id", 2);
 P([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], A.prototype, "name", 2);
 P([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], A.prototype, "required", 2);
 P([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], A.prototype, "optional", 2);
 P([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], A.prototype, "showError", 2);
 P([
-  n({ type: String })
+  r({ type: String })
 ], A.prototype, "errorMessage", 2);
 P([
-  n({ type: String })
+  r({ type: String })
 ], A.prototype, "label", 2);
 P([
-  n({ type: String })
+  r({ type: String })
 ], A.prototype, "description", 2);
 P([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], A.prototype, "tile", 2);
 P([
   D()
 ], A.prototype, "_slottedDescriptionText", 2);
 P([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], A.prototype, "size", 1);
 let Se = A;
 customElements.get("nys-checkboxgroup") || customElements.define("nys-checkboxgroup", Se);
-var $e = Object.defineProperty, De = Object.getOwnPropertyDescriptor, z = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? De(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+var $e = Object.defineProperty, De = Object.getOwnPropertyDescriptor, M = (l, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? De(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && $e(e, t, s), s;
 };
 let Ve = 0;
@@ -2531,48 +2531,48 @@ const $ = (Y = class extends y {
     `;
   }
 }, Y.VALID_SIZES = ["sm", "md"], Y.styles = G1, Y.formAssociated = !0, Y);
-z([
-  n({ type: Boolean, reflect: !0 })
+M([
+  r({ type: Boolean, reflect: !0 })
 ], $.prototype, "checked", 2);
-z([
-  n({ type: Boolean, reflect: !0 })
+M([
+  r({ type: Boolean, reflect: !0 })
 ], $.prototype, "disabled", 2);
-z([
-  n({ type: Boolean, reflect: !0 })
+M([
+  r({ type: Boolean, reflect: !0 })
 ], $.prototype, "required", 2);
-z([
-  n({ type: String })
+M([
+  r({ type: String })
 ], $.prototype, "label", 2);
-z([
-  n({ type: String })
+M([
+  r({ type: String })
 ], $.prototype, "description", 2);
-z([
-  n({ type: String })
+M([
+  r({ type: String })
 ], $.prototype, "id", 2);
-z([
-  n({ type: String, reflect: !0 })
+M([
+  r({ type: String, reflect: !0 })
 ], $.prototype, "name", 2);
-z([
-  n({ type: String })
+M([
+  r({ type: String })
 ], $.prototype, "value", 2);
-z([
-  n({ type: Boolean, reflect: !0 })
+M([
+  r({ type: Boolean, reflect: !0 })
 ], $.prototype, "showError", 2);
-z([
-  n({ type: String })
+M([
+  r({ type: String })
 ], $.prototype, "errorMessage", 2);
-z([
-  n({ type: Boolean })
+M([
+  r({ type: Boolean })
 ], $.prototype, "groupExist", 2);
-z([
-  n({ type: Boolean, reflect: !0 })
+M([
+  r({ type: Boolean, reflect: !0 })
 ], $.prototype, "tile", 2);
-z([
-  n({ reflect: !0 })
+M([
+  r({ reflect: !0 })
 ], $.prototype, "size", 1);
-let ze = $;
-customElements.get("nys-checkbox") || customElements.define("nys-checkbox", ze);
-const Me = u`
+let Me = $;
+customElements.get("nys-checkbox") || customElements.define("nys-checkbox", Me);
+const ze = u`
   :host {
     --_nys-errormessage-font-family: var(
       --nys-font-family-ui,
@@ -2626,8 +2626,8 @@ const Me = u`
   }
 `;
 var Ee = Object.defineProperty, E1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && Ee(e, t, s), s;
 };
 const L1 = class L1 extends y {
@@ -2642,23 +2642,23 @@ const L1 = class L1 extends y {
         </div>` : ""}`;
   }
 };
-L1.styles = Me, L1.formAssociated = !0;
+L1.styles = ze, L1.formAssociated = !0;
 let g1 = L1;
 E1([
-  n({ type: Boolean })
+  r({ type: Boolean })
 ], g1.prototype, "showError");
 E1([
-  n({ type: String })
+  r({ type: String })
 ], g1.prototype, "errorMessage");
 E1([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], g1.prototype, "showDivider");
 customElements.get("nys-errormessage") || customElements.define("nys-errormessage", g1);
 async function He(l, e) {
   if (!e || e.trim() === "") return !0;
-  const t = e.toLowerCase().split(",").map((r) => r.trim()), o = l.name.toLowerCase(), s = o.includes(".") ? o.split(".").pop() : "";
-  for (const r of t)
-    if (r.startsWith(".") && r.slice(1) === s || r.endsWith("/*") && l.type.startsWith(r.slice(0, -1)) || l.type === r)
+  const t = e.toLowerCase().split(",").map((n) => n.trim()), o = l.name.toLowerCase(), s = o.includes(".") ? o.split(".").pop() : "";
+  for (const n of t)
+    if (n.startsWith(".") && n.slice(1) === s || n.endsWith("/*") && l.type.startsWith(n.slice(0, -1)) || l.type === n)
       return !0;
   return !1;
 }
@@ -2921,8 +2921,8 @@ const Ie = u`
   }
 `;
 var Ze = Object.defineProperty, D1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && Ze(e, t, s), s;
 };
 const B1 = class B1 extends y {
@@ -2939,8 +2939,8 @@ const B1 = class B1 extends y {
     );
   }
   splitFilename(e) {
-    const t = e.lastIndexOf("."), o = t !== -1 ? e.slice(t) : "", s = t !== -1 ? e.slice(0, t) : e, r = s.slice(0, s.length - 3), i = s.slice(-3);
-    return { startPart: r, endPart: i, extension: o };
+    const t = e.lastIndexOf("."), o = t !== -1 ? e.slice(t) : "", s = t !== -1 ? e.slice(0, t) : e, n = s.slice(0, s.length - 3), i = s.slice(-3);
+    return { startPart: n, endPart: i, extension: o };
   }
   render() {
     const { startPart: e, endPart: t, extension: o } = this.splitFilename(this.filename);
@@ -3001,21 +3001,21 @@ const B1 = class B1 extends y {
 B1.styles = Ae;
 let c1 = B1;
 D1([
-  n({ type: String })
+  r({ type: String })
 ], c1.prototype, "filename");
 D1([
-  n({ type: String })
+  r({ type: String })
 ], c1.prototype, "status");
 D1([
-  n({ type: Number })
+  r({ type: Number })
 ], c1.prototype, "progress");
 D1([
-  n({ type: String })
+  r({ type: String })
 ], c1.prototype, "errorMessage");
 customElements.define("nys-fileitem", c1);
-var Be = Object.defineProperty, M = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+var Be = Object.defineProperty, z = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && Be(e, t, s), s;
 };
 let qe = 0;
@@ -3040,7 +3040,7 @@ const S1 = class S1 extends y {
     if (this._selectedFiles.length === 1)
       t = `You have selected ${this._selectedFiles[0].file.name}.`;
     else {
-      const s = this._selectedFiles.map((r) => r.file.name).join(", ");
+      const s = this._selectedFiles.map((n) => n.file.name).join(", ");
       t = `You have selected ${this._selectedFiles.length} files: ${s}`;
     }
     return `${t}${e ? " Error: One or more files are not valid file types." : ""}`;
@@ -3146,8 +3146,8 @@ const S1 = class S1 extends y {
       const o = new FileReader();
       o.onprogress = (s) => {
         if (s.lengthComputable) {
-          const r = Math.round(s.loaded * 100 / s.total);
-          e.progress = r, this.requestUpdate();
+          const n = Math.round(s.loaded * 100 / s.total);
+          e.progress = n, this.requestUpdate();
         }
       }, o.onload = () => {
         e.progress = 100, e.status = "done", this.requestUpdate();
@@ -3196,8 +3196,8 @@ const S1 = class S1 extends y {
   // Access the selected files & add new files to the internal list via the hidden <input type="file">
   _handleFileChange(e) {
     const t = e.target, o = t.files;
-    (o ? Array.from(o) : []).map((r) => {
-      this._saveSelectedFiles(r);
+    (o ? Array.from(o) : []).map((n) => {
+      this._saveSelectedFiles(n);
     }), t.value = "", this.requestUpdate(), this._dispatchChangeEvent(), this._handlePostFileSelectionFocus();
   }
   _handleFileRemove(e) {
@@ -3220,8 +3220,8 @@ const S1 = class S1 extends y {
     const t = (s = e.dataTransfer) == null ? void 0 : s.files;
     if (!t) return;
     const o = Array.from(t);
-    this.multiple ? o.forEach((r) => {
-      this._saveSelectedFiles(r);
+    this.multiple ? o.forEach((n) => {
+      this._saveSelectedFiles(n);
     }) : this._saveSelectedFiles(o[0]), this.requestUpdate(), this._dispatchChangeEvent();
   }
   render() {
@@ -3230,7 +3230,7 @@ const S1 = class S1 extends y {
       @nys-fileRemove=${this._handleFileRemove}
     >
       <nys-label
-        id=${this.id}
+        for=${this.id}
         label=${this.label}
         description=${this.description}
         flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -3313,44 +3313,44 @@ const S1 = class S1 extends y {
 };
 S1.styles = Ie, S1.formAssociated = !0;
 let w = S1;
-M([
-  n({ type: String })
+z([
+  r({ type: String })
 ], w.prototype, "id");
-M([
-  n({ type: String, reflect: !0 })
+z([
+  r({ type: String, reflect: !0 })
 ], w.prototype, "name");
-M([
-  n({ type: String })
+z([
+  r({ type: String })
 ], w.prototype, "label");
-M([
-  n({ type: String })
+z([
+  r({ type: String })
 ], w.prototype, "description");
-M([
-  n({ type: Boolean })
+z([
+  r({ type: Boolean })
 ], w.prototype, "multiple");
-M([
-  n({ type: String })
+z([
+  r({ type: String })
 ], w.prototype, "accept");
-M([
-  n({ type: Boolean, reflect: !0 })
+z([
+  r({ type: Boolean, reflect: !0 })
 ], w.prototype, "disabled");
-M([
-  n({ type: Boolean, reflect: !0 })
+z([
+  r({ type: Boolean, reflect: !0 })
 ], w.prototype, "required");
-M([
-  n({ type: Boolean, reflect: !0 })
+z([
+  r({ type: Boolean, reflect: !0 })
 ], w.prototype, "optional");
-M([
-  n({ type: Boolean, reflect: !0 })
+z([
+  r({ type: Boolean, reflect: !0 })
 ], w.prototype, "showError");
-M([
-  n({ type: String })
+z([
+  r({ type: String })
 ], w.prototype, "errorMessage");
-M([
-  n({ type: Boolean })
+z([
+  r({ type: Boolean })
 ], w.prototype, "dropzone");
-M([
-  n({ type: String, reflect: !0 })
+z([
+  r({ type: String, reflect: !0 })
 ], w.prototype, "width");
 customElements.get("nys-fileinput") || customElements.define("nys-fileinput", w);
 const Ue = {
@@ -3771,6 +3771,14 @@ const Ue = {
   </g>
 </svg>`,
   // *** Social *** //
+  social_bluesky: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <mask id="mask0_8703_408" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+    <rect width="24" height="24" fill="#D9D9D9"/>
+  </mask>
+  <g mask="url(#mask0_8703_408)">
+    <path d="M17.6652 3.95118C15.3724 5.71095 12.906 9.27859 12.0004 11.1932C11.0952 9.27859 8.62837 5.71095 6.33557 3.95118C4.68117 2.68168 2.00037 1.69909 2.00037 4.82495C2.00037 5.4489 2.35037 10.0696 2.55597 10.8195C3.26957 13.4274 5.87117 14.0921 8.18517 13.6898C4.14037 14.3937 3.11157 16.724 5.33357 19.0548C9.55397 23.4815 11.3996 17.9442 11.872 16.5255C11.9596 16.2635 12 16.142 12 16.2496C12 16.142 12.0404 16.2635 12.128 16.5255C12.6004 17.9442 14.446 23.4815 18.6664 19.0548C20.8884 16.724 19.86 14.3937 15.8148 13.6898C18.1288 14.0925 20.7304 13.4274 21.444 10.8195C21.6496 10.0692 21.9996 5.4489 21.9996 4.82495C21.9996 1.69909 19.3188 2.68168 17.6644 3.95077L17.6652 3.95118Z" fill="var(--nys-icon-color, currentcolor)"/>
+  </g>
+</svg>`,
   social_facebook: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
   <mask id="mask0_12372_332" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
     <rect width="24" height="24" fill="#D9D9D9"/>
@@ -3866,6 +3874,15 @@ const Ue = {
   </mask>
   <g mask="url(#mask0_12372_642)">
     <path d="M17.883 6.27729C17.7506 6.20752 17.6217 6.13104 17.4968 6.04813C17.1337 5.80333 16.8007 5.51489 16.5051 5.18901C15.7655 4.32613 15.4893 3.45076 15.3876 2.83787H15.3917C15.3067 2.32915 15.3418 2 15.3471 2H11.9785V15.2818C11.9785 15.4602 11.9785 15.6364 11.9712 15.8106C11.9712 15.8322 11.9691 15.8522 11.9679 15.8756C11.9679 15.8851 11.9679 15.8951 11.9658 15.9051C11.9658 15.9076 11.9658 15.9101 11.9658 15.9126C11.9303 16.3892 11.7805 16.8495 11.5296 17.2532C11.2786 17.6568 10.9342 17.9914 10.5267 18.2275C10.102 18.4739 9.62159 18.6032 9.13293 18.6025C7.56344 18.6025 6.29143 17.2976 6.29143 15.686C6.29143 14.0744 7.56344 12.7695 9.13293 12.7695C9.43002 12.7692 9.72529 12.8169 10.0078 12.9107L10.0119 9.41338C9.15432 9.30043 8.28314 9.36992 7.45327 9.61747C6.62339 9.86502 5.85284 10.2852 5.19021 10.8516C4.6096 11.366 4.12148 11.9798 3.74781 12.6653C3.60561 12.9153 3.0691 13.9198 3.00413 15.5502C2.96327 16.4755 3.23582 17.4342 3.36575 17.8305V17.8388C3.44748 18.0721 3.76415 18.8683 4.28023 19.5395C4.69638 20.078 5.18804 20.5509 5.73939 20.9432V20.9349L5.74756 20.9432C7.37834 22.0732 9.18645 21.999 9.18645 21.999C9.49945 21.9861 10.548 21.999 11.7387 21.4236C13.0593 20.7857 13.8111 19.8354 13.8111 19.8354C14.2915 19.2675 14.6734 18.6204 14.9405 17.9217C15.2454 17.1047 15.3471 16.1247 15.3471 15.7331V8.68675C15.388 8.71175 15.9323 9.07881 15.9323 9.07881C15.9323 9.07881 16.7164 9.59129 17.9398 9.92502C18.8175 10.1625 20 10.2125 20 10.2125V6.80268C19.5857 6.84851 18.7443 6.71518 17.883 6.27729Z" fill="var(--nys-icon-color, currentcolor)"/>
+  </g>
+</svg>`,
+  social_threads: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <mask id="mask0_8703_592" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+    <rect width="24" height="24" fill="#D9D9D9"/>
+  </mask>
+  <g mask="url(#mask0_8703_592)">
+    <path d="M12.6885 11.9189C13.0794 11.9258 13.4486 11.9685 13.791 12.0469C13.7832 12.134 13.7735 12.2225 13.7617 12.3115C13.697 12.7932 13.5053 13.4354 12.9629 13.7637C12.5851 13.992 12.0197 14.0489 11.5566 13.9033C11.3229 13.8298 11.0137 13.673 10.8672 13.3447C10.6962 12.962 10.8025 12.5488 11.1377 12.292C11.466 12.0406 11.9426 11.918 12.5928 11.918C12.6241 11.918 12.6561 11.918 12.6885 11.9189Z" fill="var(--nys-icon-color, currentcolor)"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.73926C17.5141 1.73926 22 6.22519 22 11.7393C21.9998 17.2532 17.514 21.7393 12 21.7393C6.48604 21.7393 2.00017 17.2532 2 11.7393C2 6.22519 6.48594 1.73926 12 1.73926ZM11.8076 5.15039C10.4347 5.2205 9.30138 5.60456 8.43945 6.29199C7.32998 7.17703 6.78999 8.51263 6.53223 9.47754C6.0476 11.2917 6.18684 13.3229 6.91602 15.0508C7.57804 16.6203 8.82441 17.7118 10.4248 18.125C10.9349 18.2568 11.5227 18.3389 12.1387 18.3389C13.3215 18.3389 14.6081 18.0365 15.6455 17.2051C16.5957 16.4435 17.1204 15.4692 17.1621 14.3867C17.2042 13.2995 16.8238 12.3987 16.0625 11.7812C15.7563 11.5334 15.4109 11.3248 15.0342 11.1592C15.0013 10.6574 14.8983 10.1062 14.6572 9.625C14.2368 8.78705 13.3903 8.24879 12.3916 8.18457C11.3066 8.11449 10.2369 8.61512 9.66797 9.45898L10.6943 10.1504C11.0222 9.66385 11.6583 9.37631 12.3125 9.41895C12.8754 9.4553 13.3274 9.73236 13.5518 10.1797C13.635 10.3457 13.6986 10.5482 13.7422 10.7764C13.412 10.7196 13.0671 10.688 12.709 10.6816C11.7223 10.666 10.9595 10.8697 10.3848 11.3096C9.59047 11.9177 9.33024 12.9382 9.73633 13.8486C9.99698 14.4336 10.5115 14.8727 11.1855 15.084C11.9916 15.3368 12.9179 15.2368 13.6025 14.8232C14.341 14.3769 14.8295 13.5622 14.9805 12.5264C15.0866 12.5929 15.1873 12.6649 15.2822 12.7422C15.7355 13.1092 15.9522 13.6469 15.9258 14.3389C15.8978 15.0621 15.5433 15.7012 14.8721 16.2393C13.8655 17.0459 12.2408 17.3154 10.7334 16.9268C9.51525 16.6126 8.5643 15.7748 8.05566 14.5693C7.43137 13.0899 7.31198 11.3508 7.72754 9.79688C8.02402 8.68694 8.55085 7.78607 9.21094 7.25977C9.86663 6.73688 10.7616 6.4421 11.8711 6.38574C14.2878 6.26097 16.0368 7.49129 16.5469 9.6709L17.752 9.3877C17.1039 6.6202 14.8261 4.99652 11.8076 5.15039Z" fill="var(--nys-icon-color, currentcolor)"/>
   </g>
 </svg>`,
   social_tumblr: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -4035,8 +4052,8 @@ const Ue = {
   }
 `;
 var Oe = Object.defineProperty, Re = Object.getOwnPropertyDescriptor, v1 = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? Re(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? Re(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && Oe(e, t, s), s;
 }, o1;
 const h1 = (o1 = class extends y {
@@ -4080,22 +4097,22 @@ const h1 = (o1 = class extends y {
   "64"
 ], o1);
 v1([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], h1.prototype, "name", 2);
 v1([
-  n({ type: String })
+  r({ type: String })
 ], h1.prototype, "ariaLabel", 2);
 v1([
-  n({ type: String })
+  r({ type: String })
 ], h1.prototype, "rotate", 2);
 v1([
-  n({ type: String })
+  r({ type: String })
 ], h1.prototype, "flip", 2);
 v1([
-  n({ type: String })
+  r({ type: String })
 ], h1.prototype, "color", 2);
 v1([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], h1.prototype, "size", 1);
 let Te = h1;
 customElements.get("nys-icon") || customElements.define("nys-icon", Te);
@@ -4174,13 +4191,13 @@ const Fe = u`
   }
 `;
 var Ne = Object.defineProperty, V1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && Ne(e, t, s), s;
 };
 const q1 = class q1 extends y {
   constructor() {
-    super(...arguments), this.id = "", this.label = "", this.description = "", this.flag = "";
+    super(...arguments), this.for = "", this.label = "", this.description = "", this.flag = "";
   }
   render() {
     return a`
@@ -4200,16 +4217,16 @@ const q1 = class q1 extends y {
 q1.styles = Fe;
 let d1 = q1;
 V1([
-  n({ type: String })
-], d1.prototype, "id");
+  r({ type: String })
+], d1.prototype, "for");
 V1([
-  n({ type: String })
+  r({ type: String })
 ], d1.prototype, "label");
 V1([
-  n({ type: String })
+  r({ type: String })
 ], d1.prototype, "description");
 V1([
-  n({ type: String })
+  r({ type: String })
 ], d1.prototype, "flag");
 customElements.get("nys-label") || customElements.define("nys-label", d1);
 const Y1 = u`
@@ -4454,13 +4471,15 @@ const Y1 = u`
   }
   :host([tile])
     .nys-radiobutton:has(input:not(:disabled):checked)
-    + .nys-radiobutton .nys-radiobutton__radio {
+    + .nys-radiobutton
+    .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-checked-tile-border-color);
     background-color: var(--_nys-radiobutton-checked-tile-bg-color);
   }
   :host([tile])
     .nys-radiobutton:has(input:not(:disabled):checked:hover)
-    + .nys-radiobutton .nys-radiobutton__radio {
+    + .nys-radiobutton
+    .nys-radiobutton__radio {
     cursor: default;
   }
 
@@ -4472,7 +4491,8 @@ const Y1 = u`
   }
   :host([tile])
     .nys-radiobutton:has(input:disabled:checked)
-    + .nys-radiobutton .nys-radiobutton__radio {
+    + .nys-radiobutton
+    .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-disabled-tile-border-color);
     background-color: var(--_nys-radiobutton-disabled-tile-bg-color);
   }
@@ -4483,20 +4503,27 @@ const Y1 = u`
     border-color: var(--_nys-radiobutton-disabled-color-border);
     cursor: not-allowed;
   }
-  :host([tile]) .nys-radiobutton:has(input:disabled) + .nys-radiobutton .nys-radiobutton__radio {
+  :host([tile])
+    .nys-radiobutton:has(input:disabled)
+    + .nys-radiobutton
+    .nys-radiobutton__radio {
     background-color: var(--_nys-radiobutton-disabled-color-bg);
     border-color: var(--_nys-radiobutton-disabled-color-border);
     cursor: not-allowed;
   }
 
   /* Hover - only allow hover on unchecked */
-  input:hover:not(:disabled):not(:checked) + .nys-radiobutton .nys-radiobutton__radio {
+  input:hover:not(:disabled):not(:checked)
+    + .nys-radiobutton
+    .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-hover-color-border);
     background-color: var(--_nys-radiobutton-hover-color-bg);
   }
   :host([tile])
     .nys-radiobutton:has(
-      input:hover:not(:disabled):not(:checked) + .nys-radiobutton .nys-radiobutton__radio
+      input:hover:not(:disabled):not(:checked)
+        + .nys-radiobutton
+        .nys-radiobutton__radio
     ) {
     border-color: var(--_nys-radiobutton-hover-tile-border-color);
     background-color: var(--_nys-radiobutton-hover-tile-bg-color);
@@ -4505,13 +4532,17 @@ const Y1 = u`
   }
 
   /* Pressed - only allow pressed on unchecked */
-  input:active:not(:disabled):not(:checked) + .nys-radiobutton .nys-radiobutton__radio {
+  input:active:not(:disabled):not(:checked)
+    + .nys-radiobutton
+    .nys-radiobutton__radio {
     border-color: var(--_nys-radiobutton-pressed-color-border);
     background-color: var(--_nys-radiobutton-pressed-color-bg);
   }
   :host([tile])
     .nys-radiobutton:has(
-      input:active:not(:disabled):not(:checked) + .nys-radiobutton .nys-radiobutton__radio
+      input:active:not(:disabled):not(:checked)
+        + .nys-radiobutton
+        .nys-radiobutton__radio
     ) {
     border-color: var(--_nys-radiobutton-pressed-tile-border-color);
     background-color: var(--_nys-radiobutton-pressed-tile-bg-color);
@@ -4578,8 +4609,8 @@ const Y1 = u`
   }
 `;
 var je = Object.defineProperty, Ge = Object.getOwnPropertyDescriptor, Z = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? Ge(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? Ge(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && je(e, t, s), s;
 };
 let Ye = 0;
@@ -4659,8 +4690,8 @@ const E = (W = class extends y {
       "Enter"
     ].includes(e.key)) return;
     e.preventDefault();
-    const o = this._getAllRadios().filter((_) => !_.disabled), s = o.find((_) => _.checked) || o[0], r = e.key === " " || e.key === "Enter" ? 0 : ["ArrowUp", "ArrowLeft"].includes(e.key) ? -1 : 1;
-    let i = o.indexOf(s) + r;
+    const o = this._getAllRadios().filter((_) => !_.disabled), s = o.find((_) => _.checked) || o[0], n = e.key === " " || e.key === "Enter" ? 0 : ["ArrowUp", "ArrowLeft"].includes(e.key) ? -1 : 1;
+    let i = o.indexOf(s) + n;
     i < 0 && (i = o.length - 1), i >= o.length && (i = 0);
     const c = o[i], d = await c.getInputElement();
     d == null || d.click(), this._updateGroupTabIndex(), c.focus();
@@ -4701,8 +4732,8 @@ const E = (W = class extends y {
       'slot[name="description"]'
     ), t = (e == null ? void 0 : e.assignedNodes({ flatten: !0 })) || [];
     this._slottedDescriptionText = t.map((s) => {
-      var r;
-      return (r = s.textContent) == null ? void 0 : r.trim();
+      var n;
+      return (n = s.textContent) == null ? void 0 : n.trim();
     }).filter(Boolean).join(", ");
   }
   /******************** Event Handlers ********************/
@@ -4726,7 +4757,7 @@ const E = (W = class extends y {
   render() {
     return a`<div class="nys-radiogroup">
       <nys-label
-        id=${this.id}
+        for=${this.id}
         label=${this.label}
         description=${this.description}
         flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -4750,31 +4781,31 @@ const E = (W = class extends y {
   }
 }, W.VALID_SIZES = ["sm", "md"], W.styles = Y1, W.formAssociated = !0, W);
 Z([
-  n({ type: String })
+  r({ type: String })
 ], E.prototype, "id", 2);
 Z([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], E.prototype, "name", 2);
 Z([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], E.prototype, "required", 2);
 Z([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], E.prototype, "optional", 2);
 Z([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], E.prototype, "showError", 2);
 Z([
-  n({ type: String })
+  r({ type: String })
 ], E.prototype, "errorMessage", 2);
 Z([
-  n({ type: String })
+  r({ type: String })
 ], E.prototype, "label", 2);
 Z([
-  n({ type: String })
+  r({ type: String })
 ], E.prototype, "description", 2);
 Z([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], E.prototype, "tile", 2);
 Z([
   D()
@@ -4783,13 +4814,13 @@ Z([
   D()
 ], E.prototype, "_slottedDescriptionText", 2);
 Z([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], E.prototype, "size", 1);
 let We = E;
 customElements.get("nys-radiogroup") || customElements.define("nys-radiogroup", We);
 var Ke = Object.defineProperty, Xe = Object.getOwnPropertyDescriptor, N = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? Xe(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? Xe(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && Ke(e, t, s), s;
 };
 let Qe = 0;
@@ -4901,34 +4932,34 @@ const O = (p = class extends y {
   }
 }, p.VALID_SIZES = ["sm", "md"], p.buttonGroup = {}, p.styles = Y1, p);
 N([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], O.prototype, "checked", 2);
 N([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], O.prototype, "disabled", 2);
 N([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], O.prototype, "required", 2);
 N([
-  n({ type: String })
+  r({ type: String })
 ], O.prototype, "label", 2);
 N([
-  n({ type: String })
+  r({ type: String })
 ], O.prototype, "description", 2);
 N([
-  n({ type: String })
+  r({ type: String })
 ], O.prototype, "id", 2);
 N([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], O.prototype, "name", 2);
 N([
-  n({ type: String })
+  r({ type: String })
 ], O.prototype, "value", 2);
 N([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], O.prototype, "size", 1);
 N([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], O.prototype, "tile", 2);
 let Je = O;
 customElements.get("nys-radiobutton") || customElements.define("nys-radiobutton", Je);
@@ -5081,8 +5112,8 @@ const et = u`
   }
 `;
 var tt = Object.defineProperty, w1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && tt(e, t, s), s;
 };
 class y1 extends y {
@@ -5113,27 +5144,27 @@ class y1 extends y {
   }
 }
 w1([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], y1.prototype, "disabled");
 w1([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], y1.prototype, "selected");
 w1([
-  n({ type: String })
+  r({ type: String })
 ], y1.prototype, "value");
 w1([
-  n({ type: String })
+  r({ type: String })
 ], y1.prototype, "label");
 w1([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], y1.prototype, "hidden");
 customElements.define("nys-option", y1);
 var st = Object.defineProperty, ot = Object.getOwnPropertyDescriptor, B = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? ot(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? ot(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && st(e, t, s), s;
 };
-let nt = 0;
+let rt = 0;
 var K;
 const H = (K = class extends y {
   // allows use of elementInternals' API
@@ -5150,7 +5181,7 @@ const H = (K = class extends y {
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-select-${Date.now()}-${nt++}`), this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-select-${Date.now()}-${rt++}`), this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("invalid", this._handleInvalid);
@@ -5163,10 +5194,10 @@ const H = (K = class extends y {
     this.value = "";
   }
   _handleSlotChange() {
-    var s, r;
+    var s, n;
     const e = (s = this.shadowRoot) == null ? void 0 : s.querySelector(
       'slot:not([name="description"])'
-    ), t = (r = this.shadowRoot) == null ? void 0 : r.querySelector("select");
+    ), t = (n = this.shadowRoot) == null ? void 0 : n.querySelector("select");
     if (!e || !t) return;
     t.querySelectorAll("option:not([hidden])").forEach((i) => i.remove()), e.assignedElements({ flatten: !0 }).forEach((i) => {
       var c;
@@ -5253,7 +5284,7 @@ const H = (K = class extends y {
     return a`
       <div class="nys-select">
         <nys-label
-          id=${this.id}
+          for=${this.id}
           label=${this.label}
           description=${this.description}
           flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -5295,43 +5326,43 @@ const H = (K = class extends y {
   }
 }, K.VALID_WIDTHS = ["sm", "md", "lg", "full"], K.styles = et, K.formAssociated = !0, K);
 B([
-  n({ type: String })
+  r({ type: String })
 ], H.prototype, "id", 2);
 B([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], H.prototype, "name", 2);
 B([
-  n({ type: String })
+  r({ type: String })
 ], H.prototype, "label", 2);
 B([
-  n({ type: String })
+  r({ type: String })
 ], H.prototype, "description", 2);
 B([
-  n({ type: String })
+  r({ type: String })
 ], H.prototype, "value", 2);
 B([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], H.prototype, "disabled", 2);
 B([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], H.prototype, "required", 2);
 B([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], H.prototype, "optional", 2);
 B([
-  n({ type: String })
+  r({ type: String })
 ], H.prototype, "form", 2);
 B([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], H.prototype, "showError", 2);
 B([
-  n({ type: String })
+  r({ type: String })
 ], H.prototype, "errorMessage", 2);
 B([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], H.prototype, "width", 1);
-let rt = H;
-customElements.get("nys-select") || customElements.define("nys-select", rt);
+let nt = H;
+customElements.get("nys-select") || customElements.define("nys-select", nt);
 const it = u`
   :host {
     /* Global Skipnav Styles */
@@ -5406,8 +5437,8 @@ const it = u`
   }
 `;
 var at = Object.defineProperty, W1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && at(e, t, s), s;
 };
 const U1 = class U1 extends y {
@@ -5454,10 +5485,10 @@ const U1 = class U1 extends y {
 U1.styles = it;
 let m1 = U1;
 W1([
-  n({ type: String })
+  r({ type: String })
 ], m1.prototype, "id");
 W1([
-  n({ type: String })
+  r({ type: String })
 ], m1.prototype, "href");
 customElements.get("nys-skipnav") || customElements.define("nys-skipnav", m1);
 const lt = u`
@@ -5604,8 +5635,8 @@ const lt = u`
   }
 `;
 var ct = Object.defineProperty, dt = Object.getOwnPropertyDescriptor, x = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? dt(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? dt(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && ct(e, t, s), s;
 };
 let ht = 0;
@@ -5729,7 +5760,7 @@ const b = (q = class extends y {
     return a`
       <label class="nys-textarea">
         <nys-label
-          id=${this.id}
+          for=${this.id}
           label=${this.label}
           description=${this.description}
           flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -5772,55 +5803,55 @@ ${this.value}</textarea
   }
 }, q.VALID_WIDTHS = ["sm", "md", "lg", "full"], q.VALID_RESIZE = ["vertical", "none"], q.styles = lt, q.formAssociated = !0, q);
 x([
-  n({ type: String })
+  r({ type: String })
 ], b.prototype, "id", 2);
 x([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], b.prototype, "name", 2);
 x([
-  n({ type: String })
+  r({ type: String })
 ], b.prototype, "label", 2);
 x([
-  n({ type: String })
+  r({ type: String })
 ], b.prototype, "description", 2);
 x([
-  n({ type: String })
+  r({ type: String })
 ], b.prototype, "placeholder", 2);
 x([
-  n({ type: String })
+  r({ type: String })
 ], b.prototype, "value", 2);
 x([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], b.prototype, "disabled", 2);
 x([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], b.prototype, "readonly", 2);
 x([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], b.prototype, "required", 2);
 x([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], b.prototype, "optional", 2);
 x([
-  n({ type: String })
+  r({ type: String })
 ], b.prototype, "form", 2);
 x([
-  n({ type: Number })
+  r({ type: Number })
 ], b.prototype, "maxlength", 2);
 x([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], b.prototype, "width", 2);
 x([
-  n({ type: Number })
+  r({ type: Number })
 ], b.prototype, "rows", 2);
 x([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], b.prototype, "resize", 1);
 x([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], b.prototype, "showError", 2);
 x([
-  n({ type: String })
+  r({ type: String })
 ], b.prototype, "errorMessage", 2);
 let yt = b;
 customElements.get("nys-textarea") || customElements.define("nys-textarea", yt);
@@ -6056,8 +6087,8 @@ const ut = u`
   }
 `;
 var pt = Object.defineProperty, gt = Object.getOwnPropertyDescriptor, v = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? gt(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? gt(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && pt(e, t, s), s;
 };
 let ft = 0;
@@ -6081,12 +6112,12 @@ const g = (U = class extends y {
   async updated(e) {
     var t, o;
     if (e.has("width") && (await Promise.resolve(), this.width = U.VALID_WIDTHS.includes(this.width) ? this.width : "full"), e.has("disabled") && (this._validateButtonSlot("startButton"), this._validateButtonSlot("endButton")), e.has("type")) {
-      const s = this._maskPatterns[this.type], r = (t = this.shadowRoot) == null ? void 0 : t.querySelector("input");
-      if (r)
+      const s = this._maskPatterns[this.type], n = (t = this.shadowRoot) == null ? void 0 : t.querySelector("input");
+      if (n)
         if (s)
-          r.maxLength = s.length, this._updateOverlay(r.value, s);
+          n.maxLength = s.length, this._updateOverlay(n.value, s);
         else {
-          r.removeAttribute("maxLength");
+          n.removeAttribute("maxLength");
           const i = (o = this.shadowRoot) == null ? void 0 : o.querySelector(
             ".nys-textinput__mask-overlay"
           );
@@ -6113,17 +6144,17 @@ const g = (U = class extends y {
     this._internals.setFormValue(this.value), this._manageRequire();
   }
   _manageRequire() {
-    var s, r;
+    var s, n;
     const e = (s = this.shadowRoot) == null ? void 0 : s.querySelector("input");
     if (!e) return;
     const t = this.errorMessage || "This field is required";
-    this.required && (!this.value || ((r = this.value) == null ? void 0 : r.trim()) === "") ? (this._internals.ariaRequired = "true", this._internals.setValidity({ valueMissing: !0 }, t, e)) : (this._internals.ariaRequired = "false", this._internals.setValidity({}), this._hasUserInteracted = !1);
+    this.required && (!this.value || ((n = this.value) == null ? void 0 : n.trim()) === "") ? (this._internals.ariaRequired = "true", this._internals.setValidity({ valueMissing: !0 }, t, e)) : (this._internals.ariaRequired = "false", this._internals.setValidity({}), this._hasUserInteracted = !1);
   }
   _setValidityMessage(e = "") {
-    var s, r;
+    var s, n;
     const t = (s = this.shadowRoot) == null ? void 0 : s.querySelector("input");
     if (!t) return;
-    this.showError = !!e, (r = this._originalErrorMessage) != null && r.trim() && e !== "" ? this.errorMessage = this._originalErrorMessage : this.errorMessage = e;
+    this.showError = !!e, (n = this._originalErrorMessage) != null && n.trim() && e !== "" ? this.errorMessage = this._originalErrorMessage : this.errorMessage = e;
     const o = e ? { customError: !0 } : {};
     this._internals.setValidity(o, this.errorMessage, t);
   }
@@ -6162,19 +6193,19 @@ const g = (U = class extends y {
       ".nys-textinput__mask-overlay"
     );
     if (!o) return;
-    const s = e, r = t.slice(s.length);
-    o.textContent = s + r;
+    const s = e, n = t.slice(s.length);
+    o.textContent = s + n;
   }
   _applyMask(e, t) {
     const o = e.replace(/\D/g, "");
     let s = "";
     if (this.type === "tel")
       return o.length > 0 && (s = "(" + o.substring(0, 3)), o.length >= 4 && (s += ") " + o.substring(3, 6)), o.length > 6 && (s += "-" + o.substring(6, 10)), s;
-    let r = 0;
+    let n = 0;
     for (let i = 0; i < t.length; i++)
       if (t[i] === "_" || t[i].match(/[d9]/i))
-        if (r < o.length)
-          s += o[r++];
+        if (n < o.length)
+          s += o[n++];
         else
           break;
       else
@@ -6212,19 +6243,19 @@ const g = (U = class extends y {
     );
     if (!t || !o) return;
     const s = t.assignedElements();
-    let r = !1;
+    let n = !1;
     s.forEach((d) => {
-      d instanceof HTMLElement && d.tagName.toLowerCase() === "nys-button" && !r ? (r = !0, d.setAttribute("size", "sm"), d.setAttribute("variant", "primary"), this.disabled ? d.setAttribute("disabled", "true") : d.removeAttribute("disabled")) : (console.warn(
+      d instanceof HTMLElement && d.tagName.toLowerCase() === "nys-button" && !n ? (n = !0, d.setAttribute("size", "sm"), d.setAttribute("variant", "primary"), this.disabled ? d.setAttribute("disabled", "true") : d.removeAttribute("disabled")) : (console.warn(
         "The '" + e + "' slot only accepts a single <nys-button> element. Removing invalid or extra node:",
         d
       ), d.remove());
-    }), e === "startButton" ? o.classList.toggle("has-start-button", r) : e === "endButton" && o.classList.toggle("has-end-button", r);
+    }), e === "startButton" ? o.classList.toggle("has-start-button", n) : e === "endButton" && o.classList.toggle("has-end-button", n);
   }
   render() {
     return a`
       <div class="nys-textinput">
         <nys-label
-          id=${this.id}
+          for=${this.id}
           label=${this.label}
           description=${this.description}
           flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -6303,64 +6334,64 @@ const g = (U = class extends y {
   "url"
 ], U.VALID_WIDTHS = ["sm", "md", "lg", "full"], U.styles = ut, U.formAssociated = !0, U);
 v([
-  n({ type: String })
+  r({ type: String })
 ], g.prototype, "id", 2);
 v([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], g.prototype, "name", 2);
 v([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], g.prototype, "type", 1);
 v([
-  n({ type: String })
+  r({ type: String })
 ], g.prototype, "label", 2);
 v([
-  n({ type: String })
+  r({ type: String })
 ], g.prototype, "description", 2);
 v([
-  n({ type: String })
+  r({ type: String })
 ], g.prototype, "placeholder", 2);
 v([
-  n({ type: String })
+  r({ type: String })
 ], g.prototype, "value", 2);
 v([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], g.prototype, "disabled", 2);
 v([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], g.prototype, "readonly", 2);
 v([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], g.prototype, "required", 2);
 v([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], g.prototype, "optional", 2);
 v([
-  n({ type: String })
+  r({ type: String })
 ], g.prototype, "form", 2);
 v([
-  n({ type: String })
+  r({ type: String })
 ], g.prototype, "pattern", 2);
 v([
-  n({ type: Number })
+  r({ type: Number })
 ], g.prototype, "maxlength", 2);
 v([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], g.prototype, "width", 2);
 v([
-  n({ type: Number })
+  r({ type: Number })
 ], g.prototype, "step", 2);
 v([
-  n({ type: Number })
+  r({ type: Number })
 ], g.prototype, "min", 2);
 v([
-  n({ type: Number })
+  r({ type: Number })
 ], g.prototype, "max", 2);
 v([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], g.prototype, "showError", 2);
 v([
-  n({ type: String })
+  r({ type: String })
 ], g.prototype, "errorMessage", 2);
 v([
   D()
@@ -6645,8 +6676,8 @@ const Ct = u`
   }
 `;
 var _t = Object.defineProperty, bt = Object.getOwnPropertyDescriptor, j = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? bt(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? bt(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && _t(e, t, s), s;
 };
 let mt = 0;
@@ -6739,34 +6770,34 @@ const R = (X = class extends y {
   }
 }, X.VALID_SIZES = ["sm", "md"], X.styles = Ct, X.formAssociated = !0, X);
 j([
-  n({ type: String })
+  r({ type: String })
 ], R.prototype, "id", 2);
 j([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], R.prototype, "name", 2);
 j([
-  n({ type: String })
+  r({ type: String })
 ], R.prototype, "value", 2);
 j([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], R.prototype, "checked", 2);
 j([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], R.prototype, "disabled", 2);
 j([
-  n({ type: Boolean })
+  r({ type: Boolean })
 ], R.prototype, "noIcon", 2);
 j([
-  n({ type: String })
+  r({ type: String })
 ], R.prototype, "label", 2);
 j([
-  n({ type: String })
+  r({ type: String })
 ], R.prototype, "description", 2);
 j([
-  n({ reflect: !0 })
+  r({ reflect: !0 })
 ], R.prototype, "size", 1);
 j([
-  n({ type: String })
+  r({ type: String })
 ], R.prototype, "form", 2);
 let xt = R;
 customElements.get("nys-toggle") || customElements.define("nys-toggle", xt);
@@ -6928,8 +6959,8 @@ const wt = u`
   }
 `;
 var kt = Object.defineProperty, Lt = Object.getOwnPropertyDescriptor, C1 = (l, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? Lt(e, t) : e, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
+  for (var s = o > 1 ? void 0 : o ? Lt(e, t) : e, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && kt(e, t, s), s;
 };
 let St = 0;
@@ -7038,17 +7069,17 @@ const P1 = class P1 extends y {
     var _, L;
     const t = (_ = this.shadowRoot) == null ? void 0 : _.querySelector(".nys-tooltip__wrapper"), o = (L = this.shadowRoot) == null ? void 0 : L.querySelector(".nys-tooltip__content");
     if (!t || !o || e == null) return;
-    const s = t.getBoundingClientRect(), r = o.getBoundingClientRect(), i = 8, c = {
+    const s = t.getBoundingClientRect(), n = o.getBoundingClientRect(), i = 8, c = {
       top: s.top - i,
       left: s.left - i,
       bottom: window.innerHeight - s.bottom - i,
       right: window.innerWidth - s.right - i
     };
     return {
-      top: c.top >= r.height,
-      bottom: c.bottom >= r.height,
-      left: c.left >= r.width,
-      right: c.right >= r.width
+      top: c.top >= n.height,
+      bottom: c.bottom >= n.height,
+      left: c.left >= n.width,
+      right: c.right >= n.width
     }[e];
   }
   // Calculates the best placement based on available space (flips placement if it doesn't fit)
@@ -7060,7 +7091,7 @@ const P1 = class P1 extends y {
       ".nys-tooltip__content"
     );
     if (!e || !t) return;
-    const o = e.getBoundingClientRect(), s = 8, r = {
+    const o = e.getBoundingClientRect(), s = 8, n = {
       top: o.top - s,
       left: o.left - s,
       bottom: window.innerHeight - o.bottom - s,
@@ -7081,9 +7112,9 @@ const P1 = class P1 extends y {
         this._setInternalPosition(m), await this.updateComplete, this._shiftTooltipIntoViewport(t);
         return;
       }
-    let c = "top", d = r.top;
+    let c = "top", d = n.top;
     for (const m of i)
-      r[m] > d && (d = r[m], c = m);
+      n[m] > d && (d = n[m], c = m);
     this._setInternalPosition(c), await this.updateComplete, this._shiftTooltipIntoViewport(t);
   }
   // Sets flag to distinguish to position's setter that we are updating "position" prop internally
@@ -7095,9 +7126,9 @@ const P1 = class P1 extends y {
     var m;
     const o = ((m = this.shadowRoot) == null ? void 0 : m.querySelector(
       ".nys-tooltip__wrapper"
-    )).getBoundingClientRect(), s = e.getBoundingClientRect(), r = o.left + o.width / 2, i = s.left < 0, c = s.right > window.innerWidth;
+    )).getBoundingClientRect(), s = e.getBoundingClientRect(), n = o.left + o.width / 2, i = s.left < 0, c = s.right > window.innerWidth;
     this._resetTooltipPositioningStyles(e), i ? (e.style.left = "0px", e.style.transform = "none") : c && (e.style.right = "0px", e.style.left = "auto", e.style.transform = "none");
-    const d = e.getBoundingClientRect(), _ = (r - d.left) / d.width, L = Math.max(0, Math.min(1, _)) * 100;
+    const d = e.getBoundingClientRect(), _ = (n - d.left) / d.width, L = Math.max(0, Math.min(1, _)) * 100;
     e.style.setProperty("--arrow-offset-x", `${L}%`);
   }
   // Reposition tooltip back to original set position (e.g. top, left, bottom, right) to avoid positioning issue base on last position
@@ -7136,22 +7167,22 @@ const P1 = class P1 extends y {
 P1.styles = wt;
 let Q = P1;
 C1([
-  n({ type: String })
+  r({ type: String })
 ], Q.prototype, "id", 2);
 C1([
-  n({ type: String })
+  r({ type: String })
 ], Q.prototype, "text", 2);
 C1([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], Q.prototype, "inverted", 2);
 C1([
-  n({ type: Boolean, reflect: !0 })
+  r({ type: Boolean, reflect: !0 })
 ], Q.prototype, "focusable", 2);
 C1([
   D()
 ], Q.prototype, "_active", 2);
 C1([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], Q.prototype, "position", 1);
 customElements.get("nys-tooltip") || customElements.define("nys-tooltip", Q);
 const $t = u`
@@ -7535,8 +7566,8 @@ const $t = u`
   <path d="M69.4282 52.8659C69.4135 52.8748 69.3891 52.8858 69.3471 52.8858C69.3178 52.8858 69.2837 52.8798 69.27 52.8659L68.9889 52.1476C68.9723 52.1088 68.9459 52.0323 68.944 52.0214C68.944 52.0264 68.9371 52.1277 68.9332 52.1565L68.8815 52.9205C68.8815 52.9205 68.8561 52.9404 68.7858 52.9404C68.7155 52.9404 68.6862 52.9205 68.6862 52.9205L68.7839 51.6787C68.7839 51.6787 68.8112 51.6588 68.8776 51.6588C68.9518 51.6588 68.9781 51.6787 68.9781 51.6787L69.3042 52.5162L69.3471 52.6533C69.3481 52.6473 69.3774 52.5559 69.392 52.5162L69.7181 51.6787C69.7181 51.6787 69.7464 51.6588 69.8206 51.6588C69.886 51.6588 69.9124 51.6787 69.9124 51.6787L70.01 52.9205C70.01 52.9205 69.9807 52.9404 69.9104 52.9404C69.8401 52.9404 69.8167 52.9205 69.8167 52.9205L69.763 52.1546L69.7523 52.0194C69.7523 52.0194 69.722 52.1148 69.7093 52.1456L69.4282 52.8659Z" fill="#154973"/>
 </svg>`;
 var Vt = Object.defineProperty, u1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && Vt(e, t, s), s;
 };
 const O1 = class O1 extends y {
@@ -7584,10 +7615,10 @@ const O1 = class O1 extends y {
     }
   }
   _handleSearchButton(e) {
-    var s, r;
-    const o = (r = ((s = this.shadowRoot) == null ? void 0 : s.getElementById(
+    var s, n;
+    const o = (n = ((s = this.shadowRoot) == null ? void 0 : s.getElementById(
       e
-    )).value) == null ? void 0 : r.trim();
+    )).value) == null ? void 0 : n.trim();
     o !== "" && this._handleSearch(o);
   }
   _handleSearch(e) {
@@ -7823,28 +7854,28 @@ const O1 = class O1 extends y {
 O1.styles = $t;
 let T = O1;
 u1([
-  n({ type: Boolean })
+  r({ type: Boolean })
 ], T.prototype, "trustbarVisible");
 u1([
-  n({ type: Boolean })
+  r({ type: Boolean })
 ], T.prototype, "searchDropdownVisible");
 u1([
-  n({ type: Boolean })
+  r({ type: Boolean })
 ], T.prototype, "languageVisible");
 u1([
-  n({ type: Boolean })
+  r({ type: Boolean })
 ], T.prototype, "isSearchFocused");
 u1([
-  n({ type: Boolean })
+  r({ type: Boolean })
 ], T.prototype, "hideTranslate");
 u1([
-  n({ type: Boolean })
+  r({ type: Boolean })
 ], T.prototype, "hideSearch");
 u1([
-  n({ type: String, reflect: !0 })
+  r({ type: String, reflect: !0 })
 ], T.prototype, "languages");
 customElements.get("nys-unavheader") || customElements.define("nys-unavheader", T);
-const zt = u`
+const Mt = u`
   :host {
     /* Global Header Styles */
     --_nys-globalheader-text-color: var(
@@ -8153,10 +8184,10 @@ const zt = u`
     }
   }
 `;
-var Mt = Object.defineProperty, k1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
-  return s && Mt(e, t, s), s;
+var zt = Object.defineProperty, k1 = (l, e, t, o) => {
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
+  return s && zt(e, t, s), s;
 };
 const R1 = class R1 extends y {
   constructor() {
@@ -8171,8 +8202,8 @@ const R1 = class R1 extends y {
   /******************** Functions ********************/
   // Gets called when the slot content changes and directly appends the slotted elements into the shadow DOM
   async _handleSlotChange() {
-    var r, i, c;
-    const e = (r = this.shadowRoot) == null ? void 0 : r.querySelector("slot");
+    var n, i, c;
+    const e = (n = this.shadowRoot) == null ? void 0 : n.querySelector("slot");
     if (!e) return;
     const t = e == null ? void 0 : e.assignedNodes({ flatten: !0 }).filter((d) => d.nodeType === Node.ELEMENT_NODE);
     await Promise.resolve(), this.slotHasContent = t.length > 0;
@@ -8214,7 +8245,7 @@ const R1 = class R1 extends y {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
   render() {
-    var e, t, o, s, r, i, c, d;
+    var e, t, o, s, n, i, c, d;
     return a`
       <header class="nys-globalheader">
         <div class="nys-globalheader__main-container">
@@ -8235,7 +8266,7 @@ const R1 = class R1 extends y {
               </div>` : ""}
           ${(e = this.homepageLink) != null && e.trim() ? a`<a
                 class="nys-globalheader__name-container-link"
-                href=${(r = this.homepageLink) == null ? void 0 : r.trim()}
+                href=${(n = this.homepageLink) == null ? void 0 : n.trim()}
               >
                 <div class="nys-globalheader__name-container">
                   ${((i = this.appName) == null ? void 0 : i.trim().length) > 0 ? a`<div
@@ -8277,24 +8308,24 @@ const R1 = class R1 extends y {
     `;
   }
 };
-R1.styles = zt;
-let r1 = R1;
+R1.styles = Mt;
+let n1 = R1;
 k1([
-  n({ type: String })
-], r1.prototype, "appName");
+  r({ type: String })
+], n1.prototype, "appName");
 k1([
-  n({ type: String })
-], r1.prototype, "agencyName");
+  r({ type: String })
+], n1.prototype, "agencyName");
 k1([
-  n({ type: String })
-], r1.prototype, "homepageLink");
-k1([
-  D()
-], r1.prototype, "slotHasContent");
+  r({ type: String })
+], n1.prototype, "homepageLink");
 k1([
   D()
-], r1.prototype, "isMobileMenuOpen");
-customElements.get("nys-globalheader") || customElements.define("nys-globalheader", r1);
+], n1.prototype, "slotHasContent");
+k1([
+  D()
+], n1.prototype, "isMobileMenuOpen");
+customElements.get("nys-globalheader") || customElements.define("nys-globalheader", n1);
 const Et = u`
   :host {
     /* Global Footer Styles */
@@ -8452,8 +8483,8 @@ const Et = u`
   }
 `;
 var Ht = Object.defineProperty, H1 = (l, e, t, o) => {
-  for (var s = void 0, r = l.length - 1, i; r >= 0; r--)
-    (i = l[r]) && (s = i(e, t, s) || s);
+  for (var s = void 0, n = l.length - 1, i; n >= 0; n--)
+    (i = l[n]) && (s = i(e, t, s) || s);
   return s && Ht(e, t, s), s;
 };
 const T1 = class T1 extends y {
@@ -8469,8 +8500,8 @@ const T1 = class T1 extends y {
   /******************** Functions ********************/
   // Gets called when the slot content changes and directly appends the slotted elements into the shadow DOM
   async _handleSlotChange() {
-    var r, i;
-    const e = (r = this.shadowRoot) == null ? void 0 : r.querySelector("slot");
+    var n, i;
+    const e = (n = this.shadowRoot) == null ? void 0 : n.querySelector("slot");
     if (!e) return;
     const t = e == null ? void 0 : e.assignedNodes({ flatten: !0 }).filter((c) => c.nodeType === Node.ELEMENT_NODE);
     await Promise.resolve(), this.slotHasContent = t.length > 0;
@@ -8510,10 +8541,10 @@ const T1 = class T1 extends y {
 T1.styles = Et;
 let f1 = T1;
 H1([
-  n({ type: String })
+  r({ type: String })
 ], f1.prototype, "agencyName");
 H1([
-  n({ type: String })
+  r({ type: String })
 ], f1.prototype, "homepageLink");
 H1([
   D()
@@ -8729,34 +8760,34 @@ const It = u`
   }
 };
 F1.styles = It;
-let z1 = F1;
-customElements.get("nys-unavfooter") || customElements.define("nys-unavfooter", z1);
+let M1 = F1;
+customElements.get("nys-unavfooter") || customElements.define("nys-unavfooter", M1);
 export {
   p1 as NysAccordion,
-  n1 as NysAccordionItem,
+  r1 as NysAccordionItem,
   ie as NysAlert,
   he as NysAvatar,
   l1 as NysBacktotop,
   xe as NysBadge,
   Ce as NysButton,
-  ze as NysCheckbox,
+  Me as NysCheckbox,
   Se as NysCheckboxgroup,
   g1 as NysErrorMessage,
   w as NysFileinput,
   f1 as NysGlobalFooter,
-  r1 as NysGlobalHeader,
+  n1 as NysGlobalHeader,
   Te as NysIcon,
   d1 as NysLabel,
   y1 as NysOption,
   Je as NysRadiobutton,
   We as NysRadiogroup,
-  rt as NysSelect,
+  nt as NysSelect,
   m1 as NysSkipnav,
   yt as NysTextarea,
   vt as NysTextinput,
   xt as NysToggle,
   Q as NysTooltip,
-  z1 as NysUnavFooter,
+  M1 as NysUnavFooter,
   T as NysUnavHeader
 };
 //# sourceMappingURL=nysds.es.js.map
