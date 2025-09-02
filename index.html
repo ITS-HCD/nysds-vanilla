@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>NYSDS Vanilla Demo</title>
+  <meta name="robots" content="noindex" />
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./src/assets/css/vendor/nysds-full.min.css">
@@ -21,7 +22,7 @@
     </ul>
   </nys-globalheader>
 
-  <div class="nys-grid-container">
+  <div class="nys-grid-container-widescreen">
     <div class="nys-grid-row">
       <div class="nys-tablet:nys-grid-col-3"></div>
       <div class="nys-tablet:nys-grid-col-6">
@@ -50,22 +51,22 @@
                 text="Submit the form below to see what form data is passed."></nys-alert>
             </div>
             <div class="nys-grid-row nys-grid-gap-1">
-              <nys-badge label="Info" prefixIcon></nys-badge>
+              <nys-badge label="Base" prefixIcon></nys-badge>
               <nys-badge label="Error" intent="error" prefixIcon></nys-badge>
               <nys-badge label="Warning" intent="warning" prefixIcon></nys-badge>
               <nys-badge label="Success" intent="success" prefixIcon></nys-badge>
             </div>
-            <div class="nys-grid-row nys-grid-gap-1">
-              <nys-badge label="Default info" prefixIcon></nys-badge>
-              <nys-badge label="Default info" suffixIcon></nys-badge>
-              <nys-badge label="Custom info" prefixIcon="check"></nys-badge>
-              <nys-badge label="Custom info" suffixIcon="check"></nys-badge>
+            <div class="nys-grid-row nys-grid-gap-1 nys-margin-t-100">
+              <nys-badge label="Default base" prefixIcon></nys-badge>
+              <nys-badge label="Default base" suffixIcon></nys-badge>
+              <nys-badge label="Custom base" prefixIcon="check"></nys-badge>
+              <nys-badge label="Custom base" suffixIcon="check"></nys-badge>
             </div>
-            <div class="nys-grid-row nys-grid-gap-1">
+            <div class="nys-grid-row nys-grid-gap-1 nys-margin-t-100">
               <nys-badge label="Medium"></nys-badge>
               <nys-badge label="Small" size="sm"></nys-badge>
             </div>
-            <div class="nys-grid-row nys-grid-gap-1">
+            <div class="nys-grid-row nys-grid-gap-1 nys-margin-t-100">
               <nys-badge prefix="Version" label="1.6.0"></nys-badge>
               <nys-badge prefix="WCAG 2.2" label="AA" intent="success" prefixIcon></nys-badge>
             </div>
