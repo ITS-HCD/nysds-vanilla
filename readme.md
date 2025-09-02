@@ -1,3 +1,3 @@
 # NYSDS Vanilla Demo
 
-Run from live-server in VS Code
+Run from a live-server in VS Code
