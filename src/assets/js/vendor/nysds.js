@@ -1,5 +1,5 @@
 (function(v,de){typeof exports=="object"&&typeof module<"u"?de(exports):typeof define=="function"&&define.amd?define(["exports"],de):(v=typeof globalThis<"u"?globalThis:v||self,de(v.NYSDS={}))})(this,function(v){"use strict";/*!
-   * New York State Design System (v1.7.0)
+   * New York State Design System (v1.8.0)
    * Description: A design system for New York State's digital products.
    * Repository: https://github.com/its-hcd/nysds
    * License: MIT
@@ -526,7 +526,6 @@
     -moz-user-select: none;
     user-select: none;
   }
-
 
   /* Hover/Active states/Disabled */
   :host([interactive]) .nys-avatar__component:hover,

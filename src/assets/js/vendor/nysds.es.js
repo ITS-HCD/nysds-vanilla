@@ -2,7 +2,7 @@ import { css as u, LitElement as y, html as l } from "lit";
 import { property as n, query as re, state as E } from "lit/decorators.js";
 import { ifDefined as h } from "lit/directives/if-defined.js";
 /*!
-   * New York State Design System (v1.7.0)
+   * New York State Design System (v1.8.0)
    * Description: A design system for New York State's digital products.
    * Repository: https://github.com/its-hcd/nysds
    * License: MIT
@@ -750,7 +750,6 @@ const pe = u`
     -moz-user-select: none;
     user-select: none;
   }
-
 
   /* Hover/Active states/Disabled */
   :host([interactive]) .nys-avatar__component:hover,
