@@ -192,7 +192,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const themeSelector = document.getElementById("theme-selector");
 
-      themeSelector.addEventListener("change", function (event) {
+      themeSelector.addEventListener("nys-change", function (event) {
         const selectedTheme = event.target.value;
         const existingTheme = document.getElementById("theme-style");
 
