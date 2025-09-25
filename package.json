@@ -4,7 +4,7 @@
     "link": "npm link @nysds/components && npm run copy:assets"
   },
   "dependencies": {
-    "@nysds/components": "^1.8.0",
-    "@nysds/styles": "^1.8.0"
+    "@nysds/components": "^1.9.1",
+    "@nysds/styles": "^1.9.1"
   }
 }
