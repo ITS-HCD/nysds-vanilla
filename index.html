@@ -148,8 +148,11 @@
                   labore et dolore magna aliqua.</p>
               </nys-accordionitem>
             </nys-accordion>
+            <br>
             <nys-pagination id="pagination" name="pagination" currentPage=4 totalPages=10></nys-pagination>
-            <nys-button label="Open Modal" .onClick="{showModal()}"></nys-button>
+            <br>
+            <nys-button label="Open the Modal" onclick="showModal();"></nys-button>
+            <br>
             <nys-modal id="modal1" heading="Update Available"
               subheading="A new version of this application is ready to install.">
               <p>
@@ -160,8 +163,8 @@
                 Cuomo consequat.
               </p>
               <div slot="actions">
-                <nys-button label="Not now" variant="text" onClick="closeModal();"></nys-button>
-                <nys-button label="Update" onClick="closeModal();"></nys-button>
+                <nys-button label="Not now" variant="text" onclick="closeModal();"></nys-button>
+                <nys-button label="Update" onclick="closeModal();"></nys-button>
               </div>
             </nys-modal>
             <!-- Submit Button -->
