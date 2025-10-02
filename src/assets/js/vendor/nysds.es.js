@@ -1,5 +1,5 @@
 import { css as p, LitElement as y, html as l } from "lit";
-import { property as n, query as b1, state as S } from "lit/decorators.js";
+import { property as n, query as be, state as S } from "lit/decorators.js";
 import { ifDefined as h } from "lit/directives/if-defined.js";
 /*!
    * New York State Design System (v1.9.1)
@@ -7,7 +7,7 @@ import { ifDefined as h } from "lit/directives/if-defined.js";
    * Repository: https://github.com/its-hcd/nysds
    * License: MIT
  */
-const h1 = p`
+const he = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -153,13 +153,13 @@ const h1 = p`
     gap: var(--_nys-accordion-gap);
   }
 `;
-var _1 = Object.defineProperty, Me = (a, e, t, o) => {
+var _e = Object.defineProperty, M1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
-  return s && _1(e, t, s), s;
+  return s && _e(e, t, s), s;
 };
-let C1 = 0;
-const Ge = class Ge extends y {
+let Ce = 0;
+const G1 = class G1 extends y {
   /**************** Lifecycle Methods ****************/
   constructor() {
     super(), this.id = "", this.heading = "", this.expanded = !1, this.bordered = !1;
@@ -179,7 +179,7 @@ const Ge = class Ge extends y {
   }
   /******************** Functions ********************/
   _generateUniqueId() {
-    return `nys-accordionitem-${Date.now()}-${C1++}`;
+    return `nys-accordionitem-${Date.now()}-${Ce++}`;
   }
   _dispatchEvent() {
     this.dispatchEvent(
@@ -230,31 +230,31 @@ const Ge = class Ge extends y {
     </div>`;
   }
 };
-Ge.styles = h1;
-let de = Ge;
-Me([
+G1.styles = he;
+let d1 = G1;
+M1([
   n({ type: String })
-], de.prototype, "id");
-Me([
+], d1.prototype, "id");
+M1([
   n({ type: String })
-], de.prototype, "heading");
-Me([
+], d1.prototype, "heading");
+M1([
   n({ type: Boolean, reflect: !0 })
-], de.prototype, "expanded");
-Me([
+], d1.prototype, "expanded");
+M1([
   n({ type: Boolean, reflect: !0 })
-], de.prototype, "bordered");
-Me([
-  b1(".nys-accordionitem__content")
-], de.prototype, "_contentContainer");
-customElements.get("nys-accordionitem") || customElements.define("nys-accordionitem", de);
-var m1 = Object.defineProperty, Fe = (a, e, t, o) => {
+], d1.prototype, "bordered");
+M1([
+  be(".nys-accordionitem__content")
+], d1.prototype, "_contentContainer");
+customElements.get("nys-accordionitem") || customElements.define("nys-accordionitem", d1);
+var me = Object.defineProperty, F1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
-  return s && m1(e, t, s), s;
+  return s && me(e, t, s), s;
 };
-let x1 = 0;
-const Ye = class Ye extends y {
+let xe = 0;
+const Y1 = class Y1 extends y {
   /**************** Lifecycle Methods ****************/
   constructor() {
     super(), this.id = "", this.singleSelect = !1, this.bordered = !1;
@@ -267,7 +267,7 @@ const Ye = class Ye extends y {
   }
   /******************** Functions ********************/
   _generateUniqueId() {
-    return `nys-accordionitem-${Date.now()}-${x1++}`;
+    return `nys-accordionitem-${Date.now()}-${xe++}`;
   }
   _getAccordions() {
     var o;
@@ -298,19 +298,19 @@ const Ye = class Ye extends y {
     </div>`;
   }
 };
-Ye.styles = h1;
-let xe = Ye;
-Fe([
+Y1.styles = he;
+let x1 = Y1;
+F1([
   n({ type: String })
-], xe.prototype, "id");
-Fe([
+], x1.prototype, "id");
+F1([
   n({ type: Boolean, reflect: !0 })
-], xe.prototype, "singleSelect");
-Fe([
+], x1.prototype, "singleSelect");
+F1([
   n({ type: Boolean, reflect: !0 })
-], xe.prototype, "bordered");
-customElements.get("nys-accordion") || customElements.define("nys-accordion", xe);
-const w1 = p`
+], x1.prototype, "bordered");
+customElements.get("nys-accordion") || customElements.define("nys-accordion", x1);
+const we = p`
   :host {
     /* Global Alert Styles */
     --_nys-alert-border-width: var(--nys-border-width-lg, 4px);
@@ -387,7 +387,6 @@ const w1 = p`
     line-height: var(--_nys-alert-line-height);
     letter-spacing: var(--_nys-alert-letter-spacing);
     gap: var(--_nys-alert-gap--icon);
-    text-align: left;
   }
 
   p {
@@ -469,6 +468,11 @@ const w1 = p`
     flex-wrap: wrap;
   }
 
+  /* Dismiss Button */
+  #dismiss-btn {
+    margin-top: -8px;
+  }
+
   /* Alert Types */
   :host([type="info"]) {
     --_nys-alert-border-color: var(
@@ -543,14 +547,14 @@ const w1 = p`
     text-decoration-thickness: 3px;
   }
 `;
-var k1 = Object.defineProperty, L1 = Object.getOwnPropertyDescriptor, B = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? L1(e, t) : e, r = a.length - 1, i; r >= 0; r--)
+var ke = Object.defineProperty, Le = Object.getOwnPropertyDescriptor, B = (a, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Le(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && k1(e, t, s), s;
+  return o && s && ke(e, t, s), s;
 };
-let S1 = 0;
-var ae;
-const M = (ae = class extends y {
+let Se = 0;
+var a1;
+const M = (a1 = class extends y {
   constructor() {
     super(...arguments), this.id = "", this.heading = "", this.icon = "", this.dismissible = !1, this.duration = 0, this.text = "", this.primaryAction = "", this.secondaryAction = "", this.primaryLabel = "Learn more", this.secondaryLabel = "Dismiss", this._alertClosed = !1, this._slotHasContent = !0, this._type = "base", this._timeoutId = null;
   }
@@ -558,7 +562,7 @@ const M = (ae = class extends y {
     return this._type;
   }
   set type(e) {
-    this._type = ae.VALID_TYPES.includes(
+    this._type = a1.VALID_TYPES.includes(
       e
     ) ? e : "base";
   }
@@ -581,7 +585,7 @@ const M = (ae = class extends y {
   }
   /******************** Functions ********************/
   _generateUniqueId() {
-    return `nys-alert-${Date.now()}-${S1++}`;
+    return `nys-alert-${Date.now()}-${Se++}`;
   }
   // Helper function for overriding default icons or checking special naming cases (e.g. type=success)
   _getIconName() {
@@ -662,14 +666,14 @@ const M = (ae = class extends y {
           </div>`}
     `;
   }
-}, ae.styles = w1, ae.VALID_TYPES = [
+}, a1.styles = we, a1.VALID_TYPES = [
   "base",
   "info",
   "success",
   "warning",
   "danger",
   "emergency"
-], ae);
+], a1);
 B([
   n({ type: String })
 ], M.prototype, "id", 2);
@@ -709,9 +713,9 @@ B([
 B([
   n({ reflect: !0 })
 ], M.prototype, "type", 1);
-let $1 = M;
-customElements.get("nys-alert") || customElements.define("nys-alert", $1);
-const E1 = p`
+let $e = M;
+customElements.get("nys-alert") || customElements.define("nys-alert", $e);
+const Ee = p`
   :host {
     /* Global Avatar Styles */
 
@@ -813,20 +817,20 @@ const E1 = p`
     fill: currentColor;
   }
 `;
-var D1 = Object.defineProperty, Y = (a, e, t, o) => {
+var De = Object.defineProperty, Y = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
-  return s && D1(e, t, s), s;
+  return s && De(e, t, s), s;
 };
-let M1 = 0;
-const We = class We extends y {
+let Me = 0;
+const W1 = class W1 extends y {
   constructor() {
     super(...arguments), this.id = "", this.ariaLabel = "", this.image = "", this.initials = "", this.icon = "", this.color = "", this.interactive = !1, this.disabled = !1, this.lazy = !1, this._slotHasContent = !0;
   }
   /******************** Functions ********************/
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-avatar-${Date.now()}-${M1++}`);
+    super.connectedCallback(), this.id || (this.id = `nys-avatar-${Date.now()}-${Me++}`);
   }
   firstUpdated() {
     this._checkSlotContent();
@@ -849,7 +853,7 @@ const We = class We extends y {
   }
   // This function accounts for user set "color" prop and return the appropriate foreground contrast.
   getContrastForeground() {
-    var ne;
+    var n1;
     const e = "var(--nys-color-ink, #000)", t = "var(--nys-color-ink-reverse, #fff)", o = "var(--nys-color-text, #000)", s = "var(--nys-color-text-reverse, #fff)";
     if (!this.color) return;
     const r = document.createElement("div");
@@ -859,7 +863,7 @@ const We = class We extends y {
     const c = i.match(/\d+/g);
     if (!c) return;
     const d = Number(c[0]), u = Number(c[1]), v = Number(c[2]), q = (0.299 * d + 0.587 * u + 0.114 * v) / 255 < 0.5;
-    return ((ne = this.initials) == null ? void 0 : ne.length) > 0 ? q ? s : o : q ? t : e;
+    return ((n1 = this.initials) == null ? void 0 : n1.length) > 0 ? q ? s : o : q ? t : e;
   }
   render() {
     var e, t, o;
@@ -903,8 +907,8 @@ const We = class We extends y {
     `;
   }
 };
-We.styles = E1;
-let I = We;
+W1.styles = Ee;
+let I = W1;
 Y([
   n({ type: String })
 ], I.prototype, "id");
@@ -936,11 +940,11 @@ Y([
   S()
 ], I.prototype, "_slotHasContent");
 customElements.get("nys-avatar") || customElements.define("nys-avatar", I);
-const z1 = p`
+const ze = p`
   .nys-backtotop {
     /* These props ARE NOT publicly overridable */
-    --_nys-button-border-radius--left: var(--nys-radius-round, 1776px);
-    --_nys-button-border-radius--right: var(--nys-radius-round, 1776px);
+    --_nys-button-border-radius--start: var(--nys-radius-round, 1776px);
+    --_nys-button-border-radius--end: var(--nys-radius-round, 1776px);
     --_nys-button-padding--y: var(--nys-space-100, 8px);
     --_nys-button-padding--x: var(--nys-space-200, 16px);
 
@@ -960,12 +964,12 @@ const z1 = p`
     display: inline-flex;
   }
 `;
-var V1 = Object.defineProperty, Oe = (a, e, t, o) => {
+var Ve = Object.defineProperty, O1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
-  return s && V1(e, t, s), s;
+  return s && Ve(e, t, s), s;
 };
-const Ke = class Ke extends y {
+const K1 = class K1 extends y {
   constructor() {
     super(), this.position = "right", this.visible = !1, this.isMobile = !1, this.forceVisible = !1, this._handleScroll = this._handleScroll.bind(this), this._handleResize = this._handleResize.bind(this), this.mediaQuery = window.matchMedia("(max-width: 480px)");
   }
@@ -1004,30 +1008,30 @@ const Ke = class Ke extends y {
     ></nys-button>`;
   }
 };
-Ke.styles = z1;
-let fe = Ke;
-Oe([
+K1.styles = ze;
+let f1 = K1;
+O1([
   n({ type: String })
-], fe.prototype, "position");
-Oe([
+], f1.prototype, "position");
+O1([
   n({ type: Boolean, reflect: !0 })
-], fe.prototype, "visible");
-Oe([
+], f1.prototype, "visible");
+O1([
   S()
-], fe.prototype, "isMobile");
-Oe([
+], f1.prototype, "isMobile");
+O1([
   S()
-], fe.prototype, "forceVisible");
-customElements.get("nys-backtotop") || customElements.define("nys-backtotop", fe);
-const H1 = p`
+], f1.prototype, "forceVisible");
+customElements.get("nys-backtotop") || customElements.define("nys-backtotop", f1);
+const He = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
     /* Global Button Styles */
     --_nys-button-width: fit-content;
     --_nys-button-height: var(--nys-size-600, 48px);
-    --_nys-button-border-radius--left: var(--nys-radius-xl, 12px);
-    --_nys-button-border-radius--right: var(--nys-radius-xl, 12px);
+    --_nys-button-border-radius--start: var(--nys-radius-xl, 12px);
+    --_nys-button-border-radius--end: var(--nys-radius-xl, 12px);
     --_nys-button-padding--y: var(--nys-space-150, 12px);
     --_nys-button-padding--x: var(--nys-space-250, 20px);
     --_nys-button-gap: var(--nys-space-100, 8px);
@@ -1231,8 +1235,8 @@ const H1 = p`
   /* Text */
   :host([variant="text"]) {
     --_nys-button-height: fit-content;
-    --_nys-button-border-radius--left: var(--nys-radius-md, 4px);
-    --_nys-button-border-radius--right: var(--nys-radius-md, 4px);
+    --_nys-button-border-radius--start: var(--nys-radius-md, 4px);
+    --_nys-button-border-radius--end: var(--nys-radius-md, 4px);
     --_nys-button-padding--y: var(--nys-space-2px, 2px);
     --_nys-button-padding--x: var(--nys-space-50, 4px);
     --_nys-button-border-width: 0px;
@@ -1462,8 +1466,8 @@ const H1 = p`
   /* Text Inverted */
   :host([variant="text"][inverted]) {
     --_nys-button-height: fit-content;
-    --_nys-button-border-radius--left: var(--nys-radius-md, 4px);
-    --_nys-button-border-radius--right: var(--nys-radius-md, 4px);
+    --_nys-button-border-radius--start: var(--nys-radius-md, 4px);
+    --_nys-button-border-radius--end: var(--nys-radius-md, 4px);
     --_nys-button-padding--y: var(--nys-space-2px, 2px);
     --_nys-button-padding--x: var(--nys-space-50, 4px);
     --_nys-button-border-width: 0px;
@@ -1585,8 +1589,8 @@ const H1 = p`
   /* Circle */
   :host([circle]) {
     --_nys-button-width: var(--_nys-button-height);
-    --_nys-button-border-radius--left: var(--nys-radius-round, 1776px);
-    --_nys-button-border-radius--right: var(--nys-radius-round, 1776px);
+    --_nys-button-border-radius--start: var(--nys-radius-round, 1776px);
+    --_nys-button-border-radius--end: var(--nys-radius-round, 1776px);
     --_nys-button-padding--y: 0;
     --_nys-button-padding--x: 0;
   }
@@ -1596,10 +1600,10 @@ const H1 = p`
     min-height: var(--_nys-button-height);
     height: var(--_nys-button-height);
     /* set every corner individually */
-    border-top-left-radius: var(--_nys-button-border-radius--left);
-    border-bottom-left-radius: var(--_nys-button-border-radius--left);
-    border-top-right-radius: var(--_nys-button-border-radius--right);
-    border-bottom-right-radius: var(--_nys-button-border-radius--right);
+    border-start-start-radius: var(--_nys-button-border-radius--start);
+    border-end-start-radius: var(--_nys-button-border-radius--start);
+    border-start-end-radius: var(--_nys-button-border-radius--end);
+    border-end-end-radius: var(--_nys-button-border-radius--end);
     padding: var(--_nys-button-padding--y) var(--_nys-button-padding--x);
     display: flex;
     align-items: center;
@@ -1679,17 +1683,17 @@ const H1 = p`
     user-select: none;
   }
 `;
-var A1 = Object.defineProperty, I1 = Object.getOwnPropertyDescriptor, m = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? I1(e, t) : e, r = a.length - 1, i; r >= 0; r--)
+var Ae = Object.defineProperty, Ie = Object.getOwnPropertyDescriptor, m = (a, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Ie(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && A1(e, t, s), s;
+  return o && s && Ae(e, t, s), s;
 };
-let B1 = 0;
+let Be = 0;
 var L;
-const C = (L = class extends y {
+const _ = (L = class extends y {
   // allows use of elementInternals' API
   constructor() {
-    super(), this.id = "", this.name = "", this._size = "md", this.fullWidth = !1, this._variant = "filled", this.inverted = !1, this.label = "", this.ariaLabel = "", this.prefixIcon = "", this.suffixIcon = "", this.circle = !1, this.icon = "", this.disabled = !1, this.form = null, this.value = "", this.ariaDescription = "", this._type = "button", this.onClick = () => {
+    super(), this.id = "", this.name = "", this._size = "md", this.fullWidth = !1, this._variant = "filled", this.inverted = !1, this.label = "", this.ariaLabel = "", this.ariaControls = "", this.prefixIcon = "", this.suffixIcon = "", this.circle = !1, this.icon = "", this.disabled = !1, this.form = null, this.value = "", this.ariaDescription = "", this._type = "button", this.onClick = () => {
     }, this.href = "", this._target = "_self", this._internals = this.attachInternals();
   }
   get size() {
@@ -1737,7 +1741,7 @@ const C = (L = class extends y {
   }
   /******************** Functions ********************/
   _generateUniqueId() {
-    return `nys-button-${Date.now()}-${B1++}`;
+    return `nys-button-${Date.now()}-${Be++}`;
   }
   _manageFormAction(e) {
     typeof this.onClick == "function" && this.onClick(e);
@@ -1782,6 +1786,13 @@ const C = (L = class extends y {
       } else
         this._handleClick(e);
     }
+  }
+  /******************** Public Methods ********************/
+  focus(e) {
+    const t = this.renderRoot.querySelector(
+      this.href ? "a.nys-button" : "button.nys-button"
+    );
+    t ? t.focus(e) : super.focus(e);
   }
   render() {
     return l`
@@ -1831,10 +1842,12 @@ const C = (L = class extends y {
               form=${h(this.form || void 0)}
               value=${h(this.value ? this.value : void 0)}
               type=${this.type}
+              aria-controls=${h(this.ariaControls || void 0)}
               aria-label=${h(
       this.ariaLabel || this.label || (this.circle ? this.icon : null) || this.prefixIcon || this.suffixIcon || "button"
     )}
               aria-description=${h(this.ariaDescription || void 0)}
+              onclick="${this.onClick}"
               @click=${this._handleClick}
               @focus="${this._handleFocus}"
               @blur="${this._handleBlur}"
@@ -1869,70 +1882,73 @@ const C = (L = class extends y {
   "_parent",
   "_top",
   "framename"
-], L.styles = H1, L.formAssociated = !0, L);
+], L.styles = He, L.formAssociated = !0, L);
 m([
   n({ type: String })
-], C.prototype, "id", 2);
+], _.prototype, "id", 2);
 m([
   n({ type: String, reflect: !0 })
-], C.prototype, "name", 2);
+], _.prototype, "name", 2);
 m([
   n({ reflect: !0 })
-], C.prototype, "size", 1);
+], _.prototype, "size", 1);
 m([
   n({ type: Boolean, reflect: !0 })
-], C.prototype, "fullWidth", 2);
+], _.prototype, "fullWidth", 2);
 m([
   n({ reflect: !0 })
-], C.prototype, "variant", 1);
+], _.prototype, "variant", 1);
 m([
   n({ type: Boolean, reflect: !0 })
-], C.prototype, "inverted", 2);
+], _.prototype, "inverted", 2);
 m([
   n({ type: String })
-], C.prototype, "label", 2);
+], _.prototype, "label", 2);
 m([
   n({ type: String })
-], C.prototype, "ariaLabel", 2);
+], _.prototype, "ariaLabel", 2);
 m([
   n({ type: String })
-], C.prototype, "prefixIcon", 2);
+], _.prototype, "ariaControls", 2);
 m([
   n({ type: String })
-], C.prototype, "suffixIcon", 2);
+], _.prototype, "prefixIcon", 2);
+m([
+  n({ type: String })
+], _.prototype, "suffixIcon", 2);
 m([
   n({ type: Boolean, reflect: !0 })
-], C.prototype, "circle", 2);
+], _.prototype, "circle", 2);
 m([
   n({ type: String })
-], C.prototype, "icon", 2);
+], _.prototype, "icon", 2);
 m([
   n({ type: Boolean, reflect: !0 })
-], C.prototype, "disabled", 2);
+], _.prototype, "disabled", 2);
 m([
   n({ type: String, reflect: !0 })
-], C.prototype, "form", 2);
+], _.prototype, "form", 2);
 m([
   n({ type: String })
-], C.prototype, "value", 2);
+], _.prototype, "value", 2);
 m([
   n({ type: String })
-], C.prototype, "ariaDescription", 2);
+], _.prototype, "ariaDescription", 2);
 m([
   n({ reflect: !0 })
-], C.prototype, "type", 1);
+], _.prototype, "type", 1);
 m([
   n({ type: Function })
-], C.prototype, "onClick", 2);
+], _.prototype, "onClick", 2);
 m([
   n({ type: String })
-], C.prototype, "href", 2);
+], _.prototype, "href", 2);
 m([
   n({ reflect: !0 })
-], C.prototype, "target", 1);
-let Z1 = C;
-customElements.get("nys-button") || customElements.define("nys-button", Z1);
-const P1 = p`
+], _.prototype, "target", 1);
+let Ze = _;
+customElements.get("nys-button") || customElements.define("nys-button", Ze);
+const Pe = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -2012,12 +2028,12 @@ const P1 = p`
     font-weight: var(--_nys-badge-prefix-font-weight);
   }
 `;
-var q1 = Object.defineProperty, O1 = Object.getOwnPropertyDescriptor, pe = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? O1(e, t) : e, r = a.length - 1, i; r >= 0; r--)
+var qe = Object.defineProperty, Oe = Object.getOwnPropertyDescriptor, p1 = (a, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Oe(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && q1(e, t, s), s;
+  return o && s && qe(e, t, s), s;
 }, O;
-const oe = (O = class extends y {
+const o1 = (O = class extends y {
   constructor() {
     super(...arguments), this.id = "", this.name = "", this._size = "md", this._intent = "neutral", this.prefixLabel = "", this.label = "", this._prefixIcon = "", this._suffixIcon = "";
   }
@@ -2075,39 +2091,39 @@ const oe = (O = class extends y {
   "error",
   "success",
   "warning"
-], O.styles = P1, O.DEFAULT_ICONS = {
+], O.styles = Pe, O.DEFAULT_ICONS = {
   neutral: "info",
   error: "emergency_home",
   success: "check_circle",
   warning: "warning"
 }, O);
-pe([
+p1([
   n({ type: String })
-], oe.prototype, "id", 2);
-pe([
+], o1.prototype, "id", 2);
+p1([
   n({ type: String, reflect: !0 })
-], oe.prototype, "name", 2);
-pe([
+], o1.prototype, "name", 2);
+p1([
   n({ reflect: !0 })
-], oe.prototype, "size", 1);
-pe([
+], o1.prototype, "size", 1);
+p1([
   n({ reflect: !0 })
-], oe.prototype, "intent", 1);
-pe([
+], o1.prototype, "intent", 1);
+p1([
   n({ type: String })
-], oe.prototype, "prefixLabel", 2);
-pe([
+], o1.prototype, "prefixLabel", 2);
+p1([
   n({ type: String })
-], oe.prototype, "label", 2);
-pe([
+], o1.prototype, "label", 2);
+p1([
   n({ type: String, attribute: "prefixicon" })
-], oe.prototype, "prefixIcon", 1);
-pe([
+], o1.prototype, "prefixIcon", 1);
+p1([
   n({ type: String, attribute: "suffixicon" })
-], oe.prototype, "suffixIcon", 1);
-let U1 = oe;
-customElements.get("nys-badge") || customElements.define("nys-badge", U1);
-const y1 = p`
+], o1.prototype, "suffixIcon", 1);
+let Ue = o1;
+customElements.get("nys-badge") || customElements.define("nys-badge", Ue);
+const ye = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -2490,12 +2506,12 @@ const y1 = p`
     border: 0;
   }
 `;
-var T1 = Object.defineProperty, R1 = Object.getOwnPropertyDescriptor, Z = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? R1(e, t) : e, r = a.length - 1, i; r >= 0; r--)
+var Te = Object.defineProperty, Re = Object.getOwnPropertyDescriptor, Z = (a, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Re(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && T1(e, t, s), s;
+  return o && s && Te(e, t, s), s;
 };
-let F1 = 0;
+let Fe = 0;
 var K;
 const z = (K = class extends y {
   // allows use of elementInternals' API
@@ -2512,7 +2528,7 @@ const z = (K = class extends y {
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-checkbox-${Date.now()}-${F1++}`), this.addEventListener("nys-change", this._handleCheckboxChange), this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-checkbox-${Date.now()}-${Fe++}`), this.addEventListener("nys-change", this._handleCheckboxChange), this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("nys-change", this._handleCheckboxChange), this.removeEventListener("invalid", this._handleInvalid);
@@ -2635,7 +2651,7 @@ const z = (K = class extends y {
       </div>
     `;
   }
-}, K.VALID_SIZES = ["sm", "md"], K.styles = y1, K.formAssociated = !0, K);
+}, K.VALID_SIZES = ["sm", "md"], K.styles = ye, K.formAssociated = !0, K);
 Z([
   n({ type: String })
 ], z.prototype, "id", 2);
@@ -2675,14 +2691,14 @@ Z([
 Z([
   n({ reflect: !0 })
 ], z.prototype, "size", 1);
-let N1 = z;
-customElements.get("nys-checkboxgroup") || customElements.define("nys-checkboxgroup", N1);
-var j1 = Object.defineProperty, G1 = Object.getOwnPropertyDescriptor, V = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? G1(e, t) : e, r = a.length - 1, i; r >= 0; r--)
+let Ne = z;
+customElements.get("nys-checkboxgroup") || customElements.define("nys-checkboxgroup", Ne);
+var je = Object.defineProperty, Ge = Object.getOwnPropertyDescriptor, V = (a, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? Ge(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && j1(e, t, s), s;
+  return o && s && je(e, t, s), s;
 };
-let Y1 = 0;
+let Ye = 0;
 var X;
 const $ = (X = class extends y {
   // allows use of elementInternals' API
@@ -2703,7 +2719,7 @@ const $ = (X = class extends y {
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-checkbox-${Date.now()}-${Y1++}`), this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-checkbox-${Date.now()}-${Ye++}`), this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("invalid", this._handleInvalid);
@@ -2845,7 +2861,7 @@ const $ = (X = class extends y {
           ></nys-errormessage>` : ""}
     `;
   }
-}, X.VALID_SIZES = ["sm", "md"], X.styles = y1, X.formAssociated = !0, X);
+}, X.VALID_SIZES = ["sm", "md"], X.styles = ye, X.formAssociated = !0, X);
 V([
   n({ type: Boolean, reflect: !0 })
 ], $.prototype, "checked", 2);
@@ -2888,9 +2904,9 @@ V([
 V([
   n({ reflect: !0 })
 ], $.prototype, "size", 1);
-let W1 = $;
-customElements.get("nys-checkbox") || customElements.define("nys-checkbox", W1);
-const K1 = p`
+let We = $;
+customElements.get("nys-checkbox") || customElements.define("nys-checkbox", We);
+const Ke = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -2913,12 +2929,12 @@ const K1 = p`
     border: none;
   }
 `;
-var X1 = Object.defineProperty, Q1 = (a, e, t, o) => {
+var Xe = Object.defineProperty, Qe = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
-  return s && X1(e, t, s), s;
+  return s && Xe(e, t, s), s;
 };
-const Xe = class Xe extends y {
+const X1 = class X1 extends y {
   constructor() {
     super(), this.inverted = !1;
   }
@@ -2926,13 +2942,13 @@ const Xe = class Xe extends y {
     return l`<hr class="nys-divider" />`;
   }
 };
-Xe.styles = K1;
-let Ze = Xe;
-Q1([
+X1.styles = Ke;
+let Z1 = X1;
+Qe([
   n({ type: Boolean, reflect: !0 })
-], Ze.prototype, "inverted");
-customElements.get("nys-divider") || customElements.define("nys-divider", Ze);
-const J1 = p`
+], Z1.prototype, "inverted");
+customElements.get("nys-divider") || customElements.define("nys-divider", Z1);
+const Je = p`
   :host {
     --_nys-errormessage-font-family: var(
       --nys-font-family-ui,
@@ -2982,12 +2998,12 @@ const J1 = p`
       var(--_nys-errormessage-color);
   }
 `;
-var et = Object.defineProperty, Ne = (a, e, t, o) => {
+var et = Object.defineProperty, N1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
   return s && et(e, t, s), s;
 };
-const Pe = class Pe extends y {
+const P1 = class P1 extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.showError = !1, this.errorMessage = "", this.showDivider = !1, this._internals = this.attachInternals();
@@ -2999,18 +3015,18 @@ const Pe = class Pe extends y {
         </div>` : ""}`;
   }
 };
-Pe.styles = J1, Pe.formAssociated = !0;
-let we = Pe;
-Ne([
+P1.styles = Je, P1.formAssociated = !0;
+let w1 = P1;
+N1([
   n({ type: Boolean })
-], we.prototype, "showError");
-Ne([
+], w1.prototype, "showError");
+N1([
   n({ type: String })
-], we.prototype, "errorMessage");
-Ne([
+], w1.prototype, "errorMessage");
+N1([
   n({ type: Boolean, reflect: !0 })
-], we.prototype, "showDivider");
-customElements.get("nys-errormessage") || customElements.define("nys-errormessage", we);
+], w1.prototype, "showDivider");
+customElements.get("nys-errormessage") || customElements.define("nys-errormessage", w1);
 async function tt(a, e) {
   if (!e || e.trim() === "") return !0;
   const t = e.toLowerCase().split(",").map((r) => r.trim()), o = a.name.toLowerCase(), s = o.includes(".") ? o.split(".").pop() : "";
@@ -3298,12 +3314,12 @@ const st = p`
     }
   }
 `;
-var rt = Object.defineProperty, Ue = (a, e, t, o) => {
+var rt = Object.defineProperty, U1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
   return s && rt(e, t, s), s;
 };
-const Qe = class Qe extends y {
+const Q1 = class Q1 extends y {
   constructor() {
     super(...arguments), this.filename = "", this.status = "pending", this.progress = 0, this.errorMessage = "";
   }
@@ -3376,31 +3392,31 @@ const Qe = class Qe extends y {
     `;
   }
 };
-Qe.styles = ot;
-let ge = Qe;
-Ue([
+Q1.styles = ot;
+let g1 = Q1;
+U1([
   n({ type: String })
-], ge.prototype, "filename");
-Ue([
+], g1.prototype, "filename");
+U1([
   n({ type: String })
-], ge.prototype, "status");
-Ue([
+], g1.prototype, "status");
+U1([
   n({ type: Number })
-], ge.prototype, "progress");
-Ue([
+], g1.prototype, "progress");
+U1([
   n({ type: String })
-], ge.prototype, "errorMessage");
-customElements.define("nys-fileitem", ge);
+], g1.prototype, "errorMessage");
+customElements.define("nys-fileitem", g1);
 var nt = Object.defineProperty, E = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
   return s && nt(e, t, s), s;
 };
 let it = 0;
-const qe = class qe extends y {
+const q1 = class q1 extends y {
   // allows use of elementInternals' API
   constructor() {
-    super(), this.id = "", this.name = "", this.label = "", this.description = "", this.multiple = !1, this.form = "", this._tooltip = "", this.accept = "", this.disabled = !1, this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.dropzone = !1, this.width = "full", this._selectedFiles = [], this._dragActive = !1, this._internals = this.attachInternals();
+    super(), this.id = "", this.name = "", this.label = "", this.description = "", this.multiple = !1, this.form = null, this._tooltip = "", this.accept = "", this.disabled = !1, this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.dropzone = !1, this.width = "full", this._selectedFiles = [], this._dragActive = !1, this._internals = this.attachInternals();
   }
   get _isDropDisabled() {
     return this.disabled || !this.multiple && this._selectedFiles.length > 0;
@@ -3698,8 +3714,8 @@ const qe = class qe extends y {
     </div>`;
   }
 };
-qe.styles = st, qe.formAssociated = !0;
-let w = qe;
+q1.styles = st, q1.formAssociated = !0;
+let w = q1;
 E([
   n({ type: String })
 ], w.prototype, "id");
@@ -3899,6 +3915,14 @@ const at = {
   </mask>
   <g mask="url(#mask0_5058_681)">
     <path d="M8 21C7.45 21 6.97917 20.8042 6.5875 20.4125C6.19583 20.0208 6 19.55 6 19V17H4C3.45 17 2.97917 16.8042 2.5875 16.4125C2.19583 16.0208 2 15.55 2 15V11C2 10.15 2.29167 9.4375 2.875 8.8625C3.45833 8.2875 4.16667 8 5 8H19C19.85 8 20.5625 8.2875 21.1375 8.8625C21.7125 9.4375 22 10.15 22 11V15C22 15.55 21.8042 16.0208 21.4125 16.4125C21.0208 16.8042 20.55 17 20 17H18V19C18 19.55 17.8042 20.0208 17.4125 20.4125C17.0208 20.8042 16.55 21 16 21H8ZM4 15H6C6 14.45 6.19583 13.9792 6.5875 13.5875C6.97917 13.1958 7.45 13 8 13H16C16.55 13 17.0208 13.1958 17.4125 13.5875C17.8042 13.9792 18 14.45 18 15H20V11C20 10.7167 19.9042 10.4792 19.7125 10.2875C19.5208 10.0958 19.2833 10 19 10H5C4.71667 10 4.47917 10.0958 4.2875 10.2875C4.09583 10.4792 4 10.7167 4 11V15ZM16 8V5H8V8H6V5C6 4.45 6.19583 3.97917 6.5875 3.5875C6.97917 3.19583 7.45 3 8 3H16C16.55 3 17.0208 3.19583 17.4125 3.5875C17.8042 3.97917 18 4.45 18 5V8H16ZM18 12.5C18.2833 12.5 18.5208 12.4042 18.7125 12.2125C18.9042 12.0208 19 11.7833 19 11.5C19 11.2167 18.9042 10.9792 18.7125 10.7875C18.5208 10.5958 18.2833 10.5 18 10.5C17.7167 10.5 17.4792 10.5958 17.2875 10.7875C17.0958 10.9792 17 11.2167 17 11.5C17 11.7833 17.0958 12.0208 17.2875 12.2125C17.4792 12.4042 17.7167 12.5 18 12.5ZM16 19V15H8V19H16Z" fill="var(--nys-icon-color, currentcolor)"/>
+  </g>
+</svg>`,
+  phone_in_talk: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <mask id="mask0_10908_589" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+    <rect width="24" height="24" fill="#D9D9D9"/>
+  </mask>
+  <g mask="url(#mask0_10908_589)">
+    <path d="M20 12C19.7333 12 19.4958 11.9042 19.2875 11.7125C19.0792 11.5208 18.9583 11.2833 18.925 11C18.7083 9.45 18.0542 8.12917 16.9625 7.0375C15.8708 5.94583 14.55 5.29167 13 5.075C12.7167 5.04167 12.4792 4.925 12.2875 4.725C12.0958 4.525 12 4.28333 12 4C12 3.71667 12.1 3.47917 12.3 3.2875C12.5 3.09583 12.7333 3.01667 13 3.05C15.1 3.28333 16.8917 4.14167 18.375 5.625C19.8583 7.10833 20.7167 8.9 20.95 11C20.9833 11.2667 20.9042 11.5 20.7125 11.7C20.5208 11.9 20.2833 12 20 12ZM15.825 12C15.6083 12 15.4167 11.925 15.25 11.775C15.0833 11.625 14.9583 11.425 14.875 11.175C14.7417 10.6917 14.4875 10.2625 14.1125 9.8875C13.7375 9.5125 13.3083 9.25833 12.825 9.125C12.575 9.04167 12.375 8.91667 12.225 8.75C12.075 8.58333 12 8.38333 12 8.15C12 7.81667 12.1167 7.54583 12.35 7.3375C12.5833 7.12917 12.8417 7.05833 13.125 7.125C14.0583 7.34167 14.8625 7.7875 15.5375 8.4625C16.2125 9.1375 16.6583 9.94167 16.875 10.875C16.9417 11.1583 16.8667 11.4167 16.65 11.65C16.4333 11.8833 16.1583 12 15.825 12ZM19.95 21C17.8667 21 15.8083 20.5458 13.775 19.6375C11.7417 18.7292 9.89167 17.4417 8.225 15.775C6.55833 14.1083 5.27083 12.2583 4.3625 10.225C3.45417 8.19167 3 6.13333 3 4.05C3 3.75 3.1 3.5 3.3 3.3C3.5 3.1 3.75 3 4.05 3H8.1C8.33333 3 8.54167 3.07917 8.725 3.2375C8.90833 3.39583 9.01667 3.58333 9.05 3.8L9.7 7.3C9.73333 7.56667 9.725 7.79167 9.675 7.975C9.625 8.15833 9.53333 8.31667 9.4 8.45L6.975 10.9C7.30833 11.5167 7.70417 12.1125 8.1625 12.6875C8.62083 13.2625 9.125 13.8167 9.675 14.35C10.1917 14.8667 10.7333 15.3458 11.3 15.7875C11.8667 16.2292 12.4667 16.6333 13.1 17L15.45 14.65C15.6 14.5 15.7958 14.3875 16.0375 14.3125C16.2792 14.2375 16.5167 14.2167 16.75 14.25L20.2 14.95C20.4333 15.0167 20.625 15.1375 20.775 15.3125C20.925 15.4875 21 15.6833 21 15.9V19.95C21 20.25 20.9 20.5 20.7 20.7C20.5 20.9 20.25 21 19.95 21ZM6.025 9L7.675 7.35L7.25 5H5.025C5.10833 5.68333 5.225 6.35833 5.375 7.025C5.525 7.69167 5.74167 8.35 6.025 9ZM14.975 17.95C15.625 18.2333 16.2875 18.4583 16.9625 18.625C17.6375 18.7917 18.3167 18.9 19 18.95V16.75L16.65 16.275L14.975 17.95Z" fill="var(--nys-icon-color, currentcolor)"/>
   </g>
 </svg>`,
   progress_activity: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -4447,12 +4471,12 @@ const at = {
     transform: scale(-1, -1);
   }
 `;
-var ct = Object.defineProperty, dt = Object.getOwnPropertyDescriptor, Le = (a, e, t, o) => {
+var ct = Object.defineProperty, dt = Object.getOwnPropertyDescriptor, L1 = (a, e, t, o) => {
   for (var s = o > 1 ? void 0 : o ? dt(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && ct(e, t, s), s;
-}, le;
-const be = (le = class extends y {
+}, l1;
+const b1 = (l1 = class extends y {
   constructor() {
     super(...arguments), this.name = "", this.ariaLabel = "", this.rotate = "0", this.flip = "", this.color = "", this._size = "sm";
   }
@@ -4460,7 +4484,7 @@ const be = (le = class extends y {
     return this._size;
   }
   set size(e) {
-    this._size = le.VALID_TYPES.includes(
+    this._size = l1.VALID_TYPES.includes(
       e
     ) ? e : "sm";
   }
@@ -4474,7 +4498,7 @@ const be = (le = class extends y {
     const e = this.getIcon();
     return e ? l`${e}` : null;
   }
-}, le.styles = lt, le.VALID_TYPES = [
+}, l1.styles = lt, l1.VALID_TYPES = [
   "2xs",
   "xs",
   "sm",
@@ -4491,26 +4515,26 @@ const be = (le = class extends y {
   "40",
   "48",
   "64"
-], le);
-Le([
+], l1);
+L1([
   n({ type: String, reflect: !0 })
-], be.prototype, "name", 2);
-Le([
+], b1.prototype, "name", 2);
+L1([
   n({ type: String })
-], be.prototype, "ariaLabel", 2);
-Le([
+], b1.prototype, "ariaLabel", 2);
+L1([
   n({ type: String })
-], be.prototype, "rotate", 2);
-Le([
+], b1.prototype, "rotate", 2);
+L1([
   n({ type: String })
-], be.prototype, "flip", 2);
-Le([
+], b1.prototype, "flip", 2);
+L1([
   n({ type: String })
-], be.prototype, "color", 2);
-Le([
+], b1.prototype, "color", 2);
+L1([
   n({ reflect: !0 })
-], be.prototype, "size", 1);
-let ht = be;
+], b1.prototype, "size", 1);
+let ht = b1;
 customElements.get("nys-icon") || customElements.define("nys-icon", ht);
 const yt = p`
   :host {
@@ -4579,11 +4603,13 @@ const yt = p`
   }
 
   .nys-label__required {
+    display: contents;
     font-weight: var(--_nys-label-font-weight);
     color: var(--_nys-required-font-color);
   }
 
   .nys-label__optional {
+    display: contents;
     font-weight: var(--_nys-optional-font-weight);
     color: var(--_nys-optional-font-color);
   }
@@ -4597,12 +4623,12 @@ const yt = p`
     margin-top: -2px;
   }
 `;
-var ut = Object.defineProperty, pt = Object.getOwnPropertyDescriptor, Se = (a, e, t, o) => {
+var ut = Object.defineProperty, pt = Object.getOwnPropertyDescriptor, S1 = (a, e, t, o) => {
   for (var s = o > 1 ? void 0 : o ? pt(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && ut(e, t, s), s;
 };
-const Je = class Je extends y {
+const J1 = class J1 extends y {
   constructor() {
     super(...arguments), this.for = "", this.label = "", this.description = "", this.flag = "", this.tooltipInverted = !1, this._tooltip = "";
   }
@@ -4639,59 +4665,56 @@ const Je = class Je extends y {
     `;
   }
 };
-Je.styles = yt;
-let te = Je;
-Se([
+J1.styles = yt;
+let t1 = J1;
+S1([
   n({ type: String })
-], te.prototype, "for", 2);
-Se([
+], t1.prototype, "for", 2);
+S1([
   n({ type: String })
-], te.prototype, "label", 2);
-Se([
+], t1.prototype, "label", 2);
+S1([
   n({ type: String })
-], te.prototype, "description", 2);
-Se([
+], t1.prototype, "description", 2);
+S1([
   n({ type: String })
-], te.prototype, "flag", 2);
-Se([
+], t1.prototype, "flag", 2);
+S1([
   n({ type: Boolean, reflect: !0 })
-], te.prototype, "tooltipInverted", 2);
-Se([
+], t1.prototype, "tooltipInverted", 2);
+S1([
   n({ type: String })
-], te.prototype, "tooltip", 1);
-customElements.get("nys-label") || customElements.define("nys-label", te);
+], t1.prototype, "tooltip", 1);
+customElements.get("nys-label") || customElements.define("nys-label", t1);
 const vt = p`
   :host {
     /* Global Modal Styles */
     --_nys-modal-width: 480px;
     --_nys-modal-min-width: 320px;
-    --_nys-modal-radius: var(--nys-radius-lg, 8px);
-    --_nys-modal-border: 1px solid var(--nys-color-neutral-200, #bec0c1);
-    --_nys-modal-background: var(--nys-color-surface, #fff);
+    --_nys-modal-border-radius: var(--nys-radius-lg, 8px);
+    --_nys-modal-border-color: var(--nys-color-neutral-200, #bec0c1);
+    --_nys-modal-border-width: 1px;
+    --_nys-modal-background-color: var(--nys-color-surface, #fff);
+    --_nys-modal-margin: var(--nys-space-250, 20px);
+    --_nys-modal-padding: var(--nys-space-300, 24px);
+    --_nys-modal-gap: var(--nys-space-200, 16px);
 
     /* Modal Overlay */
-    --_nys-modal-overlay-background: var(
+    --_nys-modal-background-color--overlay: var(
       --nys-color-black-transparent-700,
       rgba(27, 27, 27, 0.7)
     );
 
     /* Modal Header */
-    --_nys-modal-header-gap: var(--nys-space-150, 12px);
-    --_nys-modal-header-padding: var(--nys-space-300, 24px);
-
-    /* Modal Body */
-    --_nys-modal-body-padding: var(--nys-space-100, 8px)
-      var(--nys-space-300, 24px) var(--nys-space-300, 24px);
+    --_nys-modal-gap--header: var(--nys-space-100, 8px);
 
     /* Modal Footer */
-    --_nys-modal-footer-padding: var(--nys-space-200, 16px)
-      var(--nys-space-300, 24px) var(--nys-space-300, 24px)
-      var(--nys-space-300, 24px);
-    --_nys-modal-footer-gap: var(--nys-space-250, 20px);
+    --_nys-modal-gap--footer: var(--nys-space-250, 20px);
 
     /* Typography */
     --_nys-modal-font-size: var(--nys-font-size-ui-md, 16px);
-    --_nys-modal-font-weight: var(--nys-font-weight-semibold, 600);
+    --_nys-modal-font-weight--header: var(--nys-font-weight-bold, 700);
+    --_nys-modal-font-weight--subheader: var(--nys-font-weight-regular, 400);
     --_nys-modal-line-height: var(--nys-font-lineheight-ui-md, 24px);
     --_nys-modal-font-family: var(
       --nys-font-family-ui,
@@ -4712,13 +4735,14 @@ const vt = p`
   }
 
   ::slotted(p) {
-    margin: 0;
+    margin: 0 !important;
   }
 
   h2,
   p {
     flex: 1;
     margin: 0;
+    margin-bottom: 0;
   }
 
   /*** Modal Overlay (black transparent background) ***/
@@ -4732,23 +4756,24 @@ const vt = p`
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    background: var(--_nys-modal-overlay-background);
+    background: var(--_nys-modal-background-color--overlay);
   }
 
   /*** Base ***/
   .nys-modal {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: var(--_nys-modal-margin);
+    padding: var(--_nys-modal-padding);
+    gap: var(--_nys-modal-gap);
     width: var(--_nys-modal-width);
     min-width: var(--_nys-modal-min-width);
-    border-radius: var(--_nys-modal-radius);
-    border: var(--_nys-modal-border);
+    border-radius: var(--_nys-modal-border-radius);
+    border: var(--_nys-modal-border-width) solid var(--_nys-modal-border-color);
     font-family: var(--_nys-modal-font-family);
     font-size: var(--_nys-modal-font-size);
-    font-weight: var(--_nys-modal-font-weight);
     line-height: var(--_nys-modal-line-height);
-    background: var(--_nys-modal-background);
+    background: var(--_nys-modal-background-color);
     position: relative;
     z-index: 10000;
   }
@@ -4756,22 +4781,25 @@ const vt = p`
   /*** Modal Header ***/
   .nys-modal_header {
     display: flex;
-    padding: var(--_nys-modal-header-padding);
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--_nys-modal-header-gap);
+    gap: var(--_nys-modal-gap--header);
+  }
+
+  .nys-modal_header p {
+    font-weight: var(--_nys-modal-font-weight--subheader);
   }
 
   .nys-modal_header-inner {
     display: flex;
     align-items: center;
     width: 100%;
+    font-weight: var(--_nys-modal-font-weight--header);
   }
 
   /*** Modal Body ***/
   .nys-modal_body {
     display: flex;
-    padding: var(--_nys-modal-body-padding);
     flex-direction: column;
     align-items: flex-start;
   }
@@ -4786,31 +4814,12 @@ const vt = p`
     display: none;
   }
 
-  /* Scrollbar styling */
-  .nys-modal_body-inner::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .nys-modal_body-inner::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .nys-modal_body-inner::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-default, rgba(0, 0, 0, 0.23));
-    border-radius: 100px;
-  }
-
-  .nys-modal_body-inner::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-hover, rgba(0, 0, 0, 0.5));
-  }
-
   /*** Modal Footer (i.e. where the button slot is) ***/
   .nys-modal_footer ::slotted(*) {
     display: flex;
     flex-direction: column-reverse;
-    padding: var(--_nys-modal-footer-padding);
     justify-content: center;
-    gap: var(--_nys-modal-footer-gap);
+    gap: var(--_nys-modal-gap--footer);
     align-self: stretch;
   }
 
@@ -4818,7 +4827,7 @@ const vt = p`
     display: none;
   }
 
-  @media (min-width: 400px) {
+  @media (min-width: 480px) {
     .nys-modal_body-inner {
       max-height: 25vh;
     }
@@ -4829,23 +4838,23 @@ const vt = p`
     }
   }
 `;
-var ft = Object.defineProperty, gt = Object.getOwnPropertyDescriptor, ve = (a, e, t, o) => {
+var ft = Object.defineProperty, gt = Object.getOwnPropertyDescriptor, v1 = (a, e, t, o) => {
   for (var s = o > 1 ? void 0 : o ? gt(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && ft(e, t, s), s;
 };
 let bt = 0;
-var ce;
-const re = (ce = class extends y {
+var c1;
+const r1 = (c1 = class extends y {
   /**************** Lifecycle Methods ****************/
   constructor() {
-    super(), this.id = "", this.heading = "", this.subheading = "", this.open = !1, this.mandatory = !1, this._width = "md", this._actionButtonSlot = null, this._prevFocusedElement = null, this.hasBodySlots = !1, this.hasActionSlots = !1;
+    super(), this.id = "", this.heading = "", this.subheading = "", this.open = !1, this.mandatory = !1, this._width = "md", this._actionButtonSlot = null, this._prevFocusedElement = null, this._originalBodyOverflow = null, this.hasBodySlots = !1, this.hasActionSlots = !1;
   }
   get width() {
     return this._width;
   }
   set width(e) {
-    this._width = ce.VALID_WIDTHS.includes(
+    this._width = c1.VALID_WIDTHS.includes(
       e
     ) ? e : "md";
   }
@@ -4863,10 +4872,10 @@ const re = (ce = class extends y {
   }
   /******************** Functions ********************/
   _hideBodyScroll() {
-    document.body.style.overflow = this.open ? "hidden" : "";
+    this._originalBodyOverflow === null && (this._originalBodyOverflow = document.body.style.overflow), document.body.style.overflow = "hidden";
   }
   _restoreBodyScroll() {
-    document.body.style.overflow = "";
+    this._originalBodyOverflow !== null && (document.body.style.overflow = this._originalBodyOverflow, this._originalBodyOverflow = null);
   }
   _savePrevFocused() {
     this._prevFocusedElement = document.activeElement;
@@ -4917,7 +4926,7 @@ const re = (ce = class extends y {
   // Therefore, we need to account for mobile size and screen resizes
   _updateSlottedButtonWidth() {
     if (!this._actionButtonSlot) return;
-    const e = window.innerWidth <= 400;
+    const e = window.innerWidth <= 480;
     this._actionButtonSlot.assignedElements().forEach((t) => {
       t.querySelectorAll("nys-button").forEach((o) => {
         e ? o == null || o.setAttribute("fullWidth", "") : o == null || o.removeAttribute("fullWidth");
@@ -4982,12 +4991,12 @@ const re = (ce = class extends y {
           e.preventDefault();
           let q = f - 1;
           q < 0 && (q = r.length - 1);
-          const ne = r[q];
+          const n1 = r[q];
           if (r[q].tagName.toLowerCase() === "nys-button") {
-            const ie = await ne.getButtonElement();
-            ie == null || ie.focus();
+            const i1 = await n1.getButtonElement();
+            i1 == null || i1.focus();
           } else
-            ne.focus();
+            n1.focus();
         } else if (v === u)
           if (e.preventDefault(), d.tagName.toLowerCase() === "nys-button") {
             const q = await d.getButtonElement();
@@ -5043,32 +5052,32 @@ const re = (ce = class extends y {
           </div>
         </div>` : "";
   }
-}, ce.VALID_WIDTHS = ["sm", "md", "lg"], ce.styles = vt, ce);
-ve([
+}, c1.VALID_WIDTHS = ["sm", "md", "lg"], c1.styles = vt, c1);
+v1([
   n({ type: String })
-], re.prototype, "id", 2);
-ve([
+], r1.prototype, "id", 2);
+v1([
   n({ type: String })
-], re.prototype, "heading", 2);
-ve([
+], r1.prototype, "heading", 2);
+v1([
   n({ type: String })
-], re.prototype, "subheading", 2);
-ve([
+], r1.prototype, "subheading", 2);
+v1([
   n({ type: Boolean, reflect: !0 })
-], re.prototype, "open", 2);
-ve([
+], r1.prototype, "open", 2);
+v1([
   n({ type: Boolean, reflect: !0 })
-], re.prototype, "mandatory", 2);
-ve([
+], r1.prototype, "mandatory", 2);
+v1([
   n({ reflect: !0 })
-], re.prototype, "width", 1);
-ve([
+], r1.prototype, "width", 1);
+v1([
   S()
-], re.prototype, "hasBodySlots", 2);
-ve([
+], r1.prototype, "hasBodySlots", 2);
+v1([
   S()
-], re.prototype, "hasActionSlots", 2);
-let _t = re;
+], r1.prototype, "hasActionSlots", 2);
+let _t = r1;
 customElements.get("nys-modal") || customElements.define("nys-modal", _t);
 const Ct = p`
   :host {
@@ -5114,8 +5123,8 @@ const Ct = p`
   nys-button {
     --_nys-button-height: var(--_nys-pagination-height);
     --_nys-button-border-width: var(--nys-border-width-sm, 1px);
-    --_nys-button-border-radius--left: var(--nys-radius-md, 4px);
-    --_nys-button-border-radius--right: var(--nys-radius-md, 4px);
+    --_nys-button-border-radius--start: var(--nys-radius-md, 4px);
+    --_nys-button-border-radius--end: var(--nys-radius-md, 4px);
     --_nys-button-padding--x: var(--nys-space-200, 16px);
   }
 
@@ -5127,8 +5136,8 @@ const Ct = p`
     --nys-button-border-color--hover: var(--nys-color-neutral-600, #62666a);
     --nys-button-border-color--active: var(--nys-color-neutral-900, #1b1b1b);
     --nys-button-color: var(--nys-color-link, #004dd1);
-    --nys-button-color--hover: var(--nys-color-link, #004dd1);
-    --nys-button-color--active: var(--nys-color-link, #004dd1);
+    --nys-button-color--hover: var(--nys-color-link-strong, #003ba1);
+    --nys-button-color--active: var(--nys-color-link-strong, #003ba1);
   }
 
   nys-button[variant="filled"] {
@@ -5157,6 +5166,8 @@ const Ct = p`
   nys-button#previous--mobile,
   nys-button#next--mobile {
     --nys-button-color: var(--nys-color-text, ##1b1b1b);
+    --nys-button-color--hover: var(--nys-color-text, ##1b1b1b);
+    --nys-button-color--active: var(--nys-color-text, ##1b1b1b);
     --_nys-button-padding--x: var(--nys-space-150, 12px);
   }
 
@@ -5210,13 +5221,13 @@ const Ct = p`
     }
   }
 `;
-var mt = Object.defineProperty, ze = (a, e, t, o) => {
+var mt = Object.defineProperty, z1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
   return s && mt(e, t, s), s;
 };
 let xt = 0;
-const e1 = class e1 extends y {
+const ee = class ee extends y {
   /**************** Lifecycle Methods ****************/
   constructor() {
     super(), this.id = "", this.name = "", this.currentPage = 1, this.totalPages = 1, this._twoBeforeLast = !1;
@@ -5299,26 +5310,28 @@ const e1 = class e1 extends y {
           ` : null}
     </div>`;
   }
+  /****************** 🪡 for 1.10.0 ******************/
+  /****************** designsystem@its.ny.gov ********/
 };
-e1.styles = Ct;
-let he = e1;
-ze([
+ee.styles = Ct;
+let h1 = ee;
+z1([
   n({ type: String })
-], he.prototype, "id");
-ze([
+], h1.prototype, "id");
+z1([
   n({ type: String, reflect: !0 })
-], he.prototype, "name");
-ze([
+], h1.prototype, "name");
+z1([
   n({ type: Number, reflect: !0 })
-], he.prototype, "currentPage");
-ze([
+], h1.prototype, "currentPage");
+z1([
   n({ type: Number, reflect: !0 })
-], he.prototype, "totalPages");
-ze([
+], h1.prototype, "totalPages");
+z1([
   n({ type: Boolean, reflect: !0 })
-], he.prototype, "_twoBeforeLast");
-customElements.get("nys-pagination") || customElements.define("nys-pagination", he);
-const u1 = p`
+], h1.prototype, "_twoBeforeLast");
+customElements.get("nys-pagination") || customElements.define("nys-pagination", h1);
+const ue = p`
   :host {
     /* Global Radiobutton Styles */
     --_nys-radiobutton-size: var(--nys-size-400, 32px);
@@ -5856,7 +5869,7 @@ const D = (Q = class extends y {
       ></nys-errormessage>
     </div>`;
   }
-}, Q.VALID_SIZES = ["sm", "md"], Q.styles = u1, Q.formAssociated = !0, Q);
+}, Q.VALID_SIZES = ["sm", "md"], Q.styles = ue, Q.formAssociated = !0, Q);
 H([
   n({ type: String })
 ], D.prototype, "id", 2);
@@ -6015,7 +6028,7 @@ const U = (b = class extends y {
       </label>
     `;
   }
-}, b.VALID_SIZES = ["sm", "md"], b.buttonGroup = {}, b.styles = u1, b);
+}, b.VALID_SIZES = ["sm", "md"], b.buttonGroup = {}, b.styles = ue, b);
 F([
   n({ type: Boolean, reflect: !0 })
 ], U.prototype, "checked", 2);
@@ -6195,12 +6208,12 @@ const zt = p`
       var(--_nys-select-color--error);
   }
 `;
-var Vt = Object.defineProperty, Ve = (a, e, t, o) => {
+var Vt = Object.defineProperty, V1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
   return s && Vt(e, t, s), s;
 };
-class _e extends y {
+class _1 extends y {
   constructor() {
     super(...arguments), this.disabled = !1, this.selected = !1, this.value = "", this.label = "", this.hidden = !1;
   }
@@ -6227,22 +6240,22 @@ class _e extends y {
     `;
   }
 }
-Ve([
+V1([
   n({ type: Boolean, reflect: !0 })
-], _e.prototype, "disabled");
-Ve([
+], _1.prototype, "disabled");
+V1([
   n({ type: Boolean, reflect: !0 })
-], _e.prototype, "selected");
-Ve([
+], _1.prototype, "selected");
+V1([
   n({ type: String })
-], _e.prototype, "value");
-Ve([
+], _1.prototype, "value");
+V1([
   n({ type: String })
-], _e.prototype, "label");
-Ve([
+], _1.prototype, "label");
+V1([
   n({ type: Boolean, reflect: !0 })
-], _e.prototype, "hidden");
-customElements.define("nys-option", _e);
+], _1.prototype, "hidden");
+customElements.define("nys-option", _1);
 var Ht = Object.defineProperty, At = Object.getOwnPropertyDescriptor, P = (a, e, t, o) => {
   for (var s = o > 1 ? void 0 : o ? At(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
@@ -6285,7 +6298,7 @@ const A = (J = class extends y {
     if (!e || !t) return;
     t.querySelectorAll("option:not([hidden])").forEach((i) => i.remove()), e.assignedElements({ flatten: !0 }).forEach((i) => {
       var c;
-      if (i instanceof _e) {
+      if (i instanceof _1) {
         const d = document.createElement("option");
         d.value = i.value, d.textContent = i.label || ((c = i.textContent) == null ? void 0 : c.trim()) || "", d.disabled = i.disabled, d.selected = i.selected, t.appendChild(d);
       }
@@ -6522,12 +6535,12 @@ const Zt = p`
     outline: none;
   }
 `;
-var Pt = Object.defineProperty, p1 = (a, e, t, o) => {
+var Pt = Object.defineProperty, pe = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
   return s && Pt(e, t, s), s;
 };
-const t1 = class t1 extends y {
+const te = class te extends y {
   constructor() {
     super(), this.id = "", this.href = "";
   }
@@ -6568,16 +6581,16 @@ const t1 = class t1 extends y {
     `;
   }
 };
-t1.styles = Zt;
-let De = t1;
-p1([
+te.styles = Zt;
+let D1 = te;
+pe([
   n({ type: String })
-], De.prototype, "id");
-p1([
+], D1.prototype, "id");
+pe([
   n({ type: String })
-], De.prototype, "href");
-customElements.get("nys-skipnav") || customElements.define("nys-skipnav", De);
-const v1 = p`
+], D1.prototype, "href");
+customElements.get("nys-skipnav") || customElements.define("nys-skipnav", D1);
+const ve = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -6931,12 +6944,12 @@ const v1 = p`
     }
   }
 `;
-var qt = Object.defineProperty, Ce = (a, e, t, o) => {
+var qt = Object.defineProperty, C1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
   return s && qt(e, t, s), s;
 };
-const s1 = class s1 extends y {
+const se = class se extends y {
   constructor() {
     super(...arguments), this.selected = !1, this.current = !1, this.label = "", this.href = "", this.isCompactExpanded = !1, this.stepNumber = 0;
   }
@@ -6984,36 +6997,36 @@ const s1 = class s1 extends y {
     `;
   }
 };
-s1.styles = v1;
-let j = s1;
-Ce([
+se.styles = ve;
+let j = se;
+C1([
   n({ type: Boolean, reflect: !0 })
 ], j.prototype, "selected");
-Ce([
+C1([
   n({ type: Boolean, reflect: !0 })
 ], j.prototype, "current");
-Ce([
+C1([
   n({ type: String })
 ], j.prototype, "label");
-Ce([
+C1([
   n({ type: String })
 ], j.prototype, "href");
-Ce([
+C1([
   n({ type: Boolean })
 ], j.prototype, "isCompactExpanded");
-Ce([
+C1([
   n({ type: Function })
 ], j.prototype, "onClick");
-Ce([
+C1([
   n({ type: Number })
 ], j.prototype, "stepNumber");
 customElements.get("nys-step") || customElements.define("nys-step", j);
-var Ot = Object.defineProperty, He = (a, e, t, o) => {
+var Ot = Object.defineProperty, H1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
   return s && Ot(e, t, s), s;
 };
-const o1 = class o1 extends y {
+const oe = class oe extends y {
   constructor() {
     super(), this.id = "", this.name = "", this.label = "", this.counterText = "initial", this.isCompactExpanded = !1, this._stepsNumbered = !1, this._onStepClick = async (e) => {
       const t = e.composedPath().find(
@@ -7111,24 +7124,24 @@ const o1 = class o1 extends y {
     `;
   }
 };
-o1.styles = v1;
-let ye = o1;
-He([
+oe.styles = ve;
+let y1 = oe;
+H1([
   n({ type: String })
-], ye.prototype, "id");
-He([
+], y1.prototype, "id");
+H1([
   n({ type: String, reflect: !0 })
-], ye.prototype, "name");
-He([
+], y1.prototype, "name");
+H1([
   n({ type: String })
-], ye.prototype, "label");
-He([
+], y1.prototype, "label");
+H1([
   n({ type: String })
-], ye.prototype, "counterText");
-He([
+], y1.prototype, "counterText");
+H1([
   n({ type: Boolean, reflect: !0 })
-], ye.prototype, "isCompactExpanded");
-customElements.get("nys-stepper") || customElements.define("nys-stepper", ye);
+], y1.prototype, "isCompactExpanded");
+customElements.get("nys-stepper") || customElements.define("nys-stepper", y1);
 const Ut = p`
   :host {
     /* Anything that can be overridden should be defined here */
@@ -7641,15 +7654,15 @@ const jt = p`
   }
 
   .nys-textinput__buttoncontainer.has-end-button .nys-textinput__input {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right: none;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+    border-inline-end: none;
   }
 
   .nys-textinput__buttoncontainer.has-start-button .nys-textinput__input {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-left: none;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+    border-inline-start: none;
   }
 
   .nys-textinput__container {
@@ -7664,8 +7677,8 @@ const jt = p`
   ::slotted(nys-button) {
     /* These props ARE NOT publicly overridable */
     --_nys-button-height: var(--_nys-textinput-height);
-    --_nys-button-border-radius--left: var(--_nys-textinput-border-radius);
-    --_nys-button-border-radius--right: var(--_nys-textinput-border-radius);
+    --_nys-button-border-radius--start: var(--_nys-textinput-border-radius);
+    --_nys-button-border-radius--end: var(--_nys-textinput-border-radius);
     --_nys-button-background-color--disabled: var(
       --_nys-textinput-background-color--disabled
     );
@@ -7676,11 +7689,11 @@ const jt = p`
   }
 
   .nys-textinput__buttoncontainer.has-start-button ::slotted(nys-button) {
-    --_nys-button-border-radius--right: 0;
+    --_nys-button-border-radius--end: 0;
   }
 
   .nys-textinput__buttoncontainer.has-end-button ::slotted(nys-button) {
-    --_nys-button-border-radius--left: 0;
+    --_nys-button-border-radius--start: 0;
   }
 
   .eye-icon {
@@ -7731,7 +7744,7 @@ const jt = p`
     cursor: not-allowed;
   }
 `;
-var Gt = Object.defineProperty, Yt = Object.getOwnPropertyDescriptor, _ = (a, e, t, o) => {
+var Gt = Object.defineProperty, Yt = Object.getOwnPropertyDescriptor, C = (a, e, t, o) => {
   for (var s = o > 1 ? void 0 : o ? Yt(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && Gt(e, t, s), s;
@@ -7979,70 +7992,70 @@ const g = (R = class extends y {
   "text",
   "url"
 ], R.VALID_WIDTHS = ["sm", "md", "lg", "full"], R.styles = jt, R.formAssociated = !0, R);
-_([
+C([
   n({ type: String })
 ], g.prototype, "id", 2);
-_([
+C([
   n({ type: String, reflect: !0 })
 ], g.prototype, "name", 2);
-_([
+C([
   n({ reflect: !0 })
 ], g.prototype, "type", 1);
-_([
+C([
   n({ type: String })
 ], g.prototype, "label", 2);
-_([
+C([
   n({ type: String })
 ], g.prototype, "description", 2);
-_([
+C([
   n({ type: String })
 ], g.prototype, "placeholder", 2);
-_([
+C([
   n({ type: String })
 ], g.prototype, "value", 2);
-_([
+C([
   n({ type: Boolean, reflect: !0 })
 ], g.prototype, "disabled", 2);
-_([
+C([
   n({ type: Boolean, reflect: !0 })
 ], g.prototype, "readonly", 2);
-_([
+C([
   n({ type: Boolean, reflect: !0 })
 ], g.prototype, "required", 2);
-_([
+C([
   n({ type: Boolean, reflect: !0 })
 ], g.prototype, "optional", 2);
-_([
+C([
   n({ type: String })
 ], g.prototype, "_tooltip", 2);
-_([
+C([
   n({ type: String, reflect: !0 })
 ], g.prototype, "form", 2);
-_([
+C([
   n({ type: String })
 ], g.prototype, "pattern", 2);
-_([
+C([
   n({ type: Number })
 ], g.prototype, "maxlength", 2);
-_([
+C([
   n({ reflect: !0 })
 ], g.prototype, "width", 2);
-_([
+C([
   n({ type: Number })
 ], g.prototype, "step", 2);
-_([
+C([
   n({ type: Number })
 ], g.prototype, "min", 2);
-_([
+C([
   n({ type: Number })
 ], g.prototype, "max", 2);
-_([
+C([
   n({ type: Boolean, reflect: !0 })
 ], g.prototype, "showError", 2);
-_([
+C([
   n({ type: String })
 ], g.prototype, "errorMessage", 2);
-_([
+C([
   S()
 ], g.prototype, "showPassword", 2);
 let Kt = g;
@@ -8318,9 +8331,9 @@ var Qt = Object.defineProperty, Jt = Object.getOwnPropertyDescriptor, W = (a, e,
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && Qt(e, t, s), s;
 };
-let es = 0;
-var ee;
-const N = (ee = class extends y {
+let e2 = 0;
+var e1;
+const N = (e1 = class extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.value = "", this.label = "", this.description = "", this.form = null, this.checked = !1, this.disabled = !1, this.noIcon = !1, this._size = "md", this._internals = this.attachInternals();
@@ -8329,13 +8342,13 @@ const N = (ee = class extends y {
     return this._size;
   }
   set size(e) {
-    this._size = ee.VALID_SIZES.includes(
+    this._size = e1.VALID_SIZES.includes(
       e
     ) ? e : "md";
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-toggle-${Date.now()}-${es++}`);
+    super.connectedCallback(), this.id || (this.id = `nys-toggle-${Date.now()}-${e2++}`);
   }
   /********************** Form Integration **********************/
   // Update the internals whenever `checked` or `value` changes.
@@ -8406,7 +8419,7 @@ const N = (ee = class extends y {
       </label>
     `;
   }
-}, ee.VALID_SIZES = ["sm", "md"], ee.styles = Xt, ee.formAssociated = !0, ee);
+}, e1.VALID_SIZES = ["sm", "md"], e1.styles = Xt, e1.formAssociated = !0, e1);
 W([
   n({ type: String })
 ], N.prototype, "id", 2);
@@ -8437,9 +8450,9 @@ W([
 W([
   n({ reflect: !0 })
 ], N.prototype, "size", 1);
-let ts = N;
-customElements.get("nys-toggle") || customElements.define("nys-toggle", ts);
-const ss = p`
+let t2 = N;
+customElements.get("nys-toggle") || customElements.define("nys-toggle", t2);
+const s2 = p`
   :host {
     /* Global Tooltip Styles */
     --_nys-tooltip-color: var(--nys-color-text-reverse, #ffffff);
@@ -8596,13 +8609,13 @@ const ss = p`
     }
   }
 `;
-var os = Object.defineProperty, rs = Object.getOwnPropertyDescriptor, $e = (a, e, t, o) => {
-  for (var s = o > 1 ? void 0 : o ? rs(e, t) : e, r = a.length - 1, i; r >= 0; r--)
+var o2 = Object.defineProperty, r2 = Object.getOwnPropertyDescriptor, $1 = (a, e, t, o) => {
+  for (var s = o > 1 ? void 0 : o ? r2(e, t) : e, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = (o ? i(e, t, s) : i(s)) || s);
-  return o && s && os(e, t, s), s;
+  return o && s && o2(e, t, s), s;
 };
-let ns = 0;
-const r1 = class r1 extends y {
+let n2 = 0;
+const re = class re extends y {
   /**************** Lifecycle Methods ****************/
   constructor() {
     super(), this.id = "", this.text = "", this.inverted = !1, this.focusable = !1, this._active = !1, this._userHasSetPosition = !1, this._originalUserPosition = null, this._internallyUpdatingPosition = !1, this._position = null, this._handleTooltipEnter = () => {
@@ -8651,7 +8664,7 @@ const r1 = class r1 extends y {
     this._position = e, this.requestUpdate("position", t), this._internallyUpdatingPosition || (this._userHasSetPosition = e !== null, this._originalUserPosition = e);
   }
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-tooltip-${Date.now()}-${ns++}`), window.addEventListener("keydown", this._handleEscapeKey);
+    super.connectedCallback(), this.id || (this.id = `nys-tooltip-${Date.now()}-${n2++}`), window.addEventListener("keydown", this._handleEscapeKey);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), window.removeEventListener("keydown", this._handleEscapeKey);
@@ -8803,28 +8816,28 @@ const r1 = class r1 extends y {
     `;
   }
 };
-r1.styles = ss;
-let se = r1;
-$e([
+re.styles = s2;
+let s1 = re;
+$1([
   n({ type: String })
-], se.prototype, "id", 2);
-$e([
+], s1.prototype, "id", 2);
+$1([
   n({ type: String })
-], se.prototype, "text", 2);
-$e([
+], s1.prototype, "text", 2);
+$1([
   n({ type: Boolean, reflect: !0 })
-], se.prototype, "inverted", 2);
-$e([
+], s1.prototype, "inverted", 2);
+$1([
   n({ type: Boolean, reflect: !0 })
-], se.prototype, "focusable", 2);
-$e([
+], s1.prototype, "focusable", 2);
+$1([
   S()
-], se.prototype, "_active", 2);
-$e([
+], s1.prototype, "_active", 2);
+$1([
   n({ type: String, reflect: !0 })
-], se.prototype, "position", 1);
-customElements.get("nys-tooltip") || customElements.define("nys-tooltip", se);
-const is = p`
+], s1.prototype, "position", 1);
+customElements.get("nys-tooltip") || customElements.define("nys-tooltip", s1);
+const i2 = p`
   :host {
     /* Global Unav Header Styles */
     --_nys-unavheader-padding--gutter: var(--nys-gutter-xs, 20px);
@@ -8860,32 +8873,54 @@ const is = p`
     );
   }
 
-  :host {
-    display: block;
-    width: 100%;
-  }
-
   .nys-unavheader {
-    display: grid;
+    display: flex;
+    flex-direction: column;
   }
 
-  .nys-unavheader__mainwrapper {
+  .nys-unavheader > * {
+    padding: 0 var(--_nys-unavheader-padding--gutter);
+  }
+
+  .nys-unavheader__main.wrapper {
     background-color: var(--_nys-unavheader-background-color);
-    display: flex;
-    justify-content: center;
   }
 
-  .nys-unavheader--xs,
-  .nys-unavheader--sm,
-  .nys-unavheader--md,
-  .nys-unavheader--lg,
-  .nys-unavheader--xl {
-    display: none;
+  .nys-unavheader__main.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nys-space-300, 24px);
+    padding-top: var(--nys-space-100, 8px);
+    padding-bottom: var(--nys-space-100, 8px);
   }
 
-  .nys-unavheader__officialmessage {
+  .nys-unavheader__spacer {
+    flex: 1;
+  }
+
+  .nys-unavheader__trustbar.wrapper {
+    background-color: var(--nys-color-neutral-100, #d0d0ce);
+    padding-top: var(--nys-space-100, 8px);
+    padding-bottom: var(--nys-space-100, 8px);
+  }
+  .nys-unavheader__trustbar.wrapper > .content,
+  .nys-unavheader__trustbar.wrapper > .content * {
+    cursor: pointer;
+  }
+  .nys-unavheader__trustbar.inline,
+  .nys-unavheader__trustbar.inline #nys-unavheader__official {
+    background-color: transparent;
+    cursor: default;
+  }
+
+  /*
+  .content -> small screens
+  .inline -> large screens
+  */
+  .nys-unavheader__trustbar > .content,
+  .nys-unavheader__trustbar.inline {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: var(--nys-space-100, 8px);
     height: fit-content;
@@ -8906,15 +8941,6 @@ const is = p`
     );
   }
 
-  .nys-unavheader__maincontent {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1280px;
-  }
-
   a#nys-unavheader__logolink {
     outline-offset: var(--nys-space-2px, 2px);
   }
@@ -8925,73 +8951,8 @@ const is = p`
     width: auto;
   }
 
-  .nys-unavheader__toptrustbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--nys-color-neutral-100, #d0d0ce);
-    padding: var(--nys-space-100, 8px) var(--_nys-unavheader-padding--gutter);
-    cursor: pointer;
-  }
-
-  .nys-unavheader__toptrustbar * {
-    cursor: pointer;
-  }
-
-  .nys-unavheader__left,
-  .nys-unavheader__right {
-    display: flex;
-    align-items: center;
-    gap: var(--nys-space-300, 24px);
-    padding-top: var(--nys-space-100, 8px);
-    padding-bottom: var(--nys-space-100, 8px);
-  }
-
-  .nys-unavheader__left {
-    order: 2;
-    padding-left: var(--_nys-unavheader-padding--gutter);
-  }
-  .nys-unavheader__right {
-    order: 3;
-    padding-right: var(--_nys-unavheader-padding--gutter);
-  }
-
-  .nys-unavheader__trustbarwrapper {
-    order: 1;
-    width: 100%;
-  }
-
-  #nys-unavheader__translate,
-  #nys-unavheader__searchbutton {
-    /* These props ARE publicly overridable */
-    --nys-button-color: var(--nys-color-state-blue-700, #154973);
-    --nys-button-color--hover: var(--nys-color-state-blue-700, #154973);
-    --nys-button-color--active: var(--nys-color-state-blue-700, #154973);
-  }
-
-  .nys-unavheader__iconbutton {
-    /* These props ARE NOT publicly overridable */
-    --_nys-button-width: var(--nys-size-400, 32px);
-    --_nys-button-height: var(--nys-size-400, 32px);
-    --_nys-button-padding--y: 0;
-    --_nys-button-padding--x: 0;
-  }
-
-  .nys-unavheader__search {
-    width: var(--nys-form-width-md, 200px);
-    transition: width 0.5s ease;
-  }
-
-  /* Grow size on focus */
-  .nys-unavheader__search:focus {
-    width: var(--nys-form-width-lg, 384px);
-  }
-
-  #nys-unavheader__official {
-    width: max-content;
-    color: var(--_nys-unavheader-color);
-  }
-
-  #nys-unavheader__know {
+  #nys-unavheader__know,
+  #nys-unavheader__know--inline {
     width: max-content;
     display: flex;
     align-items: center;
@@ -8999,8 +8960,8 @@ const is = p`
     gap: var(--nys-space-50, 4px);
     /* These props ARE NOT publicly overridable */
     --_nys-button-height: var(--nys-font-lineheight-ui-xs, 20px);
-    --_nys-button-border-radius--left: var(--nys-radius-md, 4px);
-    --_nys-button-border-radius--right: var(--nys-radius-md, 4px);
+    --_nys-button-border-radius--start: var(--nys-radius-md, 4px);
+    --_nys-button-border-radius--end: var(--nys-radius-md, 4px);
     --_nys-button-padding--y: var(--nys-space-2px, 2px);
     --_nys-button-padding--x: var(--nys-space-50, 4px);
     --_nys-button-border-width: 0px;
@@ -9035,52 +8996,92 @@ const is = p`
     );
   }
 
-  .nys-unavheader__translatewrapper {
-    position: relative;
-  }
-
-  .nys-unavheader__trustbar.hide,
-  .nys-unavheader__languagelist.hide,
-  .nys-unavheader__searchdropdown.hide {
+  .hide {
     display: none;
   }
 
-  .nys-unavheader__searchdropdown.show {
+  .nys-unavheader__trustpanel.wrapper.show {
     background-color: var(--_nys-unavheader-background-color--section-raised);
-    padding: var(--nys-space-250, 20px) var(--_nys-unavheader-padding--gutter);
+    display: flex;
+    padding-top: var(--nys-space-400, 32px);
+    padding-bottom: var(--nys-space-400, 32px);
+  }
+  .nys-unavheader__messagewrapper {
+    display: flex;
+    gap: var(--nys-space-400, 32px);
   }
 
-  .nys-unavheader__trustbar.show {
-    background-color: var(--_nys-unavheader-background-color--section-raised);
-    color: var(--_nys-unavheader-color);
+  .nys-unavheader__trustpanel.content {
     display: flex;
-    justify-content: center;
-    padding: var(--nys-space-400, 32px) var(--_nys-unavheader-padding--gutter);
-    margin: auto;
-  }
-
-  .nys-unavheader__trustcontent {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: var(--nys-space-400, 24px);
-    font-weight: var(--nys-font-weight-regular, 400);
-    max-width: 1280px;
+    flex-direction: row-reverse;
   }
 
   .nys-unavheader__trustcontentmessage {
-    display: flex;
     flex: 1;
+    display: flex;
     flex-direction: column;
     gap: var(--nys-space-100, 8px);
-    line-height: var(--nys-font-lineheight-ui-md, 32px);
+
+    /* UI/Small/Bold */
+    font-family: var(--nys-type-family-ui, "Proxima Nova");
+    font-size: var(--nys-type-size-ui-sm, 14px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--nys-typography-font-lineheight-ui-sm, 24px);
+    letter-spacing: var(--nys-typography-font-letterspacing-ui-sm, 0.044px);
+  }
+  .nys-unavheader__searchdropdown.wrapper {
+    background-color: var(--_nys-unavheader-background-color--section-raised);
+    padding-top: var(--nys-space-250, 20px);
+    padding-bottom: var(--nys-space-250, 20px);
+  }
+
+  .nys-unavheader__trustpanel.wrapper > .content,
+  .nys-unavheader__main.wrapper > .content,
+  .nys-unavheader__trustbar > .content,
+  .nys-unavheader__searchdropdown.wrapper > .content {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .nys-unavheader__search {
+    max-width: var(--nys-form-width-md, 200px);
+    transition: max-width 0.5s ease;
+    --_nys-textinput-gap: 0px;
+  }
+
+  /* Grow size on focus */
+  .nys-unavheader__search:focus {
+    width: var(--nys-form-width-lg, 384px);
+    max-width: var(--nys-form-width-lg, 384px);
+  }
+
+  #nys-unavheader__translate,
+  #nys-unavheader__searchbutton {
+    /* These props ARE publicly overridable */
+    --nys-button-color: var(--nys-color-state-blue-700, #154973);
+    --nys-button-color--hover: var(--nys-color-state-blue-700, #154973);
+    --nys-button-color--active: var(--nys-color-state-blue-700, #154973);
+    --_nys-button-border-width: 0px;
+  }
+
+  .nys-unavheader__iconbutton {
+    /* These props ARE NOT publicly overridable */
+    --_nys-button-width: var(--nys-size-400, 32px);
+    --_nys-button-height: var(--nys-size-400, 32px);
+    --_nys-button-padding--y: 0;
+    --_nys-button-padding--x: 0;
+  }
+
+  .nys-unavheader__translatewrapper {
+    position: relative;
   }
 
   .nys-unavheader__languagelist.show {
     position: absolute;
     display: flex;
     flex-direction: column;
-    min-width: 100%;
+    min-width: fit-content;
     width: max-content;
     z-index: 99999;
     background-color: var(--_nys-unavheader-background-color--section-raised);
@@ -9115,14 +9116,29 @@ const is = p`
       --_nys-button-padding--y: 0px;
     }
 
-    .nys-unavheader__officialmessage {
+    .nys-unavheader__trustbar > .content {
       flex-direction: column;
       align-items: flex-start;
-      gap: 0;
+      gap: 0px;
+      line-height: 16px;
     }
 
-    .nys-unavheader--xs {
-      display: contents;
+    .nys-unavheader__trustbar.wrapper {
+      padding-top: var(--nys-space-2px, 2px);
+      padding-bottom: var(--nys-space-2px, 2px);
+    }
+
+    .nys-unavheader__trustbar.inline {
+      display: none;
+    }
+
+    .nys-unavheader__messagewrapper {
+      flex-direction: column;
+    }
+
+    #nys-unavheader__translate:not([circle]),
+    #nys-unavheader__searchbar {
+      display: none;
     }
   }
 
@@ -9132,8 +9148,17 @@ const is = p`
       --_nys-unavheader-padding--gutter: var(--nys-gutter-sm, 20px);
     }
 
-    .nys-unavheader--sm {
-      display: contents;
+    .nys-unavheader__trustbar.inline {
+      display: none;
+    }
+
+    .nys-unavheader__messagewrapper {
+      flex-direction: column;
+    }
+
+    #nys-unavheader__translate:not([circle]),
+    #nys-unavheader__searchbar {
+      display: none;
     }
   }
 
@@ -9142,18 +9167,18 @@ const is = p`
     :host {
       --_nys-unavheader-padding--gutter: var(--nys-gutter-md, 32px);
     }
-    .nys-unavheader__trustcontent {
-      flex-direction: row;
+
+    .nys-unavheader__trustbar.wrapper {
+      display: none;
     }
 
-    .nys-unavheader--md {
-      display: contents;
-    }
-    .nys-unavheader__trustbarwrapper {
-      order: 4;
-    }
-    .nys-unavheader__toptrustbar {
+    #nys-unavheader__translate:not([circle]),
+    #nys-unavheader__searchbar {
       display: none;
+    }
+
+    .nys-unavheader__trustpanel.wrapper.show {
+      order: 2;
     }
   }
 
@@ -9162,20 +9187,25 @@ const is = p`
     :host {
       --_nys-unavheader-padding--gutter: var(--nys-gutter-lg, 32px);
     }
+    .nys-unavheader__trustbar.wrapper {
+      display: none;
+    }
+
+    #nys-unavheader__translate[circle],
+    #nys-unavheader__searchbutton[circle] {
+      display: none;
+    }
+
+    .nys-unavheader__searchdropdown.wrapper {
+      display: none;
+    }
+
     .nys-unavheader__languagelist.show {
       margin-top: var(--nys-space-100, 8px);
     }
-    .nys-unavheader__trustcontent {
-      flex-direction: row;
-    }
-    .nys-unavheader--lg {
-      display: contents;
-    }
-    .nys-unavheader__trustbarwrapper {
-      order: 4;
-    }
-    .nys-unavheader__toptrustbar {
-      display: none;
+
+    .nys-unavheader__trustpanel.wrapper.show {
+      order: 2;
     }
   }
 
@@ -9184,20 +9214,28 @@ const is = p`
     :host {
       --_nys-unavheader-padding--gutter: var(--nys-gutter-xl, 64px);
     }
-    .nys-unavheader__trustcontent {
-      flex-direction: row;
-    }
-    .nys-unavheader--xl {
-      display: contents;
-    }
-    .nys-unavheader__trustbarwrapper {
-      order: 4;
-    }
-    .nys-unavheader__toptrustbar {
+    .nys-unavheader__trustbar.wrapper {
       display: none;
     }
+
+    #nys-unavheader__translate[circle],
+    #nys-unavheader__searchbutton[circle] {
+      display: none;
+    }
+
+    .nys-unavheader__searchdropdown.wrapper {
+      display: none;
+    }
+
+    .nys-unavheader__languagelist.show {
+      margin-top: var(--nys-space-100, 8px);
+    }
+
+    .nys-unavheader__trustpanel.wrapper.show {
+      order: 2;
+    }
   }
-`, as = `<svg xmlns="http://www.w3.org/2000/svg" width="91" height="55" viewBox="0 0 91 55" fill="none">
+`, a2 = `<svg xmlns="http://www.w3.org/2000/svg" width="91" height="55" viewBox="0 0 91 55" fill="none">
   <path d="M55.1158 7.50499L58.2905 12.6494V7.5189C58.2905 7.5189 58.6487 7.26356 59.5098 7.26356C60.3708 7.26356 60.7378 7.5189 60.7378 7.5189V16.4327C60.7378 16.4327 60.3942 16.689 59.5215 16.689C58.6487 16.689 58.3295 16.4605 58.3295 16.4605L55.1421 11.3171V16.4337C55.1421 16.4337 54.7848 16.69 53.9111 16.69C53.0374 16.69 52.7065 16.4337 52.7065 16.4337V7.51989C52.7065 7.51989 53.0384 7.26456 53.9248 7.26456C54.8112 7.26456 55.1148 7.50697 55.1148 7.50697L55.1158 7.50499Z" fill="#457AA5"/>
   <path d="M67.2209 12.5948H64.9063V14.8709H68.2538C68.2538 14.8709 68.5047 15.1531 68.5047 15.772C68.5047 16.391 68.2538 16.688 68.2538 16.688H62.4589V7.26257H67.9892C67.9892 7.26257 68.2538 7.54572 68.2538 8.17859C68.2538 8.81146 67.9892 9.09362 67.9892 9.09362H64.9063V10.7637H67.2209C67.2209 10.7637 67.4728 11.0598 67.4728 11.6787C67.4728 12.2977 67.2209 12.5948 67.2209 12.5948Z" fill="#457AA5"/>
   <path d="M71.4802 16.4327L68.9791 7.5189C68.9791 7.5189 69.3491 7.26356 70.2101 7.26356C71.0711 7.26356 71.4275 7.5189 71.4275 7.5189L72.6839 12.0434C72.7766 12.3802 72.8166 12.6365 72.8557 12.7845C72.8557 12.7428 72.9221 12.3663 73.0011 12.0573L74.0984 7.5189C74.0984 7.5189 74.5211 7.26356 75.1176 7.26356C75.7141 7.26356 76.084 7.5189 76.084 7.5189L77.3004 12.7845C77.3004 12.6623 77.3795 12.3255 77.4586 12.0573L78.756 7.5189C78.7686 7.5189 79.1132 7.26356 79.9596 7.26356C80.806 7.26356 81.1897 7.5189 81.1897 7.5189L78.6496 16.4327C78.6496 16.4327 78.2922 16.6751 77.4859 16.689C76.5468 16.689 76.2158 16.4327 76.2158 16.4327L75.223 12.2987C75.1449 11.9887 75.0902 11.6529 75.0785 11.5844L74.9184 12.2987L73.9266 16.4327C73.9266 16.4327 73.583 16.689 72.7092 16.689C71.8355 16.689 71.4802 16.4327 71.4802 16.4327Z" fill="#457AA5"/>
@@ -9214,12 +9252,12 @@ const is = p`
   <path d="M67.6348 51.8019C67.6348 51.8019 67.6173 51.782 67.6173 51.7303C67.6173 51.6787 67.6348 51.6588 67.6348 51.6588H68.5564C68.5564 51.6588 68.5749 51.6806 68.5749 51.7303C68.5749 51.78 68.5564 51.8019 68.5564 51.8019H68.1932V52.9205C68.1932 52.9205 68.1659 52.9404 68.0976 52.9404C68.0292 52.9404 67.998 52.9205 67.998 52.9205V51.8019H67.6348Z" fill="#154973"/>
   <path d="M69.4282 52.8659C69.4135 52.8748 69.3891 52.8858 69.3471 52.8858C69.3178 52.8858 69.2837 52.8798 69.27 52.8659L68.9889 52.1476C68.9723 52.1088 68.9459 52.0323 68.944 52.0214C68.944 52.0264 68.9371 52.1277 68.9332 52.1565L68.8815 52.9205C68.8815 52.9205 68.8561 52.9404 68.7858 52.9404C68.7155 52.9404 68.6862 52.9205 68.6862 52.9205L68.7839 51.6787C68.7839 51.6787 68.8112 51.6588 68.8776 51.6588C68.9518 51.6588 68.9781 51.6787 68.9781 51.6787L69.3042 52.5162L69.3471 52.6533C69.3481 52.6473 69.3774 52.5559 69.392 52.5162L69.7181 51.6787C69.7181 51.6787 69.7464 51.6588 69.8206 51.6588C69.886 51.6588 69.9124 51.6787 69.9124 51.6787L70.01 52.9205C70.01 52.9205 69.9807 52.9404 69.9104 52.9404C69.8401 52.9404 69.8167 52.9205 69.8167 52.9205L69.763 52.1546L69.7523 52.0194C69.7523 52.0194 69.722 52.1148 69.7093 52.1456L69.4282 52.8659Z" fill="#154973"/>
 </svg>`;
-var ls = Object.defineProperty, me = (a, e, t, o) => {
+var l2 = Object.defineProperty, m1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
-  return s && ls(e, t, s), s;
+  return s && l2(e, t, s), s;
 };
-const n1 = class n1 extends y {
+const ne = class ne extends y {
   constructor() {
     super(...arguments), this.trustbarVisible = !1, this.searchDropdownVisible = !1, this.languageVisible = !1, this.isSearchFocused = !1, this.hideTranslate = !1, this.hideSearch = !1, this.languages = [
       ["English", ""],
@@ -9239,10 +9277,22 @@ const n1 = class n1 extends y {
     ];
   }
   _getNysLogo() {
-    return new DOMParser().parseFromString(as, "image/svg+xml").documentElement;
+    return new DOMParser().parseFromString(a2, "image/svg+xml").documentElement;
   }
   _toggleTrustbar() {
-    this.trustbarVisible = !this.trustbarVisible, this.trustbarVisible && (this.languageVisible = !1, this.searchDropdownVisible = !1);
+    this.trustbarVisible = !this.trustbarVisible, this.trustbarVisible ? (this.languageVisible = !1, this.searchDropdownVisible = !1, this.updateComplete.then(() => {
+      var t;
+      const e = (t = this.shadowRoot) == null ? void 0 : t.getElementById(
+        "nys-unavheader__closetrustbar"
+      );
+      e == null || e.focus();
+    })) : this.updateComplete.then(() => {
+      var t;
+      const e = (t = this.shadowRoot) == null ? void 0 : t.getElementById(
+        "nys-unavheader__know--inline"
+      );
+      e == null || e.focus();
+    });
   }
   _toggleLanguageList() {
     this.languageVisible = !this.languageVisible, this.languageVisible && (this.trustbarVisible = !1, this.searchDropdownVisible = !1);
@@ -9282,199 +9332,188 @@ const n1 = class n1 extends y {
   render() {
     return l`
       <header class="nys-unavheader">
-        <div class="nys-unavheader__mainwrapper" id="nys-universal-navigation">
-          <div class="nys-unavheader__maincontent">
-            <div class="nys-unavheader__left">
-              <a
-                href="https://www.ny.gov"
-                id="nys-unavheader__logolink"
-                aria-label="Visit the NY.gov homepage"
-              >
-                <div class="nys-unavheader__logo">${this._getNysLogo()}</div></a
-              >
-              <div
-                class="nys-unavheader--md nys-unavheader--lg nys-unavheader--xl"
-              >
-                <div class="nys-unavheader__officialmessage">
-                  <label id="nys-unavheader__official"
-                    >An official website of New York State</label
-                  >
-                  <nys-button
-                    id="nys-unavheader__know"
-                    label="Here's how you know"
-                    ariaLabel=${this.trustbarVisible ? "Here's how you know expanded" : "Here's how you know collapsed"}
-                    variant="ghost"
-                    size="sm"
-                    suffixIcon="slotted"
-                    .onClick="${() => this._toggleTrustbar()}"
-                  >
-                    <nys-icon
-                      slot="suffix-icon"
-                      size="12"
-                      name="${this.trustbarVisible ? "chevron_up" : "chevron_down"}"
-                    ></nys-icon>
-                  </nys-button>
-                </div>
-              </div>
-            </div>
-            <div class="nys-unavheader__trustbarwrapper">
-              <div
-                class="nys-unavheader__toptrustbar"
-                @click="${this._toggleTrustbar}"
-                @keydown="${(e) => {
+        <div
+          class="nys-unavheader__trustbar wrapper"
+          @click="${this._toggleTrustbar}"
+        >
+          <div class="content">
+            <label id="nys-unavheader__official"
+              >An official website of New York State</label
+            >
+            <nys-button
+              id="nys-unavheader__know"
+              label="Here's how you know"
+              ariaLabel=${this.trustbarVisible ? "Here's how you know expanded" : "Here's how you know collapsed"}
+              variant="ghost"
+              size="sm"
+              suffixIcon="slotted"
+              @keydown="${(e) => {
       (e.code === "Enter" || e.code === "Space" || e.key === "Enter" || e.key === " ") && this._toggleTrustbar();
     }}"
+            >
+              <nys-icon
+                slot="suffix-icon"
+                size="12"
+                name="${this.trustbarVisible ? "chevron_up" : "chevron_down"}"
+              ></nys-icon>
+            </nys-button>
+          </div>
+        </div>
+        <div
+          class="nys-unavheader__trustpanel wrapper ${this.trustbarVisible ? "show" : "hide"}"
+          aria-expanded="${this.trustbarVisible}"
+        >
+          <div class="nys-unavheader__trustpanel content">
+            <nys-button
+              id="nys-unavheader__closetrustbar"
+              class="nys-unavheader__iconbutton"
+              variant="ghost"
+              circle
+              icon="close"
+              size="sm"
+              ariaLabel="Close this notice"
+              .onClick="${() => this._toggleTrustbar()}"
+            ></nys-button>
+            <div class="nys-unavheader__messagewrapper">
+              <div
+                class="nys-unavheader__trustcontentmessage"
+                id="trust_official"
               >
-                <div class="nys-unavheader__officialmessage">
-                  <label id="nys-unavheader__official"
-                    >An official website of New York State</label
-                  >
-                  <nys-button
-                    id="nys-unavheader__know"
-                    label="Here's how you know"
-                    ariaLabel=${this.trustbarVisible ? "Here's how you know expanded" : "Here's how you know collapsed"}
-                    variant="ghost"
-                    size="sm"
-                    suffixIcon="slotted"
-                  >
-                    <nys-icon
-                      slot="suffix-icon"
-                      size="12"
-                      name=${this.trustbarVisible ? "chevron_up" : "chevron_down"}
-                    ></nys-icon>
-                  </nys-button>
-                </div>
+                <nys-icon size="3xl" name="account_balance_filled"></nys-icon>
+                <label><b>Official websites use ny.gov</b></label>
+                <label
+                  >A <b>ny.gov</b> website belongs to an official New York State
+                  government organization.</label
+                >
               </div>
               <div
-                class="nys-unavheader__trustbar ${this.trustbarVisible ? "show" : "hide"}"
+                class="nys-unavheader__trustcontentmessage"
+                id="trust_secure"
               >
-                <div class="nys-unavheader__trustcontent">
-                  <div class="nys-unavheader__trustcontentmessage">
-                    <nys-icon
-                      size="3xl"
-                      name="account_balance_filled"
-                    ></nys-icon>
-                    <label><b>Official websites use ny.gov</b></label>
-                    <label
-                      >A <b>ny.gov</b> website belongs to an official New York
-                      State government organization.</label
-                    >
-                  </div>
-                  <div class="nys-unavheader__trustcontentmessage">
-                    <nys-icon size="3xl" name="lock_filled"></nys-icon>
-                    <label><b>Secure ny.gov websites use HTTPS</b></label>
-                    <label
-                      >A <b>lock icon</b> or <b>https://</b> means you've safely
-                      connected to the ny.gov website. Share sensitive
-                      information only on official, secure websites.</label
-                    >
-                  </div>
-                </div>
-                <nys-button
-                  id="nys-unavheader__closetrustbar"
-                  class="nys-unavheader__iconbutton"
-                  variant="ghost"
-                  circle
-                  icon="close"
-                  size="sm"
-                  ariaLabel="Close this notice"
-                  .onClick="${() => this._toggleTrustbar()}"
-                ></nys-button>
+                <nys-icon size="3xl" name="lock_filled"></nys-icon>
+                <label><b>Secure ny.gov websites use HTTPS</b></label>
+                <label
+                  >A <b>lock icon</b> or <b>https://</b> means you've safely
+                  connected to the ny.gov website. Share sensitive information
+                  only on official, secure websites.</label
+                >
               </div>
-            </div>
-            <div class="nys-unavheader__right">
-              ${this.hideTranslate ? null : l`<div class="nys-unavheader__translatewrapper">
-                    <div
-                      class="nys-unavheader--xs nys-unavheader--sm nys-unavheader--md"
-                    >
-                      <nys-button
-                        variant="ghost"
-                        circle
-                        icon="slotted"
-                        ariaLabel=${this.languageVisible ? "Translate expanded" : "Translate collapsed"}
-                        id="nys-unavheader__translate"
-                        class="nys-unavheader__iconbutton"
-                        .onClick="${() => this._toggleLanguageList()}"
-                      >
-                        <nys-icon
-                          slot="circle-icon"
-                          name="language"
-                          size="16"
-                        ></nys-icon>
-                      </nys-button>
-                    </div>
-                    ${this.isSearchFocused ? null : l`<div class="nys-unavheader--lg nys-unavheader--xl">
-                          <nys-button
-                            variant="ghost"
-                            label="Translate"
-                            size="sm"
-                            prefixIcon="language_filled"
-                            suffixIcon=${this.languageVisible ? "chevron_up" : "chevron_down"}
-                            ariaLabel=${this.languageVisible ? "Translate expanded" : "Translate collapsed"}
-                            id="nys-unavheader__translate"
-                            .onClick="${() => this._toggleLanguageList()}"
-                          ></nys-button>
-                        </div>`}
-                    <div
-                      class="nys-unavheader__languagelist ${this.languageVisible ? "show" : "hide"}"
-                    >
-                      ${this.languages.map(
-      ([e, t]) => l`<a
-                            class="nys-unavheader__languagelink"
-                            target="_self"
-                            href="https://${t ? t + "." : ""}${window.location.hostname}"
-                            >${e}</a
-                          >`
-    )}
-                    </div>
-                  </div>`}
-              ${this.hideSearch ? null : l` <div
-                      class="nys-unavheader--xs nys-unavheader--sm nys-unavheader--md"
-                    >
-                      <nys-button
-                        variant="ghost"
-                        circle
-                        icon="search"
-                        ariaLabel=${this.searchDropdownVisible ? "Search expanded" : "Search collapsed"}
-                        id="nys-unavheader__searchbutton"
-                        class="nys-unavheader__iconbutton"
-                        .onClick="${() => this._toggleSearchDropdown()}"
-                      >
-                        <nys-icon
-                          slot="circle-icon"
-                          name="search"
-                          size="16"
-                        ></nys-icon>
-                      </nys-button>
-                    </div>
-                    <div class="nys-unavheader--lg nys-unavheader--xl">
-                      <nys-textinput
-                        class="nys-unavheader__search"
-                        id="nys-unavheader__searchbar"
-                        placeholder="Search"
-                        type="search"
-                        @focus="${this._handleSearchFocus}"
-                        @blur="${this._handleSearchBlur}"
-                        @keyup="${this._handleSearchKeyup}"
-                      >
-                        <nys-button
-                          slot="endButton"
-                          type="submit"
-                          prefixIcon="search"
-                          ariaLabel="Search Button"
-                          .onClick="${() => this._handleSearchButton(
-      "nys-unavheader__searchbar"
-    )}"
-                        ></nys-button
-                      ></nys-textinput>
-                    </div>`}
             </div>
           </div>
         </div>
-        <div class="nys-unavheader--xs nys-unavheader--sm nys-unavheader--md">
-          <div
-            class="nys-unavheader__searchdropdown ${this.searchDropdownVisible ? "show" : "hide"}"
-          >
+        <div class="nys-unavheader__main wrapper" id="nys-universal-navigation">
+          <div class="nys-unavheader__main content">
+            <a
+              href="https://www.ny.gov"
+              id="nys-unavheader__logolink"
+              aria-label="Visit the NY.gov homepage"
+            >
+              <div class="nys-unavheader__logo">${this._getNysLogo()}</div></a
+            >
+            <div class="nys-unavheader__trustbar inline">
+              <label id="nys-unavheader__official"
+                >An official website of New York State</label
+              >
+              <nys-button
+                id="nys-unavheader__know--inline"
+                label="Here's how you know"
+                ariaControls="trust_official"
+                ariaLabel=${this.trustbarVisible ? "Here's how you know expanded" : "Here's how you know collapsed"}
+                variant="ghost"
+                size="sm"
+                suffixIcon="slotted"
+                .onClick="${() => this._toggleTrustbar()}"
+              >
+                <nys-icon
+                  slot="suffix-icon"
+                  size="12"
+                  name="${this.trustbarVisible ? "chevron_up" : "chevron_down"}"
+                ></nys-icon>
+              </nys-button>
+            </div>
+            <div class="nys-unavheader__spacer"></div>
+            ${this.hideTranslate ? null : l`<div class="nys-unavheader__translatewrapper">
+                  <nys-button
+                    variant="ghost"
+                    circle
+                    icon="slotted"
+                    ariaLabel=${this.languageVisible ? "Translate expanded" : "Translate collapsed"}
+                    id="nys-unavheader__translate"
+                    class="nys-unavheader__iconbutton"
+                    .onClick="${() => this._toggleLanguageList()}"
+                  >
+                    <nys-icon
+                      slot="circle-icon"
+                      name="language"
+                      size="16"
+                    ></nys-icon>
+                  </nys-button>
+
+                  ${this.isSearchFocused ? null : l`
+                        <nys-button
+                          variant="ghost"
+                          label="Translate"
+                          size="sm"
+                          prefixIcon="language_filled"
+                          suffixIcon=${this.languageVisible ? "chevron_up" : "chevron_down"}
+                          ariaLabel=${this.languageVisible ? "Translate expanded" : "Translate collapsed"}
+                          id="nys-unavheader__translate"
+                          .onClick="${() => this._toggleLanguageList()}"
+                        ></nys-button>
+                      `}
+                  <div
+                    class="nys-unavheader__languagelist ${this.languageVisible ? "show" : "hide"}"
+                  >
+                    ${this.languages.map(
+      ([e, t]) => l`<a
+                          class="nys-unavheader__languagelink"
+                          target="_self"
+                          href="https://${t ? t + "." : ""}${window.location.hostname}"
+                          >${e}</a
+                        >`
+    )}
+                  </div>
+                </div>`}
+            ${this.hideSearch ? null : l`
+                  <nys-button
+                    variant="ghost"
+                    circle
+                    icon="search"
+                    ariaLabel=${this.searchDropdownVisible ? "Search expanded" : "Search collapsed"}
+                    id="nys-unavheader__searchbutton"
+                    class="nys-unavheader__iconbutton"
+                    .onClick="${() => this._toggleSearchDropdown()}"
+                  >
+                    <nys-icon
+                      slot="circle-icon"
+                      name="search"
+                      size="16"
+                    ></nys-icon>
+                  </nys-button>
+                  <nys-textinput
+                    class="nys-unavheader__search"
+                    id="nys-unavheader__searchbar"
+                    placeholder="Search"
+                    type="search"
+                    @focus="${this._handleSearchFocus}"
+                    @blur="${this._handleSearchBlur}"
+                    @keyup="${this._handleSearchKeyup}"
+                  >
+                    <nys-button
+                      slot="endButton"
+                      type="submit"
+                      prefixIcon="search"
+                      ariaLabel="Search Button"
+                      .onClick="${() => this._handleSearchButton("nys-unavheader__searchbar")}"
+                    ></nys-button>
+                  </nys-textinput>
+                `}
+          </div>
+        </div>
+        <div
+          class="nys-unavheader__searchdropdown wrapper ${this.searchDropdownVisible ? "show" : "hide"}"
+        >
+          <div class="content">
             <nys-textinput
               class="nys-unavheader__search"
               id="nys-unavheader__searchbardropdown"
@@ -9500,31 +9539,31 @@ const n1 = class n1 extends y {
     `;
   }
 };
-n1.styles = is;
-let G = n1;
-me([
+ne.styles = i2;
+let G = ne;
+m1([
   n({ type: Boolean })
 ], G.prototype, "trustbarVisible");
-me([
+m1([
   n({ type: Boolean })
 ], G.prototype, "searchDropdownVisible");
-me([
+m1([
   n({ type: Boolean })
 ], G.prototype, "languageVisible");
-me([
+m1([
   n({ type: Boolean })
 ], G.prototype, "isSearchFocused");
-me([
+m1([
   n({ type: Boolean })
 ], G.prototype, "hideTranslate");
-me([
+m1([
   n({ type: Boolean })
 ], G.prototype, "hideSearch");
-me([
+m1([
   n({ type: Array, reflect: !0 })
 ], G.prototype, "languages");
 customElements.get("nys-unavheader") || customElements.define("nys-unavheader", G);
-const cs = p`
+const c2 = p`
   :host {
     /* Global Header Styles */
     --_nys-globalheader-color: var(
@@ -9833,12 +9872,12 @@ const cs = p`
     }
   }
 `;
-var ds = Object.defineProperty, Ae = (a, e, t, o) => {
+var d2 = Object.defineProperty, A1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
-  return s && ds(e, t, s), s;
+  return s && d2(e, t, s), s;
 };
-const i1 = class i1 extends y {
+const ie = class ie extends y {
   constructor() {
     super(...arguments), this.appName = "", this.agencyName = "", this.homepageLink = "", this.slotHasContent = !0, this.isMobileMenuOpen = !1;
   }
@@ -9869,25 +9908,25 @@ const i1 = class i1 extends y {
       t.forEach((u) => {
         if (u.nodeType === Node.ELEMENT_NODE) {
           const v = u.cloneNode(!0), f = u.cloneNode(!0);
-          ["script", "iframe", "object", "embed, img"].forEach((Ie) => {
-            v.querySelectorAll(Ie).forEach((ie) => ie.remove());
+          ["script", "iframe", "object", "embed, img"].forEach((I1) => {
+            v.querySelectorAll(I1).forEach((i1) => i1.remove());
           });
-          const ne = (Ie) => {
-            const ie = Array.from(Ie.querySelectorAll("a"));
-            let Be = {
+          const n1 = (I1) => {
+            const i1 = Array.from(I1.querySelectorAll("a"));
+            let B1 = {
               li: null,
               length: 0
             };
-            ie.forEach((Te) => {
-              var c1;
-              const f1 = Te.getAttribute("href"), Ee = this._normalizePath(f1);
-              Ee && (Ee === "/" && d === "/" ? Be = { li: Te.closest("li"), length: 1 } : d != null && d.startsWith(Ee) && Ee.length > Be.length && (Be = { li: Te.closest("li"), length: Ee.length }), ie.forEach((g1) => {
-                var d1;
-                return (d1 = g1.closest("li")) == null ? void 0 : d1.classList.remove("active");
-              }), (c1 = Be.li) == null || c1.classList.add("active"));
+            i1.forEach((T1) => {
+              var ce;
+              const fe = T1.getAttribute("href"), E1 = this._normalizePath(fe);
+              E1 && (E1 === "/" && d === "/" ? B1 = { li: T1.closest("li"), length: 1 } : d != null && d.startsWith(E1) && E1.length > B1.length && (B1 = { li: T1.closest("li"), length: E1.length }), i1.forEach((ge) => {
+                var de;
+                return (de = ge.closest("li")) == null ? void 0 : de.classList.remove("active");
+              }), (ce = B1.li) == null || ce.classList.add("active"));
             });
           };
-          ne(v), ne(f), o.appendChild(v), s.appendChild(f), u.remove();
+          n1(v), n1(f), o.appendChild(v), s.appendChild(f), u.remove();
         }
       });
     }
@@ -9984,25 +10023,25 @@ const i1 = class i1 extends y {
     `;
   }
 };
-i1.styles = cs;
-let ue = i1;
-Ae([
+ie.styles = c2;
+let u1 = ie;
+A1([
   n({ type: String })
-], ue.prototype, "appName");
-Ae([
+], u1.prototype, "appName");
+A1([
   n({ type: String })
-], ue.prototype, "agencyName");
-Ae([
+], u1.prototype, "agencyName");
+A1([
   n({ type: String })
-], ue.prototype, "homepageLink");
-Ae([
+], u1.prototype, "homepageLink");
+A1([
   S()
-], ue.prototype, "slotHasContent");
-Ae([
+], u1.prototype, "slotHasContent");
+A1([
   S()
-], ue.prototype, "isMobileMenuOpen");
-customElements.get("nys-globalheader") || customElements.define("nys-globalheader", ue);
-const hs = p`
+], u1.prototype, "isMobileMenuOpen");
+customElements.get("nys-globalheader") || customElements.define("nys-globalheader", u1);
+const h2 = p`
   :host {
     /* Global Footer Styles */
     --_nys-globalfooter-color: var(
@@ -10153,12 +10192,12 @@ const hs = p`
     }
   }
 `;
-var ys = Object.defineProperty, je = (a, e, t, o) => {
+var y2 = Object.defineProperty, j1 = (a, e, t, o) => {
   for (var s = void 0, r = a.length - 1, i; r >= 0; r--)
     (i = a[r]) && (s = i(e, t, s) || s);
-  return s && ys(e, t, s), s;
+  return s && y2(e, t, s), s;
 };
-const a1 = class a1 extends y {
+const ae = class ae extends y {
   constructor() {
     super(...arguments), this.agencyName = "", this.homepageLink = "", this.slotHasContent = !0;
   }
@@ -10209,19 +10248,19 @@ const a1 = class a1 extends y {
     `;
   }
 };
-a1.styles = hs;
-let ke = a1;
-je([
+ae.styles = h2;
+let k1 = ae;
+j1([
   n({ type: String })
-], ke.prototype, "agencyName");
-je([
+], k1.prototype, "agencyName");
+j1([
   n({ type: String })
-], ke.prototype, "homepageLink");
-je([
+], k1.prototype, "homepageLink");
+j1([
   S()
-], ke.prototype, "slotHasContent");
-customElements.get("nys-globalfooter") || customElements.define("nys-globalfooter", ke);
-const us = p`
+], k1.prototype, "slotHasContent");
+customElements.get("nys-globalfooter") || customElements.define("nys-globalfooter", k1);
+const u2 = p`
   :host {
     /* Global Footer Styles */
     --_nys-unavfooter-color: var(
@@ -10370,7 +10409,7 @@ const us = p`
       --_nys-unavfooter-padding--gutter: var(--nys-gutter-xl, 64px);
     }
   }
-`, ps = `<svg xmlns="http://www.w3.org/2000/svg" width="91" height="55" viewBox="0 0 91 55" fill="none">
+`, p2 = `<svg xmlns="http://www.w3.org/2000/svg" width="91" height="55" viewBox="0 0 91 55" fill="none">
   <path d="M55.1158 7.50499L58.2905 12.6494V7.5189C58.2905 7.5189 58.6487 7.26356 59.5098 7.26356C60.3708 7.26356 60.7378 7.5189 60.7378 7.5189V16.4327C60.7378 16.4327 60.3942 16.689 59.5215 16.689C58.6487 16.689 58.3295 16.4605 58.3295 16.4605L55.1421 11.3171V16.4337C55.1421 16.4337 54.7848 16.69 53.9111 16.69C53.0374 16.69 52.7065 16.4337 52.7065 16.4337V7.51989C52.7065 7.51989 53.0384 7.26456 53.9248 7.26456C54.8112 7.26456 55.1148 7.50697 55.1148 7.50697L55.1158 7.50499Z" fill="white"/>
   <path d="M67.2209 12.5948H64.9063V14.8709H68.2538C68.2538 14.8709 68.5047 15.1531 68.5047 15.772C68.5047 16.391 68.2538 16.688 68.2538 16.688H62.4589V7.26257H67.9892C67.9892 7.26257 68.2538 7.54572 68.2538 8.17859C68.2538 8.81146 67.9892 9.09362 67.9892 9.09362H64.9063V10.7637H67.2209C67.2209 10.7637 67.4728 11.0598 67.4728 11.6787C67.4728 12.2977 67.2209 12.5948 67.2209 12.5948Z" fill="white"/>
   <path d="M71.4802 16.4327L68.9791 7.5189C68.9791 7.5189 69.3491 7.26356 70.2101 7.26356C71.0711 7.26356 71.4275 7.5189 71.4275 7.5189L72.6839 12.0434C72.7766 12.3802 72.8166 12.6365 72.8557 12.7845C72.8557 12.7428 72.9221 12.3663 73.0011 12.0573L74.0984 7.5189C74.0984 7.5189 74.5211 7.26356 75.1176 7.26356C75.7141 7.26356 76.084 7.5189 76.084 7.5189L77.3004 12.7845C77.3004 12.6623 77.3795 12.3255 77.4586 12.0573L78.756 7.5189C78.7686 7.5189 79.1132 7.26356 79.9596 7.26356C80.806 7.26356 81.1897 7.5189 81.1897 7.5189L78.6496 16.4327C78.6496 16.4327 78.2922 16.6751 77.4859 16.689C76.5468 16.689 76.2158 16.4327 76.2158 16.4327L75.223 12.2987C75.1449 11.9887 75.0902 11.6529 75.0785 11.5844L74.9184 12.2987L73.9266 16.4327C73.9266 16.4327 73.583 16.689 72.7092 16.689C71.8355 16.689 71.4802 16.4327 71.4802 16.4327Z" fill="white"/>
@@ -10386,10 +10425,10 @@ const us = p`
   <path d="M51.7107 54.9999C51.577 54.9999 51.4335 54.974 51.2939 54.8965C51.085 54.7803 50.9395 54.5876 50.8858 54.3551C50.8233 54.0868 50.8936 53.7868 51.082 53.5116L51.1426 53.4202C51.2041 53.3268 51.2685 53.2354 51.3407 53.1519C51.4218 53.0595 51.5047 52.995 51.5741 52.9493C51.5243 52.6691 51.5418 52.4267 51.5682 52.2061C51.5877 52.0233 51.6346 51.8683 51.6726 51.7451C51.6892 51.6925 51.7058 51.6388 51.7185 51.5812C51.8201 51.145 51.8855 50.7397 51.9206 50.3453C51.9528 49.9916 51.947 49.9846 51.8864 49.9061C51.7 49.6707 51.3847 49.5018 51.0498 49.3229C50.8878 49.2365 50.7286 49.1491 50.5754 49.0557C49.607 48.4536 48.6376 47.8505 47.6701 47.2465L47.3294 47.0339C47.2513 46.9862 47.1147 46.9156 46.9516 46.8282C45.8817 46.2659 45.172 45.8526 45.0539 45.2595C45.0363 45.173 44.9465 44.9644 44.884 44.864C44.8411 44.8611 44.7307 44.8521 44.6546 44.8471C44.3032 44.8183 43.7711 44.7726 43.3484 44.3196C43.2635 44.2272 43.1786 44.1408 43.1005 44.0583C42.5098 43.4443 42.0003 42.9148 41.9329 41.5993C41.9241 41.4275 41.9251 41.2506 41.928 41.0728C41.9339 40.5283 41.927 40.1836 41.7103 39.962C41.6078 39.8567 41.435 39.7862 41.2349 39.7037C40.9889 39.6034 40.7097 39.4881 40.45 39.2686C40.37 39.2 40.2792 39.1007 40.1776 38.9854C40.0712 38.8602 39.9082 38.6724 39.7969 38.6337C38.974 38.3436 37.986 38.3178 36.96 38.3178L3.07245 38.2909C2.85964 38.2909 2.66927 38.3138 2.48477 38.3347C2.07378 38.3823 1.60812 38.437 1.2313 38.0962C0.866192 37.7664 0.815429 37.2607 0.814452 36.8076L0.8125 34.3993C0.8125 34.2722 0.847644 34.147 0.913051 34.0387C1.22544 33.529 1.83265 33.2558 2.3686 33.0144C2.56872 32.924 2.77666 32.8316 2.88795 32.7571C3.17593 32.5623 3.43561 32.302 3.7109 32.0248C3.91688 31.8182 4.13068 31.6046 4.36887 31.4059C4.69786 31.1317 5.07078 30.931 5.43296 30.7372C5.74535 30.5703 6.03821 30.4124 6.24127 30.2395C6.38575 30.1173 6.49216 29.9146 6.61906 29.6792C6.75476 29.4238 6.90998 29.1337 7.15208 28.8804C7.41273 28.6081 7.7427 28.4194 8.03263 28.2535C8.69744 27.871 8.68182 27.8322 8.57736 27.5769C8.52855 27.4577 8.48072 27.3553 8.43972 27.2639C8.24447 26.8357 8.07754 26.4681 8.19078 25.7051C8.2025 25.6306 8.21616 25.5521 8.22983 25.4706C8.25619 25.3325 8.30305 25.0772 8.27571 25.0037C8.27571 25.0037 8.26204 24.9927 8.23471 24.9778C8.21128 24.9659 8.12928 24.9669 8.06875 24.9679C7.87448 24.9659 7.51914 24.9768 7.2497 24.6689C6.98124 24.3629 6.99686 23.9555 7.03982 23.6356C7.08179 23.3127 7.06032 23.1051 7.03982 22.9223C6.95684 22.1453 7.21358 21.7817 8.10097 21.424C10.7524 20.351 12.901 19.9884 14.8613 20.2805C14.9775 20.2974 15.1356 20.2656 15.3182 20.2269C15.5944 20.1702 15.9351 20.1017 16.312 20.1752L18.3952 20.5766C19.2475 20.7415 19.6653 20.9054 20.3047 21.4995C20.6327 21.8046 20.7655 21.7718 21.3327 21.5661C21.6168 21.4638 21.9399 21.3485 22.3323 21.2949C22.9727 21.2084 23.5731 21.2661 24.153 21.3227C24.4136 21.3475 24.6762 21.3734 24.9408 21.3843C25.2356 21.3952 25.6085 21.2561 25.9717 21.121C26.1318 21.0614 26.2889 21.0028 26.4412 20.9541C26.78 20.8468 27.0973 20.7991 27.4038 20.7514C27.5551 20.7266 27.7064 20.7037 27.8607 20.6729C27.8714 20.6531 27.8821 20.6332 27.8939 20.6113C27.9417 20.5249 27.9944 20.4345 28.0598 20.3411C28.3419 19.9497 28.7471 19.7003 29.0722 19.4966L29.2078 19.4122C29.5564 19.1916 29.8629 18.9879 30.105 18.7386C30.5423 18.2796 31.1232 18.3114 31.5108 18.3312C31.6455 18.3392 31.8495 18.3481 31.91 18.3223C32.1678 18.207 31.9413 17.3993 31.8065 16.9165C31.7119 16.5777 31.6299 16.2846 31.6133 16.0183C31.5664 15.2642 31.9764 14.7317 32.3064 14.3045C32.5651 13.9687 32.7213 13.7481 32.7164 13.5355C32.7164 13.4948 32.7027 13.4382 32.6851 13.3845C32.4587 13.4948 32.0955 13.6369 31.6796 13.4421C31.0129 13.1302 30.6468 12.0264 30.8508 11.3985C31.0197 10.8779 31.54 10.5421 31.9198 10.2957L32.0565 10.2053C32.3806 9.98471 32.7242 9.79792 33.0542 9.6181C33.5159 9.36873 33.9513 9.13227 34.2949 8.82726C34.4404 8.69711 34.5761 8.56994 34.7089 8.44376C35.0076 8.1626 35.3161 7.8715 35.6792 7.61319C35.7056 7.5188 35.728 7.34096 35.7437 7.22571C35.7729 7.00714 35.8022 6.78062 35.8803 6.5849C36.2513 5.64304 37.1592 4.90884 37.9597 4.25908C38.2252 4.04448 38.4771 3.84081 38.6743 3.65602C38.7992 3.53878 38.9222 3.42055 39.0452 3.30332C39.6388 2.73701 40.2509 2.15084 40.9967 1.68289C41.601 1.30536 42.3898 0.833439 43.1249 0.552274C44.0972 0.1807 44.5579 0.208518 45.4766 0.262168L45.6474 0.27111C47.3607 0.371455 49.1384 0.32476 50.8575 0.281045C51.7205 0.258194 52.5796 0.235343 53.4347 0.230376C53.6651 0.230376 54.0156 0.185667 54.3836 0.138972C55.6078 -0.0140291 56.994 -0.188888 57.7818 0.503592C58.1118 0.792705 58.2924 1.19806 58.3031 1.67594C58.311 2.05248 58.1567 2.33464 58.0435 2.54129C58.0064 2.60686 57.9527 2.7082 57.9458 2.74297C57.9488 2.73205 57.9849 2.78768 58.0103 2.82742C58.1362 3.01718 58.3686 3.37088 58.2748 3.89843C58.2397 4.10111 58.1811 4.3167 58.1216 4.53528C58.0464 4.81147 57.9693 5.09761 57.9624 5.31419C57.9498 5.69073 57.6335 5.99376 57.2703 5.97289C56.9013 5.95998 56.6104 5.64603 56.6231 5.26849C56.6367 4.89195 56.7392 4.50944 56.831 4.17264C56.8788 3.9948 56.9276 3.82094 56.9569 3.65502C56.9481 3.65502 56.9218 3.62323 56.8993 3.58746C56.791 3.42254 56.6065 3.14535 56.6065 2.73701C56.6065 2.36345 56.7607 2.08328 56.873 1.87862C56.9072 1.81702 56.9589 1.72462 56.9657 1.69084C56.9608 1.58354 56.9267 1.55274 56.9072 1.53685C56.5694 1.23979 55.2544 1.40372 54.5496 1.49313C54.1386 1.5438 53.752 1.59348 53.4435 1.59547C52.5971 1.60043 51.7439 1.62229 50.8907 1.64315C49.1442 1.68886 47.3382 1.73654 45.5722 1.63421L45.3985 1.62328C44.5345 1.57162 44.3022 1.55871 43.5964 1.82894C42.9618 2.07235 42.2101 2.5244 41.7006 2.84431C41.0699 3.23973 40.533 3.75338 39.9648 4.29683C39.8379 4.41804 39.712 4.53925 39.5831 4.65947C39.3479 4.87804 39.0794 5.09661 38.7953 5.32611C38.1237 5.87056 37.3642 6.48555 37.1231 7.09457C37.1065 7.14425 37.085 7.30221 37.0713 7.40753C37.0147 7.84666 36.9424 8.3931 36.5041 8.69016C36.1927 8.90277 35.9145 9.16704 35.6187 9.44523C35.4771 9.57935 35.3317 9.71546 35.1774 9.85257C34.7186 10.2629 34.1924 10.548 33.6838 10.8222C33.3675 10.9931 33.0698 11.1541 32.8033 11.3369C32.7554 11.3707 32.6978 11.4064 32.6373 11.4462C32.5114 11.5276 32.2332 11.7065 32.1346 11.8217C32.1424 11.8992 32.1726 12.0115 32.2117 12.1009C32.3757 12.0214 32.6041 11.924 32.8804 11.9459C33.6633 12.0135 34.0401 12.8937 34.0558 13.4988C34.0743 14.2191 33.677 14.7337 33.3587 15.145C33.0971 15.4868 32.9351 15.7074 32.9487 15.9319C32.9565 16.0511 33.0288 16.3114 33.0932 16.5419C33.3314 17.3933 33.7746 18.978 32.4479 19.5701C32.0965 19.7281 31.7314 19.7082 31.4375 19.6933C31.3126 19.6864 31.1046 19.6764 31.047 19.7023C30.7171 20.051 30.3227 20.3113 29.9166 20.5706L29.7692 20.663C29.5212 20.816 29.2654 20.976 29.1405 21.1488C29.1083 21.1935 29.0819 21.2412 29.0585 21.2859C28.9345 21.5085 28.7256 21.884 28.174 21.9993C27.9827 22.04 27.7943 22.0708 27.6059 22.0996C27.3364 22.1414 27.0807 22.1811 26.8386 22.2566C26.7087 22.2993 26.5711 22.35 26.4334 22.4017C25.9697 22.5745 25.4435 22.7732 24.8871 22.7474C24.5981 22.7355 24.3131 22.7087 24.027 22.6808C23.4989 22.6282 22.9981 22.5805 22.511 22.6481C22.2572 22.6828 22.0258 22.7653 21.7817 22.8537C21.1716 23.0733 20.3369 23.3733 19.4046 22.508C18.9927 22.1265 18.8267 22.049 18.1473 21.9178L16.065 21.5164C15.942 21.4936 15.775 21.5264 15.5818 21.5651C15.3289 21.6168 15.0136 21.6784 14.6719 21.6297C12.9508 21.3724 11.0218 21.7112 8.59689 22.6928C8.49829 22.7325 8.42703 22.7643 8.37431 22.7891C8.39579 22.9779 8.42312 23.2491 8.39091 23.6217C8.53343 23.6416 8.69353 23.6843 8.86047 23.7737C9.81228 24.2834 9.63461 25.256 9.5487 25.724C9.53601 25.7876 9.52528 25.8511 9.51551 25.9127C9.4628 26.2694 9.49501 26.3429 9.65511 26.6917C9.70392 26.798 9.75664 26.9162 9.81326 27.0543C10.3941 28.4681 9.28415 29.1039 8.68865 29.4447C8.46705 29.5719 8.23764 29.701 8.11268 29.8331C7.99944 29.9524 7.89987 30.1372 7.79541 30.3329C7.62945 30.6448 7.44104 30.9975 7.10522 31.2847C6.79088 31.5529 6.41894 31.7536 6.05871 31.9454C5.74144 32.1153 5.44077 32.2762 5.21623 32.464C5.02782 32.6219 4.84527 32.8048 4.65295 32.9985C4.34252 33.3085 4.02524 33.6294 3.62499 33.8976C3.41901 34.0347 3.17203 34.147 2.9104 34.2652C2.69661 34.3606 2.33443 34.5225 2.14992 34.6626L2.15383 36.8096C2.15383 36.8881 2.15578 36.9527 2.15871 37.0023C2.21533 36.9974 2.27586 36.9904 2.32662 36.9835C2.5287 36.9606 2.77959 36.9308 3.06952 36.9308L36.9581 36.9566C38.0573 36.9566 39.2141 36.9884 40.2304 37.3471C40.6755 37.5021 40.9801 37.8538 41.1812 38.0853C41.2281 38.1399 41.2681 38.1896 41.3052 38.2234C41.4018 38.3048 41.5551 38.3674 41.7328 38.441C42.0129 38.5562 42.3615 38.7003 42.6572 39.0043C43.2811 39.6411 43.2713 40.4469 43.2645 41.0927C43.2606 41.2417 43.2606 41.3897 43.2664 41.5328C43.3084 42.3326 43.5261 42.5581 44.0532 43.1055C44.1372 43.1929 44.2251 43.2853 44.3188 43.3847C44.3842 43.4542 44.5287 43.4701 44.761 43.491C45.0412 43.5138 45.3897 43.5417 45.6953 43.7751C46.0291 44.0275 46.2546 44.5888 46.3376 44.8809C46.5455 45.0846 47.2777 45.4711 47.5647 45.6211C47.7639 45.7264 47.9298 45.8158 48.0265 45.8754L48.3672 46.088C49.3346 46.6891 50.3011 47.2922 51.2705 47.8943C51.3993 47.9727 51.533 48.0463 51.6707 48.1188C52.0924 48.3443 52.5698 48.6006 52.9291 49.0567C53.3215 49.5544 53.2942 50.0045 53.259 50.4029C53.3156 50.2936 53.3781 50.1893 53.4513 50.0879C53.5841 49.8982 53.7393 49.7541 53.877 49.626C54.0136 49.4998 54.1073 49.4104 54.1396 49.3388C54.1132 49.2772 54.0527 49.1739 54.0117 49.1034C53.8487 48.8232 53.6271 48.4387 53.7315 47.9857C53.7725 47.8108 53.8789 47.6588 54.0283 47.5634C54.0849 47.5276 54.205 47.4591 54.3631 47.3717C54.5818 47.2495 55.1373 46.9405 55.475 46.71C54.9723 45.5913 55.1392 44.2163 55.2886 42.9843C55.3345 42.6038 55.3784 42.2451 55.3989 41.9222C55.4204 41.5467 55.7337 41.2606 56.1076 41.2834C56.4776 41.3063 56.7588 41.6301 56.7353 42.0057C56.7148 42.3693 56.667 42.7498 56.6182 43.1522C56.4776 44.3166 56.3165 45.637 56.833 46.3911C56.954 46.5669 56.994 46.7895 56.9452 47.0021C56.8417 47.4502 56.3898 47.7879 55.1958 48.4606C55.352 48.7308 55.5395 49.0904 55.4731 49.5167C55.4623 49.5812 55.4487 49.6428 55.4321 49.7015C55.766 49.5793 56.1154 49.464 56.4845 49.3577C57.8775 48.9543 59.3409 48.7745 61.225 48.7745C62.0587 48.7745 62.8006 48.5053 63.5874 48.2211C64.2103 47.9946 64.8546 47.7621 65.576 47.6508C66.1852 47.5555 66.5005 47.7562 66.7728 47.9688C66.8636 48.0403 66.93 48.09 67.0442 48.1357C67.3625 48.2619 67.7325 48.2211 68.1601 48.1754C68.5925 48.1277 69.0836 48.0731 69.5844 48.2042C69.8821 48.2837 70.09 48.5579 70.0861 48.8709C70.0744 50.0571 68.5076 50.5459 67.7549 50.7814L67.0384 51.0099C66.4985 51.1848 65.9567 51.3586 65.41 51.5176C65.1631 51.5881 64.918 51.6587 64.672 51.7223C64.3889 51.7948 64.099 51.9597 63.7944 52.1316C63.481 52.3094 63.1579 52.4922 62.786 52.6174C62.1426 52.83 61.4837 52.9413 60.6471 52.9761C60.4069 52.987 60.1746 53.0943 59.9295 53.2056C59.5674 53.3735 59.1154 53.5801 58.6107 53.4132C58.3949 53.3864 57.5534 53.6775 57.1502 53.8196C56.832 53.9289 56.5577 54.0242 56.3419 54.0759C55.598 54.2528 54.8415 54.3918 54.1103 54.527L53.5968 54.6223C53.1516 54.7058 52.7035 54.7922 52.2613 54.8926L52.2076 54.9085C52.0797 54.9482 51.9021 55.0038 51.7078 55.0038L51.7107 54.9999ZM53.0735 51.6746C53.0569 51.7471 53.0403 51.8196 53.0237 51.8941C53.0032 51.9806 52.9788 52.064 52.9544 52.1455C52.9281 52.2359 52.9066 52.3055 52.8988 52.3651C52.8793 52.5379 52.8773 52.6313 52.8978 52.7247C52.9495 52.9791 52.9388 53.1907 52.8949 53.3645C53.0482 53.3347 53.2024 53.3049 53.3566 53.2751L53.875 53.1808C54.5896 53.0486 55.3296 52.9125 56.0412 52.7436C56.1906 52.7078 56.4483 52.6194 56.7217 52.525C57.7721 52.1604 58.4994 51.9359 59.0295 52.1127C59.0646 52.1058 59.2559 52.0173 59.3828 51.9597C59.7001 51.8137 60.0945 51.6328 60.5924 51.611C61.3021 51.5812 61.8498 51.4908 62.372 51.3169C62.622 51.2345 62.8748 51.0914 63.1442 50.9374C63.5123 50.7298 63.892 50.5142 64.3469 50.3969C64.5793 50.3373 64.8136 50.2707 65.0459 50.2042C65.5789 50.0482 66.11 49.8773 66.6362 49.7064L67.1253 49.5514C66.9388 49.5246 66.7504 49.4779 66.56 49.4014C66.2672 49.2862 66.0836 49.1411 65.9616 49.0457C65.9313 49.0229 65.906 48.999 65.8757 48.9812C65.8737 48.9851 65.8405 48.9851 65.7781 48.9941C65.1845 49.0855 64.6281 49.2862 64.0394 49.4998C63.1794 49.8107 62.293 50.1326 61.2279 50.1326C59.4717 50.1326 58.1235 50.2966 56.8535 50.6642C55.7142 50.992 54.7868 51.3984 54.0166 51.9031C53.7901 52.0521 53.5001 52.0481 53.2776 51.8951C53.1917 51.8365 53.1214 51.76 53.0735 51.6716V51.6746Z" fill="white"/>
   <path d="M67.6348 51.8019C67.6348 51.8019 67.6173 51.782 67.6173 51.7303C67.6173 51.6787 67.6348 51.6588 67.6348 51.6588H68.5564C68.5564 51.6588 68.5749 51.6806 68.5749 51.7303C68.5749 51.78 68.5564 51.8019 68.5564 51.8019H68.1932V52.9205C68.1932 52.9205 68.1659 52.9404 68.0976 52.9404C68.0292 52.9404 67.998 52.9205 67.998 52.9205V51.8019H67.6348Z" fill="white"/>
   <path d="M69.4282 52.8659C69.4135 52.8748 69.3891 52.8858 69.3471 52.8858C69.3178 52.8858 69.2837 52.8798 69.27 52.8659L68.9889 52.1476C68.9723 52.1088 68.9459 52.0323 68.944 52.0214C68.944 52.0264 68.9371 52.1277 68.9332 52.1565L68.8815 52.9205C68.8815 52.9205 68.8561 52.9404 68.7858 52.9404C68.7155 52.9404 68.6862 52.9205 68.6862 52.9205L68.7839 51.6787C68.7839 51.6787 68.8112 51.6588 68.8776 51.6588C68.9518 51.6588 68.9781 51.6787 68.9781 51.6787L69.3042 52.5162L69.3471 52.6533C69.3481 52.6473 69.3774 52.5559 69.392 52.5162L69.7181 51.6787C69.7181 51.6787 69.7464 51.6588 69.8206 51.6588C69.886 51.6588 69.9124 51.6787 69.9124 51.6787L70.01 52.9205C70.01 52.9205 69.9807 52.9404 69.9104 52.9404C69.8401 52.9404 69.8167 52.9205 69.8167 52.9205L69.763 52.1546L69.7523 52.0194C69.7523 52.0194 69.722 52.1148 69.7093 52.1456L69.4282 52.8659Z" fill="white"/>
-</svg>`, l1 = class l1 extends y {
+</svg>`, le = class le extends y {
   /**************** Functions ****************/
   _getNysLogo() {
-    return new DOMParser().parseFromString(ps, "image/svg+xml").documentElement;
+    return new DOMParser().parseFromString(p2, "image/svg+xml").documentElement;
   }
   render() {
     return l`
@@ -10423,40 +10462,40 @@ const us = p`
     `;
   }
 };
-l1.styles = us;
-let Re = l1;
-customElements.get("nys-unavfooter") || customElements.define("nys-unavfooter", Re);
+le.styles = u2;
+let R1 = le;
+customElements.get("nys-unavfooter") || customElements.define("nys-unavfooter", R1);
 export {
-  xe as NysAccordion,
-  de as NysAccordionItem,
-  $1 as NysAlert,
+  x1 as NysAccordion,
+  d1 as NysAccordionItem,
+  $e as NysAlert,
   I as NysAvatar,
-  fe as NysBacktotop,
-  U1 as NysBadge,
-  Z1 as NysButton,
-  W1 as NysCheckbox,
-  N1 as NysCheckboxgroup,
-  Ze as NysDivider,
-  we as NysErrorMessage,
+  f1 as NysBacktotop,
+  Ue as NysBadge,
+  Ze as NysButton,
+  We as NysCheckbox,
+  Ne as NysCheckboxgroup,
+  Z1 as NysDivider,
+  w1 as NysErrorMessage,
   w as NysFileinput,
-  ke as NysGlobalFooter,
-  ue as NysGlobalHeader,
+  k1 as NysGlobalFooter,
+  u1 as NysGlobalHeader,
   ht as NysIcon,
-  te as NysLabel,
+  t1 as NysLabel,
   _t as NysModal,
-  _e as NysOption,
-  he as NysPagination,
+  _1 as NysOption,
+  h1 as NysPagination,
   Mt as NysRadiobutton,
   St as NysRadiogroup,
   Bt as NysSelect,
-  De as NysSkipnav,
+  D1 as NysSkipnav,
   j as NysStep,
-  ye as NysStepper,
+  y1 as NysStepper,
   Nt as NysTextarea,
   Kt as NysTextinput,
-  ts as NysToggle,
-  se as NysTooltip,
-  Re as NysUnavFooter,
+  t2 as NysToggle,
+  s1 as NysTooltip,
+  R1 as NysUnavFooter,
   G as NysUnavHeader
 };
 //# sourceMappingURL=nysds.es.js.map
