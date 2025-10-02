@@ -3482,6 +3482,7 @@
 `;var Zs=Object.defineProperty,Ke=(a,e,t,o)=>{for(var s=void 0,r=a.length-1,n;r>=0;r--)(n=a[r])&&(s=n(e,t,s)||s);return s&&Zs(e,t,s),s};let Os=0;const Et=class Et extends f{constructor(){super(),this.id="",this.name="",this.currentPage=1,this.totalPages=1,this._twoBeforeLast=!1}updated(e){super.updated(e),this.currentPage=this._clampPage(this.currentPage),this._twoBeforeLast=this.currentPage===this.totalPages-2}connectedCallback(){super.connectedCallback(),this.id||(this.id=`nys-pagination-${Date.now()}-${Os++}`)}_clampPage(e){return e<1?1:e>this.totalPages?this.totalPages:e}renderPageButtons(){const e=[],t=(c,y)=>{e.push(l`
         <nys-button
           label=${String(c)}
+          ariaLabel="Page ${c}"
           id=${u(y)}
           variant=${this.currentPage===c?"filled":"outline"}
           @nys-click="${()=>this._handlePageClick(c)}"
@@ -3503,6 +3504,7 @@
             <nys-button
               id="previous--mobile"
               prefixIcon="chevron_left"
+              ariaLabel="Previous Page"
               variant="outline"
               @nys-click="${()=>this._handlePageClick(this.currentPage-1)}"
             ></nys-button>
@@ -3519,6 +3521,7 @@
             <nys-button
               id="next--mobile"
               suffixIcon="chevron_right"
+              ariaLabel="Next Page"
               variant="outline"
               @nys-click="${()=>this._handlePageClick(this.currentPage+1)}"
             ></nys-button>

@@ -5248,6 +5248,7 @@ const ee = class ee extends y {
       e.push(l`
         <nys-button
           label=${String(d)}
+          ariaLabel="Page ${d}"
           id=${h(u)}
           variant=${this.currentPage === d ? "filled" : "outline"}
           @nys-click="${() => this._handlePageClick(d)}"
@@ -5288,6 +5289,7 @@ const ee = class ee extends y {
             <nys-button
               id="previous--mobile"
               prefixIcon="chevron_left"
+              ariaLabel="Previous Page"
               variant="outline"
               @nys-click="${() => this._handlePageClick(this.currentPage - 1)}"
             ></nys-button>
@@ -5304,6 +5306,7 @@ const ee = class ee extends y {
             <nys-button
               id="next--mobile"
               suffixIcon="chevron_right"
+              ariaLabel="Next Page"
               variant="outline"
               @nys-click="${() => this._handlePageClick(this.currentPage + 1)}"
             ></nys-button>
