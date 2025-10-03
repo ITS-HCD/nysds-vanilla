@@ -2,7 +2,7 @@ import { css as p, LitElement as y, html as l } from "lit";
 import { property as n, query as be, state as S } from "lit/decorators.js";
 import { ifDefined as h } from "lit/directives/if-defined.js";
 /*!
-   * New York State Design System (v1.9.1)
+   * New York State Design System (v1.10.0)
    * Description: A design system for New York State's digital products.
    * Repository: https://github.com/its-hcd/nysds
    * License: MIT
@@ -2703,7 +2703,11 @@ var X;
 const $ = (X = class extends y {
   // allows use of elementInternals' API
   constructor() {
-    super(), this.checked = !1, this.disabled = !1, this.required = !1, this.label = "", this.description = "", this.id = "", this.name = "", this.value = "", this.form = null, this.showError = !1, this.errorMessage = "", this.groupExist = !1, this.tile = !1, this._size = "md", this._internals = this.attachInternals();
+    super(), this.checked = !1, this.disabled = !1, this.required = !1, this.label = "", this.description = "", this.id = "", this.name = "", this.value = "", this.form = null, this.showError = !1, this.errorMessage = "", this.groupExist = !1, this.tile = !1, this._size = "md", this._manageLabelClick = () => {
+      var o, s;
+      const e = (o = this.shadowRoot) == null ? void 0 : o.querySelector("nys-label"), t = (s = this.shadowRoot) == null ? void 0 : s.querySelector("input");
+      e && t && e.addEventListener("click", () => t.click());
+    }, this._internals = this.attachInternals();
   }
   get size() {
     return this._size;
@@ -2725,7 +2729,7 @@ const $ = (X = class extends y {
     super.disconnectedCallback(), this.removeEventListener("invalid", this._handleInvalid);
   }
   firstUpdated() {
-    this._setValue(), this._manageRequire();
+    this._setValue(), this._manageRequire(), this._manageLabelClick();
   }
   // This callback is automatically called when the parent form is reset.
   formResetCallback() {
@@ -2832,6 +2836,7 @@ const $ = (X = class extends y {
             @focus="${this._handleFocus}"
             @blur="${this._handleBlur}"
             @keydown="${this._handleKeydown}"
+            aria-label="${this.label}"
           />
           ${this.checked ? l`<nys-icon
                 for="${this.id}"

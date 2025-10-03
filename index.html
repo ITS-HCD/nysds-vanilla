@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US" dir="ltr">
 
 <head>
   <meta charset="utf-8">
@@ -37,6 +37,11 @@
             <nys-option value="nysds-theme-safety.min.css">Safety</nys-option>
             <nys-option value="nysds-theme-transportation.min.css">Transportation</nys-option>
           </nys-select>
+          <br>
+          <div class="nys-grid-row">
+            <nys-button onclick="direction('lrt');" label="LTR"></nys-button>
+            <nys-button onclick="direction('rtl');" label="RTL"></nys-button>
+          </div>
         </div>
         <div class="fake-modal">
           <div class="heading">
@@ -107,12 +112,31 @@
                 description="Disabled as it was the winner of the previous year." disabled></nys-checkbox>
             </nys-checkboxgroup>
 
+            <nys-checkboxgroup tile label="Select your favorite New York landmarks"
+              description="Last year's winner is not eligible to win again.">
+              <nys-checkbox name="landmarks" value="adirondacks" label="Adirondacks" checked></nys-checkbox>
+              <nys-checkbox name="landmarks" value="finger-lakes" label="Finger Lakes" checked></nys-checkbox>
+              <nys-checkbox name="landmarks" value="catskills" label="Catskills"></nys-checkbox>
+              <nys-checkbox name="landmarks" value="niagara-falls" label="Niagara Falls"></nys-checkbox>
+              <nys-checkbox name="landmarks" value="coney-island" label="Coney Island"></nys-checkbox>
+              <nys-checkbox name="landmarks" value="statue-liberty" label="Statue of Liberty (Last Year's Winner)"
+                description="Disabled as it was the winner of the previous year." disabled></nys-checkbox>
+            </nys-checkboxgroup>
+
             <!-- Radio Buttons -->
             <nys-radiogroup name="office" label="What is your primary work location?"
               description="This is the location you use for your in-office days.">
               <nys-radiobutton name="office" label="Albany" description="Upstate New York"
                 value="Albany"></nys-radiobutton>
               <nys-radiobutton name="office" label="Manhattan" description="New York City"
+                value="Manhattan"></nys-radiobutton>
+            </nys-radiogroup>
+
+            <nys-radiogroup tile name="location" label="What is your primary work location?"
+              description="This is the location you use for your in-office days.">
+              <nys-radiobutton name="location" label="Albany" description="Upstate New York"
+                value="Albany"></nys-radiobutton>
+              <nys-radiobutton name="location" label="Manhattan" description="New York City"
                 value="Manhattan"></nys-radiobutton>
             </nys-radiogroup>
 
@@ -219,6 +243,7 @@
         // Append the new theme to the document head
         document.head.appendChild(newTheme);
       });
+
     });
   </script>
 
@@ -252,6 +277,10 @@
         modal.open = false;
       }
     };
+    function direction(direction) {
+      document.querySelector("html").setAttribute('dir', direction);
+    };
+
   </script>
   <script src="./src/assets/js/vendor/nysds.js" async defer type="module"></script>
 </body>
