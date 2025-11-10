@@ -817,14 +817,17 @@ var k1 = Object.defineProperty, W = (a, e, t, o) => {
 let L1 = 0;
 const je = class je extends y {
   constructor() {
-    super(...arguments), this.id = "", this.ariaLabel = "", this.image = "", this.initials = "", this.icon = "", this.color = "", this.interactive = !1, this.disabled = !1, this.lazy = !1, this._slotHasContent = !1;
+    super(...arguments), this.id = "", this.ariaLabel = "", this.image = "", this.initials = "", this.icon = "", this.color = "", this.interactive = !1, this.disabled = !1, this.lazy = !1, this._slotHasContent = !0;
   }
   /******************** Functions ********************/
   // Generate a unique ID if one is not provided
   connectedCallback() {
     super.connectedCallback(), this.id || (this.id = `nys-avatar-${Date.now()}-${L1++}`);
   }
-  async _handleSlotChange() {
+  firstUpdated() {
+    this._checkSlotContent();
+  }
+  async _checkSlotContent() {
     const e = this.shadowRoot?.querySelector("slot");
     if (!e) {
       this._slotHasContent = !1;
@@ -878,13 +881,14 @@ const je = class je extends y {
                     class="nys-avatar__initials"
                     aria-hidden="true"
                     >${this.initials}</span
-                  >` : l`<div part="nys-avatar__icon">
-                    <slot @slotchange=${this._handleSlotChange}></slot>
-                    ${this._slotHasContent ? null : l`<nys-icon
-                          label="nys-avatar__icon"
-                          name=${this.icon?.length > 0 ? this.icon : "account_circle"}
-                        ></nys-icon>`}
-                  </div>`}
+                  >` : this._slotHasContent ? l`<div part="nys-avatar__icon">
+                      <slot></slot>
+                    </div>` : l`<div part="nys-avatar__icon">
+                      <nys-icon
+                        label="nys-avatar__icon"
+                        name=${this.icon?.length > 0 ? this.icon : "account_circle"}
+                      ></nys-icon>
+                    </div>`}
           </div>
         </div>
       </label>
@@ -3647,9 +3651,8 @@ const Pe = class Pe extends y {
             ${this._dragActive ? "drag-active" : ""}
             ${this._isDropDisabled ? "disabled" : ""}
             ${this.showError && !this._isDropDisabled ? "error" : ""}"
-            @click=${this._isDropDisabled ? null : (e) => {
-      e.target.closest("nys-button") || this._openFileDialog();
-    }}
+            @click=${this._isDropDisabled ? null : this._openFileDialog}
+            @keydown=${(e) => !this._isDropDisabled && (e.key === "Enter" || e.key === " ") && this._openFileDialog()}
             @dragover=${this._isDropDisabled ? null : this._onDragOver}
             @dragleave=${this._isDropDisabled ? null : this._onDragLeave}
             @drop=${this._isDropDisabled ? null : this._onDrop}
@@ -3663,9 +3666,10 @@ const Pe = class Pe extends y {
                     ariaLabel=${this._buttonAriaLabel}
                     ariaDescription=${this._buttonAriaDescription}
                     ?disabled=${this._isDropDisabled}
-                    @nys-click="${(e) => {
-      e.preventDefault(), e.stopPropagation(), this._openFileDialog();
-    }}"
+                    @nys-click=${(e) => {
+      e.stopPropagation(), this._openFileDialog();
+    }}
+                    @click=${(e) => e.stopPropagation()}
                   ></nys-button>
                   <p>or drag here</p>`}
           </div>` : l`<nys-button
@@ -4664,7 +4668,7 @@ const Ke = class Ke extends y {
                 ?inverted=${this.inverted}
               >
                 <div class="nys-label__tooltip-icon">
-                  <nys-icon name="info" size="4xl"></nys-icon>
+                  <nys-icon name="info" size="3xl"></nys-icon>
                 </div>
               </nys-tooltip>` : ""}
         </div>
@@ -4873,6 +4877,9 @@ const re = (ae = class extends y {
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this._restoreBodyScroll(), window.removeEventListener("keydown", (e) => this._handleKeydown(e));
+  }
+  firstUpdated() {
+    this._handleBodySlotChange(), this._handleActionSlotChange();
   }
   async updated(e) {
     e.has("open") && (this.open ? (this._hideBodyScroll(), this._dispatchOpenEvent(), await this.updateComplete, this._savePrevFocused(), this._focusOnModal(), this._updateDismissAria()) : (this._restorePrevFocused(), this._restoreBodyScroll(), this._dispatchCloseEvent(), this._updateDismissAria()));
@@ -5709,7 +5716,7 @@ const L = (Q = class extends y {
     super.disconnectedCallback(), this.removeEventListener("nys-change", this._handleRadioButtonChange), this.removeEventListener("invalid", this._handleInvalid);
   }
   async firstUpdated() {
-    await this.updateComplete, this._initializeCheckedRadioValue(), this._setValue(), this._setRadioButtonRequire(), this._updateRadioButtonsSize(), this._updateRadioButtonsTile(), this._updateRadioButtonsShowError(), this._getSlotDescriptionForAria(), this._initializeChildAttributes(), this._updateGroupTabIndex();
+    this._initializeCheckedRadioValue(), this._setValue(), this._setRadioButtonRequire(), this._updateRadioButtonsSize(), this._updateRadioButtonsTile(), this._updateRadioButtonsShowError(), this._getSlotDescriptionForAria(), await this.updateComplete, this._initializeChildAttributes(), this._updateGroupTabIndex();
   }
   updated(e) {
     (e.has("required") || e.has("selectedValue")) && this._manageRequire(), e.has("size") && this._updateRadioButtonsSize(), e.has("tile") && this._updateRadioButtonsTile(), e.has("inverted") && this._updateRadioButtonsInvert(), e.has("showError") && this._updateRadioButtonsShowError(), e.has("form") && this._updateRadioButtonsForm();
@@ -6417,7 +6424,7 @@ const z = (J = class extends y {
             @blur="${this._handleBlur}"
             @change="${this._handleChange}"
           >
-            <option data-native hidden disabled selected value=""></option>
+            <option hidden disabled selected value=""></option>
           </select>
           <slot
             @slotchange="${this._handleSlotChange}"
@@ -6433,7 +6440,6 @@ const z = (J = class extends y {
           ?showError=${this.showError}
           errorMessage=${this._internals.validationMessage || this.errorMessage}
         ></nys-errormessage>
-        <p>Theres is error: ${this.showError}</p>
       </div>
     `;
   }
@@ -6757,11 +6763,7 @@ const h1 = u`
       rgba(255, 255, 255, 0.9)
     );
     width: var(--nys-size-300, 24px);
-    min-width: var(--nys-size-300, 24px);
-    max-width: var(--nys-size-300, 24px);
     height: var(--nys-size-300, 24px);
-    min-height: var(--nys-size-300, 24px);
-    max-height: var(--nys-size-300, 24px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6877,11 +6879,7 @@ const h1 = u`
       border: none;
       background-color: var(--nys-color-neutral-200, #bec0c1);
       height: var(--nys-size-100, 8px);
-      min-height: var(--nys-size-100, 8px);
-      max-height: var(--nys-size-100, 8px);
       width: 100%;
-      min-width: 100%;
-      max-width: 100%;
       color: transparent;
     }
 
@@ -6940,11 +6938,7 @@ const h1 = u`
         rgba(255, 255, 255, 0.9)
       );
       width: var(--nys-space-300, 24px);
-      min-width: var(--nys-space-300, 24px);
-      max-width: var(--nys-space-300, 24px);
       height: var(--nys-space-300, 24px);
-      min-height: var(--nys-space-300, 24px);
-      max-height: var(--nys-space-300, 24px);
       color: var(--nys-color-text, #1b1b1b);
     }
 
@@ -7441,7 +7435,6 @@ const C = (R = class extends y {
           class="nys-textarea__textarea ${this.resize}"
           name=${this.name}
           id=${this.id}
-          .value=${this.value}
           ?disabled=${this.disabled}
           ?required=${this.required}
           ?readonly=${this.readonly}
@@ -7460,7 +7453,9 @@ const C = (R = class extends y {
           @blur="${this._handleBlur}"
           @select="${this._handleSelect}"
           @selectionchange="${this._handleSelectionChange}"
-        ></textarea>
+        >
+${this.value}</textarea
+        >
         <nys-errormessage
           ?showError=${this.showError}
           errorMessage=${this._internals.validationMessage || this.errorMessage}

@@ -592,7 +592,7 @@
     height: 100%;
     fill: currentColor;
   }
-`;var W1=Object.defineProperty,Q=(a,e,t,o)=>{for(var s=void 0,r=a.length-1,n;r>=0;r--)(n=a[r])&&(s=n(e,t,s)||s);return s&&W1(e,t,s),s};let Y1=0;const _t=class _t extends p{constructor(){super(...arguments),this.id="",this.ariaLabel="",this.image="",this.initials="",this.icon="",this.color="",this.interactive=!1,this.disabled=!1,this.lazy=!1,this._slotHasContent=!1}connectedCallback(){super.connectedCallback(),this.id||(this.id=`nys-avatar-${Date.now()}-${Y1++}`)}async _handleSlotChange(){const e=this.shadowRoot?.querySelector("slot");if(!e){this._slotHasContent=!1;return}await Promise.resolve();const t=e.assignedNodes({flatten:!0}).filter(o=>o.nodeType===Node.ELEMENT_NODE||o.nodeType===Node.TEXT_NODE&&o.textContent?.trim());this._slotHasContent=t.length>0}getContrastForeground(){const e="var(--nys-color-ink, #000)",t="var(--nys-color-ink-reverse, #fff)",o="var(--nys-color-text, #000)",s="var(--nys-color-text-reverse, #fff)";if(!this.color)return;const r=document.createElement("div");r.style.color=this.color,document.body.appendChild(r);const n=getComputedStyle(r).color;document.body.removeChild(r);const c=n.match(/\d+/g);if(!c)return;const d=Number(c[0]),h=Number(c[1]),f=Number(c[2]),w=(.299*d+.587*h+.114*f)/255<.5;return this.initials?.length>0?w?s:o:w?t:e}render(){return l`
+`;var W1=Object.defineProperty,Q=(a,e,t,o)=>{for(var s=void 0,r=a.length-1,n;r>=0;r--)(n=a[r])&&(s=n(e,t,s)||s);return s&&W1(e,t,s),s};let Y1=0;const _t=class _t extends p{constructor(){super(...arguments),this.id="",this.ariaLabel="",this.image="",this.initials="",this.icon="",this.color="",this.interactive=!1,this.disabled=!1,this.lazy=!1,this._slotHasContent=!0}connectedCallback(){super.connectedCallback(),this.id||(this.id=`nys-avatar-${Date.now()}-${Y1++}`)}firstUpdated(){this._checkSlotContent()}async _checkSlotContent(){const e=this.shadowRoot?.querySelector("slot");if(!e){this._slotHasContent=!1;return}await Promise.resolve();const t=e.assignedNodes({flatten:!0}).filter(o=>o.nodeType===Node.ELEMENT_NODE||o.nodeType===Node.TEXT_NODE&&o.textContent?.trim());this._slotHasContent=t.length>0}getContrastForeground(){const e="var(--nys-color-ink, #000)",t="var(--nys-color-ink-reverse, #fff)",o="var(--nys-color-text, #000)",s="var(--nys-color-text-reverse, #fff)";if(!this.color)return;const r=document.createElement("div");r.style.color=this.color,document.body.appendChild(r);const n=getComputedStyle(r).color;document.body.removeChild(r);const c=n.match(/\d+/g);if(!c)return;const d=Number(c[0]),h=Number(c[1]),f=Number(c[2]),w=(.299*d+.587*h+.114*f)/255<.5;return this.initials?.length>0?w?s:o:w?t:e}render(){return l`
       <label class="nys-avatar" id=${this.id}>
         <div class="nys-avatar__content">
           <div
@@ -614,13 +614,14 @@
                     class="nys-avatar__initials"
                     aria-hidden="true"
                     >${this.initials}</span
-                  >`:l`<div part="nys-avatar__icon">
-                    <slot @slotchange=${this._handleSlotChange}></slot>
-                    ${this._slotHasContent?null:l`<nys-icon
-                          label="nys-avatar__icon"
-                          name=${this.icon?.length>0?this.icon:"account_circle"}
-                        ></nys-icon>`}
-                  </div>`}
+                  >`:this._slotHasContent?l`<div part="nys-avatar__icon">
+                      <slot></slot>
+                    </div>`:l`<div part="nys-avatar__icon">
+                      <nys-icon
+                        label="nys-avatar__icon"
+                        name=${this.icon?.length>0?this.icon:"account_circle"}
+                      ></nys-icon>
+                    </div>`}
           </div>
         </div>
       </label>
@@ -2367,7 +2368,8 @@
             ${this._dragActive?"drag-active":""}
             ${this._isDropDisabled?"disabled":""}
             ${this.showError&&!this._isDropDisabled?"error":""}"
-            @click=${this._isDropDisabled?null:e=>{e.target.closest("nys-button")||this._openFileDialog()}}
+            @click=${this._isDropDisabled?null:this._openFileDialog}
+            @keydown=${e=>!this._isDropDisabled&&(e.key==="Enter"||e.key===" ")&&this._openFileDialog()}
             @dragover=${this._isDropDisabled?null:this._onDragOver}
             @dragleave=${this._isDropDisabled?null:this._onDragLeave}
             @drop=${this._isDropDisabled?null:this._onDrop}
@@ -2381,7 +2383,8 @@
                     ariaLabel=${this._buttonAriaLabel}
                     ariaDescription=${this._buttonAriaDescription}
                     ?disabled=${this._isDropDisabled}
-                    @nys-click="${e=>{e.preventDefault(),e.stopPropagation(),this._openFileDialog()}}"
+                    @nys-click=${e=>{e.stopPropagation(),this._openFileDialog()}}
+                    @click=${e=>e.stopPropagation()}
                   ></nys-button>
                   <p>or drag here</p>`}
           </div>`:l`<nys-button
@@ -3158,7 +3161,7 @@
                 ?inverted=${this.inverted}
               >
                 <div class="nys-label__tooltip-icon">
-                  <nys-icon name="info" size="4xl"></nys-icon>
+                  <nys-icon name="info" size="3xl"></nys-icon>
                 </div>
               </nys-tooltip>`:""}
         </div>
@@ -3317,7 +3320,7 @@
       align-items: center;
     }
   }
-`;var Ds=Object.defineProperty,Ms=Object.getOwnPropertyDescriptor,be=(a,e,t,o)=>{for(var s=o>1?void 0:o?Ms(e,t):e,r=a.length-1,n;r>=0;r--)(n=a[r])&&(s=(o?n(e,t,s):n(s))||s);return o&&s&&Ds(e,t,s),s};let zs=0;const oe=(me=class extends p{constructor(){super(),this.id="",this.heading="",this.subheading="",this.open=!1,this.mandatory=!1,this._width="md",this._actionButtonSlot=null,this._prevFocusedElement=null,this._originalBodyOverflow=null,this.hasBodySlots=!1,this.hasActionSlots=!1}get width(){return this._width}set width(e){this._width=me.VALID_WIDTHS.includes(e)?e:"md"}connectedCallback(){super.connectedCallback(),this.id||(this.id=`nys-{{componentName}}-${Date.now()}-${zs++}`),window.addEventListener("resize",()=>this._updateSlottedButtonWidth()),window.addEventListener("keydown",e=>this._handleKeydown(e))}disconnectedCallback(){super.disconnectedCallback(),this._restoreBodyScroll(),window.removeEventListener("keydown",e=>this._handleKeydown(e))}async updated(e){e.has("open")&&(this.open?(this._hideBodyScroll(),this._dispatchOpenEvent(),await this.updateComplete,this._savePrevFocused(),this._focusOnModal(),this._updateDismissAria()):(this._restorePrevFocused(),this._restoreBodyScroll(),this._dispatchCloseEvent(),this._updateDismissAria()))}_hideBodyScroll(){this._originalBodyOverflow===null&&(this._originalBodyOverflow=document.body.style.overflow),document.body.style.overflow="hidden"}_restoreBodyScroll(){this._originalBodyOverflow!==null&&(document.body.style.overflow=this._originalBodyOverflow,this._originalBodyOverflow=null)}_savePrevFocused(){this._prevFocusedElement=document.activeElement}_focusOnModal(){this.shadowRoot?.querySelector(".nys-modal")?.focus()}async _restorePrevFocused(){const e=this._prevFocusedElement;if(e&&e.tagName.toLowerCase()==="nys-button"){const o=await e.getButtonElement();if(o){o.focus();return}}else this._prevFocusedElement?.focus();this._prevFocusedElement=null}async _handleBodySlotChange(){const e=this.shadowRoot?.querySelector("slot");e&&(this.hasBodySlots=e.assignedNodes({flatten:!0}).some(t=>t.nodeType===Node.ELEMENT_NODE||t.textContent?.trim()))}async _handleActionSlotChange(){const e=this.shadowRoot?.querySelector('slot[name="actions"]');e&&(this.hasActionSlots=e.assignedNodes({flatten:!0}).some(t=>t.nodeType===Node.ELEMENT_NODE||t.textContent?.trim()),this._actionButtonSlot=e,this._updateSlottedButtonWidth())}_updateSlottedButtonWidth(){if(!this._actionButtonSlot)return;const e=window.innerWidth<=480;this._actionButtonSlot.assignedElements().forEach(t=>{t.querySelectorAll("nys-button").forEach(o=>{e?o?.setAttribute("fullWidth",""):o?.removeAttribute("fullWidth")})})}_dispatchOpenEvent(){this.dispatchEvent(new CustomEvent("nys-open",{detail:{id:this.id},bubbles:!0,composed:!0}))}_dispatchCloseEvent(){this.dispatchEvent(new CustomEvent("nys-close",{detail:{id:this.id},bubbles:!0,composed:!0}))}_getAriaDescribedBy(){const e=[];return this.subheading&&e.push(`${this.id}-subheading`),this.hasBodySlots&&e.push(`${this.id}-desc`),e.join(" ")}_updateDismissAria(){const e=this.shadowRoot?.querySelector("nys-button");e&&(e.setAttribute("ariaLabel"," "),this.open&&setTimeout(()=>{e.setAttribute("ariaLabel","Close this window")},100))}async _handleKeydown(e){if(this.open&&(e.key==="Escape"&&!this.mandatory&&(e.preventDefault(),this._closeModal()),e.key==="Tab")){const t=this.shadowRoot?.querySelector(".nys-modal");if(!t)return;const o='a[href], area[href], button:not([disabled]), details, iframe, object, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [contentEditable="true"], [tabindex]:not([tabindex^="-"])',s=[],r=t.querySelector("nys-button");r&&s.push(r);const n=Array.from(t.querySelectorAll("slot"));for(const c of n){const d=c.assignedElements({flatten:!0});for(const h of d)h instanceof HTMLElement&&h.matches(o)&&s.push(h),h.querySelectorAll("nys-button").forEach(f=>{s.push(f)})}if(s.length>0){const c=s[0],d=s[s.length-1];let h=document.activeElement,f=s.indexOf(h);if(e.shiftKey){e.preventDefault();let v=f-1;v<0&&(v=s.length-1);const w=s[v];s[v].tagName.toLowerCase()==="nys-button"?(await w.getButtonElement())?.focus():w.focus()}else h===d&&(e.preventDefault(),c.tagName.toLowerCase()==="nys-button"?(await c.getButtonElement())?.focus():c.focus())}}}_closeModal(){this.open=!1,this._dispatchCloseEvent()}render(){return this.open?l`<div
+`;var Ds=Object.defineProperty,Ms=Object.getOwnPropertyDescriptor,be=(a,e,t,o)=>{for(var s=o>1?void 0:o?Ms(e,t):e,r=a.length-1,n;r>=0;r--)(n=a[r])&&(s=(o?n(e,t,s):n(s))||s);return o&&s&&Ds(e,t,s),s};let zs=0;const oe=(me=class extends p{constructor(){super(),this.id="",this.heading="",this.subheading="",this.open=!1,this.mandatory=!1,this._width="md",this._actionButtonSlot=null,this._prevFocusedElement=null,this._originalBodyOverflow=null,this.hasBodySlots=!1,this.hasActionSlots=!1}get width(){return this._width}set width(e){this._width=me.VALID_WIDTHS.includes(e)?e:"md"}connectedCallback(){super.connectedCallback(),this.id||(this.id=`nys-{{componentName}}-${Date.now()}-${zs++}`),window.addEventListener("resize",()=>this._updateSlottedButtonWidth()),window.addEventListener("keydown",e=>this._handleKeydown(e))}disconnectedCallback(){super.disconnectedCallback(),this._restoreBodyScroll(),window.removeEventListener("keydown",e=>this._handleKeydown(e))}firstUpdated(){this._handleBodySlotChange(),this._handleActionSlotChange()}async updated(e){e.has("open")&&(this.open?(this._hideBodyScroll(),this._dispatchOpenEvent(),await this.updateComplete,this._savePrevFocused(),this._focusOnModal(),this._updateDismissAria()):(this._restorePrevFocused(),this._restoreBodyScroll(),this._dispatchCloseEvent(),this._updateDismissAria()))}_hideBodyScroll(){this._originalBodyOverflow===null&&(this._originalBodyOverflow=document.body.style.overflow),document.body.style.overflow="hidden"}_restoreBodyScroll(){this._originalBodyOverflow!==null&&(document.body.style.overflow=this._originalBodyOverflow,this._originalBodyOverflow=null)}_savePrevFocused(){this._prevFocusedElement=document.activeElement}_focusOnModal(){this.shadowRoot?.querySelector(".nys-modal")?.focus()}async _restorePrevFocused(){const e=this._prevFocusedElement;if(e&&e.tagName.toLowerCase()==="nys-button"){const o=await e.getButtonElement();if(o){o.focus();return}}else this._prevFocusedElement?.focus();this._prevFocusedElement=null}async _handleBodySlotChange(){const e=this.shadowRoot?.querySelector("slot");e&&(this.hasBodySlots=e.assignedNodes({flatten:!0}).some(t=>t.nodeType===Node.ELEMENT_NODE||t.textContent?.trim()))}async _handleActionSlotChange(){const e=this.shadowRoot?.querySelector('slot[name="actions"]');e&&(this.hasActionSlots=e.assignedNodes({flatten:!0}).some(t=>t.nodeType===Node.ELEMENT_NODE||t.textContent?.trim()),this._actionButtonSlot=e,this._updateSlottedButtonWidth())}_updateSlottedButtonWidth(){if(!this._actionButtonSlot)return;const e=window.innerWidth<=480;this._actionButtonSlot.assignedElements().forEach(t=>{t.querySelectorAll("nys-button").forEach(o=>{e?o?.setAttribute("fullWidth",""):o?.removeAttribute("fullWidth")})})}_dispatchOpenEvent(){this.dispatchEvent(new CustomEvent("nys-open",{detail:{id:this.id},bubbles:!0,composed:!0}))}_dispatchCloseEvent(){this.dispatchEvent(new CustomEvent("nys-close",{detail:{id:this.id},bubbles:!0,composed:!0}))}_getAriaDescribedBy(){const e=[];return this.subheading&&e.push(`${this.id}-subheading`),this.hasBodySlots&&e.push(`${this.id}-desc`),e.join(" ")}_updateDismissAria(){const e=this.shadowRoot?.querySelector("nys-button");e&&(e.setAttribute("ariaLabel"," "),this.open&&setTimeout(()=>{e.setAttribute("ariaLabel","Close this window")},100))}async _handleKeydown(e){if(this.open&&(e.key==="Escape"&&!this.mandatory&&(e.preventDefault(),this._closeModal()),e.key==="Tab")){const t=this.shadowRoot?.querySelector(".nys-modal");if(!t)return;const o='a[href], area[href], button:not([disabled]), details, iframe, object, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [contentEditable="true"], [tabindex]:not([tabindex^="-"])',s=[],r=t.querySelector("nys-button");r&&s.push(r);const n=Array.from(t.querySelectorAll("slot"));for(const c of n){const d=c.assignedElements({flatten:!0});for(const h of d)h instanceof HTMLElement&&h.matches(o)&&s.push(h),h.querySelectorAll("nys-button").forEach(f=>{s.push(f)})}if(s.length>0){const c=s[0],d=s[s.length-1];let h=document.activeElement,f=s.indexOf(h);if(e.shiftKey){e.preventDefault();let v=f-1;v<0&&(v=s.length-1);const w=s[v];s[v].tagName.toLowerCase()==="nys-button"?(await w.getButtonElement())?.focus():w.focus()}else h===d&&(e.preventDefault(),c.tagName.toLowerCase()==="nys-button"?(await c.getButtonElement())?.focus():c.focus())}}}_closeModal(){this.open=!1,this._dispatchCloseEvent()}render(){return this.open?l`<div
           id=${this.id}
           class="nys-modal-overlay"
           role="dialog"
@@ -3905,7 +3908,7 @@
     overflow: hidden;
     border: 0;
   }
-`;var Is=Object.defineProperty,Ps=Object.getOwnPropertyDescriptor,H=(a,e,t,o)=>{for(var s=o>1?void 0:o?Ps(e,t):e,r=a.length-1,n;r>=0;r--)(n=a[r])&&(s=(o?n(e,t,s):n(s))||s);return o&&s&&Is(e,t,s),s};let Os=0;const D=(de=class extends p{constructor(){super(),this.id="",this.name="",this.required=!1,this.optional=!1,this.showError=!1,this.errorMessage="",this.label="",this.description="",this.tile=!1,this._tooltip="",this.inverted=!1,this.form=null,this.selectedValue=null,this._slottedDescriptionText="",this._size="md",this._internals=this.attachInternals()}get size(){return this._size}set size(e){this._size=de.VALID_SIZES.includes(e)?e:"md"}connectedCallback(){super.connectedCallback(),this.id||(this.id=`nys-radiogroup-${Date.now()}-${Os++}`),this.addEventListener("nys-change",this._handleRadioButtonChange),this.addEventListener("invalid",this._handleInvalid)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("nys-change",this._handleRadioButtonChange),this.removeEventListener("invalid",this._handleInvalid)}async firstUpdated(){await this.updateComplete,this._initializeCheckedRadioValue(),this._setValue(),this._setRadioButtonRequire(),this._updateRadioButtonsSize(),this._updateRadioButtonsTile(),this._updateRadioButtonsShowError(),this._getSlotDescriptionForAria(),this._initializeChildAttributes(),this._updateGroupTabIndex()}updated(e){(e.has("required")||e.has("selectedValue"))&&this._manageRequire(),e.has("size")&&this._updateRadioButtonsSize(),e.has("tile")&&this._updateRadioButtonsTile(),e.has("inverted")&&this._updateRadioButtonsInvert(),e.has("showError")&&this._updateRadioButtonsShowError(),e.has("form")&&this._updateRadioButtonsForm()}formResetCallback(){this.querySelectorAll("nys-radiobutton").forEach(t=>{t.formResetUpdate()})}_setValue(){this._internals.setFormValue(this.selectedValue)}_setRadioButtonRequire(){this.querySelectorAll("nys-radiobutton").forEach((t,o)=>{this.required&&o===0&&t.setAttribute("required","required")})}async _manageRequire(){const e=this.errorMessage||"Please select an option.",o=Array.from(this.querySelectorAll("nys-radiobutton"))[0];o&&(this.required&&!this.selectedValue?this._internals.setValidity({valueMissing:!0},e,o):(this.showError=!1,this._internals.setValidity({},"",o)))}checkValidity(){const e=Array.from(this.querySelectorAll("nys-radiobutton"));return!this.required||e.some(o=>o.checked)}_initializeCheckedRadioValue(){const e=this.querySelector("nys-radiobutton[checked]");e&&(this.selectedValue=e.getAttribute("value"),this._internals.setFormValue(this.selectedValue))}_getAllRadios(){return Array.from(this.querySelectorAll("nys-radiobutton"))}async _handleKeyDown(e){if(!["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," ","Enter"].includes(e.key))return;e.preventDefault();const o=this._getAllRadios().filter(h=>!h.disabled),s=o.find(h=>h.checked)||o[0],r=e.key===" "||e.key==="Enter"?0:["ArrowUp","ArrowLeft"].includes(e.key)?-1:1;let n=o.indexOf(s)+r;n<0&&(n=o.length-1),n>=o.length&&(n=0);const c=o[n];(await c.getInputElement())?.click(),this._updateGroupTabIndex(),c.focus()}_updateGroupTabIndex(){const e=this._getAllRadios(),t=e.find(o=>o.checked)||e[0];e.forEach(o=>{o.disabled?o.tabIndex=-1:o.tabIndex=o===t?0:-1,o.setAttribute("aria-checked",o.checked?"true":"false"),o.setAttribute("aria-disabled",o.disabled?"true":"false"),o.setAttribute("aria-required",this.required?"true":"false")})}_initializeChildAttributes(){this._getAllRadios().forEach(t=>{t.setAttribute("role","radio"),t.setAttribute("aria-checked",String(t.checked)),t.setAttribute("aria-required",String(t.required)),t.setAttribute("aria-disabled",String(t.disabled)),t.setAttribute("tabindex","-1")})}_updateRadioButtonsSize(){this.querySelectorAll("nys-radiobutton").forEach(t=>{t.setAttribute("size",this.size)})}_updateRadioButtonsTile(){this.querySelectorAll("nys-radiobutton").forEach(t=>{this.tile?t.toggleAttribute("tile",!0):t.removeAttribute("tile")})}_updateRadioButtonsInvert(){this.querySelectorAll("nys-radiobutton").forEach(t=>{this.inverted?t.toggleAttribute("inverted",!0):t.removeAttribute("inverted")})}_updateRadioButtonsShowError(){this.querySelectorAll("nys-radiobutton").forEach(t=>{this.showError?t.setAttribute("showError",""):t.removeAttribute("showError")})}_updateRadioButtonsForm(){this.querySelectorAll("nys-radiobutton").forEach(t=>{this.showError&&this.form!==null?t.setAttribute("form",this.form):t.removeAttribute("form")})}_getSlotDescriptionForAria(){const t=this.shadowRoot?.querySelector('slot[name="description"]')?.assignedNodes({flatten:!0})||[];this._slottedDescriptionText=t.map(o=>o.textContent?.trim()).filter(Boolean).join(", ")}_handleRadioButtonChange(e){const t=e,{name:o,value:s}=t.detail;this.name=o,this.selectedValue=s,this._internals.setFormValue(this.selectedValue),this._updateGroupTabIndex()}async _handleInvalid(e){if(e.preventDefault(),this._internals.validity.valueMissing){this.showError=!0,this._manageRequire();const t=this.querySelector("nys-radiobutton");if(t){const o=this._internals.form;o?Array.from(o.elements).find(n=>typeof n.checkValidity=="function"&&!n.checkValidity())===this&&(t.focus(),t.classList.add("active-focus")):(t.focus(),t.classList.add("active-focus"))}}}render(){return l`<div class="nys-radiogroup">
+`;var Is=Object.defineProperty,Ps=Object.getOwnPropertyDescriptor,H=(a,e,t,o)=>{for(var s=o>1?void 0:o?Ps(e,t):e,r=a.length-1,n;r>=0;r--)(n=a[r])&&(s=(o?n(e,t,s):n(s))||s);return o&&s&&Is(e,t,s),s};let Os=0;const D=(de=class extends p{constructor(){super(),this.id="",this.name="",this.required=!1,this.optional=!1,this.showError=!1,this.errorMessage="",this.label="",this.description="",this.tile=!1,this._tooltip="",this.inverted=!1,this.form=null,this.selectedValue=null,this._slottedDescriptionText="",this._size="md",this._internals=this.attachInternals()}get size(){return this._size}set size(e){this._size=de.VALID_SIZES.includes(e)?e:"md"}connectedCallback(){super.connectedCallback(),this.id||(this.id=`nys-radiogroup-${Date.now()}-${Os++}`),this.addEventListener("nys-change",this._handleRadioButtonChange),this.addEventListener("invalid",this._handleInvalid)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("nys-change",this._handleRadioButtonChange),this.removeEventListener("invalid",this._handleInvalid)}async firstUpdated(){this._initializeCheckedRadioValue(),this._setValue(),this._setRadioButtonRequire(),this._updateRadioButtonsSize(),this._updateRadioButtonsTile(),this._updateRadioButtonsShowError(),this._getSlotDescriptionForAria(),await this.updateComplete,this._initializeChildAttributes(),this._updateGroupTabIndex()}updated(e){(e.has("required")||e.has("selectedValue"))&&this._manageRequire(),e.has("size")&&this._updateRadioButtonsSize(),e.has("tile")&&this._updateRadioButtonsTile(),e.has("inverted")&&this._updateRadioButtonsInvert(),e.has("showError")&&this._updateRadioButtonsShowError(),e.has("form")&&this._updateRadioButtonsForm()}formResetCallback(){this.querySelectorAll("nys-radiobutton").forEach(t=>{t.formResetUpdate()})}_setValue(){this._internals.setFormValue(this.selectedValue)}_setRadioButtonRequire(){this.querySelectorAll("nys-radiobutton").forEach((t,o)=>{this.required&&o===0&&t.setAttribute("required","required")})}async _manageRequire(){const e=this.errorMessage||"Please select an option.",o=Array.from(this.querySelectorAll("nys-radiobutton"))[0];o&&(this.required&&!this.selectedValue?this._internals.setValidity({valueMissing:!0},e,o):(this.showError=!1,this._internals.setValidity({},"",o)))}checkValidity(){const e=Array.from(this.querySelectorAll("nys-radiobutton"));return!this.required||e.some(o=>o.checked)}_initializeCheckedRadioValue(){const e=this.querySelector("nys-radiobutton[checked]");e&&(this.selectedValue=e.getAttribute("value"),this._internals.setFormValue(this.selectedValue))}_getAllRadios(){return Array.from(this.querySelectorAll("nys-radiobutton"))}async _handleKeyDown(e){if(!["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," ","Enter"].includes(e.key))return;e.preventDefault();const o=this._getAllRadios().filter(h=>!h.disabled),s=o.find(h=>h.checked)||o[0],r=e.key===" "||e.key==="Enter"?0:["ArrowUp","ArrowLeft"].includes(e.key)?-1:1;let n=o.indexOf(s)+r;n<0&&(n=o.length-1),n>=o.length&&(n=0);const c=o[n];(await c.getInputElement())?.click(),this._updateGroupTabIndex(),c.focus()}_updateGroupTabIndex(){const e=this._getAllRadios(),t=e.find(o=>o.checked)||e[0];e.forEach(o=>{o.disabled?o.tabIndex=-1:o.tabIndex=o===t?0:-1,o.setAttribute("aria-checked",o.checked?"true":"false"),o.setAttribute("aria-disabled",o.disabled?"true":"false"),o.setAttribute("aria-required",this.required?"true":"false")})}_initializeChildAttributes(){this._getAllRadios().forEach(t=>{t.setAttribute("role","radio"),t.setAttribute("aria-checked",String(t.checked)),t.setAttribute("aria-required",String(t.required)),t.setAttribute("aria-disabled",String(t.disabled)),t.setAttribute("tabindex","-1")})}_updateRadioButtonsSize(){this.querySelectorAll("nys-radiobutton").forEach(t=>{t.setAttribute("size",this.size)})}_updateRadioButtonsTile(){this.querySelectorAll("nys-radiobutton").forEach(t=>{this.tile?t.toggleAttribute("tile",!0):t.removeAttribute("tile")})}_updateRadioButtonsInvert(){this.querySelectorAll("nys-radiobutton").forEach(t=>{this.inverted?t.toggleAttribute("inverted",!0):t.removeAttribute("inverted")})}_updateRadioButtonsShowError(){this.querySelectorAll("nys-radiobutton").forEach(t=>{this.showError?t.setAttribute("showError",""):t.removeAttribute("showError")})}_updateRadioButtonsForm(){this.querySelectorAll("nys-radiobutton").forEach(t=>{this.showError&&this.form!==null?t.setAttribute("form",this.form):t.removeAttribute("form")})}_getSlotDescriptionForAria(){const t=this.shadowRoot?.querySelector('slot[name="description"]')?.assignedNodes({flatten:!0})||[];this._slottedDescriptionText=t.map(o=>o.textContent?.trim()).filter(Boolean).join(", ")}_handleRadioButtonChange(e){const t=e,{name:o,value:s}=t.detail;this.name=o,this.selectedValue=s,this._internals.setFormValue(this.selectedValue),this._updateGroupTabIndex()}async _handleInvalid(e){if(e.preventDefault(),this._internals.validity.valueMissing){this.showError=!0,this._manageRequire();const t=this.querySelector("nys-radiobutton");if(t){const o=this._internals.form;o?Array.from(o.elements).find(n=>typeof n.checkValidity=="function"&&!n.checkValidity())===this&&(t.focus(),t.classList.add("active-focus")):(t.focus(),t.classList.add("active-focus"))}}}render(){return l`<div class="nys-radiogroup">
       <nys-label
         for=${this.id}
         label=${this.label}
@@ -4140,7 +4143,7 @@
             @blur="${this._handleBlur}"
             @change="${this._handleChange}"
           >
-            <option data-native hidden disabled selected value=""></option>
+            <option hidden disabled selected value=""></option>
           </select>
           <slot
             @slotchange="${this._handleSlotChange}"
@@ -4156,7 +4159,6 @@
           ?showError=${this.showError}
           errorMessage=${this._internals.validationMessage||this.errorMessage}
         ></nys-errormessage>
-        <p>Theres is error: ${this.showError}</p>
       </div>
     `}},he.VALID_WIDTHS=["sm","md","lg","full"],he.styles=Ts,he.formAssociated=!0,he);U([i({type:String})],B.prototype,"id",2),U([i({type:String,reflect:!0})],B.prototype,"name",2),U([i({type:String})],B.prototype,"label",2),U([i({type:String})],B.prototype,"description",2),U([i({type:String})],B.prototype,"value",2),U([i({type:Boolean,reflect:!0})],B.prototype,"disabled",2),U([i({type:Boolean,reflect:!0})],B.prototype,"required",2),U([i({type:Boolean,reflect:!0})],B.prototype,"optional",2),U([i({type:String})],B.prototype,"_tooltip",2),U([i({type:String,reflect:!0})],B.prototype,"form",2),U([i({type:Boolean,reflect:!0})],B.prototype,"inverted",2),U([i({type:Boolean,reflect:!0})],B.prototype,"showError",2),U([i({type:String})],B.prototype,"errorMessage",2),U([i({reflect:!0})],B.prototype,"width",1);let i1=B;customElements.get("nys-select")||customElements.define("nys-select",i1);const Gs=g`
   :host {
@@ -4395,11 +4397,7 @@
       rgba(255, 255, 255, 0.9)
     );
     width: var(--nys-size-300, 24px);
-    min-width: var(--nys-size-300, 24px);
-    max-width: var(--nys-size-300, 24px);
     height: var(--nys-size-300, 24px);
-    min-height: var(--nys-size-300, 24px);
-    max-height: var(--nys-size-300, 24px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4515,11 +4513,7 @@
       border: none;
       background-color: var(--nys-color-neutral-200, #bec0c1);
       height: var(--nys-size-100, 8px);
-      min-height: var(--nys-size-100, 8px);
-      max-height: var(--nys-size-100, 8px);
       width: 100%;
-      min-width: 100%;
-      max-width: 100%;
       color: transparent;
     }
 
@@ -4578,11 +4572,7 @@
         rgba(255, 255, 255, 0.9)
       );
       width: var(--nys-space-300, 24px);
-      min-width: var(--nys-space-300, 24px);
-      max-width: var(--nys-space-300, 24px);
       height: var(--nys-space-300, 24px);
-      min-height: var(--nys-space-300, 24px);
-      max-height: var(--nys-space-300, 24px);
       color: var(--nys-color-text, #1b1b1b);
     }
 
@@ -4809,7 +4799,6 @@
           class="nys-textarea__textarea ${this.resize}"
           name=${this.name}
           id=${this.id}
-          .value=${this.value}
           ?disabled=${this.disabled}
           ?required=${this.required}
           ?readonly=${this.readonly}
@@ -4826,7 +4815,9 @@
           @blur="${this._handleBlur}"
           @select="${this._handleSelect}"
           @selectionchange="${this._handleSelectionChange}"
-        ></textarea>
+        >
+${this.value}</textarea
+        >
         <nys-errormessage
           ?showError=${this.showError}
           errorMessage=${this._internals.validationMessage||this.errorMessage}
