@@ -1,10 +1,10 @@
 {
   "scripts": {
-    "copy:assets": "mkdir -p src/assets/css/vendor && mkdir -p src/assets/js/vendor && cp -r node_modules/@nysds/components/dist/nysds.* src/assets/js/vendor && cp -r node_modules/@nysds/styles/dist/* src/assets/css/vendor",
+    "copy:assets": "bash ./src/scripts/copyassets.sh",
     "link": "npm link @nysds/components && npm run copy:assets"
   },
   "dependencies": {
-    "@nysds/components": "^1.11.0",
-    "@nysds/styles": "^1.11.0"
+    "@nysds/components": "^1.11.1",
+    "@nysds/styles": "^1.11.1"
   }
 }

@@ -2,7 +2,7 @@ import { css as u, LitElement as y, html as l } from "lit";
 import { property as r, query as u1, state as $ } from "lit/decorators.js";
 import { ifDefined as d } from "lit/directives/if-defined.js";
 /*!
-   * New York State Design System (v1.11.0)
+   * New York State Design System (v1.11.1)
    * Description: A design system for New York State's digital products.
    * Repository: https://github.com/its-hcd/nysds
    * License: MIT
@@ -809,7 +809,7 @@ const w1 = u`
     fill: currentColor;
   }
 `;
-var k1 = Object.defineProperty, K = (a, e, t, o) => {
+var k1 = Object.defineProperty, W = (a, e, t, o) => {
   for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && k1(e, t, s), s;
@@ -817,17 +817,14 @@ var k1 = Object.defineProperty, K = (a, e, t, o) => {
 let L1 = 0;
 const je = class je extends y {
   constructor() {
-    super(...arguments), this.id = "", this.ariaLabel = "", this.image = "", this.initials = "", this.icon = "", this.color = "", this.interactive = !1, this.disabled = !1, this.lazy = !1, this._slotHasContent = !0;
+    super(...arguments), this.id = "", this.ariaLabel = "", this.image = "", this.initials = "", this.icon = "", this.color = "", this.interactive = !1, this.disabled = !1, this.lazy = !1, this._slotHasContent = !1;
   }
   /******************** Functions ********************/
   // Generate a unique ID if one is not provided
   connectedCallback() {
     super.connectedCallback(), this.id || (this.id = `nys-avatar-${Date.now()}-${L1++}`);
   }
-  firstUpdated() {
-    this._checkSlotContent();
-  }
-  async _checkSlotContent() {
+  async _handleSlotChange() {
     const e = this.shadowRoot?.querySelector("slot");
     if (!e) {
       this._slotHasContent = !1;
@@ -881,14 +878,13 @@ const je = class je extends y {
                     class="nys-avatar__initials"
                     aria-hidden="true"
                     >${this.initials}</span
-                  >` : this._slotHasContent ? l`<div part="nys-avatar__icon">
-                      <slot></slot>
-                    </div>` : l`<div part="nys-avatar__icon">
-                      <nys-icon
-                        label="nys-avatar__icon"
-                        name=${this.icon?.length > 0 ? this.icon : "account_circle"}
-                      ></nys-icon>
-                    </div>`}
+                  >` : l`<div part="nys-avatar__icon">
+                    <slot @slotchange=${this._handleSlotChange}></slot>
+                    ${this._slotHasContent ? null : l`<nys-icon
+                          label="nys-avatar__icon"
+                          name=${this.icon?.length > 0 ? this.icon : "account_circle"}
+                        ></nys-icon>`}
+                  </div>`}
           </div>
         </div>
       </label>
@@ -897,34 +893,34 @@ const je = class je extends y {
 };
 je.styles = w1;
 let I = je;
-K([
+W([
   r({ type: String })
 ], I.prototype, "id");
-K([
+W([
   r({ type: String })
 ], I.prototype, "ariaLabel");
-K([
+W([
   r({ type: String })
 ], I.prototype, "image");
-K([
+W([
   r({ type: String })
 ], I.prototype, "initials");
-K([
+W([
   r({ type: String })
 ], I.prototype, "icon");
-K([
+W([
   r({ type: String })
 ], I.prototype, "color");
-K([
+W([
   r({ type: Boolean, reflect: !0 })
 ], I.prototype, "interactive");
-K([
+W([
   r({ type: Boolean, reflect: !0 })
 ], I.prototype, "disabled");
-K([
+W([
   r({ type: Boolean, reflect: !0 })
 ], I.prototype, "lazy");
-K([
+W([
   $()
 ], I.prototype, "_slotHasContent");
 customElements.get("nys-avatar") || customElements.define("nys-avatar", I);
@@ -2505,8 +2501,8 @@ var P1 = Object.defineProperty, Z1 = Object.getOwnPropertyDescriptor, H = (a, e,
   return o && s && P1(e, t, s), s;
 };
 let q1 = 0;
-var W;
-const E = (W = class extends y {
+var K;
+const E = (K = class extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.label = "", this.description = "", this.tile = !1, this._tooltip = "", this.inverted = !1, this.form = null, this._slottedDescriptionText = "", this._size = "md", this._internals = this.attachInternals();
@@ -2515,7 +2511,7 @@ const E = (W = class extends y {
     return this._size;
   }
   set size(e) {
-    this._size = W.VALID_SIZES.includes(
+    this._size = K.VALID_SIZES.includes(
       e
     ) ? e : "md";
   }
@@ -2646,7 +2642,7 @@ const E = (W = class extends y {
       </div>
     `;
   }
-}, W.VALID_SIZES = ["sm", "md"], W.styles = l1, W.formAssociated = !0, W);
+}, K.VALID_SIZES = ["sm", "md"], K.styles = l1, K.formAssociated = !0, K);
 H([
   r({ type: String })
 ], E.prototype, "id", 2);
@@ -2997,10 +2993,10 @@ const Y1 = u`
       var(--_nys-errormessage-color);
   }
 `;
-var K1 = Object.defineProperty, Te = (a, e, t, o) => {
+var W1 = Object.defineProperty, Te = (a, e, t, o) => {
   for (var s = void 0, n = a.length - 1, i; n >= 0; n--)
     (i = a[n]) && (s = i(e, t, s) || s);
-  return s && K1(e, t, s), s;
+  return s && W1(e, t, s), s;
 };
 const Ie = class Ie extends y {
   // allows use of elementInternals' API
@@ -3026,7 +3022,7 @@ Te([
   r({ type: Boolean, reflect: !0 })
 ], me.prototype, "showDivider");
 customElements.get("nys-errormessage") || customElements.define("nys-errormessage", me);
-async function W1(a, e) {
+async function K1(a, e) {
   if (!e || e.trim() === "") return !0;
   const t = e.toLowerCase().split(",").map((n) => n.trim()), o = a.name.toLowerCase(), s = o.includes(".") ? o.split(".").pop() : "";
   for (const n of t)
@@ -3318,7 +3314,7 @@ var J1 = Object.defineProperty, qe = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && J1(e, t, s), s;
 };
-const Ke = class Ke extends y {
+const We = class We extends y {
   constructor() {
     super(...arguments), this.filename = "", this.status = "pending", this.progress = 0, this.errorMessage = "";
   }
@@ -3391,8 +3387,8 @@ const Ke = class Ke extends y {
     `;
   }
 };
-Ke.styles = Q1;
-let fe = Ke;
+We.styles = Q1;
+let fe = We;
 qe([
   r({ type: String })
 ], fe.prototype, "filename");
@@ -3526,7 +3522,7 @@ const Pe = class Pe extends y {
   async _processFile(e) {
     e.status = "processing";
     try {
-      if (!await W1(e.file, this.accept)) {
+      if (!await K1(e.file, this.accept)) {
         e.status = "error", e.errorMsg = "File type is invalid.", this.requestUpdate();
         return;
       }
@@ -3651,8 +3647,9 @@ const Pe = class Pe extends y {
             ${this._dragActive ? "drag-active" : ""}
             ${this._isDropDisabled ? "disabled" : ""}
             ${this.showError && !this._isDropDisabled ? "error" : ""}"
-            @click=${this._isDropDisabled ? null : this._openFileDialog}
-            @keydown=${(e) => !this._isDropDisabled && (e.key === "Enter" || e.key === " ") && this._openFileDialog()}
+            @click=${this._isDropDisabled ? null : (e) => {
+      e.target.closest("nys-button") || this._openFileDialog();
+    }}
             @dragover=${this._isDropDisabled ? null : this._onDragOver}
             @dragleave=${this._isDropDisabled ? null : this._onDragLeave}
             @drop=${this._isDropDisabled ? null : this._onDrop}
@@ -3666,10 +3663,9 @@ const Pe = class Pe extends y {
                     ariaLabel=${this._buttonAriaLabel}
                     ariaDescription=${this._buttonAriaDescription}
                     ?disabled=${this._isDropDisabled}
-                    @nys-click=${(e) => {
-      e.stopPropagation(), this._openFileDialog();
-    }}
-                    @click=${(e) => e.stopPropagation()}
+                    @nys-click="${(e) => {
+      e.preventDefault(), e.stopPropagation(), this._openFileDialog();
+    }}"
                   ></nys-button>
                   <p>or drag here</p>`}
           </div>` : l`<nys-button
@@ -4642,7 +4638,7 @@ var lt = Object.defineProperty, ct = Object.getOwnPropertyDescriptor, ke = (a, e
     (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && lt(e, t, s), s;
 };
-const We = class We extends y {
+const Ke = class Ke extends y {
   constructor() {
     super(...arguments), this.for = "", this.label = "", this.description = "", this.flag = "", this.inverted = !1, this._tooltip = "";
   }
@@ -4668,7 +4664,7 @@ const We = class We extends y {
                 ?inverted=${this.inverted}
               >
                 <div class="nys-label__tooltip-icon">
-                  <nys-icon name="info" size="3xl"></nys-icon>
+                  <nys-icon name="info" size="4xl"></nys-icon>
                 </div>
               </nys-tooltip>` : ""}
         </div>
@@ -4679,8 +4675,8 @@ const We = class We extends y {
     `;
   }
 };
-We.styles = at;
-let te = We;
+Ke.styles = at;
+let te = Ke;
 ke([
   r({ type: String })
 ], te.prototype, "for", 2);
@@ -4877,9 +4873,6 @@ const re = (ae = class extends y {
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this._restoreBodyScroll(), window.removeEventListener("keydown", (e) => this._handleKeydown(e));
-  }
-  firstUpdated() {
-    this._handleBodySlotChange(), this._handleActionSlotChange();
   }
   async updated(e) {
     e.has("open") && (this.open ? (this._hideBodyScroll(), this._dispatchOpenEvent(), await this.updateComplete, this._savePrevFocused(), this._focusOnModal(), this._updateDismissAria()) : (this._restorePrevFocused(), this._restoreBodyScroll(), this._dispatchCloseEvent(), this._updateDismissAria()));
@@ -5716,7 +5709,7 @@ const L = (Q = class extends y {
     super.disconnectedCallback(), this.removeEventListener("nys-change", this._handleRadioButtonChange), this.removeEventListener("invalid", this._handleInvalid);
   }
   async firstUpdated() {
-    this._initializeCheckedRadioValue(), this._setValue(), this._setRadioButtonRequire(), this._updateRadioButtonsSize(), this._updateRadioButtonsTile(), this._updateRadioButtonsShowError(), this._getSlotDescriptionForAria(), await this.updateComplete, this._initializeChildAttributes(), this._updateGroupTabIndex();
+    await this.updateComplete, this._initializeCheckedRadioValue(), this._setValue(), this._setRadioButtonRequire(), this._updateRadioButtonsSize(), this._updateRadioButtonsTile(), this._updateRadioButtonsShowError(), this._getSlotDescriptionForAria(), this._initializeChildAttributes(), this._updateGroupTabIndex();
   }
   updated(e) {
     (e.has("required") || e.has("selectedValue")) && this._manageRequire(), e.has("size") && this._updateRadioButtonsSize(), e.has("tile") && this._updateRadioButtonsTile(), e.has("inverted") && this._updateRadioButtonsInvert(), e.has("showError") && this._updateRadioButtonsShowError(), e.has("form") && this._updateRadioButtonsForm();
@@ -6424,7 +6417,7 @@ const z = (J = class extends y {
             @blur="${this._handleBlur}"
             @change="${this._handleChange}"
           >
-            <option hidden disabled selected value=""></option>
+            <option data-native hidden disabled selected value=""></option>
           </select>
           <slot
             @slotchange="${this._handleSlotChange}"
@@ -6440,6 +6433,7 @@ const z = (J = class extends y {
           ?showError=${this.showError}
           errorMessage=${this._internals.validationMessage || this.errorMessage}
         ></nys-errormessage>
+        <p>Theres is error: ${this.showError}</p>
       </div>
     `;
   }
@@ -6763,7 +6757,11 @@ const h1 = u`
       rgba(255, 255, 255, 0.9)
     );
     width: var(--nys-size-300, 24px);
+    min-width: var(--nys-size-300, 24px);
+    max-width: var(--nys-size-300, 24px);
     height: var(--nys-size-300, 24px);
+    min-height: var(--nys-size-300, 24px);
+    max-height: var(--nys-size-300, 24px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6879,7 +6877,11 @@ const h1 = u`
       border: none;
       background-color: var(--nys-color-neutral-200, #bec0c1);
       height: var(--nys-size-100, 8px);
+      min-height: var(--nys-size-100, 8px);
+      max-height: var(--nys-size-100, 8px);
       width: 100%;
+      min-width: 100%;
+      max-width: 100%;
       color: transparent;
     }
 
@@ -6938,7 +6940,11 @@ const h1 = u`
         rgba(255, 255, 255, 0.9)
       );
       width: var(--nys-space-300, 24px);
+      min-width: var(--nys-space-300, 24px);
+      max-width: var(--nys-space-300, 24px);
       height: var(--nys-space-300, 24px);
+      min-height: var(--nys-space-300, 24px);
+      max-height: var(--nys-space-300, 24px);
       color: var(--nys-color-text, #1b1b1b);
     }
 
@@ -7435,6 +7441,7 @@ const C = (R = class extends y {
           class="nys-textarea__textarea ${this.resize}"
           name=${this.name}
           id=${this.id}
+          .value=${this.value}
           ?disabled=${this.disabled}
           ?required=${this.required}
           ?readonly=${this.readonly}
@@ -7453,9 +7460,7 @@ const C = (R = class extends y {
           @blur="${this._handleBlur}"
           @select="${this._handleSelect}"
           @selectionchange="${this._handleSelectionChange}"
-        >
-${this.value}</textarea
-        >
+        ></textarea>
         <nys-errormessage
           ?showError=${this.showError}
           errorMessage=${this._internals.validationMessage || this.errorMessage}
@@ -8350,7 +8355,7 @@ var Gt = Object.defineProperty, Yt = Object.getOwnPropertyDescriptor, F = (a, e,
     (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && Gt(e, t, s), s;
 };
-let Kt = 0;
+let Wt = 0;
 var ee;
 const U = (ee = class extends y {
   // allows use of elementInternals' API
@@ -8367,7 +8372,7 @@ const U = (ee = class extends y {
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-toggle-${Date.now()}-${Kt++}`);
+    super.connectedCallback(), this.id || (this.id = `nys-toggle-${Date.now()}-${Wt++}`);
   }
   /********************** Form Integration **********************/
   // Update the internals whenever `checked` or `value` changes.
@@ -8472,8 +8477,8 @@ F([
 F([
   r({ reflect: !0 })
 ], U.prototype, "size", 1);
-let Wt = U;
-customElements.get("nys-toggle") || customElements.define("nys-toggle", Wt);
+let Kt = U;
+customElements.get("nys-toggle") || customElements.define("nys-toggle", Kt);
 const Xt = u`
   :host {
     /* Global Tooltip Styles */
@@ -9292,15 +9297,13 @@ const s1 = class s1 extends y {
     return new DOMParser().parseFromString(ss, "image/svg+xml").documentElement;
   }
   _toggleTrustbar(e) {
-    this.trustbarVisible = !this.trustbarVisible, this.trustbarVisible ? (this.languageVisible = !1, this.searchDropdownVisible = !1, (e === "nys-unavheader__know--inline" || !e) && this.updateComplete.then(() => {
-      this.shadowRoot?.getElementById(
-        "nys-unavheader__closetrustbar"
-      )?.focus();
-    })) : (e === "nys-unavheader__know--inline" || !e) && this.updateComplete.then(() => {
-      this.shadowRoot?.getElementById(
-        "nys-unavheader__know--inline"
-      )?.focus();
-    });
+    if (this.trustbarVisible = !this.trustbarVisible, this.trustbarVisible && (this.languageVisible = !1, this.searchDropdownVisible = !1), e === "no focus") return;
+    if (e === "nys-unavheader__know--inline" || !e) {
+      const o = this.trustbarVisible ? "nys-unavheader__closetrustbar" : "nys-unavheader__know--inline";
+      this.updateComplete.then(() => {
+        this.shadowRoot?.getElementById(o)?.focus();
+      });
+    }
   }
   _toggleLanguageList() {
     this.languageVisible = !this.languageVisible, this.languageVisible && (this.trustbarVisible = !1, this.searchDropdownVisible = !1);
@@ -9341,8 +9344,7 @@ const s1 = class s1 extends y {
         <div
           class="nys-unavheader__trustbar wrapper"
           @click="${(e) => {
-      const t = e.target;
-      e.detail === 0 && t.closest("nys-button") || this._toggleTrustbar();
+      e.target.closest("nys-button") || this._toggleTrustbar("no focus");
     }}"
         >
           <div class="content">
@@ -9356,8 +9358,8 @@ const s1 = class s1 extends y {
               variant="ghost"
               size="sm"
               suffixIcon="slotted"
-              @keydown="${(e) => {
-      (e.code === "Enter" || e.code === "Space" || e.key === "Enter" || e.key === " ") && (e.preventDefault(), e.stopPropagation(), this._toggleTrustbar());
+              @nys-click="${(e) => {
+      e.preventDefault(), e.stopPropagation(), this._toggleTrustbar("nys-unavheader__know");
     }}"
             >
               <nys-icon
@@ -10540,7 +10542,7 @@ export {
   he as NysStepper,
   Ot as NysTextarea,
   Ft as NysTextinput,
-  Wt as NysToggle,
+  Kt as NysToggle,
   se as NysTooltip,
   Oe as NysUnavFooter,
   Y as NysUnavHeader
