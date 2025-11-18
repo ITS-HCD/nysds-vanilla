@@ -1,7 +1,7 @@
-import { css as u, LitElement as y, html as l } from "lit";
+import { css as p, LitElement as u, html as l } from "lit";
 import { property as r, query as u1, state as $ } from "lit/decorators.js";
 import { ifDefined as d } from "lit/directives/if-defined.js";
-const a1 = u`
+const a1 = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -153,7 +153,7 @@ var p1 = Object.defineProperty, De = (a, e, t, o) => {
   return s && p1(e, t, s), s;
 };
 let v1 = 0;
-const Ne = class Ne extends y {
+const Ne = class Ne extends u {
   /**************** Lifecycle Methods ****************/
   constructor() {
     super(), this.id = "", this.heading = "", this.expanded = !1, this.bordered = !1;
@@ -247,7 +247,7 @@ var f1 = Object.defineProperty, Ue = (a, e, t, o) => {
   return s && f1(e, t, s), s;
 };
 let g1 = 0;
-const Fe = class Fe extends y {
+const Fe = class Fe extends u {
   /**************** Lifecycle Methods ****************/
   constructor() {
     super(), this.id = "", this.singleSelect = !1, this.bordered = !1;
@@ -300,7 +300,7 @@ Ue([
   r({ type: Boolean, reflect: !0 })
 ], Ce.prototype, "bordered");
 customElements.get("nys-accordion") || customElements.define("nys-accordion", Ce);
-const b1 = u`
+const b1 = p`
   :host {
     /* Global Alert Styles */
     --_nys-alert-border-width: var(--nys-border-width-lg, 4px);
@@ -544,7 +544,7 @@ var _1 = Object.defineProperty, C1 = Object.getOwnPropertyDescriptor, P = (a, e,
 };
 let m1 = 0;
 var ne;
-const A = (ne = class extends y {
+const A = (ne = class extends u {
   constructor() {
     super(...arguments), this.id = "", this.heading = "", this.icon = "", this.dismissible = !1, this.duration = 0, this.text = "", this.primaryAction = "", this.secondaryAction = "", this.primaryLabel = "Learn more", this.secondaryLabel = "Dismiss", this._alertClosed = !1, this._slotHasContent = !0, this._type = "base", this._timeoutId = null;
   }
@@ -699,7 +699,7 @@ P([
 ], A.prototype, "type", 1);
 let x1 = A;
 customElements.get("nys-alert") || customElements.define("nys-alert", x1);
-const w1 = u`
+const w1 = p`
   :host {
     /* Global Avatar Styles */
 
@@ -807,7 +807,7 @@ var k1 = Object.defineProperty, W = (a, e, t, o) => {
   return s && k1(e, t, s), s;
 };
 let S1 = 0;
-const je = class je extends y {
+const je = class je extends u {
   constructor() {
     super(...arguments), this.id = "", this.ariaLabel = "", this.image = "", this.initials = "", this.icon = "", this.color = "", this.interactive = !1, this.disabled = !1, this.lazy = !1, this._slotHasContent = !1;
   }
@@ -838,7 +838,7 @@ const je = class je extends y {
     document.body.removeChild(n);
     const c = i.match(/\d+/g);
     if (!c) return;
-    const p = Number(c[0]), h = Number(c[1]), V = Number(c[2]), T = (0.299 * p + 0.587 * h + 0.114 * V) / 255 < 0.5;
+    const h = Number(c[0]), y = Number(c[1]), V = Number(c[2]), T = (0.299 * h + 0.587 * y + 0.114 * V) / 255 < 0.5;
     return this.initials?.length > 0 ? T ? s : o : T ? t : e;
   }
   render() {
@@ -916,7 +916,7 @@ W([
   $()
 ], I.prototype, "_slotHasContent");
 customElements.get("nys-avatar") || customElements.define("nys-avatar", I);
-const L1 = u`
+const L1 = p`
   .nys-backtotop {
     /* These props ARE NOT publicly overridable */
     --_nys-button-border-radius--start: var(--nys-radius-round, 1776px);
@@ -945,7 +945,7 @@ var $1 = Object.defineProperty, Ze = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && $1(e, t, s), s;
 };
-const Ge = class Ge extends y {
+const Ge = class Ge extends u {
   constructor() {
     super(), this.position = "right", this.visible = !1, this.isMobile = !1, this.forceVisible = !1, this._handleScroll = this._handleScroll.bind(this), this._handleResize = this._handleResize.bind(this), this.mediaQuery = window.matchMedia("(max-width: 480px)");
   }
@@ -999,7 +999,7 @@ Ze([
   $()
 ], ve.prototype, "forceVisible");
 customElements.get("nys-backtotop") || customElements.define("nys-backtotop", ve);
-const E1 = u`
+const E1 = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -1681,7 +1681,7 @@ var D1 = Object.defineProperty, M1 = Object.getOwnPropertyDescriptor, _ = (a, e,
 };
 let z1 = 0;
 var L;
-const b = (L = class extends y {
+const b = (L = class extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this._size = "md", this.fullWidth = !1, this._variant = "filled", this.inverted = !1, this.label = "", this.ariaLabel = "", this.ariaControls = "", this.prefixIcon = "", this.suffixIcon = "", this.circle = !1, this.icon = "", this.disabled = !1, this.form = null, this.value = "", this.ariaDescription = "", this._type = "button", this.onClick = null, this.href = "", this._target = "_self", this._internals = this.attachInternals();
@@ -1942,7 +1942,7 @@ _([
 ], b.prototype, "target", 1);
 let V1 = b;
 customElements.get("nys-button") || customElements.define("nys-button", V1);
-const A1 = u`
+const A1 = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -2027,7 +2027,7 @@ var H1 = Object.defineProperty, B1 = Object.getOwnPropertyDescriptor, ue = (a, e
     (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && H1(e, t, s), s;
 }, q;
-const oe = (q = class extends y {
+const oe = (q = class extends u {
   constructor() {
     super(...arguments), this.id = "", this.name = "", this._size = "md", this._intent = "neutral", this.prefixLabel = "", this.label = "", this._prefixIcon = "", this._suffixIcon = "";
   }
@@ -2117,7 +2117,7 @@ ue([
 ], oe.prototype, "suffixIcon", 1);
 let I1 = oe;
 customElements.get("nys-badge") || customElements.define("nys-badge", I1);
-const l1 = u`
+const l1 = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -2507,7 +2507,7 @@ var P1 = Object.defineProperty, Z1 = Object.getOwnPropertyDescriptor, H = (a, e,
 };
 let q1 = 0;
 var K;
-const E = (K = class extends y {
+const E = (K = class extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.label = "", this.description = "", this.tile = !1, this._tooltip = "", this.inverted = !1, this.form = null, this._slottedDescriptionText = "", this._size = "md", this._internals = this.attachInternals();
@@ -2699,7 +2699,7 @@ var U1 = Object.defineProperty, T1 = Object.getOwnPropertyDescriptor, D = (a, e,
 };
 let R1 = 0;
 var X;
-const w = (X = class extends y {
+const w = (X = class extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.checked = !1, this.disabled = !1, this.required = !1, this.label = "", this.description = "", this.id = "", this.name = "", this.value = "", this.form = null, this.showError = !1, this.errorMessage = "", this.groupExist = !1, this.tile = !1, this.inverted = !1, this._size = "md", this._manageLabelClick = () => {
@@ -2905,7 +2905,7 @@ D([
 ], w.prototype, "size", 1);
 let N1 = w;
 customElements.get("nys-checkbox") || customElements.define("nys-checkbox", N1);
-const F1 = u`
+const F1 = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -2933,7 +2933,7 @@ var j1 = Object.defineProperty, G1 = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && j1(e, t, s), s;
 };
-const Ye = class Ye extends y {
+const Ye = class Ye extends u {
   constructor() {
     super(), this.inverted = !1;
   }
@@ -2947,7 +2947,7 @@ G1([
   r({ type: Boolean, reflect: !0 })
 ], Be.prototype, "inverted");
 customElements.get("nys-divider") || customElements.define("nys-divider", Be);
-const Y1 = u`
+const Y1 = p`
   :host {
     --_nys-errormessage-font-family: var(
       --nys-font-family-ui,
@@ -3002,7 +3002,7 @@ var W1 = Object.defineProperty, Te = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && W1(e, t, s), s;
 };
-const Ie = class Ie extends y {
+const Ie = class Ie extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.showError = !1, this.errorMessage = "", this.showDivider = !1, this._internals = this.attachInternals();
@@ -3034,7 +3034,7 @@ async function K1(a, e) {
       return !0;
   return !1;
 }
-const X1 = u`
+const X1 = p`
   :host {
     /* Global Fileinput Styles */
     --_nys-fileinput-gap: var(--nys-space-100, 8px);
@@ -3167,7 +3167,7 @@ const X1 = u`
   progress::-webkit-progress-bar {
     background-color: var(--_nys-fileinput-progress-background);
   }
-`, Q1 = u`
+`, Q1 = p`
   :host {
     /* Global fileitem Styles */
     --_nys-fileitem-border-radius: var(--nys-radius-md, 4px);
@@ -3318,7 +3318,7 @@ var J1 = Object.defineProperty, qe = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && J1(e, t, s), s;
 };
-const We = class We extends y {
+const We = class We extends u {
   constructor() {
     super(...arguments), this.filename = "", this.status = "pending", this.progress = 0, this.errorMessage = "";
   }
@@ -3412,7 +3412,7 @@ var et = Object.defineProperty, k = (a, e, t, o) => {
   return s && et(e, t, s), s;
 };
 let tt = 0;
-const Pe = class Pe extends y {
+const Pe = class Pe extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.label = "", this.description = "", this.multiple = !1, this.form = null, this._tooltip = "", this.accept = "", this.disabled = !1, this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.dropzone = !1, this.width = "full", this.inverted = !1, this._selectedFiles = [], this._dragActive = !1, this._internals = this.attachInternals();
@@ -4360,7 +4360,7 @@ const st = {
     <path d="M6.30002 22.7751C5.43369 22.7751 4.69211 22.4667 4.07527 21.8498C3.45844 21.2328 3.15002 20.4913 3.15002 19.6251V10.2251C3.15002 9.35893 3.45844 8.61735 4.07527 8.00035C4.69211 7.38351 5.43369 7.0751 6.30002 7.0751H6.62502V5.8001C6.62502 4.28343 7.14586 2.99593 8.18752 1.9376C9.22919 0.879264 10.5 0.350098 12 0.350098C13.5 0.350098 14.7709 0.879264 15.8125 1.9376C16.8542 2.99593 17.375 4.28343 17.375 5.8001V7.0751H17.7C18.5662 7.0751 19.3078 7.38351 19.9248 8.00035C20.5416 8.61735 20.85 9.35893 20.85 10.2251V19.6251C20.85 20.4913 20.5416 21.2328 19.9248 21.8498C19.3078 22.4667 18.5662 22.7751 17.7 22.7751H6.30002ZM12 16.9251C12.55 16.9251 13.0209 16.7293 13.4125 16.3376C13.8042 15.9459 14 15.4751 14 14.9251C14 14.3751 13.8042 13.9043 13.4125 13.5126C13.0209 13.1209 12.55 12.9251 12 12.9251C11.45 12.9251 10.9792 13.1209 10.5875 13.5126C10.1959 13.9043 10 14.3751 10 14.9251C10 15.4751 10.1959 15.9459 10.5875 16.3376C10.9792 16.7293 11.45 16.9251 12 16.9251ZM9.77502 7.0751H14.225V5.8001C14.225 5.16126 14.0125 4.61818 13.5875 4.17085C13.1625 3.72368 12.6334 3.5001 12 3.5001C11.3667 3.5001 10.8375 3.72368 10.4125 4.17085C9.98752 4.61818 9.77502 5.16126 9.77502 5.8001V7.0751Z" fill="var(--nys-icon-color, currentcolor)"/>
   </g>
 </svg>`
-}, ot = u`
+}, ot = p`
   :host {
     display: inline-block;
     --_nys-icon-size: var(
@@ -4477,7 +4477,7 @@ var rt = Object.defineProperty, nt = Object.getOwnPropertyDescriptor, we = (a, e
     (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && rt(e, t, s), s;
 }, ie;
-const ge = (ie = class extends y {
+const ge = (ie = class extends u {
   constructor() {
     super(...arguments), this.name = "", this.ariaLabel = "", this.rotate = "0", this.flip = "", this.color = "", this._size = "md";
   }
@@ -4539,7 +4539,7 @@ we([
 ], ge.prototype, "size", 1);
 let it = ge;
 customElements.get("nys-icon") || customElements.define("nys-icon", it);
-const at = u`
+const at = p`
   :host {
     /* Label Typography */
     --_nys-label-font-family: var(
@@ -4641,7 +4641,7 @@ var lt = Object.defineProperty, ct = Object.getOwnPropertyDescriptor, ke = (a, e
     (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && lt(e, t, s), s;
 };
-const Ke = class Ke extends y {
+const Ke = class Ke extends u {
   constructor() {
     super(...arguments), this.for = "", this.label = "", this.description = "", this.flag = "", this.inverted = !1, this._tooltip = "";
   }
@@ -4699,7 +4699,7 @@ ke([
   r({ type: String })
 ], te.prototype, "tooltip", 1);
 customElements.get("nys-label") || customElements.define("nys-label", te);
-const dt = u`
+const dt = p`
   :host {
     /* Global Modal Styles */
     --_nys-modal-width: 480px;
@@ -4858,7 +4858,7 @@ var ht = Object.defineProperty, yt = Object.getOwnPropertyDescriptor, pe = (a, e
 };
 let ut = 0;
 var ae;
-const re = (ae = class extends y {
+const re = (ae = class extends u {
   /**************** Lifecycle Methods ****************/
   constructor() {
     super(), this.id = "", this.heading = "", this.subheading = "", this.open = !1, this.mandatory = !1, this._width = "md", this._actionButtonSlot = null, this._prevFocusedElement = null, this._originalBodyOverflow = null, this.hasBodySlots = !1, this.hasActionSlots = !1;
@@ -4973,17 +4973,17 @@ const re = (ae = class extends y {
       n && s.push(n);
       const i = Array.from(t.querySelectorAll("slot"));
       for (const c of i) {
-        const p = c.assignedElements({ flatten: !0 });
-        for (const h of p)
-          h instanceof HTMLElement && h.matches(o) && s.push(h), h.querySelectorAll("nys-button").forEach(
+        const h = c.assignedElements({ flatten: !0 });
+        for (const y of h)
+          y instanceof HTMLElement && y.matches(o) && s.push(y), y.querySelectorAll("nys-button").forEach(
             (V) => {
               s.push(V);
             }
           );
       }
       if (s.length > 0) {
-        const c = s[0], p = s[s.length - 1];
-        let h = document.activeElement, V = s.indexOf(h);
+        const c = s[0], h = s[s.length - 1];
+        let y = document.activeElement, V = s.indexOf(y);
         if (e.shiftKey) {
           e.preventDefault();
           let j = V - 1;
@@ -4991,7 +4991,7 @@ const re = (ae = class extends y {
           const T = s[j];
           s[j].tagName.toLowerCase() === "nys-button" ? (await T.getButtonElement())?.focus() : T.focus();
         } else
-          h === p && (e.preventDefault(), c.tagName.toLowerCase() === "nys-button" ? (await c.getButtonElement())?.focus() : c.focus());
+          y === h && (e.preventDefault(), c.tagName.toLowerCase() === "nys-button" ? (await c.getButtonElement())?.focus() : c.focus());
       }
     }
   }
@@ -5068,7 +5068,7 @@ pe([
 ], re.prototype, "hasActionSlots", 2);
 let pt = re;
 customElements.get("nys-modal") || customElements.define("nys-modal", pt);
-const vt = u`
+const vt = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -5216,7 +5216,7 @@ var ft = Object.defineProperty, Me = (a, e, t, o) => {
   return s && ft(e, t, s), s;
 };
 let gt = 0;
-const Xe = class Xe extends y {
+const Xe = class Xe extends u {
   /**************** Lifecycle Methods ****************/
   constructor() {
     super(), this.id = "", this.name = "", this.currentPage = 1, this.totalPages = 1, this._twoBeforeLast = !1;
@@ -5238,23 +5238,23 @@ const Xe = class Xe extends y {
     return e < 1 ? 1 : e > this.totalPages ? this.totalPages : e;
   }
   renderPageButtons() {
-    const e = [], t = (p, h) => {
+    const e = [], t = (h, y) => {
       e.push(l`
         <nys-button
-          label=${String(p)}
-          ariaLabel="Page ${p}"
-          id=${d(h)}
-          variant=${this.currentPage === p ? "filled" : "outline"}
-          @nys-click="${() => this._handlePageClick(p)}"
+          label=${String(h)}
+          ariaLabel="Page ${h}"
+          id=${d(y)}
+          variant=${this.currentPage === h ? "filled" : "outline"}
+          @nys-click="${() => this._handlePageClick(h)}"
         ></nys-button>
       `);
-    }, o = (p) => {
+    }, o = (h) => {
       e.push(
         l`<nys-button
           label="..."
           class="spacer"
           tabindex="-1"
-          id=${p}
+          id=${h}
         ></nys-button>`
       );
     }, n = this.totalPages, i = this.currentPage - 1, c = this.currentPage + 1;
@@ -5328,7 +5328,7 @@ Me([
   r({ type: Boolean, reflect: !0 })
 ], ce.prototype, "_twoBeforeLast");
 customElements.get("nys-pagination") || customElements.define("nys-pagination", ce);
-const c1 = u`
+const c1 = p`
   :host {
     /* Global Radiobutton Styles */
     --_nys-radiobutton-size: var(--nys-size-400, 32px);
@@ -5695,7 +5695,7 @@ var bt = Object.defineProperty, _t = Object.getOwnPropertyDescriptor, M = (a, e,
 };
 let Ct = 0;
 var Q;
-const S = (Q = class extends y {
+const S = (Q = class extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.label = "", this.description = "", this.tile = !1, this._tooltip = "", this.inverted = !1, this.form = null, this.selectedValue = null, this._slottedDescriptionText = "", this._size = "md", this._internals = this.attachInternals();
@@ -5773,7 +5773,7 @@ const S = (Q = class extends y {
       "Enter"
     ].includes(e.key)) return;
     e.preventDefault();
-    const o = this._getAllRadios().filter((h) => !h.disabled), s = o.find((h) => h.checked) || o[0], n = e.key === " " || e.key === "Enter" ? 0 : ["ArrowUp", "ArrowLeft"].includes(e.key) ? -1 : 1;
+    const o = this._getAllRadios().filter((y) => !y.disabled), s = o.find((y) => y.checked) || o[0], n = e.key === " " || e.key === "Enter" ? 0 : ["ArrowUp", "ArrowLeft"].includes(e.key) ? -1 : 1;
     let i = o.indexOf(s) + n;
     i < 0 && (i = o.length - 1), i >= o.length && (i = 0);
     const c = o[i];
@@ -5926,7 +5926,7 @@ var xt = Object.defineProperty, wt = Object.getOwnPropertyDescriptor, O = (a, e,
 };
 let kt = 0;
 var g;
-const Z = (g = class extends y {
+const Z = (g = class extends u {
   constructor() {
     super(...arguments), this.checked = !1, this.disabled = !1, this.required = !1, this.label = "", this.description = "", this.id = "", this.name = "", this.value = "", this.inverted = !1, this.form = null, this._size = "md", this.tile = !1;
   }
@@ -6067,7 +6067,7 @@ O([
 ], Z.prototype, "tile", 2);
 let St = Z;
 customElements.get("nys-radiobutton") || customElements.define("nys-radiobutton", St);
-const Lt = u`
+const Lt = p`
   :host {
     /* Global Select Styles */
     --_nys-select-width: 100%;
@@ -6217,7 +6217,7 @@ var $t = Object.defineProperty, ze = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && $t(e, t, s), s;
 };
-class de extends y {
+class de extends u {
   constructor() {
     super(...arguments), this.disabled = !1, this.selected = !1, this.value = "", this.label = "", this.hidden = !1;
   }
@@ -6265,10 +6265,10 @@ var Et = Object.defineProperty, Dt = Object.getOwnPropertyDescriptor, B = (a, e,
 };
 let Mt = 0;
 var J;
-const z = (J = class extends y {
+const z = (J = class extends u {
   // allows use of elementInternals' API
   constructor() {
-    super(), this.id = "", this.name = "", this.label = "", this.description = "", this.value = "", this.disabled = !1, this.required = !1, this.optional = !1, this._tooltip = "", this.form = null, this.inverted = !1, this.showError = !1, this.errorMessage = "", this._width = "full", this._hasUserInteracted = !1, this._internals = this.attachInternals();
+    super(), this.id = "", this.name = "", this.label = "", this.description = "", this.value = "", this.disabled = !1, this.required = !1, this.optional = !1, this._tooltip = "", this.form = null, this.inverted = !1, this.showError = !1, this.errorMessage = "", this._width = "full", this._originalErrorMessage = "", this._hasUserInteracted = !1, this._internals = this.attachInternals();
   }
   get width() {
     return this._width;
@@ -6280,13 +6280,13 @@ const z = (J = class extends y {
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-select-${Date.now()}-${Mt++}`), this.addEventListener("invalid", this._handleInvalid);
+    super.connectedCallback(), this.id || (this.id = `nys-select-${Date.now()}-${Mt++}`), this._originalErrorMessage = this.errorMessage ?? "", this.addEventListener("invalid", this._handleInvalid);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("invalid", this._handleInvalid);
   }
   firstUpdated() {
-    this._setValue(), this._validate();
+    this._setValue();
   }
   // This callback is automatically called when the parent form is reset.
   formResetCallback() {
@@ -6297,33 +6297,35 @@ const z = (J = class extends y {
       'slot:not([name="description"])'
     ), t = this.shadowRoot?.querySelector("select");
     if (!e || !t) return;
-    Array.from(t.children).forEach((s) => {
-      s.hasAttribute("data-native") || s.remove();
-    }), e.assignedElements({ flatten: !0 }).forEach((s) => {
-      if (s instanceof de) {
-        const n = document.createElement("option");
-        n.value = s.value, n.textContent = s.label || s.textContent?.trim() || "", n.disabled = s.disabled, n.selected = s.selected, t.appendChild(n);
+    Array.from(t.children).forEach((n) => {
+      n.hasAttribute("data-native") || n.remove();
+    }), e.assignedElements({ flatten: !0 }).forEach((n) => {
+      if (n instanceof de) {
+        const i = document.createElement("option");
+        i.value = n.value, i.textContent = n.label || n.textContent?.trim() || "", i.disabled = n.disabled, i.selected = n.selected, t.appendChild(i);
         return;
       }
-      if (s.tagName === "OPTION") {
-        const n = s.cloneNode(!0);
-        n.setAttribute("data-native", "true"), t.appendChild(n);
+      if (n.tagName === "OPTION") {
+        const i = n, c = i.cloneNode(!0);
+        c.setAttribute("data-native", "true"), c.disabled = i.disabled, c.selected = i.selected, t.appendChild(c);
         return;
       }
-      if (s.tagName === "OPTGROUP") {
-        const n = document.createElement("optgroup");
-        n.label = s.label, s.disabled && (n.disabled = !0), Array.from(s.children).forEach((i) => {
-          if (i instanceof de) {
-            const c = document.createElement("option");
-            c.value = i.value, c.textContent = i.label || i.textContent?.trim() || "", c.disabled = i.disabled, c.selected = i.selected, n.appendChild(c);
-          } else if (i.tagName === "OPTION") {
-            const c = i.cloneNode(!0);
-            n.appendChild(c);
+      if (n.tagName === "OPTGROUP") {
+        const i = document.createElement("optgroup");
+        i.label = n.label, n.disabled && (i.disabled = !0), Array.from(n.children).forEach((c) => {
+          if (c instanceof de) {
+            const h = document.createElement("option");
+            h.value = c.value, h.textContent = c.label || c.textContent?.trim() || "", h.disabled = c.disabled, h.selected = c.selected, i.appendChild(h);
+          } else if (c.tagName === "OPTION") {
+            const h = c.cloneNode(!0);
+            i.appendChild(h);
           }
-        }), t.appendChild(n);
+        }), t.appendChild(i);
         return;
       }
     });
+    const s = Array.from(t.options).find((n) => n.selected);
+    s && (this.value = s.value, this._internals.setFormValue(this.value));
   }
   /********************** Form Integration **********************/
   _setValue() {
@@ -6332,16 +6334,15 @@ const z = (J = class extends y {
   _manageRequire() {
     const e = this.shadowRoot?.querySelector("select");
     if (!e) return;
-    const t = this.errorMessage || "Please select an option.";
+    const t = this.errorMessage || "This field is required.";
     this.required && !this.value ? (this._internals.ariaRequired = "true", this._internals.setValidity({ valueMissing: !0 }, t, e)) : (this._internals.ariaRequired = "false", this._internals.setValidity({}), this._hasUserInteracted = !1);
   }
   _setValidityMessage(e = "") {
     const t = this.shadowRoot?.querySelector("select");
-    t && (this.showError = !!e, this.errorMessage?.trim() && e !== "" && (e = this.errorMessage), this._internals.setValidity(
-      e ? { customError: !0 } : {},
-      e,
-      t
-    ));
+    if (!t) return;
+    this.showError = !!e, this._originalErrorMessage?.trim() && e !== "" ? this.errorMessage = this._originalErrorMessage : this.errorMessage = e;
+    const o = e ? { customError: !0 } : {};
+    this._internals.setValidity(o, this.errorMessage, t);
   }
   _validate() {
     const e = this.shadowRoot?.querySelector("select");
@@ -6369,7 +6370,7 @@ const z = (J = class extends y {
   // Handle change event to bubble up selected value
   _handleChange(e) {
     const t = e.target;
-    this.value = t.value, this._internals.setFormValue(this.value), this._hasUserInteracted && this._validate(), this.dispatchEvent(
+    this.value = t.value, this._internals.setFormValue(this.value), this.required && this.value && (this.showError = !1, this.errorMessage = "", this._internals.setValidity({})), this._hasUserInteracted && this._validate(), this.dispatchEvent(
       new CustomEvent("nys-change", {
         detail: { id: this.id, value: this.value },
         bubbles: !0,
@@ -6434,7 +6435,7 @@ const z = (J = class extends y {
         </div>
         <nys-errormessage
           ?showError=${this.showError}
-          errorMessage=${this._internals.validationMessage || this.errorMessage}
+          errorMessage=${this.errorMessage}
         ></nys-errormessage>
       </div>
     `;
@@ -6484,7 +6485,7 @@ B([
 ], z.prototype, "width", 1);
 let zt = z;
 customElements.get("nys-select") || customElements.define("nys-select", zt);
-const Vt = u`
+const Vt = p`
   :host {
     /* Global Skipnav Styles */
     --_nys-skipnav-padding--y: var(--nys-space-100, 8px);
@@ -6559,7 +6560,7 @@ var At = Object.defineProperty, d1 = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && At(e, t, s), s;
 };
-const Qe = class Qe extends y {
+const Qe = class Qe extends u {
   constructor() {
     super(), this.id = "", this.href = "";
   }
@@ -6604,7 +6605,7 @@ d1([
   r({ type: String })
 ], Ee.prototype, "href");
 customElements.get("nys-skipnav") || customElements.define("nys-skipnav", Ee);
-const h1 = u`
+const h1 = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -6975,7 +6976,7 @@ var Ht = Object.defineProperty, be = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && Ht(e, t, s), s;
 };
-const Je = class Je extends y {
+const Je = class Je extends u {
   constructor() {
     super(...arguments), this.selected = !1, this.current = !1, this.label = "", this.href = "", this.isCompactExpanded = !1, this.stepNumber = 0;
   }
@@ -7052,7 +7053,7 @@ var Bt = Object.defineProperty, Ve = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && Bt(e, t, s), s;
 };
-const e1 = class e1 extends y {
+const e1 = class e1 extends u {
   constructor() {
     super(), this.id = "", this.name = "", this.label = "", this.counterText = "initial", this.isCompactExpanded = !1, this._stepsNumbered = !1, this._onStepClick = async (e) => {
       const t = e.composedPath().find(
@@ -7170,7 +7171,7 @@ Ve([
   r({ type: Boolean, reflect: !0 })
 ], he.prototype, "isCompactExpanded");
 customElements.get("nys-stepper") || customElements.define("nys-stepper", he);
-const It = u`
+const It = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -7317,7 +7318,7 @@ var Pt = Object.defineProperty, Zt = Object.getOwnPropertyDescriptor, x = (a, e,
 };
 let qt = 0;
 var R;
-const C = (R = class extends y {
+const C = (R = class extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.label = "", this.description = "", this.placeholder = "", this.value = "", this.disabled = !1, this.readonly = !1, this.required = !1, this.optional = !1, this._tooltip = "", this.inverted = !1, this.form = null, this.maxlength = null, this.width = "full", this.rows = 4, this._resize = "vertical", this.showError = !1, this.errorMessage = "", this._hasUserInteracted = !1, this._internals = this.attachInternals();
@@ -7531,7 +7532,7 @@ x([
 ], C.prototype, "errorMessage", 2);
 let Ot = C;
 customElements.get("nys-textarea") || customElements.define("nys-textarea", Ot);
-const Ut = u`
+const Ut = p`
   :host {
     /* Anything that can be overridden should be defined here */
 
@@ -7777,7 +7778,7 @@ var Tt = Object.defineProperty, Rt = Object.getOwnPropertyDescriptor, f = (a, e,
 };
 let Nt = 0;
 var N;
-const v = (N = class extends y {
+const v = (N = class extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this._type = "text", this.label = "", this.description = "", this.placeholder = "", this.value = "", this.disabled = !1, this.readonly = !1, this.required = !1, this.optional = !1, this._tooltip = "", this.form = null, this.pattern = "", this.maxlength = null, this.width = "full", this.step = null, this.min = null, this.max = null, this.inverted = !1, this.showError = !1, this.errorMessage = "", this.showPassword = !1, this._originalErrorMessage = "", this._hasUserInteracted = !1, this._maskPatterns = {
@@ -8082,7 +8083,7 @@ f([
 ], v.prototype, "showPassword", 2);
 let Ft = v;
 customElements.get("nys-textinput") || customElements.define("nys-textinput", Ft);
-const jt = u`
+const jt = p`
   :host {
     /* Global Toggle Styles */
     --_nys-toggle-width: var(--nys-font-size-8xl, 44px);
@@ -8360,7 +8361,7 @@ var Gt = Object.defineProperty, Yt = Object.getOwnPropertyDescriptor, F = (a, e,
 };
 let Wt = 0;
 var ee;
-const U = (ee = class extends y {
+const U = (ee = class extends u {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.value = "", this.label = "", this.description = "", this.form = null, this.checked = !1, this.disabled = !1, this.noIcon = !1, this.inverted = !1, this._size = "md", this._internals = this.attachInternals();
@@ -8481,7 +8482,7 @@ F([
 ], U.prototype, "size", 1);
 let Kt = U;
 customElements.get("nys-toggle") || customElements.define("nys-toggle", Kt);
-const Xt = u`
+const Xt = p`
   :host {
     /* Global Tooltip Styles */
     --_nys-tooltip-color: var(--nys-color-text-reverse, #ffffff);
@@ -8644,7 +8645,7 @@ var Qt = Object.defineProperty, Jt = Object.getOwnPropertyDescriptor, Se = (a, e
   return o && s && Qt(e, t, s), s;
 };
 let es = 0;
-const t1 = class t1 extends y {
+const t1 = class t1 extends u {
   /**************** Lifecycle Methods ****************/
   constructor() {
     super(), this.id = "", this.text = "", this.inverted = !1, this.focusable = !1, this._active = !1, this._userHasSetPosition = !1, this._originalUserPosition = null, this._internallyUpdatingPosition = !1, this._position = null, this._handleTooltipEnter = () => {
@@ -8775,17 +8776,17 @@ const t1 = class t1 extends y {
       "left"
     ];
     if (this._userHasSetPosition && this._originalUserPosition) {
-      const h = this._originalUserPosition;
-      h === "left" ? i = ["left", "right", "top", "bottom"] : h === "right" ? i = ["right", "left", "top", "bottom"] : h === "top" ? i = ["top", "bottom", "right", "left"] : h === "bottom" && (i = ["bottom", "top", "right", "left"]);
+      const y = this._originalUserPosition;
+      y === "left" ? i = ["left", "right", "top", "bottom"] : y === "right" ? i = ["right", "left", "top", "bottom"] : y === "top" ? i = ["top", "bottom", "right", "left"] : y === "bottom" && (i = ["bottom", "top", "right", "left"]);
     }
-    for (const h of i)
-      if (this._doesPositionFit(h)) {
-        this._setInternalPosition(h), await this.updateComplete, this._shiftTooltipIntoViewport(t);
+    for (const y of i)
+      if (this._doesPositionFit(y)) {
+        this._setInternalPosition(y), await this.updateComplete, this._shiftTooltipIntoViewport(t);
         return;
       }
-    let c = "top", p = n.top;
-    for (const h of i)
-      n[h] > p && (p = n[h], c = h);
+    let c = "top", h = n.top;
+    for (const y of i)
+      n[y] > h && (h = n[y], c = y);
     this._setInternalPosition(c), await this.updateComplete, this._shiftTooltipIntoViewport(t);
   }
   // Sets flag to distinguish to position's setter that we are updating "position" prop internally
@@ -8798,7 +8799,7 @@ const t1 = class t1 extends y {
       ".nys-tooltip__wrapper"
     )).getBoundingClientRect(), s = e.getBoundingClientRect(), n = o.left + o.width / 2, i = s.left < 0, c = s.right > window.innerWidth;
     this._resetTooltipPositioningStyles(e), i ? (e.style.left = "0px", e.style.transform = "none") : c && (e.style.right = "0px", e.style.left = "auto", e.style.transform = "none");
-    const p = e.getBoundingClientRect(), h = (n - p.left) / p.width, V = Math.max(0, Math.min(1, h)) * 100;
+    const h = e.getBoundingClientRect(), y = (n - h.left) / h.width, V = Math.max(0, Math.min(1, y)) * 100;
     e.style.setProperty("--arrow-offset-x", `${V}%`);
   }
   // Reposition tooltip back to original set position (e.g. top, left, bottom, right) to avoid positioning issue base on last position
@@ -8854,7 +8855,7 @@ Se([
   r({ type: String, reflect: !0 })
 ], se.prototype, "position", 1);
 customElements.get("nys-tooltip") || customElements.define("nys-tooltip", se);
-const ts = u`
+const ts = p`
   :host {
     /* Global Unav Header Styles */
     --_nys-unavheader-padding--gutter: var(--nys-gutter-xs, 20px);
@@ -9276,7 +9277,7 @@ var os = Object.defineProperty, _e = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && os(e, t, s), s;
 };
-const s1 = class s1 extends y {
+const s1 = class s1 extends u {
   constructor() {
     super(...arguments), this.trustbarVisible = !1, this.searchDropdownVisible = !1, this.languageVisible = !1, this.isSearchFocused = !1, this.hideTranslate = !1, this.hideSearch = !1, this.languages = [
       ["English", ""],
@@ -9580,7 +9581,7 @@ _e([
   r({ type: Array, reflect: !0 })
 ], Y.prototype, "languages");
 customElements.get("nys-unavheader") || customElements.define("nys-unavheader", Y);
-const rs = u`
+const rs = p`
   :host {
     /* Global Header Styles */
     --_nys-globalheader-color: var(
@@ -9894,7 +9895,7 @@ var ns = Object.defineProperty, Ae = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && ns(e, t, s), s;
 };
-const o1 = class o1 extends y {
+const o1 = class o1 extends u {
   constructor() {
     super(...arguments), this.appName = "", this.agencyName = "", this.homepageLink = "", this.slotHasContent = !0, this.isMobileMenuOpen = !1;
   }
@@ -9921,7 +9922,7 @@ const o1 = class o1 extends y {
       );
       t.forEach((i) => {
         if (i.nodeType === Node.ELEMENT_NODE) {
-          const c = i.cloneNode(!0), p = i.cloneNode(!0);
+          const c = i.cloneNode(!0), h = i.cloneNode(!0);
           ["script", "iframe", "object", "embed, img"].forEach((j) => {
             c.querySelectorAll(j).forEach((T) => T.remove());
           });
@@ -9936,7 +9937,7 @@ const o1 = class o1 extends y {
               $e && ($e === "/" && n === "/" ? Le = { li: He.closest("li"), length: 1 } : n?.startsWith($e) && $e.length > Le.length && (Le = { li: He.closest("li"), length: $e.length }), T.forEach((y1) => y1.closest("li")?.classList.remove("active")), Le.li?.classList.add("active"));
             });
           };
-          V(c), V(p), o.appendChild(c), s.appendChild(p), i.remove();
+          V(c), V(h), o.appendChild(c), s.appendChild(h), i.remove();
         }
       });
     }
@@ -10048,7 +10049,7 @@ Ae([
   $()
 ], ye.prototype, "isMobileMenuOpen");
 customElements.get("nys-globalheader") || customElements.define("nys-globalheader", ye);
-const is = u`
+const is = p`
   :host {
     /* Global Footer Styles */
     --_nys-globalfooter-color: var(
@@ -10249,7 +10250,7 @@ var as = Object.defineProperty, Re = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && as(e, t, s), s;
 };
-const r1 = class r1 extends y {
+const r1 = class r1 extends u {
   constructor() {
     super(...arguments), this.agencyName = "", this.homepageLink = "", this.slotHasContent = !0;
   }
@@ -10272,8 +10273,8 @@ const r1 = class r1 extends y {
     o && (o.classList.toggle("columns", s), o.classList.toggle("small", !s), o.innerHTML = "", t.forEach((i) => {
       if (i.nodeType === Node.ELEMENT_NODE) {
         const c = i.cloneNode(!0);
-        ["script", "iframe", "object", "embed", "img"].forEach((h) => {
-          c.querySelectorAll(h).forEach((V) => V.remove());
+        ["script", "iframe", "object", "embed", "img"].forEach((y) => {
+          c.querySelectorAll(y).forEach((V) => V.remove());
         }), o.appendChild(c), i.remove();
       }
     }), o.querySelectorAll("span").forEach((i) => {
@@ -10311,7 +10312,7 @@ Re([
   $()
 ], xe.prototype, "slotHasContent");
 customElements.get("nys-globalfooter") || customElements.define("nys-globalfooter", xe);
-const ls = u`
+const ls = p`
   :host {
     /* Global Footer Styles */
     --_nys-unavfooter-color: var(
@@ -10476,7 +10477,7 @@ const ls = u`
   <path d="M51.7107 54.9999C51.577 54.9999 51.4335 54.974 51.2939 54.8965C51.085 54.7803 50.9395 54.5876 50.8858 54.3551C50.8233 54.0868 50.8936 53.7868 51.082 53.5116L51.1426 53.4202C51.2041 53.3268 51.2685 53.2354 51.3407 53.1519C51.4218 53.0595 51.5047 52.995 51.5741 52.9493C51.5243 52.6691 51.5418 52.4267 51.5682 52.2061C51.5877 52.0233 51.6346 51.8683 51.6726 51.7451C51.6892 51.6925 51.7058 51.6388 51.7185 51.5812C51.8201 51.145 51.8855 50.7397 51.9206 50.3453C51.9528 49.9916 51.947 49.9846 51.8864 49.9061C51.7 49.6707 51.3847 49.5018 51.0498 49.3229C50.8878 49.2365 50.7286 49.1491 50.5754 49.0557C49.607 48.4536 48.6376 47.8505 47.6701 47.2465L47.3294 47.0339C47.2513 46.9862 47.1147 46.9156 46.9516 46.8282C45.8817 46.2659 45.172 45.8526 45.0539 45.2595C45.0363 45.173 44.9465 44.9644 44.884 44.864C44.8411 44.8611 44.7307 44.8521 44.6546 44.8471C44.3032 44.8183 43.7711 44.7726 43.3484 44.3196C43.2635 44.2272 43.1786 44.1408 43.1005 44.0583C42.5098 43.4443 42.0003 42.9148 41.9329 41.5993C41.9241 41.4275 41.9251 41.2506 41.928 41.0728C41.9339 40.5283 41.927 40.1836 41.7103 39.962C41.6078 39.8567 41.435 39.7862 41.2349 39.7037C40.9889 39.6034 40.7097 39.4881 40.45 39.2686C40.37 39.2 40.2792 39.1007 40.1776 38.9854C40.0712 38.8602 39.9082 38.6724 39.7969 38.6337C38.974 38.3436 37.986 38.3178 36.96 38.3178L3.07245 38.2909C2.85964 38.2909 2.66927 38.3138 2.48477 38.3347C2.07378 38.3823 1.60812 38.437 1.2313 38.0962C0.866192 37.7664 0.815429 37.2607 0.814452 36.8076L0.8125 34.3993C0.8125 34.2722 0.847644 34.147 0.913051 34.0387C1.22544 33.529 1.83265 33.2558 2.3686 33.0144C2.56872 32.924 2.77666 32.8316 2.88795 32.7571C3.17593 32.5623 3.43561 32.302 3.7109 32.0248C3.91688 31.8182 4.13068 31.6046 4.36887 31.4059C4.69786 31.1317 5.07078 30.931 5.43296 30.7372C5.74535 30.5703 6.03821 30.4124 6.24127 30.2395C6.38575 30.1173 6.49216 29.9146 6.61906 29.6792C6.75476 29.4238 6.90998 29.1337 7.15208 28.8804C7.41273 28.6081 7.7427 28.4194 8.03263 28.2535C8.69744 27.871 8.68182 27.8322 8.57736 27.5769C8.52855 27.4577 8.48072 27.3553 8.43972 27.2639C8.24447 26.8357 8.07754 26.4681 8.19078 25.7051C8.2025 25.6306 8.21616 25.5521 8.22983 25.4706C8.25619 25.3325 8.30305 25.0772 8.27571 25.0037C8.27571 25.0037 8.26204 24.9927 8.23471 24.9778C8.21128 24.9659 8.12928 24.9669 8.06875 24.9679C7.87448 24.9659 7.51914 24.9768 7.2497 24.6689C6.98124 24.3629 6.99686 23.9555 7.03982 23.6356C7.08179 23.3127 7.06032 23.1051 7.03982 22.9223C6.95684 22.1453 7.21358 21.7817 8.10097 21.424C10.7524 20.351 12.901 19.9884 14.8613 20.2805C14.9775 20.2974 15.1356 20.2656 15.3182 20.2269C15.5944 20.1702 15.9351 20.1017 16.312 20.1752L18.3952 20.5766C19.2475 20.7415 19.6653 20.9054 20.3047 21.4995C20.6327 21.8046 20.7655 21.7718 21.3327 21.5661C21.6168 21.4638 21.9399 21.3485 22.3323 21.2949C22.9727 21.2084 23.5731 21.2661 24.153 21.3227C24.4136 21.3475 24.6762 21.3734 24.9408 21.3843C25.2356 21.3952 25.6085 21.2561 25.9717 21.121C26.1318 21.0614 26.2889 21.0028 26.4412 20.9541C26.78 20.8468 27.0973 20.7991 27.4038 20.7514C27.5551 20.7266 27.7064 20.7037 27.8607 20.6729C27.8714 20.6531 27.8821 20.6332 27.8939 20.6113C27.9417 20.5249 27.9944 20.4345 28.0598 20.3411C28.3419 19.9497 28.7471 19.7003 29.0722 19.4966L29.2078 19.4122C29.5564 19.1916 29.8629 18.9879 30.105 18.7386C30.5423 18.2796 31.1232 18.3114 31.5108 18.3312C31.6455 18.3392 31.8495 18.3481 31.91 18.3223C32.1678 18.207 31.9413 17.3993 31.8065 16.9165C31.7119 16.5777 31.6299 16.2846 31.6133 16.0183C31.5664 15.2642 31.9764 14.7317 32.3064 14.3045C32.5651 13.9687 32.7213 13.7481 32.7164 13.5355C32.7164 13.4948 32.7027 13.4382 32.6851 13.3845C32.4587 13.4948 32.0955 13.6369 31.6796 13.4421C31.0129 13.1302 30.6468 12.0264 30.8508 11.3985C31.0197 10.8779 31.54 10.5421 31.9198 10.2957L32.0565 10.2053C32.3806 9.98471 32.7242 9.79792 33.0542 9.6181C33.5159 9.36873 33.9513 9.13227 34.2949 8.82726C34.4404 8.69711 34.5761 8.56994 34.7089 8.44376C35.0076 8.1626 35.3161 7.8715 35.6792 7.61319C35.7056 7.5188 35.728 7.34096 35.7437 7.22571C35.7729 7.00714 35.8022 6.78062 35.8803 6.5849C36.2513 5.64304 37.1592 4.90884 37.9597 4.25908C38.2252 4.04448 38.4771 3.84081 38.6743 3.65602C38.7992 3.53878 38.9222 3.42055 39.0452 3.30332C39.6388 2.73701 40.2509 2.15084 40.9967 1.68289C41.601 1.30536 42.3898 0.833439 43.1249 0.552274C44.0972 0.1807 44.5579 0.208518 45.4766 0.262168L45.6474 0.27111C47.3607 0.371455 49.1384 0.32476 50.8575 0.281045C51.7205 0.258194 52.5796 0.235343 53.4347 0.230376C53.6651 0.230376 54.0156 0.185667 54.3836 0.138972C55.6078 -0.0140291 56.994 -0.188888 57.7818 0.503592C58.1118 0.792705 58.2924 1.19806 58.3031 1.67594C58.311 2.05248 58.1567 2.33464 58.0435 2.54129C58.0064 2.60686 57.9527 2.7082 57.9458 2.74297C57.9488 2.73205 57.9849 2.78768 58.0103 2.82742C58.1362 3.01718 58.3686 3.37088 58.2748 3.89843C58.2397 4.10111 58.1811 4.3167 58.1216 4.53528C58.0464 4.81147 57.9693 5.09761 57.9624 5.31419C57.9498 5.69073 57.6335 5.99376 57.2703 5.97289C56.9013 5.95998 56.6104 5.64603 56.6231 5.26849C56.6367 4.89195 56.7392 4.50944 56.831 4.17264C56.8788 3.9948 56.9276 3.82094 56.9569 3.65502C56.9481 3.65502 56.9218 3.62323 56.8993 3.58746C56.791 3.42254 56.6065 3.14535 56.6065 2.73701C56.6065 2.36345 56.7607 2.08328 56.873 1.87862C56.9072 1.81702 56.9589 1.72462 56.9657 1.69084C56.9608 1.58354 56.9267 1.55274 56.9072 1.53685C56.5694 1.23979 55.2544 1.40372 54.5496 1.49313C54.1386 1.5438 53.752 1.59348 53.4435 1.59547C52.5971 1.60043 51.7439 1.62229 50.8907 1.64315C49.1442 1.68886 47.3382 1.73654 45.5722 1.63421L45.3985 1.62328C44.5345 1.57162 44.3022 1.55871 43.5964 1.82894C42.9618 2.07235 42.2101 2.5244 41.7006 2.84431C41.0699 3.23973 40.533 3.75338 39.9648 4.29683C39.8379 4.41804 39.712 4.53925 39.5831 4.65947C39.3479 4.87804 39.0794 5.09661 38.7953 5.32611C38.1237 5.87056 37.3642 6.48555 37.1231 7.09457C37.1065 7.14425 37.085 7.30221 37.0713 7.40753C37.0147 7.84666 36.9424 8.3931 36.5041 8.69016C36.1927 8.90277 35.9145 9.16704 35.6187 9.44523C35.4771 9.57935 35.3317 9.71546 35.1774 9.85257C34.7186 10.2629 34.1924 10.548 33.6838 10.8222C33.3675 10.9931 33.0698 11.1541 32.8033 11.3369C32.7554 11.3707 32.6978 11.4064 32.6373 11.4462C32.5114 11.5276 32.2332 11.7065 32.1346 11.8217C32.1424 11.8992 32.1726 12.0115 32.2117 12.1009C32.3757 12.0214 32.6041 11.924 32.8804 11.9459C33.6633 12.0135 34.0401 12.8937 34.0558 13.4988C34.0743 14.2191 33.677 14.7337 33.3587 15.145C33.0971 15.4868 32.9351 15.7074 32.9487 15.9319C32.9565 16.0511 33.0288 16.3114 33.0932 16.5419C33.3314 17.3933 33.7746 18.978 32.4479 19.5701C32.0965 19.7281 31.7314 19.7082 31.4375 19.6933C31.3126 19.6864 31.1046 19.6764 31.047 19.7023C30.7171 20.051 30.3227 20.3113 29.9166 20.5706L29.7692 20.663C29.5212 20.816 29.2654 20.976 29.1405 21.1488C29.1083 21.1935 29.0819 21.2412 29.0585 21.2859C28.9345 21.5085 28.7256 21.884 28.174 21.9993C27.9827 22.04 27.7943 22.0708 27.6059 22.0996C27.3364 22.1414 27.0807 22.1811 26.8386 22.2566C26.7087 22.2993 26.5711 22.35 26.4334 22.4017C25.9697 22.5745 25.4435 22.7732 24.8871 22.7474C24.5981 22.7355 24.3131 22.7087 24.027 22.6808C23.4989 22.6282 22.9981 22.5805 22.511 22.6481C22.2572 22.6828 22.0258 22.7653 21.7817 22.8537C21.1716 23.0733 20.3369 23.3733 19.4046 22.508C18.9927 22.1265 18.8267 22.049 18.1473 21.9178L16.065 21.5164C15.942 21.4936 15.775 21.5264 15.5818 21.5651C15.3289 21.6168 15.0136 21.6784 14.6719 21.6297C12.9508 21.3724 11.0218 21.7112 8.59689 22.6928C8.49829 22.7325 8.42703 22.7643 8.37431 22.7891C8.39579 22.9779 8.42312 23.2491 8.39091 23.6217C8.53343 23.6416 8.69353 23.6843 8.86047 23.7737C9.81228 24.2834 9.63461 25.256 9.5487 25.724C9.53601 25.7876 9.52528 25.8511 9.51551 25.9127C9.4628 26.2694 9.49501 26.3429 9.65511 26.6917C9.70392 26.798 9.75664 26.9162 9.81326 27.0543C10.3941 28.4681 9.28415 29.1039 8.68865 29.4447C8.46705 29.5719 8.23764 29.701 8.11268 29.8331C7.99944 29.9524 7.89987 30.1372 7.79541 30.3329C7.62945 30.6448 7.44104 30.9975 7.10522 31.2847C6.79088 31.5529 6.41894 31.7536 6.05871 31.9454C5.74144 32.1153 5.44077 32.2762 5.21623 32.464C5.02782 32.6219 4.84527 32.8048 4.65295 32.9985C4.34252 33.3085 4.02524 33.6294 3.62499 33.8976C3.41901 34.0347 3.17203 34.147 2.9104 34.2652C2.69661 34.3606 2.33443 34.5225 2.14992 34.6626L2.15383 36.8096C2.15383 36.8881 2.15578 36.9527 2.15871 37.0023C2.21533 36.9974 2.27586 36.9904 2.32662 36.9835C2.5287 36.9606 2.77959 36.9308 3.06952 36.9308L36.9581 36.9566C38.0573 36.9566 39.2141 36.9884 40.2304 37.3471C40.6755 37.5021 40.9801 37.8538 41.1812 38.0853C41.2281 38.1399 41.2681 38.1896 41.3052 38.2234C41.4018 38.3048 41.5551 38.3674 41.7328 38.441C42.0129 38.5562 42.3615 38.7003 42.6572 39.0043C43.2811 39.6411 43.2713 40.4469 43.2645 41.0927C43.2606 41.2417 43.2606 41.3897 43.2664 41.5328C43.3084 42.3326 43.5261 42.5581 44.0532 43.1055C44.1372 43.1929 44.2251 43.2853 44.3188 43.3847C44.3842 43.4542 44.5287 43.4701 44.761 43.491C45.0412 43.5138 45.3897 43.5417 45.6953 43.7751C46.0291 44.0275 46.2546 44.5888 46.3376 44.8809C46.5455 45.0846 47.2777 45.4711 47.5647 45.6211C47.7639 45.7264 47.9298 45.8158 48.0265 45.8754L48.3672 46.088C49.3346 46.6891 50.3011 47.2922 51.2705 47.8943C51.3993 47.9727 51.533 48.0463 51.6707 48.1188C52.0924 48.3443 52.5698 48.6006 52.9291 49.0567C53.3215 49.5544 53.2942 50.0045 53.259 50.4029C53.3156 50.2936 53.3781 50.1893 53.4513 50.0879C53.5841 49.8982 53.7393 49.7541 53.877 49.626C54.0136 49.4998 54.1073 49.4104 54.1396 49.3388C54.1132 49.2772 54.0527 49.1739 54.0117 49.1034C53.8487 48.8232 53.6271 48.4387 53.7315 47.9857C53.7725 47.8108 53.8789 47.6588 54.0283 47.5634C54.0849 47.5276 54.205 47.4591 54.3631 47.3717C54.5818 47.2495 55.1373 46.9405 55.475 46.71C54.9723 45.5913 55.1392 44.2163 55.2886 42.9843C55.3345 42.6038 55.3784 42.2451 55.3989 41.9222C55.4204 41.5467 55.7337 41.2606 56.1076 41.2834C56.4776 41.3063 56.7588 41.6301 56.7353 42.0057C56.7148 42.3693 56.667 42.7498 56.6182 43.1522C56.4776 44.3166 56.3165 45.637 56.833 46.3911C56.954 46.5669 56.994 46.7895 56.9452 47.0021C56.8417 47.4502 56.3898 47.7879 55.1958 48.4606C55.352 48.7308 55.5395 49.0904 55.4731 49.5167C55.4623 49.5812 55.4487 49.6428 55.4321 49.7015C55.766 49.5793 56.1154 49.464 56.4845 49.3577C57.8775 48.9543 59.3409 48.7745 61.225 48.7745C62.0587 48.7745 62.8006 48.5053 63.5874 48.2211C64.2103 47.9946 64.8546 47.7621 65.576 47.6508C66.1852 47.5555 66.5005 47.7562 66.7728 47.9688C66.8636 48.0403 66.93 48.09 67.0442 48.1357C67.3625 48.2619 67.7325 48.2211 68.1601 48.1754C68.5925 48.1277 69.0836 48.0731 69.5844 48.2042C69.8821 48.2837 70.09 48.5579 70.0861 48.8709C70.0744 50.0571 68.5076 50.5459 67.7549 50.7814L67.0384 51.0099C66.4985 51.1848 65.9567 51.3586 65.41 51.5176C65.1631 51.5881 64.918 51.6587 64.672 51.7223C64.3889 51.7948 64.099 51.9597 63.7944 52.1316C63.481 52.3094 63.1579 52.4922 62.786 52.6174C62.1426 52.83 61.4837 52.9413 60.6471 52.9761C60.4069 52.987 60.1746 53.0943 59.9295 53.2056C59.5674 53.3735 59.1154 53.5801 58.6107 53.4132C58.3949 53.3864 57.5534 53.6775 57.1502 53.8196C56.832 53.9289 56.5577 54.0242 56.3419 54.0759C55.598 54.2528 54.8415 54.3918 54.1103 54.527L53.5968 54.6223C53.1516 54.7058 52.7035 54.7922 52.2613 54.8926L52.2076 54.9085C52.0797 54.9482 51.9021 55.0038 51.7078 55.0038L51.7107 54.9999ZM53.0735 51.6746C53.0569 51.7471 53.0403 51.8196 53.0237 51.8941C53.0032 51.9806 52.9788 52.064 52.9544 52.1455C52.9281 52.2359 52.9066 52.3055 52.8988 52.3651C52.8793 52.5379 52.8773 52.6313 52.8978 52.7247C52.9495 52.9791 52.9388 53.1907 52.8949 53.3645C53.0482 53.3347 53.2024 53.3049 53.3566 53.2751L53.875 53.1808C54.5896 53.0486 55.3296 52.9125 56.0412 52.7436C56.1906 52.7078 56.4483 52.6194 56.7217 52.525C57.7721 52.1604 58.4994 51.9359 59.0295 52.1127C59.0646 52.1058 59.2559 52.0173 59.3828 51.9597C59.7001 51.8137 60.0945 51.6328 60.5924 51.611C61.3021 51.5812 61.8498 51.4908 62.372 51.3169C62.622 51.2345 62.8748 51.0914 63.1442 50.9374C63.5123 50.7298 63.892 50.5142 64.3469 50.3969C64.5793 50.3373 64.8136 50.2707 65.0459 50.2042C65.5789 50.0482 66.11 49.8773 66.6362 49.7064L67.1253 49.5514C66.9388 49.5246 66.7504 49.4779 66.56 49.4014C66.2672 49.2862 66.0836 49.1411 65.9616 49.0457C65.9313 49.0229 65.906 48.999 65.8757 48.9812C65.8737 48.9851 65.8405 48.9851 65.7781 48.9941C65.1845 49.0855 64.6281 49.2862 64.0394 49.4998C63.1794 49.8107 62.293 50.1326 61.2279 50.1326C59.4717 50.1326 58.1235 50.2966 56.8535 50.6642C55.7142 50.992 54.7868 51.3984 54.0166 51.9031C53.7901 52.0521 53.5001 52.0481 53.2776 51.8951C53.1917 51.8365 53.1214 51.76 53.0735 51.6716V51.6746Z" fill="white"/>
   <path d="M67.6348 51.8019C67.6348 51.8019 67.6173 51.782 67.6173 51.7303C67.6173 51.6787 67.6348 51.6588 67.6348 51.6588H68.5564C68.5564 51.6588 68.5749 51.6806 68.5749 51.7303C68.5749 51.78 68.5564 51.8019 68.5564 51.8019H68.1932V52.9205C68.1932 52.9205 68.1659 52.9404 68.0976 52.9404C68.0292 52.9404 67.998 52.9205 67.998 52.9205V51.8019H67.6348Z" fill="white"/>
   <path d="M69.4282 52.8659C69.4135 52.8748 69.3891 52.8858 69.3471 52.8858C69.3178 52.8858 69.2837 52.8798 69.27 52.8659L68.9889 52.1476C68.9723 52.1088 68.9459 52.0323 68.944 52.0214C68.944 52.0264 68.9371 52.1277 68.9332 52.1565L68.8815 52.9205C68.8815 52.9205 68.8561 52.9404 68.7858 52.9404C68.7155 52.9404 68.6862 52.9205 68.6862 52.9205L68.7839 51.6787C68.7839 51.6787 68.8112 51.6588 68.8776 51.6588C68.9518 51.6588 68.9781 51.6787 68.9781 51.6787L69.3042 52.5162L69.3471 52.6533C69.3481 52.6473 69.3774 52.5559 69.392 52.5162L69.7181 51.6787C69.7181 51.6787 69.7464 51.6588 69.8206 51.6588C69.886 51.6588 69.9124 51.6787 69.9124 51.6787L70.01 52.9205C70.01 52.9205 69.9807 52.9404 69.9104 52.9404C69.8401 52.9404 69.8167 52.9205 69.8167 52.9205L69.763 52.1546L69.7523 52.0194C69.7523 52.0194 69.722 52.1148 69.7093 52.1456L69.4282 52.8659Z" fill="white"/>
-</svg>`, n1 = class n1 extends y {
+</svg>`, n1 = class n1 extends u {
   /**************** Functions ****************/
   _getNysLogo() {
     return new DOMParser().parseFromString(cs, "image/svg+xml").documentElement;
