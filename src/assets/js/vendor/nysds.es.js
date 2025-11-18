@@ -1,12 +1,6 @@
 import { css as u, LitElement as y, html as l } from "lit";
 import { property as r, query as u1, state as $ } from "lit/decorators.js";
 import { ifDefined as d } from "lit/directives/if-defined.js";
-/*!
-   * New York State Design System (v1.11.1)
-   * Description: A design system for New York State's digital products.
-   * Repository: https://github.com/its-hcd/nysds
-   * License: MIT
- */
 const a1 = u`
   :host {
     /* Anything that can be overridden should be defined here */
@@ -206,7 +200,7 @@ const Ne = class Ne extends y {
   render() {
     const e = `${this.id}-content`;
     return l`
-    <div id=${this.id} class="nys-accordionitem">
+    <div class="nys-accordionitem">
       <button
         class="nys-accordionitem__heading"
         type="button"
@@ -232,7 +226,7 @@ const Ne = class Ne extends y {
 Ne.styles = a1;
 let le = Ne;
 De([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], le.prototype, "id");
 De([
   r({ type: String })
@@ -287,7 +281,6 @@ const Fe = class Fe extends y {
   }
   render() {
     return l`<div
-      id=${this.id}
       class="nys-accordion"
       @nys-accordionitem-toggle=${this._onAccordionToggle}
     >
@@ -298,7 +291,7 @@ const Fe = class Fe extends y {
 Fe.styles = a1;
 let Ce = Fe;
 Ue([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], Ce.prototype, "id");
 Ue([
   r({ type: Boolean, reflect: !0 })
@@ -614,7 +607,6 @@ const A = (ne = class extends y {
     const { role: e, ariaLabel: t } = this.ariaAttributes;
     return l`
       ${this._alertClosed ? "" : l` <div
-            id=${this.id}
             class="nys-alert__container ${this._slotHasContent || this.text?.trim().length > 0 ? "" : "nys-alert--centered"}"
             aria-label=${d(
       t.trim() !== "" ? t : void 0
@@ -667,7 +659,7 @@ const A = (ne = class extends y {
   "emergency"
 ], ne);
 P([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], A.prototype, "id", 2);
 P([
   r({ type: String })
@@ -814,20 +806,17 @@ var k1 = Object.defineProperty, W = (a, e, t, o) => {
     (i = a[n]) && (s = i(e, t, s) || s);
   return s && k1(e, t, s), s;
 };
-let L1 = 0;
+let S1 = 0;
 const je = class je extends y {
   constructor() {
-    super(...arguments), this.id = "", this.ariaLabel = "", this.image = "", this.initials = "", this.icon = "", this.color = "", this.interactive = !1, this.disabled = !1, this.lazy = !1, this._slotHasContent = !0;
+    super(...arguments), this.id = "", this.ariaLabel = "", this.image = "", this.initials = "", this.icon = "", this.color = "", this.interactive = !1, this.disabled = !1, this.lazy = !1, this._slotHasContent = !1;
   }
   /******************** Functions ********************/
   // Generate a unique ID if one is not provided
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-avatar-${Date.now()}-${L1++}`);
+    super.connectedCallback(), this.id || (this.id = `nys-avatar-${Date.now()}-${S1++}`);
   }
-  firstUpdated() {
-    this._checkSlotContent();
-  }
-  async _checkSlotContent() {
+  async _handleSlotChange() {
     const e = this.shadowRoot?.querySelector("slot");
     if (!e) {
       this._slotHasContent = !1;
@@ -854,7 +843,7 @@ const je = class je extends y {
   }
   render() {
     return l`
-      <label class="nys-avatar" id=${this.id}>
+      <div class="nys-avatar">
         <div class="nys-avatar__content">
           <div
             part="nys-avatar"
@@ -881,24 +870,23 @@ const je = class je extends y {
                     class="nys-avatar__initials"
                     aria-hidden="true"
                     >${this.initials}</span
-                  >` : this._slotHasContent ? l`<div part="nys-avatar__icon">
-                      <slot></slot>
-                    </div>` : l`<div part="nys-avatar__icon">
-                      <nys-icon
-                        label="nys-avatar__icon"
-                        name=${this.icon?.length > 0 ? this.icon : "account_circle"}
-                      ></nys-icon>
-                    </div>`}
+                  >` : l`<div part="nys-avatar__icon">
+                    <slot @slotchange=${this._handleSlotChange}></slot>
+                    ${this._slotHasContent ? null : l`<nys-icon
+                          label="nys-avatar__icon"
+                          name=${this.icon?.length > 0 ? this.icon : "account_circle"}
+                        ></nys-icon>`}
+                  </div>`}
           </div>
         </div>
-      </label>
+      </div>
     `;
   }
 };
 je.styles = w1;
 let I = je;
 W([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], I.prototype, "id");
 W([
   r({ type: String })
@@ -928,7 +916,7 @@ W([
   $()
 ], I.prototype, "_slotHasContent");
 customElements.get("nys-avatar") || customElements.define("nys-avatar", I);
-const S1 = u`
+const L1 = u`
   .nys-backtotop {
     /* These props ARE NOT publicly overridable */
     --_nys-button-border-radius--start: var(--nys-radius-round, 1776px);
@@ -996,7 +984,7 @@ const Ge = class Ge extends y {
     ></nys-button>`;
   }
 };
-Ge.styles = S1;
+Ge.styles = L1;
 let ve = Ge;
 Ze([
   r({ type: String })
@@ -1020,8 +1008,12 @@ const E1 = u`
     --_nys-button-height: var(--nys-size-600, 48px);
     --_nys-button-border-radius--start: var(--nys-radius-xl, 12px);
     --_nys-button-border-radius--end: var(--nys-radius-xl, 12px);
-    --_nys-button-padding--y: var(--nys-space-150, 12px);
-    --_nys-button-padding--x: var(--nys-space-250, 20px);
+    --_nys-button-padding--y: calc(
+      var(--nys-space-150, 12px) - var(--nys-border-width-md, 2px)
+    ); /* remove calc when SASS'd */
+    --_nys-button-padding--x: calc(
+      var(--nys-space-250, 20px) - var(--nys-border-width-md, 2px)
+    ); /* remove calc when SASS'd */
     --_nys-button-gap: var(--nys-space-100, 8px);
     --_nys-button-border-width: var(--nys-border-width-md, 2px);
     --_nys-button-outline-width: var(--nys-border-width-md, 2px);
@@ -1095,18 +1087,30 @@ const E1 = u`
   /* Sizes */
   :host([size="sm"]) {
     --_nys-button-height: var(--nys-size-500, 40px);
-    --_nys-button-padding--y: var(--nys-space-100, 8px);
-    --_nys-button-padding--x: var(--nys-space-200, 16px);
+    --_nys-button-padding--y: calc(
+      var(--nys-space-100, 8px) - var(--nys-border-width-md, 2px)
+    ); /* remove calc when SASS'd */
+    --_nys-button-padding--x: calc(
+      var(--nys-space-200, 16px) - var(--nys-border-width-md, 2px)
+    ); /* remove calc when SASS'd */
   }
   :host([size="md"]) {
     --_nys-button-height: var(--nys-size-600, 48px);
-    --_nys-button-padding--y: var(--nys-space-150, 12px);
-    --_nys-button-padding--x: var(--nys-space-250, 20px);
+    --_nys-button-padding--y: calc(
+      var(--nys-space-150, 12px) - var(--nys-border-width-md, 2px)
+    ); /* remove calc when SASS'd */
+    --_nys-button-padding--x: calc(
+      var(--nys-space-250, 20px) - var(--nys-border-width-md, 2px)
+    ); /* remove calc when SASS'd */
   }
   :host([size="lg"]) {
     --_nys-button-height: var(--nys-size-700, 56px);
-    --_nys-button-padding--y: var(--nys-space-200, 16px);
-    --_nys-button-padding--x: var(--nys-space-300, 24px);
+    --_nys-button-padding--y: calc(
+      var(--nys-space-200, 16px) - var(--nys-border-width-md, 2px)
+    ); /* remove calc when SASS'd */
+    --_nys-button-padding--x: calc(
+      var(--nys-space-300, 24px) - var(--nys-border-width-md, 2px)
+    ); /* remove calc when SASS'd */
   }
   :host([fullWidth]) {
     --_nys-button-width: 100%;
@@ -1586,7 +1590,6 @@ const E1 = u`
   .nys-button {
     width: var(--_nys-button-width);
     min-height: var(--_nys-button-height);
-    height: var(--_nys-button-height);
     /* set every corner individually */
     border-start-start-radius: var(--_nys-button-border-radius--start);
     border-end-start-radius: var(--_nys-button-border-radius--start);
@@ -1677,8 +1680,8 @@ var D1 = Object.defineProperty, M1 = Object.getOwnPropertyDescriptor, _ = (a, e,
   return o && s && D1(e, t, s), s;
 };
 let z1 = 0;
-var S;
-const b = (S = class extends y {
+var L;
+const b = (L = class extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this._size = "md", this.fullWidth = !1, this._variant = "filled", this.inverted = !1, this.label = "", this.ariaLabel = "", this.ariaControls = "", this.prefixIcon = "", this.suffixIcon = "", this.circle = !1, this.icon = "", this.disabled = !1, this.form = null, this.value = "", this.ariaDescription = "", this._type = "button", this.onClick = null, this.href = "", this._target = "_self", this._internals = this.attachInternals();
@@ -1687,7 +1690,7 @@ const b = (S = class extends y {
     return this._size;
   }
   set size(e) {
-    this._size = S.VALID_SIZES.includes(
+    this._size = L.VALID_SIZES.includes(
       e
     ) ? e : "md";
   }
@@ -1695,7 +1698,7 @@ const b = (S = class extends y {
     return this._variant;
   }
   set variant(e) {
-    this._variant = S.VALID_VARIANTS.includes(
+    this._variant = L.VALID_VARIANTS.includes(
       e
     ) ? e : "filled";
   }
@@ -1703,7 +1706,7 @@ const b = (S = class extends y {
     return this._type;
   }
   set type(e) {
-    this._type = S.VALID_TYPES.includes(
+    this._type = L.VALID_TYPES.includes(
       e
     ) ? e : "button";
   }
@@ -1711,7 +1714,7 @@ const b = (S = class extends y {
     return this._target;
   }
   set target(e) {
-    this._target = S.VALID_TARGETS.includes(
+    this._target = L.VALID_TARGETS.includes(
       e
     ) ? e : "_self";
   }
@@ -1794,7 +1797,6 @@ const b = (S = class extends y {
             <div class="nys-button__linkwrapper">
               <a
                 class="nys-button"
-                id=${d(this.id)}
                 name=${d(this.name ? this.name : void 0)}
                 ?disabled=${this.disabled}
                 aria-disabled="${this.disabled ? "true" : "false"}"
@@ -1830,7 +1832,6 @@ const b = (S = class extends y {
           ` : l`
             <button
               class="nys-button"
-              id=${d(this.id)}
               name=${d(this.name ? this.name : void 0)}
               ?disabled=${this.disabled}
               form=${d(this.form || void 0)}
@@ -1864,20 +1865,20 @@ const b = (S = class extends y {
           `}
     `;
   }
-}, S.VALID_SIZES = ["sm", "md", "lg"], S.VALID_VARIANTS = [
+}, L.VALID_SIZES = ["sm", "md", "lg"], L.VALID_VARIANTS = [
   "filled",
   "outline",
   "ghost",
   "text"
-], S.VALID_TYPES = ["submit", "reset", "button"], S.VALID_TARGETS = [
+], L.VALID_TYPES = ["submit", "reset", "button"], L.VALID_TARGETS = [
   "_self",
   "_blank",
   "_parent",
   "_top",
   "framename"
-], S.styles = E1, S.formAssociated = !0, S);
+], L.styles = E1, L.formAssociated = !0, L);
 _([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], b.prototype, "id", 2);
 _([
   r({ type: String, reflect: !0 })
@@ -2091,7 +2092,7 @@ const oe = (q = class extends y {
   warning: "warning"
 }, q);
 ue([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], oe.prototype, "id", 2);
 ue([
   r({ type: String, reflect: !0 })
@@ -2621,7 +2622,7 @@ const E = (K = class extends y {
     return l`
       <div class="nys-checkboxgroup">
         <nys-label
-          for=${this.id}
+          for=${this.id + "--native"}
           label=${this.label}
           description=${this.description}
           flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -2648,7 +2649,7 @@ const E = (K = class extends y {
   }
 }, K.VALID_SIZES = ["sm", "md"], K.styles = l1, K.formAssociated = !0, K);
 H([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], E.prototype, "id", 2);
 H([
   r({ type: String, reflect: !0 })
@@ -2809,7 +2810,7 @@ const w = (X = class extends y {
       <label class="nys-checkbox">
         <div class="nys-checkbox__checkboxwrapper">
           <input
-            id="${this.id}"
+            id=${this.id + "--native"}
             class="nys-checkbox__checkbox"
             type="checkbox"
             name="${d(this.name ? this.name : void 0)}"
@@ -2829,7 +2830,6 @@ const w = (X = class extends y {
             aria-label="${this.label}"
           />
           ${this.checked ? l`<nys-icon
-                for="${this.id}"
                 name="check"
                 size="${this.size === "md" ? "4xl" : this.size === "sm" ? "2xl" : "xl"}"
                 class="nys-checkbox__icon"
@@ -2837,7 +2837,7 @@ const w = (X = class extends y {
         </div>
         ${this.label && l`
           <nys-label
-            for=${this.id}
+            for=${this.id + "--native"}
             label=${this.label}
             description=${d(this.description ?? void 0)}
             flag=${d(this.required ? "required" : void 0)}
@@ -2874,7 +2874,7 @@ D([
   r({ type: String })
 ], w.prototype, "description", 2);
 D([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], w.prototype, "id", 2);
 D([
   r({ type: String, reflect: !0 })
@@ -3620,7 +3620,6 @@ const Pe = class Pe extends y {
       @nys-fileRemove=${this._handleFileRemove}
     >
       <nys-label
-        for=${this.id}
         label=${this.label}
         description=${this.description}
         flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -3651,8 +3650,9 @@ const Pe = class Pe extends y {
             ${this._dragActive ? "drag-active" : ""}
             ${this._isDropDisabled ? "disabled" : ""}
             ${this.showError && !this._isDropDisabled ? "error" : ""}"
-            @click=${this._isDropDisabled ? null : this._openFileDialog}
-            @keydown=${(e) => !this._isDropDisabled && (e.key === "Enter" || e.key === " ") && this._openFileDialog()}
+            @click=${this._isDropDisabled ? null : (e) => {
+      e.target.closest("nys-button") || this._openFileDialog();
+    }}
             @dragover=${this._isDropDisabled ? null : this._onDragOver}
             @dragleave=${this._isDropDisabled ? null : this._onDragLeave}
             @drop=${this._isDropDisabled ? null : this._onDrop}
@@ -3666,10 +3666,9 @@ const Pe = class Pe extends y {
                     ariaLabel=${this._buttonAriaLabel}
                     ariaDescription=${this._buttonAriaDescription}
                     ?disabled=${this._isDropDisabled}
-                    @nys-click=${(e) => {
-      e.stopPropagation(), this._openFileDialog();
-    }}
-                    @click=${(e) => e.stopPropagation()}
+                    @nys-click="${(e) => {
+      e.preventDefault(), e.stopPropagation(), this._openFileDialog();
+    }}"
                   ></nys-button>
                   <p>or drag here</p>`}
           </div>` : l`<nys-button
@@ -3708,7 +3707,7 @@ const Pe = class Pe extends y {
 Pe.styles = X1, Pe.formAssociated = !0;
 let m = Pe;
 k([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], m.prototype, "id");
 k([
   r({ type: String, reflect: !0 })
@@ -4668,7 +4667,7 @@ const Ke = class Ke extends y {
                 ?inverted=${this.inverted}
               >
                 <div class="nys-label__tooltip-icon">
-                  <nys-icon name="info" size="3xl"></nys-icon>
+                  <nys-icon name="info" size="4xl"></nys-icon>
                 </div>
               </nys-tooltip>` : ""}
         </div>
@@ -4878,9 +4877,6 @@ const re = (ae = class extends y {
   disconnectedCallback() {
     super.disconnectedCallback(), this._restoreBodyScroll(), window.removeEventListener("keydown", (e) => this._handleKeydown(e));
   }
-  firstUpdated() {
-    this._handleBodySlotChange(), this._handleActionSlotChange();
-  }
   async updated(e) {
     e.has("open") && (this.open ? (this._hideBodyScroll(), this._dispatchOpenEvent(), await this.updateComplete, this._savePrevFocused(), this._focusOnModal(), this._updateDismissAria()) : (this._restorePrevFocused(), this._restoreBodyScroll(), this._dispatchCloseEvent(), this._updateDismissAria()));
   }
@@ -5004,7 +5000,6 @@ const re = (ae = class extends y {
   }
   render() {
     return this.open ? l`<div
-          id=${this.id}
           class="nys-modal-overlay"
           role="dialog"
           aria-modal="true"
@@ -5048,7 +5043,7 @@ const re = (ae = class extends y {
   }
 }, ae.VALID_WIDTHS = ["sm", "md", "lg"], ae.styles = dt, ae);
 pe([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], re.prototype, "id", 2);
 pe([
   r({ type: String })
@@ -5226,8 +5221,13 @@ const Xe = class Xe extends y {
   constructor() {
     super(), this.id = "", this.name = "", this.currentPage = 1, this.totalPages = 1, this._twoBeforeLast = !1;
   }
-  updated(e) {
-    super.updated(e), this.currentPage = this._clampPage(this.currentPage), this._twoBeforeLast = this.currentPage === this.totalPages - 2;
+  willUpdate(e) {
+    if (this.totalPages < 1 && (this.totalPages = 1), e.has("currentPage") || e.has("totalPages")) {
+      const t = this._clampPage(this.currentPage);
+      t !== this.currentPage && (this.currentPage = t);
+      const o = this.currentPage === this.totalPages - 2;
+      o !== this._twoBeforeLast && (this._twoBeforeLast = o);
+    }
   }
   // Generate a unique ID if one is not provided
   connectedCallback() {
@@ -5313,7 +5313,7 @@ const Xe = class Xe extends y {
 Xe.styles = vt;
 let ce = Xe;
 Me([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], ce.prototype, "id");
 Me([
   r({ type: String, reflect: !0 })
@@ -5695,7 +5695,7 @@ var bt = Object.defineProperty, _t = Object.getOwnPropertyDescriptor, M = (a, e,
 };
 let Ct = 0;
 var Q;
-const L = (Q = class extends y {
+const S = (Q = class extends y {
   // allows use of elementInternals' API
   constructor() {
     super(), this.id = "", this.name = "", this.required = !1, this.optional = !1, this.showError = !1, this.errorMessage = "", this.label = "", this.description = "", this.tile = !1, this._tooltip = "", this.inverted = !1, this.form = null, this.selectedValue = null, this._slottedDescriptionText = "", this._size = "md", this._internals = this.attachInternals();
@@ -5716,7 +5716,7 @@ const L = (Q = class extends y {
     super.disconnectedCallback(), this.removeEventListener("nys-change", this._handleRadioButtonChange), this.removeEventListener("invalid", this._handleInvalid);
   }
   async firstUpdated() {
-    this._initializeCheckedRadioValue(), this._setValue(), this._setRadioButtonRequire(), this._updateRadioButtonsSize(), this._updateRadioButtonsTile(), this._updateRadioButtonsShowError(), this._getSlotDescriptionForAria(), await this.updateComplete, this._initializeChildAttributes(), this._updateGroupTabIndex();
+    await this.updateComplete, this._initializeCheckedRadioValue(), this._setValue(), this._setRadioButtonRequire(), this._updateRadioButtonsSize(), this._updateRadioButtonsTile(), this._updateRadioButtonsShowError(), this._getSlotDescriptionForAria(), this._initializeChildAttributes(), this._updateGroupTabIndex();
   }
   updated(e) {
     (e.has("required") || e.has("selectedValue")) && this._manageRequire(), e.has("size") && this._updateRadioButtonsSize(), e.has("tile") && this._updateRadioButtonsTile(), e.has("inverted") && this._updateRadioButtonsInvert(), e.has("showError") && this._updateRadioButtonsShowError(), e.has("form") && this._updateRadioButtonsForm();
@@ -5848,7 +5848,6 @@ const L = (Q = class extends y {
   render() {
     return l`<div class="nys-radiogroup">
       <nys-label
-        for=${this.id}
         label=${this.label}
         description=${this.description}
         flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -5874,51 +5873,51 @@ const L = (Q = class extends y {
   }
 }, Q.VALID_SIZES = ["sm", "md"], Q.styles = c1, Q.formAssociated = !0, Q);
 M([
-  r({ type: String })
-], L.prototype, "id", 2);
+  r({ type: String, reflect: !0 })
+], S.prototype, "id", 2);
 M([
   r({ type: String, reflect: !0 })
-], L.prototype, "name", 2);
+], S.prototype, "name", 2);
 M([
   r({ type: Boolean, reflect: !0 })
-], L.prototype, "required", 2);
+], S.prototype, "required", 2);
 M([
   r({ type: Boolean, reflect: !0 })
-], L.prototype, "optional", 2);
+], S.prototype, "optional", 2);
 M([
   r({ type: Boolean, reflect: !0 })
-], L.prototype, "showError", 2);
+], S.prototype, "showError", 2);
 M([
   r({ type: String })
-], L.prototype, "errorMessage", 2);
+], S.prototype, "errorMessage", 2);
 M([
   r({ type: String })
-], L.prototype, "label", 2);
+], S.prototype, "label", 2);
 M([
   r({ type: String })
-], L.prototype, "description", 2);
+], S.prototype, "description", 2);
 M([
   r({ type: Boolean, reflect: !0 })
-], L.prototype, "tile", 2);
+], S.prototype, "tile", 2);
 M([
   r({ type: String })
-], L.prototype, "_tooltip", 2);
+], S.prototype, "_tooltip", 2);
 M([
   r({ type: Boolean, reflect: !0 })
-], L.prototype, "inverted", 2);
+], S.prototype, "inverted", 2);
 M([
   r({ type: String, reflect: !0 })
-], L.prototype, "form", 2);
+], S.prototype, "form", 2);
 M([
   $()
-], L.prototype, "selectedValue", 2);
+], S.prototype, "selectedValue", 2);
 M([
   $()
-], L.prototype, "_slottedDescriptionText", 2);
+], S.prototype, "_slottedDescriptionText", 2);
 M([
   r({ reflect: !0 })
-], L.prototype, "size", 1);
-let mt = L;
+], S.prototype, "size", 1);
+let mt = S;
 customElements.get("nys-radiogroup") || customElements.define("nys-radiogroup", mt);
 var xt = Object.defineProperty, wt = Object.getOwnPropertyDescriptor, O = (a, e, t, o) => {
   for (var s = o > 1 ? void 0 : o ? wt(e, t) : e, n = a.length - 1, i; n >= 0; n--)
@@ -6002,7 +6001,6 @@ const Z = (g = class extends y {
   render() {
     return l`
       <input
-        id="${this.id}"
         type="radio"
         name="${d(this.name ? this.name : void 0)}"
         .checked=${this.checked}
@@ -6014,22 +6012,20 @@ const Z = (g = class extends y {
         hidden
         aria-hidden="true"
       />
-      <label
+      <div
         class="nys-radiobutton"
-        for="${this.id}"
         @click="${this._callInputHandling}"
         aria-label=${this.label}
       >
         <span class="nys-radiobutton__radio"></span>
         ${this.label && l`<nys-label
-          for=${this.id}
           label=${this.label}
           description=${d(this.description || void 0)}
           ?inverted=${this.inverted}
         >
           <slot name="description" slot="description">${this.description}</slot>
         </nys-label> `}
-      </label>
+      </div>
     `;
   }
 }, g.VALID_SIZES = ["sm", "md"], g.buttonGroup = {}, g.styles = c1, g);
@@ -6049,7 +6045,7 @@ O([
   r({ type: String })
 ], Z.prototype, "description", 2);
 O([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], Z.prototype, "id", 2);
 O([
   r({ type: String, reflect: !0 })
@@ -6069,9 +6065,9 @@ O([
 O([
   r({ type: Boolean, reflect: !0 })
 ], Z.prototype, "tile", 2);
-let Lt = Z;
-customElements.get("nys-radiobutton") || customElements.define("nys-radiobutton", Lt);
-const St = u`
+let St = Z;
+customElements.get("nys-radiobutton") || customElements.define("nys-radiobutton", St);
+const Lt = u`
   :host {
     /* Global Select Styles */
     --_nys-select-width: 100%;
@@ -6290,7 +6286,7 @@ const z = (J = class extends y {
     super.disconnectedCallback(), this.removeEventListener("invalid", this._handleInvalid);
   }
   firstUpdated() {
-    this._setValue();
+    this._setValue(), this._validate();
   }
   // This callback is automatically called when the parent form is reset.
   formResetCallback() {
@@ -6400,7 +6396,7 @@ const z = (J = class extends y {
     return l`
       <div class="nys-select">
         <nys-label
-          for=${this.id}
+          for=${this.id + "--native"}
           label=${this.label}
           description=${this.description}
           flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -6413,7 +6409,7 @@ const z = (J = class extends y {
           <select
             class="nys-select__select"
             name=${this.name}
-            id=${this.id}
+            id=${this.id + "--native"}
             form=${d(this.form || void 0)}
             ?disabled=${this.disabled}
             ?required=${this.required}
@@ -6424,7 +6420,7 @@ const z = (J = class extends y {
             @blur="${this._handleBlur}"
             @change="${this._handleChange}"
           >
-            <option hidden disabled selected value=""></option>
+            <option data-native hidden disabled selected value=""></option>
           </select>
           <slot
             @slotchange="${this._handleSlotChange}"
@@ -6443,9 +6439,9 @@ const z = (J = class extends y {
       </div>
     `;
   }
-}, J.VALID_WIDTHS = ["sm", "md", "lg", "full"], J.styles = St, J.formAssociated = !0, J);
+}, J.VALID_WIDTHS = ["sm", "md", "lg", "full"], J.styles = Lt, J.formAssociated = !0, J);
 B([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], z.prototype, "id", 2);
 B([
   r({ type: String, reflect: !0 })
@@ -6586,7 +6582,6 @@ const Qe = class Qe extends y {
     return l`
       <div class="nys-skipnav">
         <a
-          id=${this.id}
           href=${this.href ? this.href : "#main-content"}
           tabindex="0"
           class="nys-skipnav__link"
@@ -6603,7 +6598,7 @@ const Qe = class Qe extends y {
 Qe.styles = Vt;
 let Ee = Qe;
 d1([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], Ee.prototype, "id");
 d1([
   r({ type: String })
@@ -6763,7 +6758,11 @@ const h1 = u`
       rgba(255, 255, 255, 0.9)
     );
     width: var(--nys-size-300, 24px);
+    min-width: var(--nys-size-300, 24px);
+    max-width: var(--nys-size-300, 24px);
     height: var(--nys-size-300, 24px);
+    min-height: var(--nys-size-300, 24px);
+    max-height: var(--nys-size-300, 24px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6879,7 +6878,11 @@ const h1 = u`
       border: none;
       background-color: var(--nys-color-neutral-200, #bec0c1);
       height: var(--nys-size-100, 8px);
+      min-height: var(--nys-size-100, 8px);
+      max-height: var(--nys-size-100, 8px);
       width: 100%;
+      min-width: 100%;
+      max-width: 100%;
       color: transparent;
     }
 
@@ -6938,7 +6941,11 @@ const h1 = u`
         rgba(255, 255, 255, 0.9)
       );
       width: var(--nys-space-300, 24px);
+      min-width: var(--nys-space-300, 24px);
+      max-width: var(--nys-space-300, 24px);
       height: var(--nys-space-300, 24px);
+      min-height: var(--nys-space-300, 24px);
+      max-height: var(--nys-space-300, 24px);
       color: var(--nys-color-text, #1b1b1b);
     }
 
@@ -7090,24 +7097,26 @@ const e1 = class e1 extends y {
     });
   }
   _updateCounter() {
-    if (this.isCompactExpanded) {
-      this.counterText = "Back to Form", this.style.height = "-webkit-fit-content", this.style.height = "-moz-fit-content", this.style.height = "fit-content";
-      return;
-    } else
+    let e;
+    if (this.isCompactExpanded)
+      e = "Back to Form", this.style.height = "-webkit-fit-content", this.style.height = "-moz-fit-content", this.style.height = "fit-content";
+    else {
       this.style.height = "auto";
-    const e = this.querySelectorAll("nys-step"), t = Array.from(e).findIndex(
-      (s) => s.hasAttribute("selected")
-    ), o = e.length;
-    this.counterText = t >= 0 ? `Step ${t + 1} of ${o}` : `Step 1 of ${o}`;
+      const t = this.querySelectorAll("nys-step"), o = Array.from(t).findIndex(
+        (n) => n.hasAttribute("selected")
+      ), s = t.length;
+      e = o >= 0 ? `Step ${o + 1} of ${s}` : `Step 1 of ${s}`;
+    }
+    e !== this.counterText && (this.counterText = e);
   }
-  updated() {
+  willUpdate() {
     const e = this.querySelectorAll("nys-step");
     this._stepsNumbered || (e.forEach((n, i) => {
       n.stepNumber = i + 1;
     }), this._stepsNumbered = !0);
     let t = !1, o = !1, s = !1;
     e.forEach((n, i) => {
-      n.hasAttribute("current") && (s ? n.removeAttribute("current") : s = !0), i === 0 ? n.setAttribute("first", "") : n.removeAttribute("first"), n.hasAttribute("current") ? (t = !0, n.removeAttribute("previous")) : t ? n.removeAttribute("previous") : n.setAttribute("previous", ""), n.hasAttribute("selected") && (t || o ? n.removeAttribute("selected") : o = !0), this.hasAttribute("isCompactExpanded") ? n.setAttribute("isCompactExpanded", "") : n.removeAttribute("isCompactExpanded");
+      n.hasAttribute("current") && (s ? n.removeAttribute("current") : s = !0), i === 0 ? n.setAttribute("first", "") : n.removeAttribute("first"), n.hasAttribute("current") ? (t = !0, n.removeAttribute("previous")) : t ? n.removeAttribute("previous") : n.setAttribute("previous", ""), n.hasAttribute("selected") && (t || o ? n.removeAttribute("selected") : o = !0), this.isCompactExpanded ? n.setAttribute("isCompactExpanded", "") : n.removeAttribute("isCompactExpanded");
     }), o || (s ? e.forEach((n) => {
       n.hasAttribute("current") && !o && (n.setAttribute("selected", ""), o = !0);
     }) : e.length > 0 && (e[0].setAttribute("current", ""), e[0].setAttribute("selected", ""))), this._updateCounter();
@@ -7120,7 +7129,7 @@ const e1 = class e1 extends y {
   }
   render() {
     return l`
-      <div class="nys-stepper" id=${this.id} name=${this.name}>
+      <div class="nys-stepper" name=${this.name}>
         <div class="nys-stepper__header">
           <slot name="actions" @slotchange=${this._validateButtonSlot}></slot>
           <div class="nys-stepper__headertext">
@@ -7146,7 +7155,7 @@ const e1 = class e1 extends y {
 e1.styles = h1;
 let he = e1;
 Ve([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], he.prototype, "id");
 Ve([
   r({ type: String, reflect: !0 })
@@ -7422,7 +7431,7 @@ const C = (R = class extends y {
     return l`
       <label class="nys-textarea">
         <nys-label
-          for=${this.id}
+          for=${this.id + "--native"}
           label=${this.label}
           description=${this.description}
           flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -7434,7 +7443,8 @@ const C = (R = class extends y {
         <textarea
           class="nys-textarea__textarea ${this.resize}"
           name=${this.name}
-          id=${this.id}
+          id=${this.id + "--native"}
+          .value=${this.value}
           ?disabled=${this.disabled}
           ?required=${this.required}
           ?readonly=${this.readonly}
@@ -7453,9 +7463,7 @@ const C = (R = class extends y {
           @blur="${this._handleBlur}"
           @select="${this._handleSelect}"
           @selectionchange="${this._handleSelectionChange}"
-        >
-${this.value}</textarea
-        >
+        ></textarea>
         <nys-errormessage
           ?showError=${this.showError}
           errorMessage=${this._internals.validationMessage || this.errorMessage}
@@ -7465,7 +7473,7 @@ ${this.value}</textarea
   }
 }, R.VALID_WIDTHS = ["sm", "md", "lg", "full"], R.VALID_RESIZE = ["vertical", "none"], R.styles = It, R.formAssociated = !0, R);
 x([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], C.prototype, "id", 2);
 x([
   r({ type: String, reflect: !0 })
@@ -7923,7 +7931,7 @@ const v = (N = class extends y {
     return l`
       <div class="nys-textinput">
         <nys-label
-          for=${this.id}
+          for=${this.id + "--native"}
           label=${this.label}
           description=${this.description}
           flag=${this.required ? "required" : this.optional ? "optional" : ""}
@@ -7943,7 +7951,7 @@ const v = (N = class extends y {
               class="nys-textinput__input"
               type=${this.type === "password" ? this.showPassword ? "text" : "password" : this.type}
               name=${this.name}
-              id=${this.id}
+              id=${this.id + "--native"}
               ?disabled=${this.disabled}
               ?required=${this.required}
               ?readonly=${this.readonly}
@@ -8004,7 +8012,7 @@ const v = (N = class extends y {
   "url"
 ], N.VALID_WIDTHS = ["sm", "md", "lg", "full"], N.styles = Ut, N.formAssociated = !0, N);
 f([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], v.prototype, "id", 2);
 f([
   r({ type: String, reflect: !0 })
@@ -8405,7 +8413,6 @@ const U = (ee = class extends y {
         <div class="nys-toggle__content">
           <div class="nys-toggle__toggle">
             <input
-              id="${this.id}"
               type="checkbox"
               name="${d(this.name ? this.name : void 0)}"
               .value=${this.value}
@@ -8440,7 +8447,7 @@ const U = (ee = class extends y {
   }
 }, ee.VALID_SIZES = ["sm", "md"], ee.styles = jt, ee.formAssociated = !0, ee);
 F([
-  r({ type: String })
+  r({ type: String, reflect: !0 })
 ], U.prototype, "id", 2);
 F([
   r({ type: String, reflect: !0 })
@@ -8631,7 +8638,7 @@ const Xt = u`
     }
   }
 `;
-var Qt = Object.defineProperty, Jt = Object.getOwnPropertyDescriptor, Le = (a, e, t, o) => {
+var Qt = Object.defineProperty, Jt = Object.getOwnPropertyDescriptor, Se = (a, e, t, o) => {
   for (var s = o > 1 ? void 0 : o ? Jt(e, t) : e, n = a.length - 1, i; n >= 0; n--)
     (i = a[n]) && (s = (o ? i(e, t, s) : i(s)) || s);
   return o && s && Qt(e, t, s), s;
@@ -8828,22 +8835,22 @@ const t1 = class t1 extends y {
 };
 t1.styles = Xt;
 let se = t1;
-Le([
-  r({ type: String })
+Se([
+  r({ type: String, reflect: !0 })
 ], se.prototype, "id", 2);
-Le([
+Se([
   r({ type: String })
 ], se.prototype, "text", 2);
-Le([
+Se([
   r({ type: Boolean, reflect: !0 })
 ], se.prototype, "inverted", 2);
-Le([
+Se([
   r({ type: Boolean, reflect: !0 })
 ], se.prototype, "focusable", 2);
-Le([
+Se([
   $()
 ], se.prototype, "_active", 2);
-Le([
+Se([
   r({ type: String, reflect: !0 })
 ], se.prototype, "position", 1);
 customElements.get("nys-tooltip") || customElements.define("nys-tooltip", se);
@@ -9920,13 +9927,13 @@ const o1 = class o1 extends y {
           });
           const V = (j) => {
             const T = Array.from(j.querySelectorAll("a"));
-            let Se = {
+            let Le = {
               li: null,
               length: 0
             };
             T.forEach((He) => {
               const i1 = He.getAttribute("href"), $e = this._normalizePath(i1);
-              $e && ($e === "/" && n === "/" ? Se = { li: He.closest("li"), length: 1 } : n?.startsWith($e) && $e.length > Se.length && (Se = { li: He.closest("li"), length: $e.length }), T.forEach((y1) => y1.closest("li")?.classList.remove("active")), Se.li?.classList.add("active"));
+              $e && ($e === "/" && n === "/" ? Le = { li: He.closest("li"), length: 1 } : n?.startsWith($e) && $e.length > Le.length && (Le = { li: He.closest("li"), length: $e.length }), T.forEach((y1) => y1.closest("li")?.classList.remove("active")), Le.li?.classList.add("active"));
             });
           };
           V(c), V(p), o.appendChild(c), s.appendChild(p), i.remove();
@@ -10529,7 +10536,7 @@ export {
   pt as NysModal,
   de as NysOption,
   ce as NysPagination,
-  Lt as NysRadiobutton,
+  St as NysRadiobutton,
   mt as NysRadiogroup,
   zt as NysSelect,
   Ee as NysSkipnav,
