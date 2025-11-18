@@ -43,39 +43,30 @@
             <nys-button onClick="direction('rtl');" label="RTL"></nys-button>
           </div>
         </div>
-        <div class="fake-modal">
-          <div class="heading">
-            <h1>NYSDS Newsletter</h1>
-            <h2>Sign up for exciting updates!</h2>
-          </div>
-          <nys-badge label="Basic badge"></nys-badge>
-          <nys-avatar ariaLabel="User avatar" initials="RC"></nys-avatar>
-          <nys-avatar ariaLabel="User avatar" initials="IT" interactive></nys-avatar>
 
-          <form id="myForm" class="nys-form" action="#" method="GET">
 
-            <nys-textinput required label="Name" id="name" value="test"></nys-textinput>
+        <form id="myForm" class="nys-form" action="#" method="GET">
 
-            <!-- Select Dropdown -->
-            <nys-select label="Select your favorite borough" name="favoriteBorough" id="message" required>
-              <option value="Bronx">The Bronx</option>
-              <option value="Brooklyn">Brooklyn</option>
-              <option value="Manhattan">Manhattan</option>
-              <option value="Staten Island" selected>Staten Island</option>
-              <option value="Queens">Queens</option>
-            </nys-select>
+          <nys-textinput required label="Name" id="name"></nys-textinput>
 
-            <!-- Submit Button -->
-            <nys-button type="submit" label="Submit"></nys-button>
-          </form>
-          <br />
+          <!-- Select Dropdown -->
+          <nys-select label="Select your favorite borough" name="favoriteBorough" id="message" required>
+            <option value="Bronx">The Bronx</option>
+            <option value="Brooklyn">Brooklyn</option>
+            <option value="Manhattan">Manhattan</option>
+            <option value="Staten Island">Staten Island</option>
+            <option value="Queens">Queens</option>
+          </nys-select>
 
-          <nys-alert type="success" heading="Submitted Information">
-            <p>Name: <span id="displayName"></span></p>
-            <p>message: <span id="displaymessage"></span></p>
-          </nys-alert>
-          <br />
-        </div>
+          <!-- Submit Button -->
+          <nys-button type="submit" label="Submit"></nys-button>
+        </form>
+        <br />
+
+        <nys-alert type="success" heading="Submitted Information">
+          <p>Name: <span id="displayName"></span></p>
+          <p>message: <span id="displaymessage"></span></p>
+        </nys-alert>
       </div>
       <div class="nys-tablet:nys-grid-col-3"></div>
     </div>
