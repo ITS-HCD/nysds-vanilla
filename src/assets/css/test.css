@@ -1,0 +1,16 @@
+  .debug-row {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px dashed red;
+  }
+
+  .debug-col {
+    background-color: rgba(0, 0, 255, 0.1);
+    border: 1px dashed blue;
+    padding: 4px;
+  }
+
+  .debug-gap {
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 1px dashed green;
+    min-height: 20px;
+  }
