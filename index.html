@@ -102,7 +102,7 @@
             <!-- Checkbox Group -->
 
             <nys-checkboxgroup label="Select your favorite New York landmarks"
-              description="Last year's winner is not eligible to win again.">
+              description="Last year's winner is not eligible to win again." id="checkbox1">
               <nys-checkbox name="landmarks" value="adirondacks" label="Adirondacks" checked></nys-checkbox>
               <nys-checkbox name="landmarks" value="finger-lakes" label="Finger Lakes" checked></nys-checkbox>
               <nys-checkbox name="landmarks" value="catskills" label="Catskills"></nys-checkbox>
@@ -113,7 +113,7 @@
             </nys-checkboxgroup>
 
             <nys-checkboxgroup tile label="Select your favorite New York landmarks"
-              description="Last year's winner is not eligible to win again.">
+              description="Last year's winner is not eligible to win again." id="checkbox2">
               <nys-checkbox name="landmarks" value="adirondacks" label="Adirondacks" checked></nys-checkbox>
               <nys-checkbox name="landmarks" value="finger-lakes" label="Finger Lakes" checked></nys-checkbox>
               <nys-checkbox name="landmarks" value="catskills" label="Catskills"></nys-checkbox>
@@ -148,7 +148,7 @@
               <nys-option value="Staten Island" label="Staten Island"></nys-option>
               <nys-option value="Queens" label="Queens"></nys-option>
             </nys-select>
-            <nys-accordion>
+            <nys-accordion id="accordion1">
               <nys-accordionitem heading="I am an Individual Accordion" bordered>
                 <p>I love NY!</p>
               </nys-accordionitem>
@@ -157,7 +157,7 @@
               </nys-accordionitem>
             </nys-accordion>
             <br />
-            <nys-accordion singleSelect bordered>
+            <nys-accordion singleSelect bordered id="accordion2">
               <nys-accordionitem heading="We are a group">
                 <p>Stronger together! Learn more at
                   <a href="https://www.ny.gov" target="_blank">ny.gov</a>
@@ -204,9 +204,7 @@
         <nys-textinput id="my-textinput" label="Hello World"></nys-textinput>
       </div>
 
-            <nys-tooltip text="I am a tooltip.">
               <nys-button type="submit" label="Submit"></nys-button>
-            </nys-tooltip>
 
           </form>
           <br />
