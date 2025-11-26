@@ -748,7 +748,7 @@ _([
   r({ type: String })
 ], b.prototype, "value", 2);
 _([
-  r({ type: String, reflect: !0 })
+  r({ type: String })
 ], b.prototype, "ariaDescription", 2);
 _([
   r({ reflect: !0 })
