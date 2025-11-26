@@ -550,6 +550,10 @@ const b = (S = class extends u {
   connectedCallback() {
     super.connectedCallback(), this.id || (this.id = this._generateUniqueId());
   }
+  updated() {
+    const e = this.ariaLabel || this.label || (this.circle ? this.icon : null) || this.prefixIcon || this.suffixIcon || "button";
+    this._internals.ariaLabel = e, this._internals.ariaDescription = this.ariaDescription || null, this._internals.role = "button";
+  }
   /******************** Functions ********************/
   _generateUniqueId() {
     return `nys-button-${Date.now()}-${Me++}`;
@@ -625,15 +629,10 @@ const b = (S = class extends u {
                 value=${d(this.value ? this.value : void 0)}
                 href=${this.href}
                 target=${this.target}
-                aria-label=${d(
-      this.ariaLabel || this.label || (this.circle ? this.icon : null) || "button"
-    )}
-                aria-description=${d(this.ariaDescription || void 0)}
                 @click=${this._handleClick}
                 @focus="${this._handleFocus}"
                 @blur="${this._handleBlur}"
                 @keydown="${this._handleKeydown}"
-                role="button"
                 tabindex="${this.disabled ? -1 : 0}"
               >
                 ${this.prefixIcon && this.variant !== "text" ? l`<slot name="prefix-icon">
@@ -660,15 +659,10 @@ const b = (S = class extends u {
               value=${d(this.value ? this.value : void 0)}
               type=${this.type}
               aria-controls=${d(this.ariaControls || void 0)}
-              aria-label=${d(
-      this.ariaLabel || this.label || (this.circle ? this.icon : null) || this.prefixIcon || this.suffixIcon || "button"
-    )}
-              aria-description=${d(this.ariaDescription || void 0)}
               @click=${this._handleClick}
               @focus="${this._handleFocus}"
               @blur="${this._handleBlur}"
               @keydown="${this._handleKeydown}"
-              role="button"
             >
               ${this.prefixIcon && this.variant !== "text" ? l`<slot name="prefix-icon">
                     <nys-icon size="16" name=${this.prefixIcon}></nys-icon>
