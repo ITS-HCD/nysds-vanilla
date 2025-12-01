@@ -418,18 +418,6 @@
                 <nys-button id="my-button" label="Hover Me"></nys-button>
 <br/>
 
-                <nys-button
-                  id="my-button"
-                  label="Testing ariaDescription"
-                  ariaDescription="testing"
-                ></nys-button>
-<br/>
-                <nys-button
-                  id="my-button"
-                  label="Testing ariaLabel"
-                  ariaLabel="hello world"
-                ></nys-button>
-
                 <nys-tooltip
                   for="my-icon"
                   text="I am a TY tooltip."
@@ -527,17 +515,55 @@
         if (modal) {
           modal.open = true;
         }
-      }
-      function closeModal() {
-        const modal = document.getElementById("modal1");
-        console.log(modal);
-        if (modal) {
-          modal.open = false;
+
+        if (selectedTheme === "default") {
+          // If default is selected, no need to add a new theme
+          return;
         }
+        // Create a new link element for the selected theme
+        const newTheme = document.createElement("link");
+        newTheme.id = "theme-style";
+        newTheme.rel = "stylesheet";
+        newTheme.href = `./src/assets/css/vendor/${selectedTheme}`;
+
+        // Append the new theme to the document head
+        document.head.appendChild(newTheme);
+      };
+  </script>
+
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get input values
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+
+      // Display values on the same page
+      document.getElementById('displayName').textContent = name;
+      document.getElementById('displaymessage').textContent = message;
+    });
+  </script>
+
+  <script>
+    function showModal() {
+      const modal = document.getElementById('modal1');
+      console.log(modal);
+      if (modal) {
+        modal.open = true;
       }
-      function direction(direction) {
-        document.querySelector("html").setAttribute("dir", direction);
+    };
+    function closeModal() {
+      const modal = document.getElementById("modal1");
+      console.log(modal);
+      if (modal) {
+        modal.open = false;
       }
+    };
+    function direction(direction) {
+      document.querySelector("html").setAttribute("dir", direction);
+    };
     </script>
     <script
       src="./src/assets/js/vendor/nysds.js"
