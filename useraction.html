@@ -19,14 +19,14 @@
 
   <body>
     <nys-unavheader></nys-unavheader>
-    <nys-globalheader appName="NYS Design System">
+    <nys-globalheader appName="NYS Design System" showlogo>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="step1.html">Stepper Demo</a></li>
         <li><a href="table.html">Table Demo</a></li>
       </ul>
       <div slot="user-actions">
-        <nys-button label="Log out" prefixIcon="slotted">
+        <nys-button label="Log out" prefixIcon="slotted" onclick="console.log('Pressed Logout!')">
           <nys-avatar slot="prefix-icon"
             slot="prefix-icon"
             ariaLabel="User avatar"
