@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>NYSDS Vanilla Demo</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./src/assets/css/vendor/nysds-full.min.css" />
+    <link
+      rel="preload"
+      href="./src/assets/fonts/proximanova-regular.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link href="./src/assets/fonts/nysds-fonts.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nys-skipnav></nys-skipnav>
+    <nys-backtotop></nys-backtotop>
+    <nys-unavheader></nys-unavheader>
+    <nys-globalheader appName="NYS Design System">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="step1.html">Stepper Demo</a></li>
+        <li><a href="table.html">Table Demo</a></li>
+      </ul>
+    </nys-globalheader>
+
+    <div class="nys-grid-container-widescreen" id="main-content">
+      <div class="nys-grid-row">
+        <div class="nys-grid-col-12">
+          <nys-radiogroup
+            label="What is your primary work location?"
+            description="This is the location you use for your in office days."
+          >
+            <nys-radiobutton
+              name="office"
+              label="Albany"
+              description="Upstate New York"
+              value="albany"
+            ></nys-radiobutton>
+            <nys-radiobutton
+              name="office"
+              label="Manhattan"
+              description="New York City"
+              value="manhattan"
+            ></nys-radiobutton>
+            <nys-radiobutton
+              name="office"
+              other
+            ></nys-radiobutton>
+          </nys-radiogroup>
+          <br>
+          <nys-checkboxgroup
+            label="Select your favorite New York landmarks"
+            description="Choose from the options below"
+          >
+            <nys-checkbox
+              label="Adirondacks"
+              name="landmarks"
+              value="adirondacks"
+              errorMessage="You must select this box to continue"
+              checked
+            ></nys-checkbox>
+            <nys-checkbox name="landmarks" value="finger-lakes" label="Finger Lakes" checked></nys-checkbox>
+            <nys-checkbox name="landmarks" value="catskills" label="Catskills"></nys-checkbox>
+            <nys-checkbox name="landmarks" other></nys-checkbox>
+          </nys-checkboxgroup>
+        </div>
+      </div>
+    </div>
+
+    <nys-globalfooter agencyName="NYS Design System">
+      <ul>
+        <li><a href="https://its.ny.gov/about">Terms of Service</a></li>
+        <li><a href="https://its.ny.gov">Privacy Policy</a></li>
+      </ul>
+    </nys-globalfooter>
+    <nys-unavfooter></nys-unavfooter>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("pagination")
+          .addEventListener("nys-change", function (event) {
+            console.log(event);
+          });
+
+        const themeSelector = document.getElementById("theme-selector");
+
+        themeSelector.addEventListener("nys-change", function (event) {
+          const selectedTheme = event.target.value;
+          const existingTheme = document.getElementById("theme-style");
+
+          // Remove the existing theme if it exists
+          if (existingTheme) {
+            existingTheme.remove();
+          }
+
+          // Create a new link element for the selected theme
+          const newTheme = document.createElement("link");
+          newTheme.id = "theme-style";
+          newTheme.rel = "stylesheet";
+          newTheme.href = `./src/assets/css/vendor/${selectedTheme}`;
+
+          // Append the new theme to the document head
+          document.head.appendChild(newTheme);
+        });
+      });
+    </script>
+
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          // Get input values
+          const name = document.getElementById("name").value;
+          const message = document.getElementById("message").value;
+
+          // Display values on the same page
+          document.getElementById("displayName").textContent = name;
+          document.getElementById("displaymessage").textContent = message;
+        });
+    </script>
+
+    <script>
+      function showModal() {
+        const modal = document.getElementById("modal1");
+        console.log(modal);
+        if (modal) {
+          modal.open = true;
+        }
+
+        if (selectedTheme === "default") {
+          // If default is selected, no need to add a new theme
+          return;
+        }
+        // Create a new link element for the selected theme
+        const newTheme = document.createElement("link");
+        newTheme.id = "theme-style";
+        newTheme.rel = "stylesheet";
+        newTheme.href = `./src/assets/css/vendor/${selectedTheme}`;
+
+        // Append the new theme to the document head
+        document.head.appendChild(newTheme);
+      };
+  </script>
+
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get input values
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+
+      // Display values on the same page
+      document.getElementById('displayName').textContent = name;
+      document.getElementById('displaymessage').textContent = message;
+    });
+  </script>
+
+  <script>
+    function showModal() {
+      const modal = document.getElementById('modal1');
+      console.log(modal);
+      if (modal) {
+        modal.open = true;
+      }
+    };
+    function closeModal() {
+      const modal = document.getElementById("modal1");
+      console.log(modal);
+      if (modal) {
+        modal.open = false;
+      }
+    };
+    function direction(direction) {
+      document.querySelector("html").setAttribute("dir", direction);
+    };
+    </script>
+    <script
+      src="./src/assets/js/vendor/nysds.js"
+      async
+      defer
+      type="module"
+    ></script>
+  </body>
+</html>

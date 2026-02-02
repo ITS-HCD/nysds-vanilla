@@ -25,15 +25,13 @@
         <li><a href="step1.html">Stepper Demo</a></li>
         <li><a href="table.html">Table Demo</a></li>
       </ul>
-      <div slot="user-actions">
-        <nys-button label="Log out" prefixIcon="slotted" onclick="console.log('Pressed Logout!')">
-          <nys-avatar slot="prefix-icon"
+        <nys-button slot="user-actions" label="Log out" prefixIcon="slotted" onclick="console.log('Pressed Logout!')">
+          <nys-avatar
             slot="prefix-icon"
             ariaLabel="User avatar"
             initials="NY"
           ></nys-avatar>
         </nys-button>
-      </div>
     </nys-globalheader>
 
     <div class="nys-grid-container-widescreen">

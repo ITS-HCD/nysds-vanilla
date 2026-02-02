@@ -30,60 +30,12 @@
     </nys-globalheader>
 
     <div class="nys-grid-container-widescreen">
-      <nys-table
-        id="table1"
-        name="Table Name"
-        striped
-        bordered
-        sortable
-        download="https://www.google.com"
-      >
-        <table>
-          <caption>Sample Data Table</caption>
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Age</th>
-              <th scope="col">City</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Alice Smith</td>
-              <td>30</td>
-              <td>New York</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Bob Johnson</td>
-              <td>25</td>
-              <td>Los Angeles</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Charlie Brown</td>
-              <td>35</td>
-              <td>Chicago</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Diana Prince</td>
-              <td>28</td>
-              <td>Miami</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td>5</td>
-              <td>footer row</td>
-              <td>10</td>
-              <td>Albany</td>
-            </tr>
-          </tfoot>
-        </table>
-      </nys-table>
+      <nys-datepicker
+        id="mydatepicker"
+        width="md"
+        label="Schedule your appointment"
+        description="MM/DD/YYYYY"
+      ></nys-datepicker>
     </div>
 
     <nys-globalfooter agencyName="NYS Design System">
