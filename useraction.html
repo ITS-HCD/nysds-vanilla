@@ -19,21 +19,16 @@
 
   <body>
     <nys-unavheader></nys-unavheader>
-    <nys-globalheader appName="NYS Design System" showlogo>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="step1.html">Stepper Demo</a></li>
-        <li><a href="table.html">Table Demo</a></li>
-      </ul>
-        <nys-button slot="user-actions" label="Log out" prefixIcon="slotted" onclick="console.log('Pressed Logout!')">
-          <nys-avatar
-            slot="prefix-icon"
-            ariaLabel="User avatar"
-            initials="NY"
-          ></nys-avatar>
+<nys-globalheader appName="State Vehicle Request (EM30)" agencyName="NYS Department of Transportation" homepageLink="/">
+        <ul>
+            <li><a th:href="@{/vehicle/request/new}">New Request</a></li>
+            <!-- <li sec:authorize="isAnonymous()"><a th:href="@{/login}"></a></li>
+            <li sec:authorize="isAuthenticated()"><a href="@{/logout}"></a></li> -->
+        </ul>
+        <nys-button slot="user-actions" label="Logout" prefixIcon="slotted">
+            <nys-avatar slot="prefix-icon" ariaLabel="User avatar" initials="SV"></nys-avatar>
         </nys-button>
     </nys-globalheader>
-
     <div class="nys-grid-container-widescreen">
       <div class="nys-grid-row">
         <div class="nys-tablet:nys-grid-col-3"></div>

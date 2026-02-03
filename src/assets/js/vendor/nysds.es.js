@@ -4437,7 +4437,7 @@ const lt = class lt extends g {
   _updateGroupTabIndex() {
     const e = this._getAllRadios(), t = e.find((r) => r.checked && !r.disabled) || e.find((r) => !r.disabled);
     e.forEach((r) => {
-      r.disabled ? r.tabIndex = -1 : r === t ? r.removeAttribute("tabindex") : r.setAttribute("tabindex", "-1");
+      console.log(t, r === t), r.disabled ? r.tabIndex = -1 : r === t ? (r.removeAttribute("tabindex"), console.log("WE ARE HERE"), r.activeFocusable = !0, console.log("radio.activeFocusable", r.activeFocusable)) : r.setAttribute("tabindex", "-1");
     });
   }
   // This callback is automatically called when the parent form is reset.
@@ -4648,13 +4648,9 @@ const q = (w = class extends g {
     const e = this.shadowRoot?.querySelector(
       ".nys-radiobutton__radio"
     );
-    e && (e.tabIndex = 0, e.focus());
+    e && (e.tabIndex = 0, console.log(this.activeFocusable), e.focus());
   }
   _clearRadioVisualFocus() {
-    const e = this.shadowRoot?.querySelector(
-      ".nys-radiobutton__radio"
-    );
-    e && (e.tabIndex = -1);
   }
   /**
    * Event Handlers
@@ -4749,7 +4745,8 @@ const q = (w = class extends g {
         ?required="${this.required}"
         form=${p(this.form || void 0)}
         @change="${this._handleChange}"
-        aria-label=${this.label || (this.other ? "Other" : "")}
+        aria-hidden="true"
+        tabindex="-1"
         class="sr-only"
       />
       <div
