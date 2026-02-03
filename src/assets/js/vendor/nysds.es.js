@@ -4421,14 +4421,7 @@ const lt = class lt extends g {
   }
   // Arrow / Space / Enter navigation at group level
   async _handleKeyDown(e) {
-    if (![
-      "ArrowUp",
-      "ArrowDown",
-      // "ArrowLeft",
-      // "ArrowRight",
-      " ",
-      "Enter"
-    ].includes(e.key)) return;
+    if (!["ArrowUp", "ArrowDown", " ", "Enter"].includes(e.key)) return;
     e.preventDefault();
     const r = this._getAllRadios().filter((u) => !u.disabled), s = r.find((u) => u.checked) || r[0], n = e.key === " " || e.key === "Enter" ? 0 : ["ArrowUp", "ArrowLeft"].includes(e.key) ? -1 : 1;
     let i = r.indexOf(s) + n;
@@ -4635,7 +4628,7 @@ const I = (w = class extends g {
     super.disconnectedCallback(), this.removeEventListener("focus", this._handleFocus), this.removeEventListener("blur", this._handleBlur), window.removeEventListener("resize", this._handleResize);
   }
   updated(e) {
-    e.has("checked") && this.checked && w.buttonGroup[this.name] !== this && (w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this), e.has("activeFocusable") && this.activeFocusable ? this._focusRadioVisual() : this._clearRadioVisualFocus();
+    e.has("checked") && this.checked && w.buttonGroup[this.name] !== this && (w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this), e.has("activeFocusable") && this.activeFocusable && this._focusRadioVisual();
   }
   /**
    * Functions
@@ -4653,8 +4646,6 @@ const I = (w = class extends g {
       ".nys-radiobutton__radio"
     );
     e && (e.tabIndex = 0, console.log(this.activeFocusable), e.focus());
-  }
-  _clearRadioVisualFocus() {
   }
   /**
    * Event Handlers
