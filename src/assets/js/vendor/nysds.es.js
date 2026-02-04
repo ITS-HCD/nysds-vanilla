@@ -299,47 +299,47 @@ const Mt = class Mt extends g {
   }
 };
 Mt.styles = b(F1);
-let q = Mt;
+let I = Mt;
 Y([
   a({ type: String, reflect: !0 })
-], q.prototype, "id");
+], I.prototype, "id");
 Y([
   a({ type: String })
-], q.prototype, "heading");
+], I.prototype, "heading");
 Y([
   a({ type: String })
-], q.prototype, "icon");
+], I.prototype, "icon");
 Y([
   a({ type: Boolean, reflect: !0 })
-], q.prototype, "dismissible");
+], I.prototype, "dismissible");
 Y([
   a({ type: Number, reflect: !0 })
-], q.prototype, "duration");
+], I.prototype, "duration");
 Y([
   a({ type: String })
-], q.prototype, "text");
+], I.prototype, "text");
 Y([
   a({ type: String })
-], q.prototype, "primaryAction");
+], I.prototype, "primaryAction");
 Y([
   a({ type: String })
-], q.prototype, "secondaryAction");
+], I.prototype, "secondaryAction");
 Y([
   a({ type: String })
-], q.prototype, "primaryLabel");
+], I.prototype, "primaryLabel");
 Y([
   a({ type: String })
-], q.prototype, "secondaryLabel");
+], I.prototype, "secondaryLabel");
 Y([
   a({ type: String, reflect: !0 })
-], q.prototype, "type");
+], I.prototype, "type");
 Y([
   $()
-], q.prototype, "_alertClosed");
+], I.prototype, "_alertClosed");
 Y([
   $()
-], q.prototype, "_slotHasContent");
-customElements.get("nys-alert") || customElements.define("nys-alert", q);
+], I.prototype, "_slotHasContent");
+customElements.get("nys-alert") || customElements.define("nys-alert", I);
 const Y1 = ":host{--_nys-avatar-border-radius: var(--nys-radius-round, 1776px);--_nys-avatar-size: var(--nys-avatar-size, var(--nys-font-size-6xl, 36px));--_nys-avatar-shape: var(--nys-radius-round, 1776px);--_nys-avatar-border-color: var(--nys-color-ink-reverse, #fff);--_nys-avatar-border-size: var(--nys-border-width-sm, 1px);--_nys-avatar-width: var(--nys-font-size-6xl, 36px);--_nys-avatar-color: var(--nys-color-theme, #154973);--_nys-avatar-background-color: var(--nys-color-theme-weaker, #eff6fb);--_nys-avatar-outline-color: var(--nys-color-focus, #004dd1);--_nys-avatar-outline-width: var(--nys-border-width-md, 2px);--_nys-avatar-outline-offset: var(--nys-space-2px, 2px)}.nys-avatar{display:inline-block}.nys-avatar__component{display:flex;justify-content:center;align-items:center;border-radius:var(--_nys-avatar-border-radius);width:var(--_nys-avatar-size);height:var(--_nys-avatar-size);font-size:var(--_nys-avatar-size);overflow:hidden;box-sizing:border-box;color:var(--_nys-avatar-color);background-color:var(--_nys-avatar-background-color);border:var(--_nys-avatar-border-size) solid var(--_nys-avatar-border-color);outline-offset:var(--_nys-avatar-outline-offset);transition:all .15s ease-in-out;-webkit-user-select:none;-moz-user-select:none;user-select:none}:host([interactive]) .nys-avatar__component:hover,:host([interactive]) .nys-avatar__component:active{--_nys-avatar-color: var( --nys-color-text-reverse, --nys-color-ink-reverse, #fff );cursor:pointer}:host([interactive]) .nys-avatar__component:hover{--_nys-avatar-background-color: var(--nys-color-theme-mid, #457aa5)}:host([interactive]) .nys-avatar__component:active{--_nys-avatar-background-color: var(--nys-color-theme-strong, #0e324f)}:host([disabled]) .nys-avatar__component{--_nys-avatar-color: var(--nys-color-text-disabled, #bec0c1);--_nys-avatar-background-color: var(--nys-color-neutral-10, #f6f6f6);cursor:not-allowed}:host([disabled]) .nys-avatar__component:focus-within{outline:solid var(--_nys-avatar-outline-width) var(--_nys-avatar-outline-color)}div[part=nys-avatar__icon]{display:flex;align-items:center;justify-content:center}.nys-avatar__initials{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:calc(var(--_nys-avatar-width) * .5);font-weight:700;text-transform:uppercase}.nys-avatar__image{width:100%;height:100%;object-fit:cover}.nys-avatar__icon{width:100%;height:100%;fill:currentColor}";
 var W1 = Object.defineProperty, se = (o, e, t, r) => {
   for (var s = void 0, n = o.length - 1, i; n >= 0; n--)
@@ -1832,7 +1832,7 @@ const v = (o, e, ...t) => {
     }
   }
   return o;
-}, Is = async (o, e, t, r, s) => {
+}, qs = async (o, e, t, r, s) => {
   if ((e.$flags$ & 32) === 0 && (s = o.constructor, e.$flags$ |= 32, customElements.whenDefined(t.$tagName$).then(() => e.$flags$ |= 128), s.style)) {
     let i = s.style;
     typeof i != "string" && (i = i[e.$modeName$ = bs(o)]);
@@ -1843,16 +1843,16 @@ const v = (o, e, ...t) => {
     }
   }
   e.$ancestorComponent$, $1(e, !0);
-}, qs = (o) => {
+}, Is = (o) => {
 }, Rs = (o) => {
   if ((R.$flags$ & 1) === 0) {
     const e = ft(o), t = e.$cmpMeta$, r = ke("connectedCallback", t.$tagName$);
-    e.$flags$ & 1 ? (S1(o, e, t.$listeners$), qs(e.$lazyInstance$)) : (e.$flags$ |= 1, t.$flags$ & 12 && Os(o), t.$members$ && Object.entries(t.$members$).map(([s, [n]]) => {
+    e.$flags$ & 1 ? (S1(o, e, t.$listeners$), Is(e.$lazyInstance$)) : (e.$flags$ |= 1, t.$flags$ & 12 && Os(o), t.$members$ && Object.entries(t.$members$).map(([s, [n]]) => {
       if (n & 31 && o.hasOwnProperty(s)) {
         const i = o[s];
         delete o[s], o[s] = i;
       }
-    }), Is(o, e, t)), r();
+    }), qs(o, e, t)), r();
   }
 }, Os = (o) => {
   const e = o["s-cr"] = Q.createComment("");
@@ -2279,7 +2279,7 @@ const rr = ".visually-hidden.sc-wc-datepicker{position:absolute;overflow:hidden;
         }) : !1, E = !((i = this.value) === null || i === void 0) && i[0] ? [
           (l = this.value) === null || l === void 0 ? void 0 : l[0],
           ((c = this.value) === null || c === void 0 ? void 0 : c[1]) || this.hoveredDate
-        ].sort((q1, R1) => q1 - R1) : [], W = this.range && de(E[0], r), ce = this.range && de(E[1], r), Se = de(r, /* @__PURE__ */ new Date()), Le = this.disableDate(r), A1 = `cell-${r.getMonth()}-${r.getDate()}`, H1 = {
+        ].sort((I1, R1) => I1 - R1) : [], W = this.range && de(E[0], r), ce = this.range && de(E[1], r), Se = de(r, /* @__PURE__ */ new Date()), Le = this.disableDate(r), A1 = `cell-${r.getMonth()}-${r.getDate()}`, H1 = {
           [this.getClassName("date")]: !0,
           [this.getClassName("date--current")]: h,
           [this.getClassName("date--disabled")]: Le,
@@ -2289,8 +2289,8 @@ const rr = ".visually-hidden.sc-wc-datepicker{position:absolute;overflow:hidden;
           [this.getClassName("date--in-range")]: f,
           [this.getClassName("date--start")]: W,
           [this.getClassName("date--end")]: ce
-        }, I1 = y ? "strong" : Se ? "em" : "span";
-        return v("td", { "aria-disabled": String(Le), "aria-selected": y ? "true" : void 0, "aria-current": Se ? "date" : void 0, class: H1, "data-date": _e(r), key: A1, onClick: this.onClick, onMouseEnter: this.onMouseEnter, onMouseLeave: this.onMouseLeave, role: "gridcell", tabIndex: de(r, this.currentDate) && !this.disabled ? 0 : -1 }, v(I1, { "aria-hidden": "true" }, r.getDate()), v("span", { class: "visually-hidden" }, Intl.DateTimeFormat(this.locale, {
+        }, q1 = y ? "strong" : Se ? "em" : "span";
+        return v("td", { "aria-disabled": String(Le), "aria-selected": y ? "true" : void 0, "aria-current": Se ? "date" : void 0, class: H1, "data-date": _e(r), key: A1, onClick: this.onClick, onMouseEnter: this.onMouseEnter, onMouseLeave: this.onMouseLeave, role: "gridcell", tabIndex: de(r, this.currentDate) && !this.disabled ? 0 : -1 }, v(q1, { "aria-hidden": "true" }, r.getDate()), v("span", { class: "visually-hidden" }, Intl.DateTimeFormat(this.locale, {
           day: "numeric",
           month: "long"
         }).format(r)));
@@ -3938,12 +3938,12 @@ He([
 ], oe.prototype, "size");
 customElements.get("nys-icon") || customElements.define("nys-icon", oe);
 const $r = ':host{--_nys-label-font-family: var( --nys-font-family-ui, var( --nys-font-family-sans, "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif ) );--_nys-label-font-weight: var(--nys-font-weight-semibold, 600);--_nys-label-font-size: var(--nys-font-size-ui-md, 16px);--_nys-label-line-height: var(--nys-font-lineheight-ui-md, 24px);--_nys-label-letter-spacing: var(--nys-font-letterspacing-ui-md, .044px);--_nys-label-color: var(--nys-color-text, #1b1b1b);--_nys-label-cursor: normal;--_nys-description-font-weight: var(--nys-font-weight-regular, 400);--_nys-description-font-style: normal;--_nys-description-font-color: var(--nys-color-text-weak, #4a4d4f);--_nys-required-font-color: var(--nys-color-danger, #b52c2c);--_nys-optional-font-weight: var(--nys-font-weight-regular, 400);--_nys-optional-font-color: var(--nys-color-text-weak, #4a4d4f);--_nys-label-gap: var(--nys-space-4px, 4px)}.nys-label{display:flex;flex-direction:column;align-items:flex-start;font-family:var(--_nys-label-font-family);font-size:var(--_nys-label-font-size);line-height:var(--_nys-label-line-height);letter-spacing:var(--_nys-label-letter-spacing)}.nys-label *{cursor:var(--_nys-label-cursor)}.nys-label__label{display:flex;gap:var(--_nys-label-gap);text-align:left;font-weight:var(--_nys-label-font-weight);color:var(--_nys-label-color)}.nys-label__description{text-align:left;font-weight:var(--_nys-description-font-weight);font-style:var(--_nys-description-font-style);color:var(--_nys-description-font-color)}.nys-label__required{display:contents;font-weight:var(--_nys-label-font-weight);color:var(--_nys-required-font-color)}.nys-label__optional{display:contents;font-weight:var(--_nys-optional-font-weight);color:var(--_nys-optional-font-color)}.nys-label__tooltip-wrapper{display:flex;gap:2px;align-items:center}.nys-label.invert .nys-label__label,.nys-label.invert .nys-label__description,.nys-label.invert .nys-label__optional{color:var(--nys-color-text-reverse, #fff)}.nys-label.invert .nys-label__tooltip-icon{color:var(--nys-color-ink-reverse, #fff)}';
-var Sr = Object.defineProperty, Lr = Object.getOwnPropertyDescriptor, Ie = (o, e, t, r) => {
+var Sr = Object.defineProperty, Lr = Object.getOwnPropertyDescriptor, qe = (o, e, t, r) => {
   for (var s = r > 1 ? void 0 : r ? Lr(e, t) : e, n = o.length - 1, i; n >= 0; n--)
     (i = o[n]) && (s = (r ? i(e, t, s) : i(s)) || s);
   return r && s && Sr(e, t, s), s;
 };
-const It = class It extends g {
+const qt = class qt extends g {
   constructor() {
     super(...arguments), this.for = "", this.label = "", this.description = "", this.flag = "", this.inverted = !1, this._tooltip = "";
   }
@@ -3983,24 +3983,24 @@ const It = class It extends g {
     `;
   }
 };
-It.styles = b($r);
-let ne = It;
-Ie([
+qt.styles = b($r);
+let ne = qt;
+qe([
   a({ type: String })
 ], ne.prototype, "for", 2);
-Ie([
+qe([
   a({ type: String })
 ], ne.prototype, "label", 2);
-Ie([
+qe([
   a({ type: String })
 ], ne.prototype, "description", 2);
-Ie([
+qe([
   a({ type: String })
 ], ne.prototype, "flag", 2);
-Ie([
+qe([
   a({ type: Boolean, reflect: !0 })
 ], ne.prototype, "inverted", 2);
-Ie([
+qe([
   a({ type: String })
 ], ne.prototype, "tooltip", 1);
 customElements.get("nys-label") || customElements.define("nys-label", ne);
@@ -4011,7 +4011,7 @@ var Dr = Object.defineProperty, ge = (o, e, t, r) => {
   return s && Dr(e, t, s), s;
 };
 let Mr = 0;
-const qt = class qt extends g {
+const It = class It extends g {
   /**
    * Lifecycle Methods
    * --------------------------------------------------------------------------
@@ -4196,8 +4196,8 @@ const qt = class qt extends g {
         </div>` : "";
   }
 };
-qt.styles = b(Er);
-let X = qt;
+It.styles = b(Er);
+let X = It;
 ge([
   a({ type: String, reflect: !0 })
 ], X.prototype, "id");
@@ -4604,14 +4604,14 @@ Z([
   $()
 ], V.prototype, "_slottedDescriptionText");
 customElements.get("nys-radiogroup") || customElements.define("nys-radiogroup", V);
-var Ir = Object.defineProperty, P = (o, e, t, r) => {
+var qr = Object.defineProperty, P = (o, e, t, r) => {
   for (var s = void 0, n = o.length - 1, i; n >= 0; n--)
     (i = o[n]) && (s = i(e, t, s) || s);
-  return s && Ir(e, t, s), s;
+  return s && qr(e, t, s), s;
 };
-let qr = 0;
+let Ir = 0;
 var w;
-const I = (w = class extends g {
+const q = (w = class extends g {
   constructor() {
     super(...arguments), this.checked = !1, this.disabled = !1, this.required = !1, this.label = "", this.description = "", this.id = "", this.name = "", this.value = "", this.inverted = !1, this.form = null, this.size = "md", this.tile = !1, this.other = !1, this.showOtherError = !1, this.activeFocusable = !1, this.isMobile = window.innerWidth < 480, this._hasUserInteracted = !1, this._textInputHasFocus = !1, this._handleResize = () => {
       this.isMobile = window.innerWidth < 480;
@@ -4622,13 +4622,13 @@ const I = (w = class extends g {
    * --------------------------------------------------------------------------
    */
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-radiobutton-${Date.now()}-${qr++}`), this.checked && (w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this), this.addEventListener("focus", this._handleFocus), this.addEventListener("blur", this._handleBlur), this.addEventListener("click", this._handleChange), window.addEventListener("resize", this._handleResize);
+    super.connectedCallback(), this.id || (this.id = `nys-radiobutton-${Date.now()}-${Ir++}`), this.checked && (w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this), this.addEventListener("focus", this._handleFocus), this.addEventListener("blur", this._handleBlur), this.addEventListener("click", this._handleChange), window.addEventListener("resize", this._handleResize);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("focus", this._handleFocus), this.removeEventListener("blur", this._handleBlur), window.removeEventListener("resize", this._handleResize);
   }
   updated(e) {
-    e.has("checked") && this.checked && w.buttonGroup[this.name] !== this && (w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this), e.has("activeFocusable") && this.activeFocusable && this._focusRadioVisual();
+    e.has("checked") && (e.get("checked") && !this.checked && this._clearOtherState(), this.checked && w.buttonGroup[this.name] !== this && (w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this)), e.has("activeFocusable") && this.activeFocusable && this._focusRadioVisual();
   }
   /**
    * Functions
@@ -4644,13 +4644,26 @@ const I = (w = class extends g {
   }
   // This callback is automatically called when the parent form is reset.
   formResetUpdate() {
-    this.checked = !1, w.buttonGroup[this.name] === this && delete w.buttonGroup[this.name], this.requestUpdate();
+    this.checked = !1, this._clearOtherState(), w.buttonGroup[this.name] === this && delete w.buttonGroup[this.name], this.requestUpdate();
   }
   _focusRadioVisual() {
     const e = this.shadowRoot?.querySelector(
       ".nys-radiobutton__radio"
     );
     e && (e.tabIndex = 0);
+  }
+  _clearOtherState() {
+    this.other && (this.showOtherError = !1, this._hasUserInteracted = !1, this._textInputHasFocus = !1, this.dispatchEvent(
+      new CustomEvent("nys-error-clear", {
+        detail: {
+          id: this.id,
+          name: this.name,
+          type: "other"
+        },
+        bubbles: !0,
+        composed: !0
+      })
+    ));
   }
   /**
    * Event Handlers
@@ -4672,7 +4685,7 @@ const I = (w = class extends g {
   }
   // Handle radiobutton change event & un-selection of other radio options in group
   async _handleChange() {
-    if (this.classList.remove("active-focus"), this.showOtherError = !1, !this.checked && !this.disabled) {
+    if (this.showOtherError = !1, !this.checked && !this.disabled) {
       const e = this.checked;
       w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this, this.checked = !0, this._validateOtherAndEmitError(), this._emitChangeEvent(), this.other && !e && (await this.updateComplete, this._focusOnTextInput());
     }
@@ -4683,7 +4696,7 @@ const I = (w = class extends g {
   }
   // Handle blur event
   _handleBlur() {
-    this.classList.remove("active-focus"), this.dispatchEvent(new Event("nys-blur")), console.log("WHY IS this._textInputHasFocus", this._textInputHasFocus), setTimeout(() => {
+    this.dispatchEvent(new Event("nys-blur")), setTimeout(() => {
       this._textInputHasFocus && this.other && this.checked && (this._hasUserInteracted = !0, this._validateOtherAndEmitError());
     }, 50);
   }
@@ -4712,7 +4725,7 @@ const I = (w = class extends g {
   }
   _validateOtherAndEmitError() {
     if (!this.other) return;
-    if (console.log("this._hasUserInteracted", this._hasUserInteracted), !this.checked || !this._hasUserInteracted) {
+    if (!this.checked || !this._hasUserInteracted) {
       this.showOtherError = !1;
       return;
     }
@@ -4799,53 +4812,53 @@ const I = (w = class extends g {
 }, w.styles = b(z1), w.buttonGroup = {}, w);
 P([
   a({ type: Boolean, reflect: !0 })
-], I.prototype, "checked");
+], q.prototype, "checked");
 P([
   a({ type: Boolean, reflect: !0 })
-], I.prototype, "disabled");
+], q.prototype, "disabled");
 P([
   a({ type: Boolean, reflect: !0 })
-], I.prototype, "required");
+], q.prototype, "required");
 P([
   a({ type: String })
-], I.prototype, "label");
+], q.prototype, "label");
 P([
   a({ type: String })
-], I.prototype, "description");
+], q.prototype, "description");
 P([
   a({ type: String, reflect: !0 })
-], I.prototype, "id");
+], q.prototype, "id");
 P([
   a({ type: String, reflect: !0 })
-], I.prototype, "name");
+], q.prototype, "name");
 P([
   a({ type: String })
-], I.prototype, "value");
+], q.prototype, "value");
 P([
   a({ type: Boolean, reflect: !0 })
-], I.prototype, "inverted");
+], q.prototype, "inverted");
 P([
   a({ type: String, reflect: !0 })
-], I.prototype, "form");
+], q.prototype, "form");
 P([
   a({ type: String, reflect: !0 })
-], I.prototype, "size");
+], q.prototype, "size");
 P([
   a({ type: Boolean, reflect: !0 })
-], I.prototype, "tile");
+], q.prototype, "tile");
 P([
   a({ type: Boolean, reflect: !0 })
-], I.prototype, "other");
+], q.prototype, "other");
 P([
   a({ type: Boolean })
-], I.prototype, "showOtherError");
+], q.prototype, "showOtherError");
 P([
   a({ type: Boolean })
-], I.prototype, "activeFocusable");
+], q.prototype, "activeFocusable");
 P([
   $()
-], I.prototype, "isMobile");
-let Rr = I;
+], q.prototype, "isMobile");
+let Rr = q;
 customElements.get("nys-radiobutton") || customElements.define("nys-radiobutton", Rr);
 var Or = Object.defineProperty, Fe = (o, e, t, r) => {
   for (var s = void 0, n = o.length - 1, i; n >= 0; n--)
@@ -6246,7 +6259,7 @@ ee([
 ], T.prototype, "size");
 customElements.get("nys-toggle") || customElements.define("nys-toggle", T);
 const io = `:host{--_nys-tooltip-color: var(--nys-color-text-reverse, #ffffff);--_nys-tooltip-background-color: var(--nys-color-ink, #1b1b1b);--_nys-tooltip-border-radius: var(--nys-radius-md, 4px);--_nys-tooltip-font-family: var( --nys-font-family-ui, var( --nys-font-family-sans, "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif ) );--_nys-tooltip-font-size: var(--nys-type-size-ui-sm, 14px);--_nys-tooltip-letter-spacing: var(--nys-font-letterspacing-ui-sm, .044px);--_nys-tooltip-line-height: var(--nys-font-lineheight-ui-sm, 24px)}.nys-tooltip__content{position:fixed;top:0;left:0;max-width:400px;width:max-content;max-height:120px;padding:var(--nys-space-50, 4px) var(--nys-space-100, 8px);background-color:var(--_nys-tooltip-background-color);border-radius:var(--_nys-tooltip-border-radius);cursor:auto;z-index:1}.nys-tooltip__inner{display:block;color:var(--_nys-tooltip-color);font-family:var(--_nys-tooltip-font-family);font-size:var(--_nys-tooltip-font-size);font-weight:400;line-height:var(--_nys-tooltip-line-height);letter-spacing:var(--_nys-tooltip-letter-spacing);white-space:normal;word-break:break-word;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical}.nys-tooltip__arrow{position:absolute;width:14px;height:6px;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="6" viewBox="0 0 15 6" fill="none"><path d="M8.15079 5.44218C7.7763 5.76317 7.2237 5.76317 6.84921 5.44218L0.5 0H14.5L8.15079 5.44218Z" fill="%231B1B1B"/></svg>') no-repeat center}.nys-tooltip__content[active]{display:block}.fade-out{opacity:0;transition:opacity .2s ease-out}:host([position=top]) .nys-tooltip__arrow{top:100%;left:var(--arrow-offset-x, 50%);transform:translate(-50%)}:host([position=bottom]) .nys-tooltip__arrow{bottom:100%;left:var(--arrow-offset-x, 50%);transform:translate(-50%) rotate(180deg)}:host([position=left]) .nys-tooltip__arrow{left:100%;top:50%;transform:translateY(-50%) rotate(-90deg);margin-left:-4px}:host([position=right]) .nys-tooltip__arrow{right:100%;top:50%;transform:translateY(-50%) rotate(90deg);margin-right:-4px}:host([inverted]) .nys-tooltip__content{--_nys-tooltip-color: var(--nys-color-text, #1b1b1b);--_nys-tooltip-background-color: var(--nys-color-ink-reverse, #fff)}:host([inverted]) .nys-tooltip__arrow{background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="6" viewBox="0 0 15 6" fill="none"><path d="M8.15079 5.44218C7.7763 5.76317 7.2237 5.76317 6.84921 5.44218L0.5 0H14.5L8.15079 5.44218Z" fill="white"/></svg>') no-repeat center}@media(max-width:400px){.nys-tooltip__content{max-width:calc(100vw - 2rem)}}`;
-var ao = Object.defineProperty, lo = Object.getOwnPropertyDescriptor, qe = (o, e, t, r) => {
+var ao = Object.defineProperty, lo = Object.getOwnPropertyDescriptor, Ie = (o, e, t, r) => {
   for (var s = r > 1 ? void 0 : r ? lo(e, t) : e, n = o.length - 1, i; n >= 0; n--)
     (i = o[n]) && (s = (r ? i(e, t, s) : i(s)) || s);
   return r && s && ao(e, t, s), s;
@@ -6506,22 +6519,22 @@ const Tt = class Tt extends g {
 };
 Tt.styles = b(io);
 let ie = Tt;
-qe([
+Ie([
   a({ type: String, reflect: !0 })
 ], ie.prototype, "id", 2);
-qe([
+Ie([
   a({ type: String })
 ], ie.prototype, "text", 2);
-qe([
+Ie([
   a({ type: Boolean, reflect: !0 })
 ], ie.prototype, "inverted", 2);
-qe([
+Ie([
   a({ type: String })
 ], ie.prototype, "for", 2);
-qe([
+Ie([
   $()
 ], ie.prototype, "_active", 2);
-qe([
+Ie([
   a({ type: String, reflect: !0 })
 ], ie.prototype, "position", 1);
 customElements.get("nys-tooltip") || customElements.define("nys-tooltip", ie);
@@ -7167,7 +7180,7 @@ customElements.get("nys-unavfooter") || customElements.define("nys-unavfooter", 
 export {
   Be as NysAccordion,
   ue as NysAccordionItem,
-  q as NysAlert,
+  I as NysAlert,
   j as NysAvatar,
   we as NysBacktotop,
   ns as NysBadge,
