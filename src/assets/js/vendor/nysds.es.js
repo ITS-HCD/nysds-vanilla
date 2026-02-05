@@ -1,5 +1,5 @@
 import { LitElement as g, unsafeCSS as b, html as d } from "lit";
-import { property as a, query as O1, state as $ } from "lit/decorators.js";
+import { property as a, query as R1, state as $ } from "lit/decorators.js";
 import { ifDefined as p } from "lit/directives/if-defined.js";
 const u1 = ':host{--_nys-accordion-border-radius: var(--nys-radius-md, 4px);--_nys-accordion-border-width: var(--nys-border-width-md, 2px);--_nys-accordion-border-color: var(--nys-color-neutral-50, #ededed);--_nys-accordion-padding--x: var(--nys-space-250, 20px);--_nys-accordion-padding--y: var(--nys-space-200, 16px);--_nys-accordion-outline-width: var(--nys-border-width-md, 2px);--_nys-accordion-outline-offset: var(--nys-space-2px, 2px);--_nys-accordion-outline-color: var(--nys-color-focus, #004dd1);--_nys-accordion-gap: var(--nys-space-100, 8px);--_nys-accordion-background-color: var(--nys-color-neutral-50, #ededed);--_nys-accordion-background-color--hover: var( --nys-color-neutral-100, #d0d0ce );--_nys-accordionitem-gap: var(--nys-space-200, 16px);--_nys-accordionitem-background-color: var(--nys-color-ink-reverse, #fff);--_nys-accordionitem-padding: var(--nys-space-200, 16px) var(--local-xx-spacing-205, 20px);--_nys-accordion-font-size: var(--nys-type-size-ui-xl, 20px);--_nys-accordion-font-weight: var(--nys-font-weight-bold, 700);--_nys-accordion-line-height: var(--nys-font-lineheight-ui-xl, 28px);--_nys-accordion-letter-spacing: var( --nys-font-letterspacing-ui-xl, .017px );--_nys-accordion-font-family: var( --nys-font-family-ui, var( --nys-font-family-sans, "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif ) )}::slotted(p),p{margin:0!important}.nys-accordionitem{font-family:var(--_nys-accordion-font-family);font-size:var(--_nys-accordion-font-size);font-weight:var(--_nys-accordion-font-weight);line-height:var(--_nys-accordion-line-height);letter-spacing:var(--_nys-accordion-letter-spacing);display:flex}.nys-accordionitem__heading{all:unset;flex:1;gap:var(--_nys-accordionitem-gap);display:flex;padding:var(--_nys-accordion-padding--y) var(--_nys-accordion-padding--x);align-items:center;align-self:stretch;border-radius:var(--_nys-accordion-border-radius);background-color:var(--_nys-accordion-background-color);cursor:pointer;transition:.05s all ease-in-out}.nys-accordionitem__heading:hover{border-radius:var(--_nys-accordion-border-radius);background-color:var(--_nys-accordion-background-color--hover)}.nys-accordionitem__heading:focus-visible{outline-offset:var(--_nys-accordion-outline-offset);outline:solid var(--_nys-accordion-outline-width) var(--_nys-accordion-outline-color)}.nys-accordionitem__heading .nys-accordionitem__heading-title{flex:1}.nys-accordionitem__content{height:0;overflow:hidden;transition:all .3s cubic-bezier(.4,0,.2,1) 0ms;visibility:hidden}.nys-accordionitem__content.expanded{visibility:visible}.nys-accordionitem__content-slot-container{display:flex;flex-direction:column;align-items:flex-start;gap:var(--_nys-accordion-gap);align-self:stretch;padding:var(--_nys-accordionitem-padding);background-color:var(--_nys-accordionitem-background-color)}.nys-accordionitem__content-slot-container-text{max-width:528px}.expand-icon{transition:all .3s cubic-bezier(.4,0,.2,1) 0ms}:host([expanded]) .expand-icon{transform:rotate(180deg)}:host([bordered][expanded]) .nys-accordionitem__heading{border-radius:var(--_nys-accordion-border-radius) var(--_nys-accordion-border-radius) 0 0}:host([bordered]) .nys-accordionitem__content-slot-container{border:var(--_nys-accordion-border-width) solid var(--_nys-accordion-border-color);border-radius:0 0 var(--_nys-accordion-border-radius) var(--_nys-accordion-border-radius)}.nys-accordion{display:flex;flex-direction:column;gap:var(--_nys-accordion-gap)}';
 var U1 = Object.defineProperty, Pe = (o, e, t, r) => {
@@ -99,7 +99,7 @@ Pe([
   a({ type: Boolean, reflect: !0 })
 ], ue.prototype, "bordered");
 Pe([
-  O1(".nys-accordionitem__content")
+  R1(".nys-accordionitem__content")
 ], ue.prototype, "_contentContainer");
 customElements.get("nys-accordionitem") || customElements.define("nys-accordionitem", ue);
 var Z1 = Object.defineProperty, mt = (o, e, t, r) => {
@@ -1030,7 +1030,11 @@ const ot = class ot extends g {
   }
   render() {
     return d`
-      <div class="nys-checkboxgroup">
+      <fieldset
+        aria-label="${this.label}${this._slottedDescriptionText ? ` ${this._slottedDescriptionText}` : this.description ? ` ${this.description}` : ""}"
+        class="nys-checkboxgroup"
+        role="radiogroup"
+      >
         <nys-label
           for=${this.id + "--native"}
           label=${this.label}
@@ -1042,19 +1046,14 @@ const ot = class ot extends g {
           <slot name="description" slot="description">${this.description}</slot>
         </nys-label>
         <div class="nys-checkboxgroup__content">
-          <fieldset>
-            <legend class="sr-only">
-              ${this.label}${this._slottedDescriptionText ? ` ${this._slottedDescriptionText}` : this.description ? ` ${this.description}` : ""}
-            </legend>
-            <slot></slot>
-          </fieldset>
+          <slot></slot>
         </div>
         <nys-errormessage
           ?showError=${this.showError}
           errorMessage=${this._internals.validationMessage || this.errorMessage}
           .showDivider=${!this.tile}
         ></nys-errormessage>
-      </div>
+      </fieldset>
     `;
   }
 };
@@ -1554,7 +1553,7 @@ const v = (o, e, ...t) => {
     })
   };
 }, ms = (o, e, t) => {
-  const r = R.ce(e, t);
+  const r = q.ce(e, t);
   return o.dispatchEvent(r), r;
 }, Jt = /* @__PURE__ */ new WeakMap(), ws = (o, e, t) => {
   let r = et.get(o);
@@ -1570,7 +1569,7 @@ const v = (o, e, ...t) => {
       if (l || Jt.set(o, l = /* @__PURE__ */ new Set()), !l.has(n)) {
         {
           c = Q.createElement("style"), c.innerHTML = i;
-          const h = (s = R.$nonce$) !== null && s !== void 0 ? s : ps(Q);
+          const h = (s = q.$nonce$) !== null && s !== void 0 ? s : ps(Q);
           h != null && c.setAttribute("nonce", h), o.insertBefore(c, o.querySelector("link"));
         }
         l && l.add(n);
@@ -1595,7 +1594,7 @@ const v = (o, e, ...t) => {
       if (e === "ref")
         r && r(o);
       else if (!o.__lookupSetter__(e) && e[0] === "o" && e[1] === "n")
-        e[2] === "-" ? e = e.slice(3) : o1(vt, l) ? e = l.slice(2) : e = l[2] + e.slice(3), t && R.rel(o, e, t, !1), r && R.ael(o, e, r, !1);
+        e[2] === "-" ? e = e.slice(3) : o1(vt, l) ? e = l.slice(2) : e = l[2] + e.slice(3), t && q.rel(o, e, t, !1), r && q.ael(o, e, r, !1);
       else {
         const c = kt(r);
         if ((i || c && r !== null) && !s)
@@ -1637,22 +1636,22 @@ const v = (o, e, ...t) => {
         l = Je(o, s, n, i), l && i.appendChild(l);
     s.$tag$ === "svg" ? N = !1 : i.tagName === "foreignObject" && (N = !0);
   }
-  return i["s-hn"] = pt, s.$flags$ & 3 && (i["s-sr"] = !0, i["s-cr"] = p1, i["s-sn"] = s.$name$ || "", c = o && o.$children$ && o.$children$[t], c && c.$tag$ === s.$tag$ && o.$elm$ && Oe(o.$elm$, !1)), i;
-}, Oe = (o, e) => {
-  R.$flags$ |= 1;
+  return i["s-hn"] = pt, s.$flags$ & 3 && (i["s-sr"] = !0, i["s-cr"] = p1, i["s-sn"] = s.$name$ || "", c = o && o.$children$ && o.$children$[t], c && c.$tag$ === s.$tag$ && o.$elm$ && Re(o.$elm$, !1)), i;
+}, Re = (o, e) => {
+  q.$flags$ |= 1;
   const t = o.childNodes;
   for (let r = t.length - 1; r >= 0; r--) {
     const s = t[r];
-    s["s-hn"] !== pt && s["s-ol"] && (m1(s).insertBefore(s, xt(s)), s["s-ol"].remove(), s["s-ol"] = void 0, wt = !0), e && Oe(s, e);
+    s["s-hn"] !== pt && s["s-ol"] && (m1(s).insertBefore(s, xt(s)), s["s-ol"].remove(), s["s-ol"] = void 0, wt = !0), e && Re(s, e);
   }
-  R.$flags$ &= -2;
+  q.$flags$ &= -2;
 }, _1 = (o, e, t, r, s, n) => {
   let i = o["s-cr"] && o["s-cr"].parentNode || o, l;
   for (i.shadowRoot && i.tagName === pt && (i = i.shadowRoot); s <= n; ++s)
     r[s] && (l = Je(null, t, s, o), l && (r[s].$elm$ = l, i.insertBefore(l, xt(e))));
 }, C1 = (o, e, t, r, s) => {
   for (; e <= t; ++e)
-    (r = o[e]) && (s = r.$elm$, x1(r), Qe = !0, s["s-ol"] ? s["s-ol"].remove() : Oe(s, !0), s.remove());
+    (r = o[e]) && (s = r.$elm$, x1(r), Qe = !0, s["s-ol"] ? s["s-ol"].remove() : Re(s, !0), s.remove());
 }, Ss = (o, e, t, r) => {
   let s = 0, n = 0, i = 0, l = 0, c = e.length - 1, h = e[0], u = e[c], y = r.length - 1, f = r[0], E = r[y], W, ce;
   for (; s <= c && n <= y; )
@@ -1669,9 +1668,9 @@ const v = (o, e, ...t) => {
     else if (Ye(u, E))
       Me(u, E), u = e[--c], E = r[--y];
     else if (Ye(h, E))
-      (h.$tag$ === "slot" || E.$tag$ === "slot") && Oe(h.$elm$.parentNode, !1), Me(h, E), o.insertBefore(h.$elm$, u.$elm$.nextSibling), h = e[++s], E = r[--y];
+      (h.$tag$ === "slot" || E.$tag$ === "slot") && Re(h.$elm$.parentNode, !1), Me(h, E), o.insertBefore(h.$elm$, u.$elm$.nextSibling), h = e[++s], E = r[--y];
     else if (Ye(u, f))
-      (h.$tag$ === "slot" || E.$tag$ === "slot") && Oe(u.$elm$.parentNode, !1), Me(u, f), o.insertBefore(u.$elm$, h.$elm$), u = e[--c], f = r[++n];
+      (h.$tag$ === "slot" || E.$tag$ === "slot") && Re(u.$elm$.parentNode, !1), Me(u, f), o.insertBefore(u.$elm$, h.$elm$), u = e[--c], f = r[++n];
     else {
       for (i = -1, l = s; l <= c; ++l)
         if (e[l] && e[l].$key$ !== null && e[l].$key$ === f.$key$) {
@@ -1726,7 +1725,7 @@ const v = (o, e, ...t) => {
   const t = o.$hostElement$, r = o.$cmpMeta$, s = o.$vnode$ || Xe(null, null), n = fs(e) ? e : v(null, null, e);
   pt = t.tagName, r.$attrsToReflect$ && (n.$attrs$ = n.$attrs$ || {}, r.$attrsToReflect$.map(([i, l]) => n.$attrs$[l] = t[i])), n.$tag$ = null, n.$flags$ |= 4, o.$vnode$ = n, n.$elm$ = s.$elm$ = t.shadowRoot || t, De = t["s-sc"], p1 = t["s-cr"], f1 = (r.$flags$ & 1) !== 0, Qe = !1, Me(s, n);
   {
-    if (R.$flags$ |= 1, wt) {
+    if (q.$flags$ |= 1, wt) {
       k1(n.$elm$);
       let i, l, c, h, u, y, f = 0;
       for (; f < G.length; f++)
@@ -1742,7 +1741,7 @@ const v = (o, e, ...t) => {
         } else
           l.nodeType === 1 && (l.hidden = !0);
     }
-    Qe && w1(n.$elm$), R.$flags$ &= -2, G.length = 0;
+    Qe && w1(n.$elm$), q.$flags$ &= -2, G.length = 0;
   }
 }, Es = (o, e) => {
 }, $1 = (o, e) => (o.$flags$ |= 16, Es(o, o.$ancestorComponent$), Js(() => Ds(o, e))), Ds = (o, e) => {
@@ -1814,7 +1813,7 @@ const v = (o, e, ...t) => {
     {
       const n = /* @__PURE__ */ new Map();
       s.attributeChangedCallback = function(i, l, c) {
-        R.jmp(() => {
+        q.jmp(() => {
           const h = n.get(i);
           if (this.hasOwnProperty(h))
             c = this[h], delete this[h];
@@ -1832,7 +1831,7 @@ const v = (o, e, ...t) => {
     }
   }
   return o;
-}, qs = async (o, e, t, r, s) => {
+}, Is = async (o, e, t, r, s) => {
   if ((e.$flags$ & 32) === 0 && (s = o.constructor, e.$flags$ |= 32, customElements.whenDefined(t.$tagName$).then(() => e.$flags$ |= 128), s.style)) {
     let i = s.style;
     typeof i != "string" && (i = i[e.$modeName$ = bs(o)]);
@@ -1843,22 +1842,22 @@ const v = (o, e, ...t) => {
     }
   }
   e.$ancestorComponent$, $1(e, !0);
-}, Is = (o) => {
-}, Rs = (o) => {
-  if ((R.$flags$ & 1) === 0) {
+}, qs = (o) => {
+}, Os = (o) => {
+  if ((q.$flags$ & 1) === 0) {
     const e = ft(o), t = e.$cmpMeta$, r = ke("connectedCallback", t.$tagName$);
-    e.$flags$ & 1 ? (S1(o, e, t.$listeners$), Is(e.$lazyInstance$)) : (e.$flags$ |= 1, t.$flags$ & 12 && Os(o), t.$members$ && Object.entries(t.$members$).map(([s, [n]]) => {
+    e.$flags$ & 1 ? (S1(o, e, t.$listeners$), qs(e.$lazyInstance$)) : (e.$flags$ |= 1, t.$flags$ & 12 && Rs(o), t.$members$ && Object.entries(t.$members$).map(([s, [n]]) => {
       if (n & 31 && o.hasOwnProperty(s)) {
         const i = o[s];
         delete o[s], o[s] = i;
       }
-    }), qs(o, e, t)), r();
+    }), Is(o, e, t)), r();
   }
-}, Os = (o) => {
+}, Rs = (o) => {
   const e = o["s-cr"] = Q.createComment("");
   e["s-cn"] = !0, o.insertBefore(e, o.firstChild);
 }, Us = (o) => {
-  if ((R.$flags$ & 1) === 0) {
+  if ((q.$flags$ & 1) === 0) {
     const e = ft(o);
     e.$rmListeners$ && (e.$rmListeners$.map((t) => t()), e.$rmListeners$ = void 0);
   }
@@ -1874,7 +1873,7 @@ const v = (o, e, ...t) => {
       Ns(this, t);
     },
     connectedCallback() {
-      Rs(this), r && r.call(this);
+      Os(this), r && r.call(this);
     },
     disconnectedCallback() {
       Us(this), s && s.call(this);
@@ -1889,7 +1888,7 @@ const v = (o, e, ...t) => {
 }, S1 = (o, e, t, r) => {
   t && t.map(([s, n, i]) => {
     const l = Ts(o, s), c = Zs(e, i), h = Fs(s);
-    R.ael(l, n, c, h), (e.$rmListeners$ = e.$rmListeners$ || []).push(() => R.rel(l, n, c, h));
+    q.ael(l, n, c, h), (e.$rmListeners$ = e.$rmListeners$ || []).push(() => q.rel(l, n, c, h));
   });
 }, Zs = (o, e) => (t) => {
   try {
@@ -1909,7 +1908,7 @@ const v = (o, e, ...t) => {
   };
   return S1(o, t, e.$listeners$), L1.set(o, t);
 }, o1 = (o, e) => e in o, Ze = (o, e) => (0, console.error)(o, e), et = /* @__PURE__ */ new Map(), js = [], vt = typeof window < "u" ? window : {}, Q = vt.document || { head: {} }, Ys = vt.HTMLElement || class {
-}, R = {
+}, q = {
   $flags$: 0,
   $resourcesUrl$: "",
   jmp: (o) => o(),
@@ -1935,7 +1934,7 @@ const v = (o, e, ...t) => {
   }
   return !1;
 })(), n1 = [], E1 = [], Qs = (o, e) => (t) => {
-  o.push(t), bt || (bt = !0, e && R.$flags$ & 4 ? Xs(_t) : R.raf(_t));
+  o.push(t), bt || (bt = !0, e && q.$flags$ & 4 ? Xs(_t) : q.raf(_t));
 }, i1 = (o) => {
   for (let e = 0; e < o.length; e++)
     try {
@@ -1945,7 +1944,7 @@ const v = (o, e, ...t) => {
     }
   o.length = 0;
 }, _t = () => {
-  i1(n1), i1(E1), (bt = n1.length > 0) && R.raf(_t);
+  i1(n1), i1(E1), (bt = n1.length > 0) && q.raf(_t);
 }, Xs = (o) => Ks().then(o), Js = /* @__PURE__ */ Qs(E1, !0);
 function We(o, e) {
   const t = new Date(o);
@@ -1958,13 +1957,13 @@ function er(o, e, t) {
     for (; E > 0; )
       h.push(W), W = tt(W), E -= 1;
     h.reverse();
-    let Se = (7 - l + c) % 7, Le = Re(i);
+    let Se = (7 - l + c) % 7, Le = Oe(i);
     for (; Se > 0; )
-      u.push(Le), Le = Re(Le), Se -= 1;
+      u.push(Le), Le = Oe(Le), Se -= 1;
   }
   let y = s;
   for (; y.getMonth() === o.getMonth(); )
-    r.push(y), y = Re(y);
+    r.push(y), y = Oe(y);
   return [...h, ...r, ...u];
 }
 function $t(o) {
@@ -1989,7 +1988,7 @@ function tr(o) {
     }).format(r);
   });
 }
-function Re(o) {
+function Oe(o) {
   return We(o, 1);
 }
 function a1(o) {
@@ -2065,7 +2064,7 @@ const rr = ".visually-hidden.sc-wc-datepicker{position:absolute;overflow:hidden;
           t = tt(o);
           break;
         case "nextDay":
-          t = Re(o);
+          t = Oe(o);
           break;
         case "previousSameWeekDay":
           t = Ge(o, 7);
@@ -2104,7 +2103,7 @@ const rr = ".visually-hidden.sc-wc-datepicker{position:absolute;overflow:hidden;
           case "nextMonth":
           case "previousYear":
           case "nextYear":
-            t = Re(t);
+            t = Oe(t);
             break;
           case "previousSameWeekDay":
             t = Ge(t, 7);
@@ -2279,7 +2278,7 @@ const rr = ".visually-hidden.sc-wc-datepicker{position:absolute;overflow:hidden;
         }) : !1, E = !((i = this.value) === null || i === void 0) && i[0] ? [
           (l = this.value) === null || l === void 0 ? void 0 : l[0],
           ((c = this.value) === null || c === void 0 ? void 0 : c[1]) || this.hoveredDate
-        ].sort((I1, R1) => I1 - R1) : [], W = this.range && de(E[0], r), ce = this.range && de(E[1], r), Se = de(r, /* @__PURE__ */ new Date()), Le = this.disableDate(r), A1 = `cell-${r.getMonth()}-${r.getDate()}`, H1 = {
+        ].sort((q1, O1) => q1 - O1) : [], W = this.range && de(E[0], r), ce = this.range && de(E[1], r), Se = de(r, /* @__PURE__ */ new Date()), Le = this.disableDate(r), A1 = `cell-${r.getMonth()}-${r.getDate()}`, H1 = {
           [this.getClassName("date")]: !0,
           [this.getClassName("date--current")]: h,
           [this.getClassName("date--disabled")]: Le,
@@ -2289,8 +2288,8 @@ const rr = ".visually-hidden.sc-wc-datepicker{position:absolute;overflow:hidden;
           [this.getClassName("date--in-range")]: f,
           [this.getClassName("date--start")]: W,
           [this.getClassName("date--end")]: ce
-        }, q1 = y ? "strong" : Se ? "em" : "span";
-        return v("td", { "aria-disabled": String(Le), "aria-selected": y ? "true" : void 0, "aria-current": Se ? "date" : void 0, class: H1, "data-date": _e(r), key: A1, onClick: this.onClick, onMouseEnter: this.onMouseEnter, onMouseLeave: this.onMouseLeave, role: "gridcell", tabIndex: de(r, this.currentDate) && !this.disabled ? 0 : -1 }, v(q1, { "aria-hidden": "true" }, r.getDate()), v("span", { class: "visually-hidden" }, Intl.DateTimeFormat(this.locale, {
+        }, I1 = y ? "strong" : Se ? "em" : "span";
+        return v("td", { "aria-disabled": String(Le), "aria-selected": y ? "true" : void 0, "aria-current": Se ? "date" : void 0, class: H1, "data-date": _e(r), key: A1, onClick: this.onClick, onMouseEnter: this.onMouseEnter, onMouseLeave: this.onMouseLeave, role: "gridcell", tabIndex: de(r, this.currentDate) && !this.disabled ? 0 : -1 }, v(I1, { "aria-hidden": "true" }, r.getDate()), v("span", { class: "visually-hidden" }, Intl.DateTimeFormat(this.locale, {
           day: "numeric",
           month: "long"
         }).format(r)));
@@ -2895,7 +2894,7 @@ gt([
 ], xe.prototype, "errorMessage");
 customElements.define("nys-fileitem", xe);
 const _r = ':host{--_nys-fileinput-gap: var(--nys-space-100, 8px);--_nys-fileinput-font-size: var(--nys-font-size-ui-md, 16px);--_nys-fileinput-font-weight: var(--nys-font-weight-semibold, 600);--_nys-fileinput-line-height: var(--nys-font-lineheight-ui-md, 24px);--_nys-fileinput-font-family: var( --nys-font-family-ui, var( --nys-font-family-sans, "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif ) );--_nys-fileinput-background-color--dropzone: var( --nys-color-ink-reverse, #fff );--_nys-fileinput-background-color--dropzone--disabled: var( --nys-color-neutral-10, #f6f6f6 );--_nys-fileinput-background-color--dropzone--active: var( --nys-color-theme-faint, #f7fafd );--_nys-fileinput-border-radius--dropzone: var( --nys-radius-lg, var(--nys-space-100, 8px) );--_nys-fileinput-border-style: dashed;--_nys-fileinput-border-color: var(--nys-color-neutral-200, #bec0c1);--_nys-fileinput-border-width: var(--nys-border-width-sm, 1px)}.nys-fileinput{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:var(--_nys-fileinput-gap);font-family:var(--_nys-fileinput-font-family);font-size:var(--_nys-fileinput-font-size);font-weight:var(--_nys-fileinput-font-weight);line-height:var(--_nys-fileinput-line-height)}:host([width=lg]) .nys-fileinput{max-width:var(--nys-form-width-lg, 384px)}ul{list-style-type:none;padding:0;margin:0;width:100%;display:flex;flex-direction:column;gap:var(--_nys-fileinput-gap)}.nys-fileinput__dropzone{display:flex;padding:var(--nys-space-400, 32px) var(--nys-space-200, 16px);justify-content:center;align-items:center;gap:12px;align-self:stretch;border-radius:var(--_nys-fileinput-border-radius--dropzone);outline:var(--_nys-fileinput-border-width) var(--_nys-fileinput-border-style) var(--_nys-fileinput-border-color);background-color:var(--_nys-fileinput-background-color--dropzone);transition:all 60ms ease-in-out}.nys-fileinput__dropzone:hover{cursor:pointer;--_nys-fileinput-border-width: var(--nys-border-width-md, 2px);--_nys-fileinput-border-color: var(--nys-color-neutral-700, #4a4d4f)}.nys-fileinput__dropzone.drag-active{--_nys-fileinput-border-width: var(--nys-border-width-md, 2px);--_nys-fileinput-border-color: var(--nys-color-theme, #154973);--_nys-fileinput-border-style: solid}.nys-fileinput__dropzone.error{--_nys-fileinput-border-color: var(--nys-color-danger, #b52c2c)}.nys-fileinput__dropzone.error:hover{--_nys-fileinput-border-width: var(--nys-border-width-md, 2px);--_nys-fileinput-border-color: var(--nys-color-emergency, #721c1c)}.nys-fileinput__dropzone.disabled{cursor:not-allowed;--_nys-fileinput-border-color: var(--nys-color-neutral-300, #a7a9ab);--_nys-fileinput-border-width: var(--nys-border-width-sm, 1px);background-color:var(--_nys-fileinput-background-color--dropzone--disabled);color:var(--_nys-fileinput-color--dropzone--disabled)}progress{display:flex;width:100%;height:6px;border-radius:var(--nys-radius-round, 1776px);background-color:var(--_nys-fileinput-progress-background);overflow:hidden;appearance:none;border:none}progress::-moz-progress-bar{background-color:var(--_nys-fileinput-progress-background)}progress::-webkit-progress-value{background-color:var(--_nys-fileinput-progress-background)}progress::-webkit-progress-bar{background-color:var(--_nys-fileinput-progress-background)}';
-var Cr = Object.defineProperty, U = (o, e, t, r) => {
+var Cr = Object.defineProperty, R = (o, e, t, r) => {
   for (var s = void 0, n = o.length - 1, i; n >= 0; n--)
     (i = o[n]) && (s = i(e, t, s) || s);
   return s && Cr(e, t, s), s;
@@ -3212,52 +3211,52 @@ const at = class at extends g {
 };
 at.styles = b(_r), at.formAssociated = !0;
 let M = at;
-U([
+R([
   a({ type: String, reflect: !0 })
 ], M.prototype, "id");
-U([
+R([
   a({ type: String, reflect: !0 })
 ], M.prototype, "name");
-U([
+R([
   a({ type: String })
 ], M.prototype, "label");
-U([
+R([
   a({ type: String })
 ], M.prototype, "description");
-U([
+R([
   a({ type: Boolean })
 ], M.prototype, "multiple");
-U([
+R([
   a({ type: String, reflect: !0 })
 ], M.prototype, "form");
-U([
+R([
   a({ type: String })
 ], M.prototype, "tooltip");
-U([
+R([
   a({ type: String })
 ], M.prototype, "accept");
-U([
+R([
   a({ type: Boolean, reflect: !0 })
 ], M.prototype, "disabled");
-U([
+R([
   a({ type: Boolean, reflect: !0 })
 ], M.prototype, "required");
-U([
+R([
   a({ type: Boolean, reflect: !0 })
 ], M.prototype, "optional");
-U([
+R([
   a({ type: Boolean, reflect: !0 })
 ], M.prototype, "showError");
-U([
+R([
   a({ type: String })
 ], M.prototype, "errorMessage");
-U([
+R([
   a({ type: Boolean })
 ], M.prototype, "dropzone");
-U([
+R([
   a({ type: String, reflect: !0 })
 ], M.prototype, "width");
-U([
+R([
   a({ type: Boolean, reflect: !0 })
 ], M.prototype, "inverted");
 customElements.get("nys-fileinput") || customElements.define("nys-fileinput", M);
@@ -3938,12 +3937,12 @@ He([
 ], oe.prototype, "size");
 customElements.get("nys-icon") || customElements.define("nys-icon", oe);
 const $r = ':host{--_nys-label-font-family: var( --nys-font-family-ui, var( --nys-font-family-sans, "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif ) );--_nys-label-font-weight: var(--nys-font-weight-semibold, 600);--_nys-label-font-size: var(--nys-font-size-ui-md, 16px);--_nys-label-line-height: var(--nys-font-lineheight-ui-md, 24px);--_nys-label-letter-spacing: var(--nys-font-letterspacing-ui-md, .044px);--_nys-label-color: var(--nys-color-text, #1b1b1b);--_nys-label-cursor: normal;--_nys-description-font-weight: var(--nys-font-weight-regular, 400);--_nys-description-font-style: normal;--_nys-description-font-color: var(--nys-color-text-weak, #4a4d4f);--_nys-required-font-color: var(--nys-color-danger, #b52c2c);--_nys-optional-font-weight: var(--nys-font-weight-regular, 400);--_nys-optional-font-color: var(--nys-color-text-weak, #4a4d4f);--_nys-label-gap: var(--nys-space-4px, 4px)}.nys-label{display:flex;flex-direction:column;align-items:flex-start;font-family:var(--_nys-label-font-family);font-size:var(--_nys-label-font-size);line-height:var(--_nys-label-line-height);letter-spacing:var(--_nys-label-letter-spacing)}.nys-label *{cursor:var(--_nys-label-cursor)}.nys-label__label{display:flex;gap:var(--_nys-label-gap);text-align:left;font-weight:var(--_nys-label-font-weight);color:var(--_nys-label-color)}.nys-label__description{text-align:left;font-weight:var(--_nys-description-font-weight);font-style:var(--_nys-description-font-style);color:var(--_nys-description-font-color)}.nys-label__required{display:contents;font-weight:var(--_nys-label-font-weight);color:var(--_nys-required-font-color)}.nys-label__optional{display:contents;font-weight:var(--_nys-optional-font-weight);color:var(--_nys-optional-font-color)}.nys-label__tooltip-wrapper{display:flex;gap:2px;align-items:center}.nys-label.invert .nys-label__label,.nys-label.invert .nys-label__description,.nys-label.invert .nys-label__optional{color:var(--nys-color-text-reverse, #fff)}.nys-label.invert .nys-label__tooltip-icon{color:var(--nys-color-ink-reverse, #fff)}';
-var Sr = Object.defineProperty, Lr = Object.getOwnPropertyDescriptor, qe = (o, e, t, r) => {
+var Sr = Object.defineProperty, Lr = Object.getOwnPropertyDescriptor, Ie = (o, e, t, r) => {
   for (var s = r > 1 ? void 0 : r ? Lr(e, t) : e, n = o.length - 1, i; n >= 0; n--)
     (i = o[n]) && (s = (r ? i(e, t, s) : i(s)) || s);
   return r && s && Sr(e, t, s), s;
 };
-const qt = class qt extends g {
+const It = class It extends g {
   constructor() {
     super(...arguments), this.for = "", this.label = "", this.description = "", this.flag = "", this.inverted = !1, this._tooltip = "";
   }
@@ -3983,24 +3982,24 @@ const qt = class qt extends g {
     `;
   }
 };
-qt.styles = b($r);
-let ne = qt;
-qe([
+It.styles = b($r);
+let ne = It;
+Ie([
   a({ type: String })
 ], ne.prototype, "for", 2);
-qe([
+Ie([
   a({ type: String })
 ], ne.prototype, "label", 2);
-qe([
+Ie([
   a({ type: String })
 ], ne.prototype, "description", 2);
-qe([
+Ie([
   a({ type: String })
 ], ne.prototype, "flag", 2);
-qe([
+Ie([
   a({ type: Boolean, reflect: !0 })
 ], ne.prototype, "inverted", 2);
-qe([
+Ie([
   a({ type: String })
 ], ne.prototype, "tooltip", 1);
 customElements.get("nys-label") || customElements.define("nys-label", ne);
@@ -4011,7 +4010,7 @@ var Dr = Object.defineProperty, ge = (o, e, t, r) => {
   return s && Dr(e, t, s), s;
 };
 let Mr = 0;
-const It = class It extends g {
+const qt = class qt extends g {
   /**
    * Lifecycle Methods
    * --------------------------------------------------------------------------
@@ -4196,8 +4195,8 @@ const It = class It extends g {
         </div>` : "";
   }
 };
-It.styles = b(Er);
-let X = It;
+qt.styles = b(Er);
+let X = qt;
 ge([
   a({ type: String, reflect: !0 })
 ], X.prototype, "id");
@@ -4230,7 +4229,7 @@ var Br = Object.defineProperty, Te = (o, e, t, r) => {
   return s && Br(e, t, s), s;
 };
 let Vr = 0;
-const Rt = class Rt extends g {
+const Ot = class Ot extends g {
   /**
    * Lifecycle Methods
    * --------------------------------------------------------------------------
@@ -4338,8 +4337,8 @@ const Rt = class Rt extends g {
   /****************** 🪡 in the Haystack Release ******/
   /****************** designsystem@its.ny.gov ********/
 };
-Rt.styles = b(zr);
-let ye = Rt;
+Ot.styles = b(zr);
+let ye = Ot;
 Te([
   a({ type: String, reflect: !0 })
 ], ye.prototype, "id");
@@ -4356,8 +4355,8 @@ Te([
   a({ type: Boolean, reflect: !0 })
 ], ye.prototype, "_twoBeforeLast");
 customElements.get("nys-pagination") || customElements.define("nys-pagination", ye);
-const z1 = `:host{--_nys-radiobutton-size: var(--nys-size-400, 32px);--_nys-radiobutton-border-radius: var(--nys-radius-md, 4px);--_nys-radiobutton-border-width: var(--nys-border-width-md, 2px);--_nys-radiobutton-outline-color: var(--nys-color-focus, #004dd1);--_nys-radiobutton-outline-width: var(--nys-border-width-md, 2px);--_nys-radiobutton-outline-offset: var(--nys-space-2px, 2px);--_nys-radiobutton-gap: var(--nys-space-150, 12px);--_nys-radiogroup-gap: var(--nys-space-200, 16px);--_nys-radiobutton-font-family: var( --nys-font-family-ui, var( --nys-font-family-sans, "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif ) );--_nys-radiobutton-font-size: var(--nys-font-size-ui-md, 16px);--_nys-radiobutton-font-weight--label: var(--nys-font-weight-regular, 400);--_nys-radiobutton-line-height: var(--nys-font-lineheight-ui-md, 24px);--_nys-radiobutton-color: var( --nys-color-text, var(--nys-color-neutral-900, #1b1b1b) );--_nys-radiobutton-background-color: var(--nys-color-ink-reverse, #ffffff);--_nys-radiobutton-border-color: var(--nys-color-neutral-600, #62666a);--_nys-radiobutton-background-color--hover: var( --nys-color-neutral-50, #ededed );--_nys-radiobutton-border-color--hover: var(--nys-color-ink, #1b1b1b);--_nys-radiobutton-background-color--active: var( --nys-color-neutral-100, #d0d0ce );--_nys-radiobutton-border-color--active: var(--nys-color-ink, #1b1b1b);--_nys-radiobutton-background-color--checked: var(--nys-color-theme, #154973);--_nys-radiobutton-background-color--disabled: var( --nys-color-ink-reverse, #f0f0f0 );--_nys-radiobutton-color--disabled: var(--nys-color-text-disabled, #bec0c1);--_nys-radiobutton-border-color--disabled: var( --nys-color-neutral-100, #d0d0ce );--_nys-radiobutton-background-color--checked--disabled: var( --nys-color-neutral-100, #d0d0ce );--_nys-radiobutton-border-color--checked--disabled: var( --nys-color-neutral-100, #d0d0ce )}:host([size=sm]){--_nys-radiobutton-size: var(--nys-size-300, 24px);--_nys-radiobutton-border-radius: var(--nys-radius-sm, 2px);--_nys-radiogroup-gap: var(--nys-space-100, 8px);--_nys-radiobutton-gap: var(--nys-space-100, 8px)}:host([size=md]){--_nys-radiobutton-size: var(--nys-size-400, 32px);--_nys-radiobutton-border-radius: var(--nys-radius-md, 4px);--_nys-radiogroup-gap: var(--nys-space-200, 16px);--_nys-radiobutton-gap: var(--nys-space-150, 12px)}:host([tile]){--_nys-radiobutton-font-weight--label: var(--nys-font-weight-semibold, 600);--_nys-radiobutton-border-width--tile: var(--nys-border-width-sm, 1px);--_nys-radiobutton-border-radius--tile: var(--nys-radius-md, 4px);--_nys-radiobutton-border-color--tile: var(--nys-color-neutral-100, #d0d0ce);--_nys-radiobutton-background-color--tile: var( --nys-color-ink-reverse, #ffffff );--_nys-radiobutton-padding--x--tile: var(--nys-space-250, 20px);--_nys-radiobutton-padding--y--tile: var(--nys-space-200, 16px);--_nys-radiobutton-border-color--tile--hover: var( --nys-color-neutral-700, #4a4d4f );--_nys-radiobutton-background-color--tile--hover: var( --nys-color-ink-reverse, #ffffff );--_nys-radiobutton-border-color--tile--active: var( --nys-color-neutral-900, #1b1b1b );--_nys-radiobutton-background-color--tile--active: var( --nys-color-ink-reverse, #ffffff );--_nys-radiobutton-border-color--tile--checked: var( --nys-color-theme-mid, #457aa5 );--_nys-radiobutton-background-color--tile--checked: var( --nys-color-theme-faint, #f7fafd );--_nys-radiobutton-border-color--tile--disabled: var( --nys-color-ink-reverse, #f0f0f0 );--_nys-radiobutton-background-color--tile--disabled: var( --nys-color-neutral-100, #d0d0ce )}:host([tile][size=sm]){--_nys-radiobutton-padding--x--tile: var(--nys-space-200, 16px);--_nys-radiobutton-padding--y--tile: var(--nys-space-150, 12px)}:host([tile][showError]){--_nys-radiobutton-border-color--tile: var(--nys-color-danger, #b52c2c);--_nys-radiobutton-border-color--tile--hover: var( --nys-color-danger, #b52c2c );--_nys-radiobutton-border-color--tile--active: var( --nys-color-danger, #b52c2c );--_nys-radiobutton-border-color--tile--checked: var( --nys-color-danger, #b52c2c )}.nys-radiogroup{display:flex;flex-direction:column;gap:var(--nys-space-200, 16px);font-family:var(--_nys-radiobutton-font-family);font-size:var(--_nys-radiobutton-font-size);line-height:var(--_nys-radiobutton-line-height)}.nys-radiogroup__content{gap:var(--_nys-radiogroup-gap);display:flex;flex-direction:column}.nys-radiobutton{display:flex;flex-direction:column;font-family:var(--_nys-radiobutton-font-family);font-size:var(--_nys-radiobutton-font-size);line-height:var(--_nys-radiobutton-line-height);border-radius:var(--_nys-radiobutton-border-radius--tile);border:var(--_nys-radiobutton-border-width--tile) solid var(--_nys-radiobutton-border-color--tile);background-color:var(--_nys-radiobutton-background-color--tile);padding:var(--_nys-radiobutton-padding--y--tile) var(--_nys-radiobutton-padding--x--tile)}.nys-radiobutton__radio{appearance:none;width:var(--_nys-radiobutton-size);height:var(--_nys-radiobutton-size);min-width:var(--_nys-radiobutton-size);min-height:var(--_nys-radiobutton-size);max-width:var(--_nys-radiobutton-size);max-height:var(--_nys-radiobutton-size);border:solid var(--_nys-radiobutton-border-width) var(--_nys-radiobutton-border-color);background-color:var(--_nys-radiobutton-background-color);border-radius:100%;background-repeat:no-repeat;background-position:center;background-size:contain;outline-offset:var(--_nys-radiobutton-outline-offset);outline:none;margin:0 0 auto;box-sizing:border-box}.nys-radiobutton:hover,.nys-radiobutton:hover *{cursor:pointer}input:not(:disabled):checked+.nys-radiobutton .nys-radiobutton__radio{background-image:url('data:image/svg+xml;utf8,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="11" stroke="white" stroke-width="6"/></svg>');background-color:var(--_nys-radiobutton-background-color--checked)}:host([tile]) .nys-radiobutton:has(input:not(:disabled):checked)+.nys-radiobutton .nys-radiobutton__radio{border-color:var(--_nys-radiobutton-border-color--tile--checked);background-color:var(--_nys-radiobutton-background-color--tile--checked)}:host([tile]) .nys-radiobutton:has(input:not(:disabled):checked:hover)+.nys-radiobutton .nys-radiobutton__radio{cursor:default}input:disabled:checked+.nys-radiobutton .nys-radiobutton__radio{background-image:url('data:image/svg+xml;utf8,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="11" stroke="white" stroke-width="6"/></svg>');border-color:var(--_nys-radiobutton-border-color--checked--disabled);background-color:var(--_nys-radiobutton-background-color--checked--disabled)}:host([tile]) .nys-radiobutton:has(input:disabled:checked)+.nys-radiobutton .nys-radiobutton__radio{border-color:var(--_nys-radiobutton-background-color--tile--disabled);background-color:var(--_nys-radiobutton-border-color--tile--disabled)}input:disabled+.nys-radiobutton,input:disabled+.nys-radiobutton *{cursor:not-allowed}input:disabled+.nys-radiobutton .nys-radiobutton__radio{background-color:var(--_nys-radiobutton-background-color--disabled);border-color:var(--_nys-radiobutton-border-color--disabled);cursor:not-allowed}:host([tile]) .nys-radiobutton:has(input:disabled)+.nys-radiobutton .nys-radiobutton__radio{background-color:var(--_nys-radiobutton-background-color--disabled);border-color:var(--_nys-radiobutton-border-color--disabled);cursor:not-allowed}input:hover:not(:disabled):not(:checked)+.nys-radiobutton .nys-radiobutton__radio{border-color:var(--_nys-radiobutton-border-color--hover);background-color:var(--_nys-radiobutton-background-color--hover)}:host([tile]) .nys-radiobutton:has(input:hover:not(:disabled):not(:checked)+.nys-radiobutton .nys-radiobutton__radio){border-color:var(--_nys-radiobutton-border-color--tile--hover);background-color:var(--_nys-radiobutton-background-color--tile--hover);outline:solid var(--_nys-radiobutton-border-width--tile) var(--_nys-radiobutton-border-color--tile--hover)}input:active:not(:disabled):not(:checked)+.nys-radiobutton .nys-radiobutton__radio{border-color:var(--_nys-radiobutton-border-color--active);background-color:var(--_nys-radiobutton-background-color--active)}:host([tile]) .nys-radiobutton:has(input:active:not(:disabled):not(:checked)+.nys-radiobutton .nys-radiobutton__radio){border-color:var(--_nys-radiobutton-border-color--tile--active);background-color:var(--_nys-radiobutton-background-color--tile--active);outline:solid var(--_nys-radiobutton-border-width--tile) var(--_nys-radiobutton-border-color--tile--active)}input:focus+.nys-radiobutton .nys-radiobutton__radio,.nys-radiobutton:focus-within .nys-radiobutton__radio{outline:solid var(--_nys-radiobutton-outline-width) var(--_nys-radiobutton-outline-color);outline-offset:var(--_nys-radiobutton-outline-offset)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.nys-radiobutton__main-container{display:flex;align-items:center}.nys-radiobutton__other-container{display:flex;padding-inline-start:calc(var(--_nys-radiobutton-size) + var(--_nys-radiobutton-gap))}.nys-radiobutton__main-container>nys-label{--_nys-label-font-weight: var(--_nys-radiobutton-font-weight--label);display:flex;padding-inline-start:var(--_nys-radiobutton-gap)}:host([tile]) .nys-radiobutton__main-container>nys-label{--_nys-description-font-style: normal}input:disabled+.nys-radiobutton .nys-radiobutton__main-container>nys-label,input:disabled+.nys-radiobutton .nys-radiobutton__main-container>nys-label *{cursor:not-allowed;--_nys-label-cursor: not-allowed;--_nys-label-color: var(--_nys-radiobutton-color--disabled);--_nys-description-color: var(--_nys-radiobutton-color--disabled);color:var(--_nys-radiobutton-color--disabled)}fieldset{all:unset;display:contents}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;border:0}`;
-var Ar = Object.defineProperty, Z = (o, e, t, r) => {
+const z1 = `:host{--_nys-radiobutton-size: var(--nys-size-400, 32px);--_nys-radiobutton-border-radius: var(--nys-radius-md, 4px);--_nys-radiobutton-border-width: var(--nys-border-width-md, 2px);--_nys-radiobutton-outline-color: var(--nys-color-focus, #004dd1);--_nys-radiobutton-outline-width: var(--nys-border-width-md, 2px);--_nys-radiobutton-outline-offset: var(--nys-space-2px, 2px);--_nys-radiobutton-gap: var(--nys-space-150, 12px);--_nys-radiogroup-gap: var(--nys-space-200, 16px);--_nys-radiobutton-font-family: var( --nys-font-family-ui, var( --nys-font-family-sans, "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif ) );--_nys-radiobutton-font-size: var(--nys-font-size-ui-md, 16px);--_nys-radiobutton-font-weight--label: var(--nys-font-weight-regular, 400);--_nys-radiobutton-line-height: var(--nys-font-lineheight-ui-md, 24px);--_nys-radiobutton-color: var( --nys-color-text, var(--nys-color-neutral-900, #1b1b1b) );--_nys-radiobutton-background-color: var(--nys-color-ink-reverse, #ffffff);--_nys-radiobutton-border-color: var(--nys-color-neutral-600, #62666a);--_nys-radiobutton-background-color--hover: var( --nys-color-neutral-50, #ededed );--_nys-radiobutton-border-color--hover: var(--nys-color-ink, #1b1b1b);--_nys-radiobutton-background-color--active: var( --nys-color-neutral-100, #d0d0ce );--_nys-radiobutton-border-color--active: var(--nys-color-ink, #1b1b1b);--_nys-radiobutton-background-color--checked: var(--nys-color-theme, #154973);--_nys-radiobutton-background-color--disabled: var( --nys-color-ink-reverse, #f0f0f0 );--_nys-radiobutton-color--disabled: var(--nys-color-text-disabled, #bec0c1);--_nys-radiobutton-border-color--disabled: var( --nys-color-neutral-100, #d0d0ce );--_nys-radiobutton-background-color--checked--disabled: var( --nys-color-neutral-100, #d0d0ce );--_nys-radiobutton-border-color--checked--disabled: var( --nys-color-neutral-100, #d0d0ce )}:host([size=sm]){--_nys-radiobutton-size: var(--nys-size-300, 24px);--_nys-radiobutton-border-radius: var(--nys-radius-sm, 2px);--_nys-radiogroup-gap: var(--nys-space-100, 8px);--_nys-radiobutton-gap: var(--nys-space-100, 8px)}:host([size=md]){--_nys-radiobutton-size: var(--nys-size-400, 32px);--_nys-radiobutton-border-radius: var(--nys-radius-md, 4px);--_nys-radiogroup-gap: var(--nys-space-200, 16px);--_nys-radiobutton-gap: var(--nys-space-150, 12px)}:host([tile]){--_nys-radiobutton-font-weight--label: var(--nys-font-weight-semibold, 600);--_nys-radiobutton-border-width--tile: var(--nys-border-width-sm, 1px);--_nys-radiobutton-border-radius--tile: var(--nys-radius-md, 4px);--_nys-radiobutton-border-color--tile: var(--nys-color-neutral-100, #d0d0ce);--_nys-radiobutton-background-color--tile: var( --nys-color-ink-reverse, #ffffff );--_nys-radiobutton-padding--x--tile: var(--nys-space-250, 20px);--_nys-radiobutton-padding--y--tile: var(--nys-space-200, 16px);--_nys-radiobutton-border-color--tile--hover: var( --nys-color-neutral-700, #4a4d4f );--_nys-radiobutton-background-color--tile--hover: var( --nys-color-ink-reverse, #ffffff );--_nys-radiobutton-border-color--tile--active: var( --nys-color-neutral-900, #1b1b1b );--_nys-radiobutton-background-color--tile--active: var( --nys-color-ink-reverse, #ffffff );--_nys-radiobutton-border-color--tile--checked: var( --nys-color-theme-mid, #457aa5 );--_nys-radiobutton-background-color--tile--checked: var( --nys-color-theme-faint, #f7fafd );--_nys-radiobutton-border-color--tile--disabled: var( --nys-color-ink-reverse, #f0f0f0 );--_nys-radiobutton-background-color--tile--disabled: var( --nys-color-neutral-100, #d0d0ce )}:host([tile][size=sm]){--_nys-radiobutton-padding--x--tile: var(--nys-space-200, 16px);--_nys-radiobutton-padding--y--tile: var(--nys-space-150, 12px)}:host([tile][showError]){--_nys-radiobutton-border-color--tile: var(--nys-color-danger, #b52c2c);--_nys-radiobutton-border-color--tile--hover: var( --nys-color-danger, #b52c2c );--_nys-radiobutton-border-color--tile--active: var( --nys-color-danger, #b52c2c );--_nys-radiobutton-border-color--tile--checked: var( --nys-color-danger, #b52c2c )}.nys-radiogroup{display:flex;flex-direction:column;gap:var(--nys-space-200, 16px);font-family:var(--_nys-radiobutton-font-family);font-size:var(--_nys-radiobutton-font-size);line-height:var(--_nys-radiobutton-line-height)}.nys-radiogroup__content{gap:var(--_nys-radiogroup-gap);display:flex;flex-direction:column}.nys-radiobutton{display:flex;flex-direction:column;font-family:var(--_nys-radiobutton-font-family);font-size:var(--_nys-radiobutton-font-size);line-height:var(--_nys-radiobutton-line-height);border-radius:var(--_nys-radiobutton-border-radius--tile);border:var(--_nys-radiobutton-border-width--tile) solid var(--_nys-radiobutton-border-color--tile);background-color:var(--_nys-radiobutton-background-color--tile);padding:var(--_nys-radiobutton-padding--y--tile) var(--_nys-radiobutton-padding--x--tile)}.nys-radiobutton__radio{appearance:none;width:var(--_nys-radiobutton-size);height:var(--_nys-radiobutton-size);min-width:var(--_nys-radiobutton-size);min-height:var(--_nys-radiobutton-size);max-width:var(--_nys-radiobutton-size);max-height:var(--_nys-radiobutton-size);border:solid var(--_nys-radiobutton-border-width) var(--_nys-radiobutton-border-color);background-color:var(--_nys-radiobutton-background-color);border-radius:100%;background-repeat:no-repeat;background-position:center;background-size:contain;outline-offset:var(--_nys-radiobutton-outline-offset);outline:none;margin:0 0 auto;box-sizing:border-box}.nys-radiobutton:hover,.nys-radiobutton:hover *{cursor:pointer}input:not(:disabled):checked+.nys-radiobutton .nys-radiobutton__radio{background-image:url('data:image/svg+xml;utf8,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="11" stroke="white" stroke-width="6"/></svg>');background-color:var(--_nys-radiobutton-background-color--checked)}:host([tile]) .nys-radiobutton:has(input:not(:disabled):checked)+.nys-radiobutton .nys-radiobutton__radio{border-color:var(--_nys-radiobutton-border-color--tile--checked);background-color:var(--_nys-radiobutton-background-color--tile--checked)}:host([tile]) .nys-radiobutton:has(input:not(:disabled):checked:hover)+.nys-radiobutton .nys-radiobutton__radio{cursor:default}input:disabled:checked+.nys-radiobutton .nys-radiobutton__radio{background-image:url('data:image/svg+xml;utf8,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="11" stroke="white" stroke-width="6"/></svg>');border-color:var(--_nys-radiobutton-border-color--checked--disabled);background-color:var(--_nys-radiobutton-background-color--checked--disabled)}:host([tile]) .nys-radiobutton:has(input:disabled:checked)+.nys-radiobutton .nys-radiobutton__radio{border-color:var(--_nys-radiobutton-background-color--tile--disabled);background-color:var(--_nys-radiobutton-border-color--tile--disabled)}input:disabled+.nys-radiobutton,input:disabled+.nys-radiobutton *{cursor:not-allowed}input:disabled+.nys-radiobutton .nys-radiobutton__radio{background-color:var(--_nys-radiobutton-background-color--disabled);border-color:var(--_nys-radiobutton-border-color--disabled);cursor:not-allowed}:host([tile]) .nys-radiobutton:has(input:disabled)+.nys-radiobutton .nys-radiobutton__radio{background-color:var(--_nys-radiobutton-background-color--disabled);border-color:var(--_nys-radiobutton-border-color--disabled);cursor:not-allowed}input:hover:not(:disabled):not(:checked)+.nys-radiobutton .nys-radiobutton__radio{border-color:var(--_nys-radiobutton-border-color--hover);background-color:var(--_nys-radiobutton-background-color--hover)}:host([tile]) .nys-radiobutton:has(input:hover:not(:disabled):not(:checked)+.nys-radiobutton .nys-radiobutton__radio){border-color:var(--_nys-radiobutton-border-color--tile--hover);background-color:var(--_nys-radiobutton-background-color--tile--hover);outline:solid var(--_nys-radiobutton-border-width--tile) var(--_nys-radiobutton-border-color--tile--hover)}input:active:not(:disabled):not(:checked)+.nys-radiobutton .nys-radiobutton__radio{border-color:var(--_nys-radiobutton-border-color--active);background-color:var(--_nys-radiobutton-background-color--active)}:host([tile]) .nys-radiobutton:has(input:active:not(:disabled):not(:checked)+.nys-radiobutton .nys-radiobutton__radio){border-color:var(--_nys-radiobutton-border-color--tile--active);background-color:var(--_nys-radiobutton-background-color--tile--active);outline:solid var(--_nys-radiobutton-border-width--tile) var(--_nys-radiobutton-border-color--tile--active)}:host(:focus-visible){outline:none}:host(:focus-visible) .nys-radiobutton__radio{outline:solid var(--_nys-radiobutton-outline-width) var(--_nys-radiobutton-outline-color)}input:focus+.nys-radiobutton .nys-radiobutton__radio,.nys-radiobutton:focus-within .nys-radiobutton__radio{outline:solid var(--_nys-radiobutton-outline-width) var(--_nys-radiobutton-outline-color);outline-offset:var(--_nys-radiobutton-outline-offset)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.nys-radiobutton__main-container{display:flex;align-items:center}.nys-radiobutton__other-container{display:flex;padding-inline-start:calc(var(--_nys-radiobutton-size) + var(--_nys-radiobutton-gap))}.nys-radiobutton__main-container>nys-label{--_nys-label-font-weight: var(--_nys-radiobutton-font-weight--label);display:flex;padding-inline-start:var(--_nys-radiobutton-gap)}:host([tile]) .nys-radiobutton__main-container>nys-label{--_nys-description-font-style: normal}input:disabled+.nys-radiobutton .nys-radiobutton__main-container>nys-label,input:disabled+.nys-radiobutton .nys-radiobutton__main-container>nys-label *{cursor:not-allowed;--_nys-label-cursor: not-allowed;--_nys-label-color: var(--_nys-radiobutton-color--disabled);--_nys-description-color: var(--_nys-radiobutton-color--disabled);color:var(--_nys-radiobutton-color--disabled)}fieldset{all:unset;display:contents}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;border:0}`;
+var Ar = Object.defineProperty, P = (o, e, t, r) => {
   for (var s = void 0, n = o.length - 1, i; n >= 0; n--)
     (i = o[n]) && (s = i(e, t, s) || s);
   return s && Ar(e, t, s), s;
@@ -4423,18 +4422,18 @@ const lt = class lt extends g {
   async _handleKeyDown(e) {
     if (!["ArrowUp", "ArrowDown", " ", "Enter"].includes(e.key)) return;
     e.preventDefault();
-    const r = this._getAllRadios().filter((u) => !u.disabled), s = r.find((u) => u.checked) || r[0], n = e.key === " " || e.key === "Enter" ? 0 : ["ArrowUp", "ArrowLeft"].includes(e.key) ? -1 : 1;
-    let i = r.indexOf(s) + n;
-    i < 0 && (i = r.length - 1), i >= r.length && (i = 0);
-    const l = r[i];
-    (await l.getInputElement())?.click(), await this.updateComplete, this._updateGroupTabIndex(), l.shadowRoot?.querySelector(
-      ".nys-radiobutton__radio"
-    )?.focus();
+    const r = this._getAllRadios().filter((u) => !u.disabled), n = r.find((u) => u.matches(":focus")) || r.find((u) => u.checked) || r[0];
+    let i = 0;
+    ["ArrowUp", "ArrowLeft"].includes(e.key) ? i = -1 : ["ArrowDown", "ArrowRight"].includes(e.key) && (i = 1);
+    let l = r.indexOf(n) + i;
+    l < 0 && (l = r.length - 1), l >= r.length && (l = 0);
+    const c = r[l];
+    (await c.getInputElement())?.click(), await this.updateComplete, this._updateGroupTabIndex(), c.focus();
   }
   _updateGroupTabIndex() {
     const e = this._getAllRadios(), t = e.find((r) => r.checked && !r.disabled) || e.find((r) => !r.disabled);
     e.forEach((r) => {
-      r.disabled ? r.tabIndex = -1 : r === t ? (r.removeAttribute("tabindex"), r.activeFocusable = !0) : r.setAttribute("tabindex", "-1");
+      r.disabled ? r.tabIndex = -1 : r === t ? r.tabIndex = 0 : r.setAttribute("tabindex", "-1");
     });
   }
   // This callback is automatically called when the parent form is reset.
@@ -4450,7 +4449,7 @@ const lt = class lt extends g {
   // Apply ARIA & initial tabindex to each child radio
   _initializeChildAttributes() {
     this._getAllRadios().forEach((t) => {
-      t.setAttribute("tabindex", "-1");
+      t.setAttribute("role", "radio"), t.setAttribute("aria-checked", String(t.checked)), t.setAttribute("aria-required", String(t.required)), t.setAttribute("aria-disabled", String(t.disabled)), t.setAttribute("tabindex", "-1");
     });
   }
   // Updates the size of each radiobutton underneath a radiogroup to ensure size standardization
@@ -4515,7 +4514,7 @@ const lt = class lt extends g {
         const r = this._internals.form;
         r ? Array.from(r.elements).find(
           (i) => typeof i.checkValidity == "function" && !i.checkValidity()
-        ) === this && t.focusRadiobutton() : t.focusRadiobutton();
+        ) === this && t.focus() : t.focus();
       }
     }
   }
@@ -4529,7 +4528,11 @@ const lt = class lt extends g {
     ));
   }
   render() {
-    return d`<div class="nys-radiogroup">
+    return d`<fieldset
+      aria-label="${this.label}${this._slottedDescriptionText ? ` ${this._slottedDescriptionText}` : this.description ? ` ${this.description}` : ""}"
+      role="radiogroup"
+      class="nys-radiogroup"
+    >
       <nys-label
         for=${this.id + "--native"}
         label=${this.label}
@@ -4540,80 +4543,75 @@ const lt = class lt extends g {
       >
         <slot name="description" slot="description">${this.description}</slot>
       </nys-label>
-      <div class="nys-radiogroup__content">
-        <fieldset role="radiogroup" @keydown=${this._handleKeyDown}>
-          <legend class="sr-only">
-            ${this.label}${this._slottedDescriptionText ? ` ${this._slottedDescriptionText}` : this.description ? ` ${this.description}` : ""}
-          </legend>
-          <slot></slot>
-        </fieldset>
+      <div class="nys-radiogroup__content" @keydown=${this._handleKeyDown}>
+        <slot></slot>
       </div>
       <nys-errormessage
         ?showError=${this.showError}
         errorMessage=${this._internals.validationMessage || this.errorMessage}
         .showDivider=${!this.tile}
       ></nys-errormessage>
-    </div>`;
+    </fieldset>`;
   }
 };
 lt.styles = b(z1), lt.formAssociated = !0;
 let V = lt;
-Z([
+P([
   a({ type: String, reflect: !0 })
 ], V.prototype, "id");
-Z([
+P([
   a({ type: String, reflect: !0 })
 ], V.prototype, "name");
-Z([
+P([
   a({ type: Boolean, reflect: !0 })
 ], V.prototype, "required");
-Z([
+P([
   a({ type: Boolean, reflect: !0 })
 ], V.prototype, "optional");
-Z([
+P([
   a({ type: Boolean, reflect: !0 })
 ], V.prototype, "showError");
-Z([
+P([
   a({ type: String })
 ], V.prototype, "errorMessage");
-Z([
+P([
   a({ type: String })
 ], V.prototype, "label");
-Z([
+P([
   a({ type: String })
 ], V.prototype, "description");
-Z([
+P([
   a({ type: Boolean, reflect: !0 })
 ], V.prototype, "tile");
-Z([
+P([
   a({ type: String })
 ], V.prototype, "tooltip");
-Z([
+P([
   a({ type: Boolean, reflect: !0 })
 ], V.prototype, "inverted");
-Z([
+P([
   a({ type: String, reflect: !0 })
 ], V.prototype, "form");
-Z([
+P([
   a({ type: String, reflect: !0 })
 ], V.prototype, "size");
-Z([
+P([
   $()
 ], V.prototype, "selectedValue");
-Z([
+P([
   $()
 ], V.prototype, "_slottedDescriptionText");
 customElements.get("nys-radiogroup") || customElements.define("nys-radiogroup", V);
-var qr = Object.defineProperty, P = (o, e, t, r) => {
+var Ir = Object.defineProperty, Z = (o, e, t, r) => {
   for (var s = void 0, n = o.length - 1, i; n >= 0; n--)
     (i = o[n]) && (s = i(e, t, s) || s);
-  return s && qr(e, t, s), s;
+  return s && Ir(e, t, s), s;
 };
-let Ir = 0;
+let qr = 0;
 var w;
-const q = (w = class extends g {
+const U = (w = class extends g {
   constructor() {
-    super(...arguments), this.checked = !1, this.disabled = !1, this.required = !1, this.label = "", this.description = "", this.id = "", this.name = "", this.value = "", this.inverted = !1, this.form = null, this.size = "md", this.tile = !1, this.other = !1, this.showOtherError = !1, this.activeFocusable = !1, this.isMobile = window.innerWidth < 480, this._hasUserInteracted = !1, this._textInputHasFocus = !1, this._handleResize = () => {
+    super(...arguments), this.checked = !1, this.disabled = !1, this.required = !1, this.label = "", this.description = "", this.id = "", this.name = "", this.value = "", this.inverted = !1, this.form = null, this.size = "md", this.tile = !1, this.other = !1, this.showOtherError = !1, this.isMobile = window.innerWidth < 480, this._hasUserInteracted = !1, this._textInputHasFocus = !1, this._handleResize = () => {
       this.isMobile = window.innerWidth < 480;
     };
   }
@@ -4622,13 +4620,13 @@ const q = (w = class extends g {
    * --------------------------------------------------------------------------
    */
   connectedCallback() {
-    super.connectedCallback(), this.id || (this.id = `nys-radiobutton-${Date.now()}-${Ir++}`), this.checked && (w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this), this.addEventListener("focus", this._handleFocus), this.addEventListener("blur", this._handleBlur), this.addEventListener("click", this._handleChange), window.addEventListener("resize", this._handleResize);
+    super.connectedCallback(), this.id || (this.id = `nys-radiobutton-${Date.now()}-${qr++}`), this.checked && (w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this), this.addEventListener("focus", this._handleFocus), this.addEventListener("blur", this._handleBlur), this.addEventListener("click", this._handleChange), window.addEventListener("resize", this._handleResize);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), this.removeEventListener("focus", this._handleFocus), this.removeEventListener("blur", this._handleBlur), window.removeEventListener("resize", this._handleResize);
   }
   updated(e) {
-    e.has("checked") && (e.get("checked") && !this.checked && this._clearOtherState(), this.checked && w.buttonGroup[this.name] !== this && (w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this)), e.has("activeFocusable") && this.activeFocusable && this._focusRadioVisual();
+    e.has("checked") && (e.get("checked") && !this.checked && this._clearOtherState(), this.checked && w.buttonGroup[this.name] !== this && (w.buttonGroup[this.name] && (w.buttonGroup[this.name].checked = !1, w.buttonGroup[this.name].requestUpdate()), w.buttonGroup[this.name] = this));
   }
   /**
    * Functions
@@ -4637,20 +4635,9 @@ const q = (w = class extends g {
   async getInputElement() {
     return await this.updateComplete, this.shadowRoot?.querySelector("input") || null;
   }
-  focusRadiobutton() {
-    (this.shadowRoot?.querySelector(
-      ".nys-radiobutton__radio"
-    )).focus();
-  }
   // This callback is automatically called when the parent form is reset.
   formResetUpdate() {
     this.checked = !1, this._clearOtherState(), w.buttonGroup[this.name] === this && delete w.buttonGroup[this.name], this.requestUpdate();
-  }
-  _focusRadioVisual() {
-    const e = this.shadowRoot?.querySelector(
-      ".nys-radiobutton__radio"
-    );
-    e && (e.tabIndex = 0);
   }
   _clearOtherState() {
     this.other && (this.showOtherError = !1, this._hasUserInteracted = !1, this._textInputHasFocus = !1, this.dispatchEvent(
@@ -4747,9 +4734,6 @@ const q = (w = class extends g {
   _handleOtherKeydown(e) {
     (e.key == "Space" || e.key === " ") && e.stopPropagation();
   }
-  _handleRadioKeydown(e) {
-    (e.key == "Space" || e.key === " ") && (e.stopPropagation(), this._focusOnTextInput());
-  }
   render() {
     return d`
       <input
@@ -4762,7 +4746,7 @@ const q = (w = class extends g {
         form=${p(this.form || void 0)}
         @change="${this._handleChange}"
         aria-hidden="true"
-        tabindex="-1"
+        hidden
         class="sr-only"
       />
       <div
@@ -4771,16 +4755,7 @@ const q = (w = class extends g {
         aria-label=${this.label || (this.other ?? "Other")}
       >
         <div class="nys-radiobutton__main-container">
-          <span
-            class="nys-radiobutton__radio"
-            role="radio"
-            aria-checked=${this.checked ? "true" : "false"}
-            aria-disabled=${this.disabled ? "true" : "false"}
-            aria-required=${this.required ? "true" : "false"}
-            aria-label=${this.label || p(this.other ? "Other" : void 0)}
-            tabindex=${this.activeFocusable && !this.disabled ? p(void 0) : "-1"}
-            @keydown="${this._handleRadioKeydown}"
-          ></span>
+          <span class="nys-radiobutton__radio"></span>
           ${(this.label || this.other) && d`<nys-label
             label="${this.label || (this.other ? "Other" : "")}"
             description=${p(this.description || void 0)}
@@ -4810,60 +4785,57 @@ const q = (w = class extends g {
     `;
   }
 }, w.styles = b(z1), w.buttonGroup = {}, w);
-P([
+Z([
   a({ type: Boolean, reflect: !0 })
-], q.prototype, "checked");
-P([
+], U.prototype, "checked");
+Z([
   a({ type: Boolean, reflect: !0 })
-], q.prototype, "disabled");
-P([
+], U.prototype, "disabled");
+Z([
   a({ type: Boolean, reflect: !0 })
-], q.prototype, "required");
-P([
+], U.prototype, "required");
+Z([
   a({ type: String })
-], q.prototype, "label");
-P([
+], U.prototype, "label");
+Z([
   a({ type: String })
-], q.prototype, "description");
-P([
+], U.prototype, "description");
+Z([
   a({ type: String, reflect: !0 })
-], q.prototype, "id");
-P([
+], U.prototype, "id");
+Z([
   a({ type: String, reflect: !0 })
-], q.prototype, "name");
-P([
+], U.prototype, "name");
+Z([
   a({ type: String })
-], q.prototype, "value");
-P([
+], U.prototype, "value");
+Z([
   a({ type: Boolean, reflect: !0 })
-], q.prototype, "inverted");
-P([
+], U.prototype, "inverted");
+Z([
   a({ type: String, reflect: !0 })
-], q.prototype, "form");
-P([
+], U.prototype, "form");
+Z([
   a({ type: String, reflect: !0 })
-], q.prototype, "size");
-P([
+], U.prototype, "size");
+Z([
   a({ type: Boolean, reflect: !0 })
-], q.prototype, "tile");
-P([
+], U.prototype, "tile");
+Z([
   a({ type: Boolean, reflect: !0 })
-], q.prototype, "other");
-P([
+], U.prototype, "other");
+Z([
   a({ type: Boolean })
-], q.prototype, "showOtherError");
-P([
-  a({ type: Boolean })
-], q.prototype, "activeFocusable");
-P([
+], U.prototype, "showOtherError");
+Z([
   $()
-], q.prototype, "isMobile");
-let Rr = q;
-customElements.get("nys-radiobutton") || customElements.define("nys-radiobutton", Rr);
-var Or = Object.defineProperty, Fe = (o, e, t, r) => {
+], U.prototype, "isMobile");
+let Or = U;
+customElements.get("nys-radiobutton") || customElements.define("nys-radiobutton", Or);
+var Rr = Object.defineProperty, Fe = (o, e, t, r) => {
   for (var s = void 0, n = o.length - 1, i; n >= 0; n--)
     (i = o[n]) && (s = i(e, t, s) || s);
-  return s && Or(e, t, s), s;
+  return s && Rr(e, t, s), s;
 };
 class pe extends g {
   constructor() {
@@ -5142,7 +5114,7 @@ var Fr = Object.defineProperty, B1 = (o, e, t, r) => {
     (i = o[n]) && (s = i(e, t, s) || s);
   return s && Fr(e, t, s), s;
 };
-const Ot = class Ot extends g {
+const Rt = class Rt extends g {
   constructor() {
     super(), this.id = "", this.href = "";
   }
@@ -5181,8 +5153,8 @@ const Ot = class Ot extends g {
     `;
   }
 };
-Ot.styles = b(Tr);
-let Ue = Ot;
+Rt.styles = b(Tr);
+let Ue = Rt;
 B1([
   a({ type: String, reflect: !0 })
 ], Ue.prototype, "id");
@@ -6259,7 +6231,7 @@ ee([
 ], T.prototype, "size");
 customElements.get("nys-toggle") || customElements.define("nys-toggle", T);
 const io = `:host{--_nys-tooltip-color: var(--nys-color-text-reverse, #ffffff);--_nys-tooltip-background-color: var(--nys-color-ink, #1b1b1b);--_nys-tooltip-border-radius: var(--nys-radius-md, 4px);--_nys-tooltip-font-family: var( --nys-font-family-ui, var( --nys-font-family-sans, "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif ) );--_nys-tooltip-font-size: var(--nys-type-size-ui-sm, 14px);--_nys-tooltip-letter-spacing: var(--nys-font-letterspacing-ui-sm, .044px);--_nys-tooltip-line-height: var(--nys-font-lineheight-ui-sm, 24px)}.nys-tooltip__content{position:fixed;top:0;left:0;max-width:400px;width:max-content;max-height:120px;padding:var(--nys-space-50, 4px) var(--nys-space-100, 8px);background-color:var(--_nys-tooltip-background-color);border-radius:var(--_nys-tooltip-border-radius);cursor:auto;z-index:1}.nys-tooltip__inner{display:block;color:var(--_nys-tooltip-color);font-family:var(--_nys-tooltip-font-family);font-size:var(--_nys-tooltip-font-size);font-weight:400;line-height:var(--_nys-tooltip-line-height);letter-spacing:var(--_nys-tooltip-letter-spacing);white-space:normal;word-break:break-word;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical}.nys-tooltip__arrow{position:absolute;width:14px;height:6px;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="6" viewBox="0 0 15 6" fill="none"><path d="M8.15079 5.44218C7.7763 5.76317 7.2237 5.76317 6.84921 5.44218L0.5 0H14.5L8.15079 5.44218Z" fill="%231B1B1B"/></svg>') no-repeat center}.nys-tooltip__content[active]{display:block}.fade-out{opacity:0;transition:opacity .2s ease-out}:host([position=top]) .nys-tooltip__arrow{top:100%;left:var(--arrow-offset-x, 50%);transform:translate(-50%)}:host([position=bottom]) .nys-tooltip__arrow{bottom:100%;left:var(--arrow-offset-x, 50%);transform:translate(-50%) rotate(180deg)}:host([position=left]) .nys-tooltip__arrow{left:100%;top:50%;transform:translateY(-50%) rotate(-90deg);margin-left:-4px}:host([position=right]) .nys-tooltip__arrow{right:100%;top:50%;transform:translateY(-50%) rotate(90deg);margin-right:-4px}:host([inverted]) .nys-tooltip__content{--_nys-tooltip-color: var(--nys-color-text, #1b1b1b);--_nys-tooltip-background-color: var(--nys-color-ink-reverse, #fff)}:host([inverted]) .nys-tooltip__arrow{background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="6" viewBox="0 0 15 6" fill="none"><path d="M8.15079 5.44218C7.7763 5.76317 7.2237 5.76317 6.84921 5.44218L0.5 0H14.5L8.15079 5.44218Z" fill="white"/></svg>') no-repeat center}@media(max-width:400px){.nys-tooltip__content{max-width:calc(100vw - 2rem)}}`;
-var ao = Object.defineProperty, lo = Object.getOwnPropertyDescriptor, Ie = (o, e, t, r) => {
+var ao = Object.defineProperty, lo = Object.getOwnPropertyDescriptor, qe = (o, e, t, r) => {
   for (var s = r > 1 ? void 0 : r ? lo(e, t) : e, n = o.length - 1, i; n >= 0; n--)
     (i = o[n]) && (s = (r ? i(e, t, s) : i(s)) || s);
   return r && s && ao(e, t, s), s;
@@ -6519,22 +6491,22 @@ const Tt = class Tt extends g {
 };
 Tt.styles = b(io);
 let ie = Tt;
-Ie([
+qe([
   a({ type: String, reflect: !0 })
 ], ie.prototype, "id", 2);
-Ie([
+qe([
   a({ type: String })
 ], ie.prototype, "text", 2);
-Ie([
+qe([
   a({ type: Boolean, reflect: !0 })
 ], ie.prototype, "inverted", 2);
-Ie([
+qe([
   a({ type: String })
 ], ie.prototype, "for", 2);
-Ie([
+qe([
   $()
 ], ie.prototype, "_active", 2);
-Ie([
+qe([
   a({ type: String, reflect: !0 })
 ], ie.prototype, "position", 1);
 customElements.get("nys-tooltip") || customElements.define("nys-tooltip", ie);
@@ -7198,7 +7170,7 @@ export {
   X as NysModal,
   pe as NysOption,
   ye as NysPagination,
-  Rr as NysRadiobutton,
+  Or as NysRadiobutton,
   V as NysRadiogroup,
   H as NysSelect,
   Ue as NysSkipnav,

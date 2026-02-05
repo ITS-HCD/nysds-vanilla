@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US" dir="ltr">
   <head>
     <meta charset="utf-8" />
@@ -34,6 +34,60 @@
         <div class="nys-tablet:nys-grid-col-3"></div>
         <div class="nys-tablet:nys-grid-col-6">
           <div style="margin-top: var(--nys-space-400)">
+            <h1>Testing Playground</h1>
+            <nys-radiogroup
+              label="What is your primary work location?"
+              description="This is the location you use for your in office days."
+            >
+              <nys-radiobutton
+                name="office"
+                label="Albany"
+                description="Upstate New York"
+                value="albany"
+              ></nys-radiobutton>
+              <nys-radiobutton
+                name="office"
+                label="Manhattan"
+                description="New York City"
+                value="manhattan"
+              ></nys-radiobutton>
+              <nys-radiobutton name="office" other></nys-radiobutton>
+            </nys-radiogroup>
+            <br />
+            <nys-checkboxgroup
+              label="Select your favorite New York landmarks"
+              description="Choose from the options below"
+            >
+              <nys-checkbox
+                label="Adirondacks"
+                name="landmarks"
+                value="adirondacks"
+                errorMessage="You must select this box to continue"
+                checked
+              ></nys-checkbox>
+              <nys-checkbox
+                name="landmarks"
+                value="finger-lakes"
+                label="Finger Lakes"
+                checked
+              ></nys-checkbox>
+              <nys-checkbox
+                name="landmarks"
+                value="catskills"
+                label="Catskills"
+              ></nys-checkbox>
+              <nys-checkbox name="landmarks" other></nys-checkbox>
+            </nys-checkboxgroup>
+
+            <br />
+            <br />
+            <nys-divider></nys-divider>
+            <nys-divider></nys-divider>
+            <nys-divider></nys-divider>
+            <nys-divider></nys-divider>
+            <br />
+            <br />
+
             <nys-select id="theme-selector" label="Select Theme" width="full">
               <nys-option value="default" selected>Default (NYS)</nys-option>
               <nys-option value="nysds-theme-admin.min.css">Admin</nys-option>
@@ -163,10 +217,7 @@
 
               <!-- Checkbox Group -->
 
-              <nys-checkboxgroup
-                
-                id="checkbox1"
-              >
+              <nys-checkboxgroup id="checkbox1">
                 <nys-checkbox
                   name="landmarks"
                   value="adirondacks"
@@ -386,7 +437,7 @@
               <br />
               <nys-button
                 label="Open the Modal"
-                onclick="showModal();"
+                onclick="showModal()"
               ></nys-button>
               <br />
               <nys-modal
@@ -405,11 +456,11 @@
                   <nys-button
                     label="Not now"
                     variant="text"
-                    onclick="closeModal();"
+                    onclick="closeModal()"
                   ></nys-button>
                   <nys-button
                     label="Update"
-                    onclick="closeModal();"
+                    onclick="closeModal()"
                   ></nys-button>
                 </div>
               </nys-modal>
@@ -420,9 +471,9 @@
                   for="my-button"
                   text="I am a button tooltip."
                 ></nys-tooltip>
-                
+
                 <nys-button id="my-button" label="Hover Me"></nys-button>
-<br/>
+                <br />
 
                 <nys-tooltip
                   for="my-icon"
@@ -534,42 +585,43 @@
 
         // Append the new theme to the document head
         document.head.appendChild(newTheme);
-      };
-  </script>
-
-
-  <script>
-    document.getElementById('myForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent default form submission
-
-      // Get input values
-      const name = document.getElementById('name').value;
-      const message = document.getElementById('message').value;
-
-      // Display values on the same page
-      document.getElementById('displayName').textContent = name;
-      document.getElementById('displaymessage').textContent = message;
-    });
-  </script>
-
-  <script>
-    function showModal() {
-      const modal = document.getElementById('modal1');
-      console.log(modal);
-      if (modal) {
-        modal.open = true;
       }
-    };
-    function closeModal() {
-      const modal = document.getElementById("modal1");
-      console.log(modal);
-      if (modal) {
-        modal.open = false;
+    </script>
+
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          // Get input values
+          const name = document.getElementById("name").value;
+          const message = document.getElementById("message").value;
+
+          // Display values on the same page
+          document.getElementById("displayName").textContent = name;
+          document.getElementById("displaymessage").textContent = message;
+        });
+    </script>
+
+    <script>
+      function showModal() {
+        const modal = document.getElementById("modal1");
+        console.log(modal);
+        if (modal) {
+          modal.open = true;
+        }
       }
-    };
-    function direction(direction) {
-      document.querySelector("html").setAttribute("dir", direction);
-    };
+      function closeModal() {
+        const modal = document.getElementById("modal1");
+        console.log(modal);
+        if (modal) {
+          modal.open = false;
+        }
+      }
+      function direction(direction) {
+        document.querySelector("html").setAttribute("dir", direction);
+      }
     </script>
     <script
       src="./src/assets/js/vendor/nysds.js"
