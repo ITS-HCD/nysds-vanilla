@@ -18,7 +18,10 @@
   </head>
 
   <body>
-    <nys-unavheader hideTranslate searchUrl="https://designsystem.ny.gov/search/?q="></nys-unavheader>
+    <nys-unavheader
+      hideTranslate
+      searchUrl="https://designsystem.ny.gov/search/?q="
+    ></nys-unavheader>
     <nys-globalheader
       appName="User Action Demo"
       agencyName="Human-Centered Design"
@@ -42,31 +45,19 @@
       <div class="nys-grid-row">
         <div class="nys-tablet:nys-grid-col-3"></div>
         <div class="nys-tablet:nys-grid-col-6">
-          <div style="margin-top: var(--nys-space-400)">
-            <nys-select id="theme-selector" label="Select Theme" width="full">
-              <nys-option value="default" selected>Default (NYS)</nys-option>
-              <nys-option value="nysds-theme-admin.min.css">Admin</nys-option>
-              <nys-option value="nysds-theme-business.min.css"
-                >Business</nys-option
-              >
-              <nys-option value="nysds-theme-environment.min.css"
-                >Environment</nys-option
-              >
-              <nys-option value="nysds-theme-health.min.css">Health</nys-option>
-              <nys-option value="nysds-theme-local.min.css">Local</nys-option>
-              <nys-option value="nysds-theme-safety.min.css">Safety</nys-option>
-              <nys-option value="nysds-theme-transportation.min.css"
-                >Transportation</nys-option
-              >
-            </nys-select>
-            <br />
+          <div
+            style="
+              margin-top: var(--nys-space-400);
+              margin-bottom: var(--nys-space-400);
+            "
+          >
+            <h1>User Action Demo</h1>
             <div class="nys-grid-row">
               <nys-button onClick="direction('ltr');" label="LTR"></nys-button>
               &nbsp; &nbsp;
               <nys-button onClick="direction('rtl');" label="RTL"></nys-button>
             </div>
           </div>
-          <br />
         </div>
         <div class="nys-tablet:nys-grid-col-3"></div>
       </div>
