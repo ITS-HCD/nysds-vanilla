@@ -15,7 +15,16 @@
       crossorigin
     />
     <link href="./src/assets/fonts/nysds-fonts.css" rel="stylesheet" />
-  </head>
+             <script type="module">
+              import { registerIconLibrary } from "@nysds/nys-icon";
+
+              // Register once at app startup
+              registerIconLibrary("material", {
+                resolver: (name) => `https://cdn.jsdelivr.net/npm/@material-symbols/svg-400@0.27.2/outlined/${name}.svg`,
+                mutator: (svg) => svg.setAttribute("fill", "currentColor"),
+              });
+</script>
+ </head>
 
   <body>
     <nys-skipnav></nys-skipnav>
@@ -35,6 +44,14 @@
         <div class="nys-tablet:nys-grid-col-3"></div>
         <div class="nys-tablet:nys-grid-col-6">
           <div style="margin-top: var(--nys-space-400)">
+
+<!-- Then use in HTML -->
+<nys-icon library="material" name="1k" size="4xl"></nys-icon>
+<nys-icon library="material" name="1k_plus" size="4xl" color="#c9302c"></nys-icon>
+<nys-icon library="material" name="settings" size="4xl"></nys-icon>
+<nys-icon library="material" name="delete" size="4xl" color="#d9534f"></nys-icon>
+<nys-icon library="material" name="thumb_up" size="4xl" color="#337ab7"></nys-icon>
+
             <h1>Testing Playground</h1>
             <nys-radiogroup
               label="What is your primary work location?"
