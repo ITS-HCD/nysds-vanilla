@@ -15,15 +15,7 @@
       crossorigin
     />
     <link href="./src/assets/fonts/nysds-fonts.css" rel="stylesheet" />
-             <script type="module">
-              import { registerIconLibrary } from "@nysds/nys-icon";
 
-              // Register once at app startup
-              registerIconLibrary("material", {
-                resolver: (name) => `https://cdn.jsdelivr.net/npm/@material-symbols/svg-400@0.27.2/outlined/${name}.svg`,
-                mutator: (svg) => svg.setAttribute("fill", "currentColor"),
-              });
-</script>
  </head>
 
   <body>
